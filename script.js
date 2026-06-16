@@ -94,102 +94,99 @@ const PROJECTS = {
 };
 
 /* ─────────────────────────────────────────
-   TRAVELING MASCOT
-   Single fixed element lerps between
-   scene positions as user scrolls.
-   Character moves through the portfolio
-   like a guide through each chapter.
+   SCENE CHARACTER SYSTEM
+   Characters are embedded inside sections
+   (position:absolute at bottom) — like a
+   figure standing in an art gallery looking
+   up at the work on the walls above.
+
+   Two behaviours:
+   1. Mouse parallax — subtle shift toward
+      the cursor so the character feels aware
+   2. Pose switching — IntersectionObserver
+      cross-fades to the correct pose image
+      as each section enters view
 ───────────────────────────────────────── */
-(function initMascotTravel() {
-  const el    = document.getElementById('mascot-travel');
-  const cloud = document.getElementById('mascot-cloud');
-  const img   = document.getElementById('mascot-img');
-  if (!el) return;
-
-  const page = document.body.dataset.page || 'home';
-
-  // Each entry: which section triggers it, where the mascot goes (vw/vh),
-  // how large it is, whether it's flipped, and what it says.
-  const PAGE_SCENES = {
-    home: [
-      { id: 'hero',       x: 70, y: 54, scale: 1.0,  flip: false, speech: 'welcome — scroll to explore' },
-      { id: 'featured',   x: 13, y: 67, scale: 0.78, flip: false, speech: 'three years of making →' },
-      { id: 'home-about', x: 73, y: 60, scale: 0.84, flip: true,  speech: 'materials are my first language' },
-    ],
-    work: [
-      { id: 'work-grid',  x: 83, y: 54, scale: 0.76, flip: true,  speech: 'click any project to open →' },
-    ],
-    about: [
-      { id: 'about-section', x: 78, y: 58, scale: 0.80, flip: true, speech: 'this is where I make things' },
-      { id: 'skills',        x: 80, y: 62, scale: 0.68, flip: true, speech: 'from workshop to screen' },
-    ],
-    experience: [
-      { id: 'experience-section', x: 82, y: 54, scale: 0.74, flip: true, speech: 'learning by making' },
-      { id: 'vol',                x: 80, y: 60, scale: 0.68, flip: true, speech: 'beyond the studio' },
-    ],
-    contact: [
-      { id: 'contact-section', x: 80, y: 52, scale: 0.92, flip: true, speech: "let's make something together" },
-    ],
+(function initSceneChars() {
+  const POSES = {
+    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
+    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
+    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
+    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
   };
 
-  const scenes = (PAGE_SCENES[page] || PAGE_SCENES.home)
-    .filter(s => document.getElementById(s.id));
-  if (!scenes.length) return;
+  const chars = document.querySelectorAll('.scene-char');
+  if (!chars.length) return;
 
-  // Start at first scene's position immediately (no off-screen entrance)
-  const first = scenes[0];
-  let cx = first.x, cy = first.y, cs = first.scale;
-  let tx = cx,      ty = cy,      ts = cs;
-  let targetFlip = first.flip;
-  let activeScene = first;
-  let speechTimer;
-
-  function findScene() {
-    let best = scenes[0];
-    for (const s of scenes) {
-      const sec = document.getElementById(s.id);
-      if (!sec) continue;
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.65 && rect.bottom > 0) best = s;
-    }
-    return best;
-  }
-
-  function showSpeech(scene) {
-    if (!cloud) return;
-    clearTimeout(speechTimer);
-    cloud.classList.remove('visible');
-    speechTimer = setTimeout(() => {
-      cloud.textContent = scene.speech;
-      cloud.classList.add('visible');
-    }, 520);
-  }
-
-  function tick() {
-    cx += (tx - cx) * 0.052;
-    cy += (ty - cy) * 0.052;
-    cs += (ts - cs) * 0.052;
-
-    el.style.left      = cx + 'vw';
-    el.style.top       = cy + 'vh';
-    el.style.transform = `translate(-50%, -50%) scale(${cs})`;
-    if (img) img.style.transform = `scaleX(${targetFlip ? -1 : 1})`;
-
-    requestAnimationFrame(tick);
-  }
-
-  window.addEventListener('scroll', () => {
-    const s = findScene();
-    if (s !== activeScene) {
-      activeScene = s;
-      tx = s.x; ty = s.y; ts = s.scale; targetFlip = s.flip;
-      showSpeech(s);
-    }
+  /* ── 1. MOUSE PARALLAX ──
+     Each character shifts slightly toward the cursor.
+     Max 10px horizontal, 6px vertical. Lerped for smoothness. */
+  let mx = 0, my = 0, px = 0, py = 0;
+  document.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth  - 0.5) * 2; // -1 → 1
+    my = (e.clientY / window.innerHeight - 0.5) * 2;
   }, { passive: true });
 
-  // Show first speech after page settles
-  setTimeout(() => showSpeech(first), 1500);
-  tick();
+  (function parallaxTick() {
+    px += (mx - px) * 0.055;
+    py += (my - py) * 0.055;
+    chars.forEach(c => {
+      // Base transform is scaleX flip; add parallax on top via CSS var approach
+      const img = c.querySelector('img');
+      const flip = c.dataset.flip === 'true' ? -1 : 1;
+      if (img) img.style.transform = `scaleX(${flip}) translate(${px * 5 * flip}px, ${py * 4}px)`;
+    });
+    requestAnimationFrame(parallaxTick);
+  })();
+
+  /* ── 2. POSE SWITCHING ──
+     Swap the src on section enter with a cross-fade. */
+  function applyPose(charEl) {
+    const imgEl    = charEl.querySelector('img');
+    const poseName = charEl.dataset.pose  || 'front';
+    const flip     = charEl.dataset.flip === 'true';
+    const src      = POSES[poseName];
+    if (!imgEl || !src) return;
+
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      imgEl.src = src;
+      // flip is handled in the parallax tick, but set initial state
+      imgEl.dataset.flip = flip ? 'true' : 'false';
+      const resolve = () => { imgEl.style.opacity = '1'; };
+      imgEl.onload  = resolve;
+      imgEl.onerror = resolve;
+    }, 300);
+  }
+
+  /* ── 3. SECTION ENTRY — pose + speech ── */
+  const sectionObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const charEl = e.target.querySelector(':scope > .scene-char[data-pose]');
+      if (!charEl) return;
+
+      applyPose(charEl);
+
+      // Show speech briefly
+      setTimeout(() => charEl.classList.add('speech-on'),    700);
+      setTimeout(() => charEl.classList.remove('speech-on'), 3400);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('section[id]').forEach(s => sectionObs.observe(s));
+
+  /* ── 4. INITIAL POSE for characters already in viewport ── */
+  setTimeout(() => {
+    chars.forEach(charEl => {
+      const r = charEl.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        applyPose(charEl);
+        setTimeout(() => charEl.classList.add('speech-on'),    1300);
+        setTimeout(() => charEl.classList.remove('speech-on'), 4000);
+      }
+    });
+  }, 500);
 })();
 
 /* ─────────────────────────────────────────

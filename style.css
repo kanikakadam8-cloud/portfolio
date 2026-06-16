@@ -109,84 +109,108 @@ body {
 .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
 /* ═══════════════════════════════════════════════════════
-   TRAVELING MASCOT CHARACTER
-   One fixed element — moves between scene positions via
-   JS lerp. No circle frame. Transparent PNG shows directly.
-   The mascot IS the narrative, not decoration on top of it.
+   SCENE CHARACTER SYSTEM  (Mrazek-Tomas gallery approach)
+   The mascot stands at the BOTTOM of each section —
+   like a character in an art gallery looking up at the work.
+   position: absolute inside sections. Part of the scene,
+   not floating above it. Mouse-parallax makes it feel alive.
 ═══════════════════════════════════════════════════════ */
-#mascot-travel {
-  position: fixed;
-  z-index: 90;
-  pointer-events: none;
-  will-change: left, top, transform;
-}
-
-/* Wrapper that bobs independently of position lerp */
-.mascot-bob {
-  animation: mascotBob 4.5s ease-in-out infinite;
-}
-@keyframes mascotBob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-12px); }
-}
-
-#mascot-img {
-  width: clamp(120px, 13vw, 195px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 16px 34px rgba(68,50,35,0.22));
-  user-select: none;
-  transition: transform 0.5s cubic-bezier(.25,.46,.45,.94);
-}
-
-/* Speech cloud — appears above the mascot */
-.mascot-cloud {
+.scene-char {
   position: absolute;
-  bottom: calc(100% + 14px);
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.scene-char img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 30px rgba(68,50,35,0.20));
+  user-select: none;
+  transition: opacity 0.38s ease, transform 0.42s cubic-bezier(.25,.46,.45,.94);
+}
+
+/* Speech — appears above the character on section enter */
+.scene-speech {
+  position: absolute;
+  bottom: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   white-space: nowrap;
-  background: var(--white);
+  background: rgba(255,252,248,0.88);
   color: var(--ink);
   font-family: var(--hand);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.3;
-  padding: 0.5rem 1.05rem;
+  padding: 0.42rem 0.9rem;
   border: 1px solid var(--border);
-  border-radius: 1.4rem;
-  box-shadow: 0 4px 18px rgba(68,50,35,0.10);
+  border-radius: 1.2rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.25,.46,.45,.94);
   pointer-events: none;
-  max-width: 230px;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.25,.46,.45,.94);
+  max-width: 240px;
   text-align: center;
 }
-.mascot-cloud.visible {
+.scene-speech::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--border);
+}
+.scene-char.speech-on .scene-speech {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-.mascot-cloud::after {
-  content: '';
-  position: absolute;
-  top: 100%; left: 50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-top-color: var(--border);
+body[data-page="contact"] .scene-speech {
+  background: rgba(44,26,16,0.85);
+  color: rgba(255,249,243,0.75);
+  border-color: rgba(219,196,165,0.15);
 }
-/* Inverted for dark pages */
-body[data-page="contact"] .mascot-cloud {
-  background: rgba(44,26,16,0.88);
-  color: rgba(255,249,243,0.78);
-  border-color: rgba(219,196,165,0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-body[data-page="contact"] .mascot-cloud::after {
-  border-top-color: rgba(44,26,16,0.88);
+body[data-page="contact"] .scene-speech::after {
+  border-top-color: rgba(44,26,16,0.85);
 }
 
-@media (max-width: 768px) { #mascot-img { width: 90px; } }
-@media (max-width: 480px) { #mascot-travel { display: none; } }
+/* Size / position variants */
+.scene-char--hero    { right: 7%;  width: clamp(170px, 19vw, 280px); }
+.scene-char--gallery { right: 5%;  width: clamp(120px, 13vw, 190px); }
+.scene-char--page    { right: 5%;  width: clamp(110px, 11vw, 170px); }
+.scene-char--contact { right: 7%;  width: clamp(150px, 16vw, 240px); }
+
+/* Gallery section: extra bottom padding so character doesn't
+   overlap project cards. Gallery floor line creates depth. */
+.gallery-scene {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 18rem;
+}
+.gallery-scene > .sw { position: relative; z-index: 1; }
+.gallery-scene::after {
+  content: '';
+  position: absolute;
+  bottom: 15rem;
+  left: 5%; right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 25%, var(--border) 75%, transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sections that hold scene characters need position:relative */
+#work-grid,
+#about-section,
+#skills,
+#experience-section,
+#vol,
+#contact-section {
+  position: relative;
+}
+
+@media (max-width: 900px) { .scene-char { display: none; } }
 
 /* ═══════════════════════════════════════════════════════
    SIDE DOTS NAVIGATION  (Clockwork)

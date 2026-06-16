@@ -20,15 +20,6 @@
     <button class="sdot"        data-section="home-about" data-label="About"></button>
   </nav>
 
-  <!-- Traveling mascot character — JS lerps between scene positions -->
-  <div id="mascot-travel" aria-hidden="true">
-    <div class="mascot-cloud" id="mascot-cloud"></div>
-    <div class="mascot-bob">
-      <img id="mascot-img"
-           src="images/mascot/mascot png/ChatGPT_Image_Jun_16__2026__06_04_23_PM-removebg-preview.png"
-           alt=""/>
-    </div>
-  </div>
 
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
@@ -57,6 +48,12 @@
       <p class="hero-bio">Designing practical, well-crafted outcomes at the intersection of materials, process, and human experience. BDes 2026.</p>
     </div>
 
+    <!-- Character: front pose, stands right side of hero scene -->
+    <div class="scene-char scene-char--hero" data-pose="front" aria-hidden="true">
+      <div class="scene-speech">hello, welcome ✦</div>
+      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
+    </div>
+
     <div class="hero-scroll">
       <div class="scroll-track"></div>
       <span class="scroll-label">Scroll to explore</span>
@@ -72,7 +69,7 @@
   </div>
 
   <!-- ═══ FEATURED WORK — Chapter 01 ═══ -->
-  <section id="featured" class="chapter-bg">
+  <section id="featured" class="chapter-bg gallery-scene">
     <div class="chapter-bg-num" aria-hidden="true">01</div>
     <div class="sw">
       <div class="chapter-label rv">Chapter 01 · Selected Work</div>
@@ -125,6 +122,11 @@
         <a href="work.html" class="text-link">Explore all 8 projects</a>
       </div>
     </div>
+    <!-- Character: side pose, stands below the gallery looking at the work -->
+    <div class="scene-char scene-char--gallery" data-pose="side" aria-hidden="true">
+      <div class="scene-speech">three years of making</div>
+      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
+    </div>
   </section>
 
   <!-- Mauve divider rule -->
@@ -145,6 +147,11 @@
           <a href="about.html" class="text-link">More about me</a>
         </div>
       </div>
+    </div>
+    <!-- Character: 3/4 back — turning away, introspective -->
+    <div class="scene-char scene-char--page" data-pose="back3q" data-flip="true" aria-hidden="true">
+      <div class="scene-speech">materials are my first language</div>
+      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
     </div>
   </section>
 
