@@ -102,15 +102,12 @@ const PROJECTS = {
   const nav = document.getElementById('nav');
   if (!nav) return;
 
-  // Inner pages (not home) always show solid nav
   const isHome = document.body.dataset.page === 'home';
   if (!isHome) nav.classList.add('solid');
 
   window.addEventListener('scroll', () => {
-    if (isHome) {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }
-    // Progress bar
+    if (isHome) nav.classList.toggle('scrolled', window.scrollY > 60);
+
     const bar = document.getElementById('progress');
     if (bar) {
       const pct = window.scrollY / (document.body.scrollHeight - innerHeight) * 100;
@@ -118,7 +115,6 @@ const PROJECTS = {
     }
   }, { passive: true });
 
-  // Active nav link by current page
   const page = document.body.dataset.page || '';
   document.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href') || '';
@@ -128,26 +124,69 @@ const PROJECTS = {
 })();
 
 /* ─────────────────────────────
-   SCROLL REVEAL
+   PAGE LOADED STATE  (hero mascot reveal)
+───────────────────────────── */
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
+
+/* ─────────────────────────────
+   SCROLL REVEAL  (enhanced)
 ───────────────────────────── */
 (function initReveal() {
+  const classes = ['.rv', '.rv-img', '.rv-clip', '.rv-left', '.rv-right', '.rv-rule'];
+  const targets = document.querySelectorAll(classes.join(','));
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv, .rv-img').forEach(el => obs.observe(el));
+  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+
+  targets.forEach(el => obs.observe(el));
 })();
 
 /* ─────────────────────────────
-   HERO PARALLAX  (home only)
+   HERO PHOTO PARALLAX  (home only)
 ───────────────────────────── */
 (function initParallax() {
   const photo = document.querySelector('.hero-photo');
   if (!photo) return;
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY < window.innerHeight) {
-      photo.style.transform = `translateY(${window.scrollY * 0.12}px)`;
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY < window.innerHeight) {
+          photo.style.transform = `translateY(${window.scrollY * 0.1}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ─────────────────────────────
+   MASCOT SCROLL PARALLAX
+───────────────────────────── */
+(function initMascotParallax() {
+  const dividers = document.querySelectorAll('.mascot-divider .mascot, .section-mascot .mascot');
+  if (!dividers.length) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        dividers.forEach(m => {
+          const rect = m.closest('.mascot-divider, .section-mascot').getBoundingClientRect();
+          const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+          m.style.transform = `translateY(${center * -0.04}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
     }
   }, { passive: true });
 })();
@@ -160,36 +199,32 @@ function openProject(id) {
   const modal = document.getElementById('modal');
   if (!p || !modal) return;
 
-  document.getElementById('m-num').textContent   = p.num;
-  document.getElementById('m-cat').textContent   = p.cat;
+  document.getElementById('m-num').textContent    = p.num;
+  document.getElementById('m-cat').textContent    = p.cat;
   document.getElementById('m-title').textContent  = p.title;
   document.getElementById('m-desc').textContent   = p.desc;
   document.getElementById('m-insight').textContent = `"${p.insight}"`;
   document.getElementById('m-tags').innerHTML = p.tags.map(t => `<span class="m-tag">${t}</span>`).join('');
 
-  // Cover
   const coverSec = document.getElementById('m-cover-section');
   if (p.cover) {
     coverSec.innerHTML = `<img src="${p.cover}" alt="${p.title}" style="width:100%;display:block;" loading="lazy"/>`;
   } else {
-    coverSec.innerHTML = `<div style="background:#F0EBE3;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><span style="font-size:0.6rem;font-family:var(--sans);letter-spacing:0.26em;text-transform:uppercase;color:var(--border);">Project Imagery · Coming Soon</span></div>`;
+    coverSec.innerHTML = `<div style="background:#EDE0D0;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><span style="font-size:0.6rem;font-family:var(--sans);letter-spacing:0.26em;text-transform:uppercase;color:var(--border);">Project Imagery · Coming Soon</span></div>`;
   }
 
-  // Slides
   const sSec = document.getElementById('m-slides-section');
   if (p.slides && p.slides.length) {
     document.getElementById('m-slides').innerHTML = p.slides.map(s => `<img src="${s}" loading="lazy" alt=""/>`).join('');
     sSec.style.display = '';
   } else { sSec.style.display = 'none'; }
 
-  // Video
   const vSec = document.getElementById('m-video-section');
   if (p.video) {
     document.getElementById('m-video').src = p.video;
     vSec.style.display = '';
   } else { vSec.style.display = 'none'; }
 
-  // Photos
   const phSec = document.getElementById('m-photos-section');
   if (p.photos && p.photos.length) {
     document.getElementById('m-photos').innerHTML = p.photos.map(s =>
@@ -230,7 +265,6 @@ function closeLB() {
   document.getElementById('lb').classList.remove('open');
   document.getElementById('lb-img').src = '';
 }
-
 (function initLB() {
   const lb  = document.getElementById('lb');
   const lbx = document.getElementById('lb-x');
@@ -249,8 +283,7 @@ document.addEventListener('keydown', e => {
 });
 
 /* ─────────────────────────────
-   HASH AUTO-OPEN  (work.html)
-   e.g. work.html#lamp opens the lamp modal on load
+   HASH AUTO-OPEN  (work.html#lamp etc.)
 ───────────────────────────── */
 window.addEventListener('load', () => {
   const hash = window.location.hash.slice(1);
