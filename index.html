@@ -13,18 +13,20 @@
 
   <div id="progress"></div>
 
-  <!-- Fixed side dots (home sections) -->
+  <!-- Side dots navigation (home only) -->
   <nav class="side-dots" aria-label="Section navigation">
     <button class="sdot active" data-section="hero"       data-label="Intro"></button>
     <button class="sdot"        data-section="featured"   data-label="Work"></button>
     <button class="sdot"        data-section="home-about" data-label="About"></button>
   </nav>
 
-  <!-- Fixed mascot companion -->
-  <div class="mascot-companion st-hero" id="mascot-companion">
-    <div class="companion-bubble" id="companion-bubble">scroll to explore</div>
-    <div class="companion-circle">
-      <img src="images/mascot/mascot png/ChatGPT_Image_Jun_16__2026__06_04_23_PM-removebg-preview.png" alt="" onerror="this.closest('.mascot-companion').style.display='none'"/>
+  <!-- Traveling mascot character — JS lerps between scene positions -->
+  <div id="mascot-travel" aria-hidden="true">
+    <div class="mascot-cloud" id="mascot-cloud"></div>
+    <div class="mascot-bob">
+      <img id="mascot-img"
+           src="images/mascot/mascot png/ChatGPT_Image_Jun_16__2026__06_04_23_PM-removebg-preview.png"
+           alt=""/>
     </div>
   </div>
 
@@ -52,24 +54,7 @@
         <div class="hero-sep"></div>
         <span class="hero-loc">Somaiya School of Design</span>
       </div>
-    </div>
-
-    <div class="hero-right">
-      <img class="hero-photo"
-           src="images/profile/WhatsApp Image 2025-08-02 at 4.57.52 PM.jpeg"
-           alt="Kanika Kadam"
-           onerror="this.style.display='none'"/>
-      <div class="hero-mascot-wrap">
-        <span class="hero-mascot-label">your guide</span>
-        <div class="hero-mascot-circle">
-          <img src="images/mascot/mascot png/ChatGPT_Image_Jun_16__2026__06_04_23_PM-removebg-preview.png"
-               alt="Mascot"
-               onerror="this.closest('.hero-mascot-wrap').style.display='none'"/>
-        </div>
-      </div>
-      <p class="hero-bio">
-        Designing practical, well-crafted outcomes at the intersection of materials, process, and human experience. BDes 2026.
-      </p>
+      <p class="hero-bio">Designing practical, well-crafted outcomes at the intersection of materials, process, and human experience. BDes 2026.</p>
     </div>
 
     <div class="hero-scroll">

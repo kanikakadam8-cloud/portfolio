@@ -94,35 +94,103 @@ const PROJECTS = {
 };
 
 /* ─────────────────────────────────────────
-   COMPANION MASCOT — state machine
-   Speech bubbles change as user scrolls
-   through different sections/pages.
+   TRAVELING MASCOT
+   Single fixed element lerps between
+   scene positions as user scrolls.
+   Character moves through the portfolio
+   like a guide through each chapter.
 ───────────────────────────────────────── */
-const COMPANION_STATES = {
-  hero:    { cls: 'st-hero',    msg: 'Hi! Let\'s explore ✦' },
-  work:    { cls: 'st-work',    msg: 'eight projects this way →' },
-  about:   { cls: 'st-about',   msg: 'nice to meet you!' },
-  exp:     { cls: 'st-exp',     msg: 'learning by making' },
-  contact: { cls: 'st-contact', msg: 'say hello 👋' },
-  default: { cls: 'st-hero',   msg: 'scroll to explore' }
-};
+(function initMascotTravel() {
+  const el    = document.getElementById('mascot-travel');
+  const cloud = document.getElementById('mascot-cloud');
+  const img   = document.getElementById('mascot-img');
+  if (!el) return;
 
-function setCompanionState(key) {
-  const comp = document.getElementById('mascot-companion');
-  const bubble = document.getElementById('companion-bubble');
-  if (!comp || !bubble) return;
+  const page = document.body.dataset.page || 'home';
 
-  const state = COMPANION_STATES[key] || COMPANION_STATES.default;
+  // Each entry: which section triggers it, where the mascot goes (vw/vh),
+  // how large it is, whether it's flipped, and what it says.
+  const PAGE_SCENES = {
+    home: [
+      { id: 'hero',       x: 70, y: 54, scale: 1.0,  flip: false, speech: 'welcome — scroll to explore' },
+      { id: 'featured',   x: 13, y: 67, scale: 0.78, flip: false, speech: 'three years of making →' },
+      { id: 'home-about', x: 73, y: 60, scale: 0.84, flip: true,  speech: 'materials are my first language' },
+    ],
+    work: [
+      { id: 'work-grid',  x: 83, y: 54, scale: 0.76, flip: true,  speech: 'click any project to open →' },
+    ],
+    about: [
+      { id: 'about-section', x: 78, y: 58, scale: 0.80, flip: true, speech: 'this is where I make things' },
+      { id: 'skills',        x: 80, y: 62, scale: 0.68, flip: true, speech: 'from workshop to screen' },
+    ],
+    experience: [
+      { id: 'experience-section', x: 82, y: 54, scale: 0.74, flip: true, speech: 'learning by making' },
+      { id: 'vol',                x: 80, y: 60, scale: 0.68, flip: true, speech: 'beyond the studio' },
+    ],
+    contact: [
+      { id: 'contact-section', x: 80, y: 52, scale: 0.92, flip: true, speech: "let's make something together" },
+    ],
+  };
 
-  // Remove all state classes
-  Object.values(COMPANION_STATES).forEach(s => comp.classList.remove(s.cls));
-  comp.classList.add(state.cls);
-  bubble.textContent = state.msg;
+  const scenes = (PAGE_SCENES[page] || PAGE_SCENES.home)
+    .filter(s => document.getElementById(s.id));
+  if (!scenes.length) return;
 
-  // Flash bubble briefly to signal state change
-  comp.classList.add('show-bubble');
-  setTimeout(() => comp.classList.remove('show-bubble'), 2200);
-}
+  // Start at first scene's position immediately (no off-screen entrance)
+  const first = scenes[0];
+  let cx = first.x, cy = first.y, cs = first.scale;
+  let tx = cx,      ty = cy,      ts = cs;
+  let targetFlip = first.flip;
+  let activeScene = first;
+  let speechTimer;
+
+  function findScene() {
+    let best = scenes[0];
+    for (const s of scenes) {
+      const sec = document.getElementById(s.id);
+      if (!sec) continue;
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.65 && rect.bottom > 0) best = s;
+    }
+    return best;
+  }
+
+  function showSpeech(scene) {
+    if (!cloud) return;
+    clearTimeout(speechTimer);
+    cloud.classList.remove('visible');
+    speechTimer = setTimeout(() => {
+      cloud.textContent = scene.speech;
+      cloud.classList.add('visible');
+    }, 520);
+  }
+
+  function tick() {
+    cx += (tx - cx) * 0.052;
+    cy += (ty - cy) * 0.052;
+    cs += (ts - cs) * 0.052;
+
+    el.style.left      = cx + 'vw';
+    el.style.top       = cy + 'vh';
+    el.style.transform = `translate(-50%, -50%) scale(${cs})`;
+    if (img) img.style.transform = `scaleX(${targetFlip ? -1 : 1})`;
+
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('scroll', () => {
+    const s = findScene();
+    if (s !== activeScene) {
+      activeScene = s;
+      tx = s.x; ty = s.y; ts = s.scale; targetFlip = s.flip;
+      showSpeech(s);
+    }
+  }, { passive: true });
+
+  // Show first speech after page settles
+  setTimeout(() => showSpeech(first), 1500);
+  tick();
+})();
 
 /* ─────────────────────────────────────────
    NAV scroll state + active link
@@ -169,81 +237,28 @@ function setCompanionState(key) {
 })();
 
 /* ─────────────────────────────────────────
-   SECTION TRACKING — side dots + companion
+   SECTION TRACKING — side dots only
 ───────────────────────────────────────── */
 (function initSectionTracking() {
-  const sections = document.querySelectorAll('section[id], div[id].page-hdr, #hero');
   const dots = document.querySelectorAll('.sdot');
-  const companion = document.getElementById('mascot-companion');
+  if (!dots.length) return;
 
-  // Map section ids to companion states
-  const sectionStateMap = {
-    'hero': 'hero', 'featured': 'work', 'home-about': 'about',
-    'work-grid': 'work', 'about-section': 'about', 'skills': 'about',
-    'experience-section': 'exp', 'vol': 'exp', 'contact-section': 'contact'
-  };
-
+  const sections = document.querySelectorAll('section[id], #hero');
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      const id = e.target.id;
       if (!e.isIntersecting) return;
-
-      // Update companion state
-      const stateKey = sectionStateMap[id];
-      if (stateKey) setCompanionState(stateKey);
-
-      // Show/hide companion (hide during hero, show after)
-      if (companion) {
-        if (id === 'hero') {
-          companion.classList.remove('visible');
-        } else {
-          companion.classList.add('visible');
-        }
-      }
-
-      // Update side dots
-      dots.forEach(d => {
-        d.classList.toggle('active', d.dataset.section === id);
-      });
+      dots.forEach(d => d.classList.toggle('active', d.dataset.section === e.target.id));
     });
   }, { threshold: 0.35 });
 
   sections.forEach(s => obs.observe(s));
 
-  // Side dot click scrolling
   dots.forEach(d => {
     d.addEventListener('click', () => {
       const target = document.getElementById(d.dataset.section);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
-})();
-
-/* ─────────────────────────────────────────
-   HERO PHOTO + MASCOT PARALLAX
-───────────────────────────────────────── */
-(function initParallax() {
-  const photo = document.querySelector('.hero-photo');
-  const heroM = document.querySelector('.hero-mascot-circle');
-  let ticking = false;
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        const h = window.innerHeight;
-        if (y < h) {
-          if (photo) photo.style.transform = `translateY(${y * 0.09}px)`;
-          if (heroM) {
-            const pct = y / h;
-            heroM.style.opacity = Math.max(0, 1 - pct * 2.5).toString();
-          }
-        }
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
 })();
 
 /* ─────────────────────────────────────────
@@ -346,24 +361,3 @@ window.addEventListener('load', () => {
   }
 });
 
-/* ─────────────────────────────────────────
-   PAGE TRANSITION — set companion initial
-   state based on current page
-───────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-  const page = document.body.dataset.page;
-  const pageStateMap = {
-    home: 'hero', work: 'work', about: 'about',
-    experience: 'exp', contact: 'contact'
-  };
-  const initState = pageStateMap[page] || 'default';
-
-  // On non-home pages, show companion immediately
-  const companion = document.getElementById('mascot-companion');
-  if (companion && page !== 'home') {
-    setTimeout(() => {
-      companion.classList.add('visible');
-      setCompanionState(initState);
-    }, 800);
-  }
-});
