@@ -13,6 +13,21 @@
 
   <div id="progress"></div>
 
+  <!-- Fixed side dots (home sections) -->
+  <nav class="side-dots" aria-label="Section navigation">
+    <button class="sdot active" data-section="hero"       data-label="Intro"></button>
+    <button class="sdot"        data-section="featured"   data-label="Work"></button>
+    <button class="sdot"        data-section="home-about" data-label="About"></button>
+  </nav>
+
+  <!-- Fixed mascot companion -->
+  <div class="mascot-companion st-hero" id="mascot-companion">
+    <div class="companion-bubble" id="companion-bubble">scroll to explore</div>
+    <div class="companion-circle">
+      <img src="images/mascot/mascot.png" alt="" onerror="this.closest('.mascot-companion').style.display='none'"/>
+    </div>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
     <ul class="nav-links">
@@ -24,60 +39,72 @@
     <a href="contact.html" class="nav-cta">Get in Touch</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- ═══ HERO ═══ -->
   <section id="hero">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <span class="hero-eyebrow">Product Designer · Mumbai · 2026</span>
-        <h1 class="hero-name">
-          Kanika<span class="ln2">Kadam</span>
-        </h1>
-        <div class="hero-meta">
-          <span class="hero-role">Furniture · Materials · Craft</span>
-          <div class="hero-sep"></div>
-          <span class="hero-loc">Somaiya School of Design</span>
-        </div>
-      </div>
-      <div class="hero-right">
-        <img class="hero-photo"
-             src="images/profile/WhatsApp Image 2025-08-02 at 4.57.52 PM.jpeg"
-             alt="Kanika Kadam"
-             onerror="this.style.display='none'"/>
-        <p class="hero-bio">
-          Designing practical, well-crafted outcomes at the intersection of materials, process, and human experience. BDes 2026.
-        </p>
+    <div class="hero-left">
+      <span class="hero-eyebrow">Product Designer · Mumbai · 2026</span>
+      <h1 class="hero-name line-reveal">
+        <span class="lr"><span>Kanika</span></span>
+        <span class="lr"><span class="ln2">Kadam</span></span>
+      </h1>
+      <div class="hero-meta">
+        <span class="hero-role">Furniture · Materials · Craft</span>
+        <div class="hero-sep"></div>
+        <span class="hero-loc">Somaiya School of Design</span>
       </div>
     </div>
+
+    <div class="hero-right">
+      <img class="hero-photo"
+           src="images/profile/WhatsApp Image 2025-08-02 at 4.57.52 PM.jpeg"
+           alt="Kanika Kadam"
+           onerror="this.style.display='none'"/>
+      <div class="hero-mascot-wrap">
+        <span class="hero-mascot-label">your guide</span>
+        <div class="hero-mascot-circle">
+          <img src="images/mascot/mascot.png"
+               alt="Mascot"
+               onerror="this.closest('.hero-mascot-wrap').style.display='none'"/>
+        </div>
+      </div>
+      <p class="hero-bio">
+        Designing practical, well-crafted outcomes at the intersection of materials, process, and human experience. BDes 2026.
+      </p>
+    </div>
+
     <div class="hero-scroll">
       <div class="scroll-track"></div>
       <span class="scroll-label">Scroll to explore</span>
     </div>
-    <!-- Mascot: floats centre-bottom of hero -->
-    <div class="hero-mascot mascot-wrap">
-      <img class="mascot mascot-float"
-           src="images/mascot/mascot.png"
-           alt=""
-           onerror="this.parentElement.style.display='none'"/>
-    </div>
   </section>
 
-  <!-- FEATURED WORK -->
-  <section id="featured">
+  <!-- ═══ EDITORIAL STATEMENT BAND ═══ -->
+  <div class="editorial-band rv">
+    <p class="editorial-statement">
+      Design is the space between<br/>
+      what exists and <em>what could.</em>
+    </p>
+  </div>
+
+  <!-- ═══ FEATURED WORK — Chapter 01 ═══ -->
+  <section id="featured" class="chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">01</div>
     <div class="sw">
+      <div class="chapter-label rv">Chapter 01 · Selected Work</div>
       <div class="featured-header rv">
         <div>
-          <span class="eyebrow">Selected Work</span>
-          <h2 class="sec-heading">Recent Projects</h2>
+          <span class="eyebrow">Portfolio</span>
+          <h2 class="sec-heading" style="font-size:clamp(2.5rem,5vw,4.5rem);">Recent Projects</h2>
         </div>
-        <a href="work.html" class="text-link">View all 8 projects →</a>
+        <a href="work.html" class="text-link">View all 8 projects</a>
       </div>
       <div class="featured-grid stg">
         <a href="work.html#lamp" class="feat-card rv-img">
           <div class="feat-img">
             <img src="images/projects/Lamp Design/Mad hatter behance ppt/1.png"
                  alt="Mad Hatter Lamp"
-                 onerror="this.parentElement.style.background='#E4DDD4'"/>
-            <div class="feat-veil"><span class="feat-veil-label">View Project</span></div>
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
           </div>
           <div class="feat-meta">
             <span class="feat-cat">Product Design · Lighting</span>
@@ -88,8 +115,8 @@
           <div class="feat-img">
             <img src="images/projects/toss/behance/1.png"
                  alt="TOSS 2025"
-                 onerror="this.parentElement.style.background='#E4DDD4'"/>
-            <div class="feat-veil"><span class="feat-veil-label">View Project</span></div>
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
           </div>
           <div class="feat-meta">
             <span class="feat-cat">Spatial Design · Installation</span>
@@ -99,9 +126,9 @@
         <a href="work.html#stressball" class="feat-card rv-img">
           <div class="feat-img">
             <img src="images/projects/stress-ball/behance/1.png"
-                 alt="Interactive Stress Ball"
-                 onerror="this.parentElement.style.background='#E4DDD4'"/>
-            <div class="feat-veil"><span class="feat-veil-label">View Project</span></div>
+                 alt="Stress Ball"
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
           </div>
           <div class="feat-meta">
             <span class="feat-cat">Product Design · Wellbeing</span>
@@ -110,36 +137,27 @@
         </a>
       </div>
       <div class="featured-cta rv">
-        <a href="work.html" class="text-link">See all 8 projects →</a>
+        <a href="work.html" class="text-link">Explore all 8 projects</a>
       </div>
     </div>
   </section>
 
-  <!-- Mascot divider between featured and about -->
-  <div class="mascot-divider rv">
-    <div class="sticky sr3">
-      <span class="stk-lbl">currently exploring</span>
-      8 projects and counting — each one teaches something new
-    </div>
-    <div class="mascot-wrap">
-      <img class="mascot mascot-float"
-           src="images/mascot/mascot.png"
-           alt=""
-           onerror="this.parentElement.style.display='none'"/>
-    </div>
-  </div>
+  <!-- Mauve divider rule -->
+  <div class="mauve-rule"></div>
 
-  <!-- HOME ABOUT BAND -->
-  <section id="home-about">
+  <!-- ═══ ABOUT BAND — Chapter 02 ═══ -->
+  <section id="home-about" class="chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">02</div>
     <div class="sw-sm">
+      <div class="chapter-label rv">Chapter 02 · The Designer</div>
       <div class="home-about-grid rv">
         <div>
           <p class="home-about-stat">BDes<br/>Product<br/>Design<br/>2026</p>
         </div>
-        <div class="home-about-right">
+        <div>
           <span class="eyebrow">About Me</span>
           <p class="home-about-body">Passionate about product and furniture design, with a deep love for the relationship between materials, craft, and functionality. Working with wood — lathe turning, laser cutting, Dremel detailing — is where I feel most in my element.</p>
-          <a href="about.html" class="text-link">More about me →</a>
+          <a href="about.html" class="text-link">More about me</a>
         </div>
       </div>
     </div>

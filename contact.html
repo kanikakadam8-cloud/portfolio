@@ -9,31 +9,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    /* Contact page: nav is dark since background is dark */
-    #nav .nav-logo,
-    #nav .nav-links a,
-    #nav .nav-cta { color: rgba(250,249,246,0.7); }
-    #nav .nav-links a:hover,
-    #nav .nav-links a.active { color: var(--bg); }
-    #nav .nav-cta {
-      border-color: rgba(250,249,246,0.2);
-      color: rgba(250,249,246,0.7);
-    }
-    #nav .nav-cta:hover {
-      background: rgba(250,249,246,0.1);
-      border-color: rgba(250,249,246,0.4);
-      color: var(--bg);
-    }
-    #nav.solid {
-      background: rgba(44,26,16,0.93);
-      box-shadow: 0 1px 0 rgba(255,249,243,0.06);
-    }
     body { background: var(--dark); }
+    #nav .nav-logo,
+    #nav .nav-links a { color: rgba(255,249,243,0.55); }
+    #nav .nav-links a:hover, #nav .nav-links a.active { color: var(--bg); }
+    #nav .nav-cta { color: rgba(255,249,243,0.55); border-color: rgba(255,249,243,0.15); }
+    #nav .nav-cta:hover { background: rgba(255,249,243,0.1); border-color: rgba(255,249,243,0.3); color: var(--bg); }
+    #nav.solid { background: rgba(44,26,16,0.94); box-shadow: 0 1px 0 rgba(255,249,243,0.05); }
+    /* Companion on dark bg */
+    .mascot-companion .companion-bubble {
+      background: rgba(219,196,165,0.18);
+      color: rgba(255,249,243,0.6);
+    }
+    .companion-bubble::after { border-top-color: rgba(219,196,165,0.18); }
   </style>
 </head>
 <body data-page="contact">
 
   <div id="progress"></div>
+
+  <!-- Fixed mascot companion -->
+  <div class="mascot-companion st-contact" id="mascot-companion">
+    <div class="companion-bubble" id="companion-bubble">say hello 👋</div>
+    <div class="companion-circle">
+      <img src="images/mascot/mascot.png" alt="" onerror="this.closest('.mascot-companion').style.display='none'"/>
+    </div>
+  </div>
 
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
@@ -49,9 +50,10 @@
   <!-- CONTACT -->
   <section id="contact-section">
     <div class="contact-inner rv">
-      <span class="contact-eye">Let's Talk</span>
-      <h1 class="contact-head">
-        Let's make<br/><em>something together.</em>
+      <span class="contact-eye">Let's Talk · Mumbai · 2026</span>
+      <h1 class="contact-head line-reveal">
+        <span class="lr"><span>Let's make</span></span>
+        <span class="lr"><span><em>something together.</em></span></span>
       </h1>
       <p class="contact-sub">
         Open to design opportunities, collaborations, and conversations about craft, materials, and making. Currently based in Mumbai — available for internships and full-time from July 2026.
@@ -100,16 +102,12 @@
         </a>
       </div>
 
-      <!-- Mascot in contact section -->
-      <div class="contact-mascot">
-        <img class="mascot mascot-float"
-             src="images/mascot/mascot.png"
-             alt=""
-             onerror="this.parentElement.style.display='none'"/>
-        <div class="sticky sr2" style="background:rgba(219,196,165,0.12);color:rgba(255,249,243,0.5);">
-          <span class="stk-lbl" style="color:rgba(255,249,243,0.22);">always open to</span>
-          good conversations about design, craft &amp; making things
+      <!-- Mascot in contact dark section -->
+      <div class="contact-mascot-row rv">
+        <div class="contact-mascot-circle">
+          <img src="images/mascot/mascot.png" alt="" onerror="this.closest('.contact-mascot-row').style.display='none'"/>
         </div>
+        <p class="contact-mascot-note">always open to good conversations about design, craft &amp; making things</p>
       </div>
 
       <p class="contact-foot">© 2026 Kanika Kadam · Somaiya School of Design · Mumbai, India</p>

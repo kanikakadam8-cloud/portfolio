@@ -13,6 +13,14 @@
 
   <div id="progress"></div>
 
+  <!-- Fixed mascot companion -->
+  <div class="mascot-companion st-exp" id="mascot-companion">
+    <div class="companion-bubble" id="companion-bubble">learning by making</div>
+    <div class="companion-circle">
+      <img src="images/mascot/mascot.png" alt="" onerror="this.closest('.mascot-companion').style.display='none'"/>
+    </div>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
     <ul class="nav-links">
@@ -25,25 +33,16 @@
   </nav>
 
   <!-- PAGE HEADER -->
-  <div class="page-hdr">
+  <div class="page-hdr chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">E</div>
+    <div class="chapter-label rv">Background &amp; Journey</div>
     <div class="page-hdr-row rv">
       <div>
-        <span class="eyebrow">Background</span>
-        <h1 class="sec-heading">Experience</h1>
+        <span class="eyebrow">Career &amp; Education</span>
+        <h1 class="sec-heading line-reveal">
+          <span class="lr"><span>Experience</span></span>
+        </h1>
       </div>
-    </div>
-  </div>
-  <!-- Mascot below header -->
-  <div class="page-hdr-mascot rv">
-    <div class="mascot-wrap">
-      <img class="mascot mascot-float"
-           src="images/mascot/mascot.png"
-           alt=""
-           onerror="this.parentElement.style.display='none'"/>
-    </div>
-    <div class="sticky sr1">
-      <span class="stk-lbl">design life</span>
-      learning happens in the studio, the field, and everywhere in between
     </div>
   </div>
 
@@ -85,10 +84,20 @@
     </div>
   </section>
 
+  <!-- Editorial band -->
+  <div class="editorial-band rv">
+    <p class="editorial-statement" style="font-size:clamp(1.2rem,2.4vw,1.9rem);">
+      The studio, the field, the workshop —<br/>
+      <em>design happens everywhere.</em>
+    </p>
+  </div>
+
   <!-- VOLUNTEERING -->
-  <section id="vol">
+  <section id="vol" class="chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">V</div>
     <div class="sw">
-      <span class="eyebrow rv">Community &amp; Beyond</span>
+      <div class="chapter-label rv">Beyond the Studio</div>
+      <span class="eyebrow rv">Community &amp; Volunteering</span>
       <div class="vol-grid stg">
 
         <div class="vol-item rv">

@@ -13,6 +13,14 @@
 
   <div id="progress"></div>
 
+  <!-- Fixed mascot companion -->
+  <div class="mascot-companion st-about" id="mascot-companion">
+    <div class="companion-bubble" id="companion-bubble">nice to meet you!</div>
+    <div class="companion-circle">
+      <img src="images/mascot/mascot.png" alt="" onerror="this.closest('.mascot-companion').style.display='none'"/>
+    </div>
+  </div>
+
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
     <ul class="nav-links">
@@ -25,25 +33,16 @@
   </nav>
 
   <!-- PAGE HEADER -->
-  <div class="page-hdr">
+  <div class="page-hdr chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">A</div>
+    <div class="chapter-label rv">Who I Am</div>
     <div class="page-hdr-row rv">
       <div>
-        <span class="eyebrow">Who I Am</span>
-        <h1 class="sec-heading">About Me</h1>
+        <span class="eyebrow">The Designer</span>
+        <h1 class="sec-heading line-reveal">
+          <span class="lr"><span>About Me</span></span>
+        </h1>
       </div>
-    </div>
-  </div>
-  <!-- Mascot below header -->
-  <div class="page-hdr-mascot rv">
-    <div class="mascot-wrap">
-      <img class="mascot mascot-float"
-           src="images/mascot/mascot.png"
-           alt=""
-           onerror="this.parentElement.style.display='none'"/>
-    </div>
-    <div class="sticky sr2">
-      <span class="stk-lbl">quick fact</span>
-      making things by hand is still my favourite way to think
     </div>
   </div>
 
@@ -64,7 +63,7 @@
           </div>
         </div>
         <div class="rv">
-          <h2 class="sec-heading">A designer who<br/>makes things by hand.</h2>
+          <h2 class="sec-heading">A designer who<br/>makes things<br/>by hand.</h2>
           <div class="sec-rule"></div>
           <div class="about-body">
             <p>I'm passionate about product and furniture design, with a deep love for the relationship between materials, craft, and functionality. Working with wood — lathe turning, laser cutting, Dremel detailing — is where I feel most in my element.</p>
@@ -94,10 +93,20 @@
     </div>
   </section>
 
+  <!-- Editorial mascot band -->
+  <div class="editorial-band rv" style="padding:3rem 5%;">
+    <p class="editorial-statement" style="font-size:clamp(1.2rem,2.5vw,2rem);">
+      Making is thinking.<br/>
+      <em>The hand knows what the mind is still figuring out.</em>
+    </p>
+  </div>
+
   <!-- SKILLS -->
-  <section id="skills">
+  <section id="skills" class="chapter-bg">
+    <div class="chapter-bg-num" aria-hidden="true">S</div>
     <div class="sw-sm">
-      <span class="eyebrow rv">Capabilities</span>
+      <div class="chapter-label rv">Capabilities</div>
+      <span class="eyebrow rv">Skills &amp; Tools</span>
       <div class="skills-cols rv">
         <div class="sk-col">
           <h3 class="sk-col-title">Machinery &amp; Fabrication</h3>
