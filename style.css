@@ -475,8 +475,8 @@ body[data-page="contact"] .scene-speech::after {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 7rem 11% 4rem 9%;
+  justify-content: center;
+  padding: 7rem 8% 4rem 8%;
   position: relative; overflow: hidden;
 }
 
@@ -489,11 +489,11 @@ body[data-page="contact"] .scene-speech::after {
 .hero-name {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(5.5rem, 11.5vw, 11rem);
+  font-size: clamp(3.8rem, 7.5vw, 7rem);
   line-height: 0.88; letter-spacing: -0.015em; color: var(--ink);
   margin-bottom: 2rem;
 }
-.hero-name .ln2 { padding-left: 1.6em; display: block; color: var(--clockwork); }
+.hero-name .ln2 { padding-left: 0; display: block; color: var(--clockwork); }
 .hero-meta { display: flex; align-items: center; gap: 1.5rem; }
 .hero-role  { font-size: 0.76rem; font-weight: 300; letter-spacing: 0.06em; color: var(--mid); }
 .hero-sep   { width: 1px; height: 26px; background: var(--border); flex-shrink: 0; }
@@ -748,19 +748,11 @@ body[data-page="contact"] .scene-speech::after {
   background: rgba(124,121,96,0.07);
   border-top: 1px solid rgba(124,121,96,0.12);
   border-bottom: 1px solid rgba(124,121,96,0.12);
-  padding: 2.8rem 5%;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center; position: relative; overflow: hidden;
+  padding: 2.8rem 8%;
+  display: flex; align-items: center; justify-content: flex-start;
+  text-align: left; position: relative; overflow: hidden;
 }
-.editorial-band::before, .editorial-band::after {
-  content: '✦';
-  font-size: 0.65rem;
-  color: var(--cedar);
-  position: absolute; top: 50%; transform: translateY(-50%);
-  opacity: 0.4;
-}
-.editorial-band::before { left: 5%; }
-.editorial-band::after  { right: 5%; }
+.editorial-band::before, .editorial-band::after { content: none; }
 .editorial-statement {
   font-family: var(--serif);
   font-style: italic; font-weight: 300;
@@ -820,7 +812,7 @@ body[data-page="contact"] .scene-speech::after {
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(0.95rem, 1.6vw, 1.3rem); line-height: 1.2; color: var(--ink);
 }
-.featured-cta { display: flex; justify-content: center; position: relative; z-index: 1; }
+.featured-cta { display: flex; justify-content: flex-start; position: relative; z-index: 1; }
 
 /* Home about band */
 #home-about { background: var(--bg); }
