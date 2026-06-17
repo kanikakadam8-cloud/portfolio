@@ -281,17 +281,18 @@ const VOLUNTEERS = {
 };
 
 /* ─────────────────────────────────────────
-   HOME SPLIT CHARACTER
-   Sticky left-panel character on index.html.
-   Swaps pose + speech as right-panel sections
-   enter view — mirrors Mrazek Tomas pattern.
+   HOME CHARACTER SYSTEM
+   Fixed mascot anchors the homepage scroll
+   story. Each scene updates pose, position,
+   and scale with a cinematic crossfade.
 ───────────────────────────────────────── */
-(function initHomeSplit() {
+(function initHomeChar() {
   if (document.body.dataset.page !== 'home') return;
 
-  const charImg  = document.getElementById('home-char');
-  const speechEl = document.getElementById('home-speech');
-  if (!charImg) return;
+  const hcA      = document.getElementById('hc-a');
+  const hcB      = document.getElementById('hc-b');
+  const speechEl = document.getElementById('hc-speech');
+  if (!hcA) return;
 
   const POSES = {
     front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
@@ -300,58 +301,110 @@ const VOLUNTEERS = {
     back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
   };
 
-  let currentFlip = false;
-  let speechTimer = null;
-  let mx = 0, px = 0;
-
-  function applyTransform() {
-    const f = currentFlip ? -1 : 1;
-    charImg.style.transform = `scaleX(${f}) translateX(${px * 6 * f}px)`;
-  }
-
-  function switchChar(pose, speech, flip) {
-    currentFlip = !!flip;
-    const src = POSES[pose];
-    if (!src) return;
-    charImg.style.opacity = '0';
-    setTimeout(() => {
-      charImg.src = src;
-      const done = () => { charImg.style.opacity = '1'; };
-      charImg.onload = done; charImg.onerror = done;
-    }, 280);
-    if (speechEl && speech) {
-      if (speechTimer) clearTimeout(speechTimer);
-      speechEl.textContent = speech;
-      setTimeout(() => speechEl.classList.add('visible'), 700);
-      speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3400);
+  /* Scene config: pose, flip, size, position, speech bubble anchor */
+  const SCENES = {
+    hero: {
+      pose: 'front', flip: false, speech: 'hello, welcome ✦',
+      height: '84vh', right: '0',   left: 'auto',
+      spB: '86vh', spR: '14%', spL: 'auto'
+    },
+    editorial: {
+      pose: 'back3q', flip: false, speech: 'design is everywhere',
+      height: '60vh', right: '-3%', left: 'auto',
+      spB: '62vh', spR: '8%',  spL: 'auto'
+    },
+    featured: {
+      pose: 'side', flip: true, speech: 'three years of making',
+      height: '38vh', right: 'auto', left: '-3%',
+      spB: '40vh', spR: 'auto', spL: '8%'
+    },
+    'home-about': {
+      pose: 'back', flip: false, speech: 'materials are my first language',
+      height: '46vh', right: '4%',  left: 'auto',
+      spB: '48vh', spR: '8%',  spL: 'auto'
     }
+  };
+
+  let layerA = hcA, layerB = hcB;
+  let currentScene = null;
+  let speechTimer  = null;
+  let mx = 0, px = 0, t = 0;
+
+  function applyLayerConfig(el, sc) {
+    el.style.height = sc.height;
+    el.style.right  = sc.right;
+    el.style.left   = sc.left;
+    el.dataset.flip = sc.flip ? '1' : '0';
   }
 
-  /* Mouse parallax — character subtly tracks cursor */
+  function showSpeech(sc) {
+    if (!speechEl || !sc.speech) return;
+    speechEl.style.bottom = sc.spB;
+    speechEl.style.right  = sc.spR;
+    speechEl.style.left   = sc.spL;
+    speechEl.textContent  = sc.speech;
+    speechEl.classList.remove('visible');
+    if (speechTimer) clearTimeout(speechTimer);
+    setTimeout(() => speechEl.classList.add('visible'), 700);
+    speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3600);
+  }
+
+  function switchScene(key) {
+    if (key === currentScene) return;
+    currentScene = key;
+    const sc = SCENES[key];
+    if (!sc) return;
+
+    document.body.dataset.scene = key;
+
+    layerA.style.opacity = '0';
+    layerB.src = POSES[sc.pose];
+    applyLayerConfig(layerB, sc);
+
+    setTimeout(() => {
+      layerB.style.opacity = '1';
+      [layerA, layerB] = [layerB, layerA];
+    }, 340);
+
+    showSpeech(sc);
+  }
+
+  /* RAF: idle float in hero + subtle mouse parallax */
   document.addEventListener('mousemove', e => {
     mx = (e.clientX / window.innerWidth - 0.5) * 2;
   }, { passive: true });
+
   (function tick() {
-    px += (mx - px) * 0.055;
-    applyTransform();
+    t  += 0.008;
+    px += (mx - px) * 0.04;
+    if (layerA) {
+      const isHero = currentScene === 'hero';
+      const idleY  = isHero ? Math.sin(t * Math.PI) * 12 : 0;
+      const flip   = layerA.dataset.flip === '1';
+      const sfx    = flip ? -1 : 1;
+      layerA.style.transform = `scaleX(${sfx}) translateX(${px * 5 * sfx}px) translateY(${idleY}px)`;
+    }
     requestAnimationFrame(tick);
   })();
 
-  /* Section observer — swap character on section entry */
+  /* Intersection observer — switch scene on section entry */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const pose   = e.target.dataset.char   || 'front';
-      const speech = e.target.dataset.speech || '';
-      const flip   = e.target.dataset.flip === 'true';
-      switchChar(pose, speech, flip);
+      if (e.isIntersecting) {
+        const key = e.target.dataset.scene;
+        if (key && SCENES[key]) switchScene(key);
+      }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
 
-  document.querySelectorAll('.home-split-right section[id]').forEach(s => obs.observe(s));
+  document.querySelectorAll('[data-scene]').forEach(el => obs.observe(el));
 
-  /* Initial state */
-  setTimeout(() => switchChar('front', 'hello, welcome ✦', false), 450);
+  /* Boot */
+  applyLayerConfig(hcA, SCENES.hero);
+  hcA.style.opacity = '1';
+  currentScene = 'hero';
+  showSpeech(SCENES.hero);
+
 })();
 
 /* ─────────────────────────────────────────
