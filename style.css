@@ -1041,12 +1041,12 @@ body[data-page="contact"] .scene-speech::after {
 ═══════════════════════════════════════════════════════ */
 #about-section { background: var(--bg); }
 .about-grid {
-  display: grid; grid-template-columns: 0.85fr 1.15fr;
-  gap: 4rem; align-items: stretch;
+  display: grid; grid-template-columns: 0.6fr 1.4fr;
+  gap: 4rem; align-items: start;
 }
-.about-img-col { position: relative; display: flex; flex-direction: column; }
+.about-img-col { position: relative; }
 .about-img {
-  width: 100%; flex: 1; min-height: 0;
+  width: 100%; max-height: 420px;
   object-fit: cover; object-position: center top; display: block;
 }
 .about-stk { position: absolute; bottom: -1.2rem; right: -1.5rem; }
