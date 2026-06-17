@@ -119,8 +119,9 @@ body {
   letter-spacing: 0.03em; color: var(--ink);
 }
 .nav-links {
-  display: flex; gap: 2.8rem; list-style: none;
+  display: flex; gap: 2.8rem; list-style: none; align-items: center;
 }
+.nav-theme-li { display: flex; align-items: center; }
 .nav-links a {
   font-size: 0.66rem; font-weight: 400;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -1373,7 +1374,6 @@ body[data-page="contact"] .scene-speech::after {
 @media (max-width: 620px) {
   #nav { padding: 1.2rem 4%; }
   .nav-links { gap: 1.5rem; }
-  .nav-links li:nth-child(4) { display: none; }
   .nav-cta { display: none; }
   .hero-content { max-width: 100%; }
   .hero-name { font-size: clamp(3.8rem, 17vw, 6rem); }
