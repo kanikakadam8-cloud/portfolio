@@ -182,6 +182,80 @@ const PROJECTS = {
 };
 
 /* ─────────────────────────────────────────
+   HOME SPLIT CHARACTER
+   Sticky left-panel character on index.html.
+   Swaps pose + speech as right-panel sections
+   enter view — mirrors Mrazek Tomas pattern.
+───────────────────────────────────────── */
+(function initHomeSplit() {
+  if (document.body.dataset.page !== 'home') return;
+
+  const charImg  = document.getElementById('home-char');
+  const speechEl = document.getElementById('home-speech');
+  if (!charImg) return;
+
+  const POSES = {
+    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
+    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
+    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
+    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
+  };
+
+  let currentFlip = false;
+  let speechTimer = null;
+  let mx = 0, px = 0;
+
+  function applyTransform() {
+    const f = currentFlip ? -1 : 1;
+    charImg.style.transform = `scaleX(${f}) translateX(${px * 6 * f}px)`;
+  }
+
+  function switchChar(pose, speech, flip) {
+    currentFlip = !!flip;
+    const src = POSES[pose];
+    if (!src) return;
+    charImg.style.opacity = '0';
+    setTimeout(() => {
+      charImg.src = src;
+      const done = () => { charImg.style.opacity = '1'; };
+      charImg.onload = done; charImg.onerror = done;
+    }, 280);
+    if (speechEl && speech) {
+      if (speechTimer) clearTimeout(speechTimer);
+      speechEl.textContent = speech;
+      setTimeout(() => speechEl.classList.add('visible'), 700);
+      speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3400);
+    }
+  }
+
+  /* Mouse parallax — character subtly tracks cursor */
+  document.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth - 0.5) * 2;
+  }, { passive: true });
+  (function tick() {
+    px += (mx - px) * 0.055;
+    applyTransform();
+    requestAnimationFrame(tick);
+  })();
+
+  /* Section observer — swap character on section entry */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const pose   = e.target.dataset.char   || 'front';
+      const speech = e.target.dataset.speech || '';
+      const flip   = e.target.dataset.flip === 'true';
+      switchChar(pose, speech, flip);
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.home-split-right section[id]').forEach(s => obs.observe(s));
+
+  /* Initial state */
+  setTimeout(() => switchChar('front', 'hello, welcome ✦', false), 450);
+})();
+
+/* ─────────────────────────────────────────
    SCENE CHARACTER SYSTEM
    Characters are embedded inside sections
    (position:absolute at bottom) — like a

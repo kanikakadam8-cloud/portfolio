@@ -419,20 +419,12 @@ body[data-page="contact"] .scene-speech::after {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 5% 5rem;
+  justify-content: center;
+  padding: 9rem 11% 6rem 9%;
   position: relative; overflow: hidden;
 }
 
-/* Decorative corner mark (Mauve) */
-#hero::before {
-  content: '';
-  position: absolute; top: 6rem; left: 5%;
-  width: 1px; height: 80px;
-  background: linear-gradient(180deg, transparent, var(--clockwork), transparent);
-}
-
-.hero-left { padding-top: 9rem; max-width: 58%; }
+.hero-left { padding-top: 0; max-width: 100%; }
 .hero-eyebrow {
   font-size: 0.58rem; font-weight: 500;
   letter-spacing: 0.34em; text-transform: uppercase;
@@ -500,6 +492,115 @@ body[data-page="contact"] .scene-speech::after {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HOME SPLIT LAYOUT
+   Left panel: sticky character (44%). Right panel: scroll (56%).
+   Mirrors the Mrazek Tomas two-column narrative pattern.
+═══════════════════════════════════════════════════════ */
+.home-split {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  align-items: start;
+}
+.home-split-left {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.home-char-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 8%;
+}
+.home-char-img {
+  width: 100%;
+  max-width: 420px;
+  max-height: 82vh;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 28px 50px rgba(68,50,35,0.20));
+  transition: opacity 0.38s ease;
+  user-select: none; pointer-events: none;
+}
+.home-char-speech {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  white-space: nowrap;
+  background: rgba(255,252,248,0.92);
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 0.9rem;
+  padding: 0.38rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  margin-bottom: 8px;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.25,.46,.45,.94);
+}
+.home-char-speech.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════
+   INNER PAGE SPLIT HEADER
+   Two-column: character left, page title right.
+═══════════════════════════════════════════════════════ */
+.page-split {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: 72vh;
+}
+.page-split-left {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 8% 2.5rem;
+  overflow: hidden;
+  min-height: 72vh;
+}
+.page-split-char {
+  width: 100%;
+  max-width: 360px;
+  max-height: 60vh;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 20px 40px rgba(68,50,35,0.16));
+  user-select: none; pointer-events: none;
+}
+.page-split-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 9rem 8% 3.5rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-split-right .sec-heading {
+  font-size: clamp(3rem, 6vw, 5.5rem);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1024,7 +1125,13 @@ body[data-page="contact"] .scene-speech::after {
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 980px) {
-  #hero { padding-bottom: 6rem; }
+  /* Split layout collapses on tablet/mobile */
+  .home-split { display: block; }
+  .home-split-left { display: none; }
+  .page-split { display: block; }
+  .page-split-left { display: none; }
+  .page-split-right { min-height: auto; padding: 9rem 5% 3.5rem; border-bottom: 1px solid var(--border); }
+  #hero { padding: 8rem 5% 5rem; justify-content: flex-end; }
   .hero-left { max-width: 80%; }
   .hero-name .ln2 { padding-left: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
