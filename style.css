@@ -63,6 +63,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 /* Smooth theme transition on body + key panels */
 body,
 #nav,
+#char-panel,
 #modal-panel {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
@@ -485,7 +486,7 @@ body[data-page="contact"] .scene-speech::after {
   letter-spacing: 0.34em; text-transform: uppercase;
   color: var(--cedar); display: block; margin-bottom: 1rem;
 }
-.hero-content { max-width: min(540px, 52vw); }
+.hero-content { max-width: 100%; }
 .hero-name {
   font-family: var(--serif);
   font-weight: 300;
@@ -632,43 +633,57 @@ body[data-page="contact"] .scene-speech::after {
 }
 
 /* ═══════════════════════════════════════════════════════
-   HOME CHARACTER STAGE
-   Fixed mascot that anchors the entire homepage scroll
-   story. Pose, position, and scale update per scene.
+   HOME CINEMATIC LAYOUT
+   Left: sticky character panel — scroll-driven zoom (2.5→1).
+   Right: content scrolls. Replicates mrazek-tomas pattern.
 ═══════════════════════════════════════════════════════ */
-#char-stage { pointer-events: none; z-index: 15; }
-
-.hc-layer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: auto;
+#home-cinematic {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: start;
+}
+#char-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 7vh;
+}
+#char-para { /* receives subtle horizontal parallax via JS */ }
+#char-zoom {
+  transform-origin: top center;
+  transform: scale(2.5);
+  will-change: transform;
+}
+#hc-main {
   height: 84vh;
   width: auto;
-  max-width: 44vw;
+  display: block;
   object-fit: contain;
-  opacity: 0;
-  filter: drop-shadow(0 32px 64px rgba(68,50,35,0.16));
-  will-change: transform, opacity;
-  transform-origin: bottom center;
+  filter: drop-shadow(0 30px 64px rgba(68,50,35,0.18));
+  transition: opacity 0.45s ease;
   user-select: none; pointer-events: none;
-  transition: opacity 0.42s ease, height 0.75s cubic-bezier(.23,1,.32,1);
 }
-
 #hc-speech {
-  position: fixed;
+  position: absolute;
+  top: 12%;
+  right: 9%;
   white-space: nowrap;
   background: rgba(255,252,248,0.92);
   color: var(--ink);
   font-family: var(--hand);
-  font-size: 0.9rem;
-  padding: 0.38rem 0.9rem;
+  font-size: 0.88rem;
+  padding: 0.35rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: 1.2rem;
   backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
-  z-index: 16;
   transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.25,.46,.45,.94);
 }
@@ -1232,9 +1247,10 @@ body[data-page="contact"] .scene-speech::after {
   .page-split { display: block; }
   .page-split-left { display: none; }
   .page-split-right { min-height: auto; padding: 6.5rem 5% 2.5rem; border-bottom: 1px solid var(--border); }
+  #home-cinematic { display: block; }
+  #char-panel { display: none; }
+  #home-content { width: 100%; }
   #hero { padding: 7rem 5% 4rem; }
-  .hero-content { max-width: 60vw; }
-  .hc-layer { height: 60vh; max-width: 40vw; opacity: 0.55 !important; }
   .hero-name .ln2 { padding-left: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-stk { display: none; }
@@ -1252,7 +1268,6 @@ body[data-page="contact"] .scene-speech::after {
   .nav-links { gap: 1.5rem; }
   .nav-links li:nth-child(4) { display: none; }
   .nav-cta { display: none; }
-  #char-stage { display: none; }
   .hero-content { max-width: 100%; }
   .hero-name { font-size: clamp(3.8rem, 17vw, 6rem); }
   .featured-grid { grid-template-columns: 1fr; }

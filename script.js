@@ -281,18 +281,21 @@ const VOLUNTEERS = {
 };
 
 /* ─────────────────────────────────────────
-   HOME CHARACTER SYSTEM
-   Fixed mascot anchors the homepage scroll
-   story. Each scene updates pose, position,
-   and scale with a cinematic crossfade.
+   HOME CINEMATIC CHARACTER
+   Sticky left panel — character zooms out
+   from face close-up (scale 2.5) to full
+   body (scale 1.0) as user scrolls.
+   Pose switches at scroll phase thresholds.
+   Matches mrazek-tomas interaction pattern.
 ───────────────────────────────────────── */
-(function initHomeChar() {
+(function initHomeCinematic() {
   if (document.body.dataset.page !== 'home') return;
 
-  const hcA      = document.getElementById('hc-a');
-  const hcB      = document.getElementById('hc-b');
+  const charZoom = document.getElementById('char-zoom');
+  const charPara = document.getElementById('char-para');
+  const charImg  = document.getElementById('hc-main');
   const speechEl = document.getElementById('hc-speech');
-  if (!hcA) return;
+  if (!charZoom) return;
 
   const POSES = {
     front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
@@ -301,110 +304,99 @@ const VOLUNTEERS = {
     back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
   };
 
-  /* Scene config: pose, flip, size, position, speech bubble anchor */
-  const SCENES = {
-    hero: {
-      pose: 'front', flip: false, speech: 'hello, welcome ✦',
-      height: '84vh', right: '0',   left: 'auto',
-      spB: '86vh', spR: '14%', spL: 'auto'
-    },
-    editorial: {
-      pose: 'back3q', flip: false, speech: 'design is everywhere',
-      height: '60vh', right: '-3%', left: 'auto',
-      spB: '62vh', spR: '8%',  spL: 'auto'
-    },
-    featured: {
-      pose: 'side', flip: true, speech: 'three years of making',
-      height: '38vh', right: 'auto', left: '-3%',
-      spB: '40vh', spR: 'auto', spL: '8%'
-    },
-    'home-about': {
-      pose: 'back', flip: false, speech: 'materials are my first language',
-      height: '46vh', right: '4%',  left: 'auto',
-      spB: '48vh', spR: '8%',  spL: 'auto'
-    }
+  const SPEECH = {
+    0: 'hello, welcome ✦',
+    1: 'design is everywhere',
+    2: 'three years of making',
+    3: 'materials are my first language',
   };
 
-  let layerA = hcA, layerB = hcB;
-  let currentScene = null;
-  let speechTimer  = null;
+  let scale       = 2.5;
+  let currentPose = 'front';
+  let lastPhase   = -1;
+  let speechTimer = null;
   let mx = 0, px = 0, t = 0;
 
-  function applyLayerConfig(el, sc) {
-    el.style.height = sc.height;
-    el.style.right  = sc.right;
-    el.style.left   = sc.left;
-    el.dataset.flip = sc.flip ? '1' : '0';
+  /* Cubic ease-out */
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function switchPose(pose) {
+    if (pose === currentPose) return;
+    currentPose = pose;
+    charImg.style.opacity = '0';
+    setTimeout(() => {
+      charImg.src = POSES[pose];
+      const done = () => { charImg.style.opacity = '1'; };
+      charImg.onload  = done;
+      charImg.onerror = done;
+    }, 280);
   }
 
-  function showSpeech(sc) {
-    if (!speechEl || !sc.speech) return;
-    speechEl.style.bottom = sc.spB;
-    speechEl.style.right  = sc.spR;
-    speechEl.style.left   = sc.spL;
-    speechEl.textContent  = sc.speech;
+  function showSpeech(text) {
+    if (!speechEl) return;
+    speechEl.textContent = text;
     speechEl.classList.remove('visible');
     if (speechTimer) clearTimeout(speechTimer);
-    setTimeout(() => speechEl.classList.add('visible'), 700);
-    speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3600);
+    setTimeout(() => speechEl.classList.add('visible'), 500);
+    speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3500);
   }
 
-  function switchScene(key) {
-    if (key === currentScene) return;
-    currentScene = key;
-    const sc = SCENES[key];
-    if (!sc) return;
+  /* Scroll-driven zoom + phase-based pose switching */
+  function onScroll() {
+    const cinematic = document.getElementById('home-cinematic');
+    if (!cinematic) return;
 
-    document.body.dataset.scene = key;
+    const totalScroll = cinematic.offsetHeight - window.innerHeight;
+    const progress    = totalScroll > 0
+      ? Math.min(Math.max(window.scrollY / totalScroll, 0), 1)
+      : 0;
 
-    layerA.style.opacity = '0';
-    layerB.src = POSES[sc.pose];
-    applyLayerConfig(layerB, sc);
+    /* Zoom: 0 → 38% scroll = scale 2.5 → 1.0 */
+    const zoomP = Math.min(progress / 0.38, 1);
+    scale       = 2.5 - (1.5 * easeOut(zoomP));
 
-    setTimeout(() => {
-      layerB.style.opacity = '1';
-      [layerA, layerB] = [layerB, layerA];
-    }, 340);
+    /* Phase thresholds → pose + speech */
+    const phase = progress < 0.15 ? 0
+                : progress < 0.42 ? 1
+                : progress < 0.68 ? 2
+                : 3;
 
-    showSpeech(sc);
+    if (phase !== lastPhase) {
+      lastPhase = phase;
+      const poses  = ['front', 'front', 'back3q', 'back'];
+      switchPose(poses[phase]);
+      showSpeech(SPEECH[phase]);
+    }
   }
 
-  /* RAF: idle float in hero + subtle mouse parallax */
+  /* Mouse parallax — drives charPara horizontal offset */
   document.addEventListener('mousemove', e => {
     mx = (e.clientX / window.innerWidth - 0.5) * 2;
   }, { passive: true });
 
+  /* RAF: apply parallax + idle float */
   (function tick() {
     t  += 0.008;
     px += (mx - px) * 0.04;
-    if (layerA) {
-      const isHero = currentScene === 'hero';
-      const idleY  = isHero ? Math.sin(t * Math.PI) * 12 : 0;
-      const flip   = layerA.dataset.flip === '1';
-      const sfx    = flip ? -1 : 1;
-      layerA.style.transform = `scaleX(${sfx}) translateX(${px * 5 * sfx}px) translateY(${idleY}px)`;
+
+    /* Parallax on outer wrapper (screen-space, unaffected by zoom) */
+    if (charPara) charPara.style.transform = `translateX(${px * 5}px)`;
+
+    /* Zoom + idle float on zoom wrapper */
+    if (charZoom) {
+      const isHero = scale > 1.6;
+      const idleY  = isHero ? Math.sin(t * Math.PI) * (scale - 1) * 8 : 0;
+      charZoom.style.transform = `scale(${scale}) translateY(${idleY}px)`;
     }
+
     requestAnimationFrame(tick);
   })();
 
-  /* Intersection observer — switch scene on section entry */
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const key = e.target.dataset.scene;
-        if (key && SCENES[key]) switchScene(key);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('[data-scene]').forEach(el => obs.observe(el));
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   /* Boot */
-  applyLayerConfig(hcA, SCENES.hero);
-  hcA.style.opacity = '1';
-  currentScene = 'hero';
-  showSpeech(SCENES.hero);
-
+  onScroll();
+  showSpeech(SPEECH[0]);
 })();
 
 /* ─────────────────────────────────────────
