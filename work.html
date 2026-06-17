@@ -17,35 +17,40 @@
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
     <ul class="nav-links">
-      <li><a href="work.html">Work</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Get in Touch</a>
   </nav>
 
-  <!-- PAGE SPLIT HEADER -->
-  <div class="page-split">
-    <div class="page-split-left">
-      <img class="page-split-char"
-           src="images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png"
-           alt="" style="transform:scaleX(-1);"/>
+  <!-- STORY SPLIT: sticky character left, full page scroll right -->
+  <div class="story-split">
+    <div class="story-left" aria-hidden="true">
+      <div class="story-char-wrap">
+        <div class="story-char-speech" id="story-speech"></div>
+        <img class="story-char-img" id="story-char"
+             src="images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png"
+             alt=""/>
+      </div>
     </div>
-    <div class="page-split-right chapter-bg">
-      <div class="chapter-bg-num" aria-hidden="true">W</div>
-      <div class="chapter-label rv">Portfolio · 2023–2025</div>
-      <span class="eyebrow rv">Selected Projects</span>
-      <h1 class="sec-heading line-reveal">
-        <span class="lr"><span>The Work</span></span>
-      </h1>
-      <span class="page-hdr-note rv" style="display:block;margin-top:1.4rem;">08 Projects</span>
-    </div>
-  </div>
+    <div class="story-right">
 
-  <!-- WORK GRID — gallery scene: character stands at bottom looking up at work -->
-  <section id="work-grid" class="gallery-scene">
-    <div class="sw">
+      <div class="story-hdr chapter-bg"
+           data-char="side" data-flip="true" data-speech="three years of making">
+        <div class="chapter-bg-num" aria-hidden="true">W</div>
+        <div class="chapter-label rv">Portfolio · 2023–2025</div>
+        <span class="eyebrow rv">Selected Projects</span>
+        <h1 class="sec-heading line-reveal">
+          <span class="lr"><span>The Work</span></span>
+        </h1>
+        <span class="page-hdr-note rv" style="display:block;margin-top:1.4rem;">08 Projects</span>
+      </div>
+
+      <section id="work-grid"
+               data-char="front" data-speech="click any project to explore">
+        <div class="sw">
       <div class="project-grid stg">
 
         <div class="project-card rv-img" onclick="openProject('lamp')">
@@ -170,12 +175,10 @@
 
       </div>
     </div>
-    <!-- Character: side view, looking left across the gallery of projects -->
-    <div class="scene-char scene-char--gallery" data-pose="side" data-flip="true" aria-hidden="true">
-      <div class="scene-speech">click any project to explore →</div>
-      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
-    </div>
-  </section>
+      </section>
+
+    </div><!-- /story-right -->
+  </div><!-- /story-split -->
 
   <!-- PROJECT MODAL -->
   <div id="modal">

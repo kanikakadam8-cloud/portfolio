@@ -256,18 +256,98 @@ const PROJECTS = {
 })();
 
 /* ─────────────────────────────────────────
-   SCENE CHARACTER SYSTEM
-   Characters are embedded inside sections
-   (position:absolute at bottom) — like a
-   figure standing in an art gallery looking
-   up at the work on the walls above.
+   STORY SPLIT CHARACTER  (inner pages)
+   Mirrors home-split but for work, about,
+   experience pages. Character stays in the
+   sticky left panel for the full page scroll.
+   Pose switches as story-right sections enter.
+───────────────────────────────────────── */
+(function initStorySplit() {
+  const charImg  = document.getElementById('story-char');
+  const speechEl = document.getElementById('story-speech');
+  if (!charImg) return;
 
-   Two behaviours:
-   1. Mouse parallax — subtle shift toward
-      the cursor so the character feels aware
-   2. Pose switching — IntersectionObserver
-      cross-fades to the correct pose image
-      as each section enters view
+  const POSES = {
+    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
+    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
+    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
+    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
+  };
+
+  let currentPose = null;
+  let currentFlip = false;
+  let speechTimer = null;
+  let mx = 0, px = 0;
+
+  function applyTransform() {
+    const f = currentFlip ? -1 : 1;
+    charImg.style.transform = `scaleX(${f}) translateX(${px * 5 * f}px)`;
+  }
+
+  function showSpeech(text) {
+    if (!speechEl || !text) return;
+    if (speechTimer) clearTimeout(speechTimer);
+    speechEl.textContent = text;
+    setTimeout(() => speechEl.classList.add('visible'), 600);
+    speechTimer = setTimeout(() => speechEl.classList.remove('visible'), 3400);
+  }
+
+  function switchChar(pose, speech, flip) {
+    const newFlip = !!flip;
+    if (pose === currentPose && newFlip === currentFlip) {
+      if (speech) showSpeech(speech);
+      return;
+    }
+    currentPose = pose;
+    currentFlip = newFlip;
+
+    const src = POSES[pose] || POSES.front;
+    charImg.style.opacity = '0';
+    setTimeout(() => {
+      charImg.src = src;
+      const done = () => { charImg.style.opacity = '1'; };
+      charImg.onload  = done;
+      charImg.onerror = done;
+    }, 280);
+
+    if (speech) showSpeech(speech);
+  }
+
+  /* Subtle mouse parallax — character tracks cursor */
+  document.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth - 0.5) * 2;
+  }, { passive: true });
+  (function tick() { px += (mx - px) * 0.055; applyTransform(); requestAnimationFrame(tick); })();
+
+  /* IntersectionObserver — swap pose as story-right sections scroll into view.
+     Falls back to any [data-char] element on pages without .story-right (contact). */
+  const scope = document.querySelector('.story-right') ? '.story-right [data-char]' : '[data-char]';
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const pose   = e.target.dataset.char   || 'front';
+      const speech = e.target.dataset.speech || '';
+      const flip   = e.target.dataset.flip   === 'true';
+      switchChar(pose, speech, flip);
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll(scope).forEach(el => obs.observe(el));
+
+  /* Fire initial pose from first data-char element on load */
+  const first = document.querySelector(scope);
+  if (first) {
+    const pose   = first.dataset.char   || 'front';
+    const flip   = first.dataset.flip   === 'true';
+    const speech = first.dataset.speech || '';
+    setTimeout(() => switchChar(pose, speech, flip), 350);
+  }
+})();
+
+/* ─────────────────────────────────────────
+   SCENE CHARACTER SYSTEM
+   Legacy system — kept for compatibility.
+   Returns early: no .scene-char elements exist.
 ───────────────────────────────────────── */
 (function initSceneChars() {
   const POSES = {

@@ -17,33 +17,38 @@
   <nav id="nav">
     <a href="index.html" class="nav-logo">Kanika Kadam</a>
     <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
       <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Get in Touch</a>
   </nav>
 
-  <!-- PAGE SPLIT HEADER -->
-  <div class="page-split">
-    <div class="page-split-left">
-      <img class="page-split-char"
-           src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png"
-           alt=""/>
+  <!-- STORY SPLIT: sticky character left, full page scroll right -->
+  <div class="story-split">
+    <div class="story-left" aria-hidden="true">
+      <div class="story-char-wrap">
+        <div class="story-char-speech" id="story-speech"></div>
+        <img class="story-char-img" id="story-char"
+             src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png"
+             alt=""/>
+      </div>
     </div>
-    <div class="page-split-right chapter-bg">
-      <div class="chapter-bg-num" aria-hidden="true">A</div>
-      <div class="chapter-label rv">Who I Am</div>
-      <span class="eyebrow rv">The Designer</span>
-      <h1 class="sec-heading line-reveal">
-        <span class="lr"><span>About Me</span></span>
-      </h1>
-    </div>
-  </div>
+    <div class="story-right">
+
+      <div class="story-hdr chapter-bg"
+           data-char="front" data-speech="hi, I'm Kanika">
+        <div class="chapter-bg-num" aria-hidden="true">A</div>
+        <div class="chapter-label rv">Who I Am</div>
+        <span class="eyebrow rv">The Designer</span>
+        <h1 class="sec-heading line-reveal">
+          <span class="lr"><span>About Me</span></span>
+        </h1>
+      </div>
 
   <!-- ABOUT -->
-  <section id="about-section">
+  <section id="about-section" data-char="front" data-speech="making is my way of thinking">
     <div class="sw">
       <div class="about-grid">
         <div class="about-img-col rv-img">
@@ -87,15 +92,11 @@
         </div>
       </div>
     </div>
-    <!-- Character: 3/4 back — introspective, turning away from viewer -->
-    <div class="scene-char scene-char--page" data-pose="back3q" aria-hidden="true">
-      <div class="scene-speech">this is where I make things</div>
-      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
-    </div>
   </section>
 
   <!-- Editorial band -->
-  <div class="editorial-band rv" style="padding:3rem 5%;">
+  <div class="editorial-band rv"
+       data-char="back3q" data-speech="the hand knows what the mind is still figuring out">
     <p class="editorial-statement" style="font-size:clamp(1.2rem,2.5vw,2rem);">
       Making is thinking.<br/>
       <em>The hand knows what the mind is still figuring out.</em>
@@ -103,7 +104,8 @@
   </div>
 
   <!-- SKILLS -->
-  <section id="skills" class="chapter-bg">
+  <section id="skills" class="chapter-bg"
+           data-char="side" data-flip="true" data-speech="from workshop to screen">
     <div class="chapter-bg-num" aria-hidden="true">S</div>
     <div class="sw-sm">
       <div class="chapter-label rv">Capabilities</div>
@@ -143,12 +145,10 @@
         </div>
       </div>
     </div>
-    <!-- Character: side pose — looking across the skills, from workshop to screen -->
-    <div class="scene-char scene-char--page" data-pose="side" aria-hidden="true">
-      <div class="scene-speech">from workshop to screen</div>
-      <img src="images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png" alt=""/>
-    </div>
   </section>
+
+    </div><!-- /story-right -->
+  </div><!-- /story-split -->
 
   <footer class="site-footer">
     <span class="site-footer-copy">© 2026 Kanika Kadam</span>
@@ -156,6 +156,7 @@
       <a href="work.html">Work</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
     </div>
   </footer>
 
