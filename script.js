@@ -1,4 +1,28 @@
 /* ─────────────────────────────────────────
+   THEME TOGGLE  (light ↔ dark)
+   Reads/writes localStorage key 'kk-theme'.
+   FOUC prevention: each HTML <head> also has
+   an inline script that applies stored theme
+   before first paint.
+───────────────────────────────────────── */
+(function initTheme() {
+  const root = document.documentElement;
+  const btn  = document.getElementById('theme-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('kk-theme', 'light');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('kk-theme', 'dark');
+    }
+  });
+})();
+
+/* ─────────────────────────────────────────
    PROJECT DATA
    cover  — hero image shown on card + modal (real photo or render)
    photos — actual project photos for Process & Photography section

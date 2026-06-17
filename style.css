@@ -39,6 +39,35 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   --mascot-bg: #0C0F15;  /* near-black to match mascot image bg */
 }
 
+/* ═══════════════════════════════════════════════════════
+   DARK MODE TOKENS
+   Applied via [data-theme="dark"] on <html>.
+   All existing var() references update automatically.
+═══════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg:        #1A120C;
+  --white:     #211710;
+  --ink:       #EDE0CE;
+  --mid:       #9A8570;
+  --light:     #5C4A3A;
+  --border:    #382A20;
+  --accent:    #D4B896;
+  --mauve:     #9A6A6A;
+  --clockwork: #9A8260;
+  --cedar:     #929070;
+  --dark:      #0C0806;
+  --sticky:    #2A2018;
+  --stkink:    #D4B896;
+}
+
+/* Smooth theme transition on body + key panels */
+body,
+#nav,
+.home-split-left,
+#modal-panel {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -107,6 +136,40 @@ body {
   transition: all 0.25s ease;
 }
 .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+/* Theme toggle button */
+.theme-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--mid); flex-shrink: 0;
+  transition: color 0.22s, background 0.22s;
+}
+.theme-btn:hover { color: var(--ink); background: rgba(68,50,35,0.07); }
+.theme-btn svg {
+  width: 15px; height: 15px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.theme-icon--moon { display: none; }
+[data-theme="dark"] .theme-icon--sun  { display: none; }
+[data-theme="dark"] .theme-icon--moon { display: block; }
+[data-theme="dark"] .theme-btn:hover  { background: rgba(237,224,206,0.08); }
+
+/* Dark mode: nav scrolled state (was hardcoded rgba light) */
+[data-theme="dark"] #nav.scrolled,
+[data-theme="dark"] #nav.solid {
+  background: rgba(26,18,12,0.96);
+  box-shadow: 0 1px 0 rgba(237,224,206,0.06);
+}
+/* Dark mode: project hover veil */
+[data-theme="dark"] .project-card:hover .proj-veil,
+[data-theme="dark"] .feat-card:hover .feat-veil { background: rgba(0,0,0,0.62); }
+/* Dark mode: placeholder backgrounds */
+[data-theme="dark"] .proj-ph  { background: #2A2018; }
+/* Dark mode: contact heading uses var(--bg) which flips dark — keep it light */
+[data-theme="dark"] .contact-head { color: var(--ink); }
+/* Dark mode: modal overlay */
+[data-theme="dark"] #modal-bg { background: rgba(0,0,0,0.72); }
 
 /* ═══════════════════════════════════════════════════════
    SCENE CHARACTER SYSTEM  (Mrazek-Tomas gallery approach)
