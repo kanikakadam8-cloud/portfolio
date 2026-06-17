@@ -812,7 +812,7 @@ body[data-page="contact"] .scene-speech::after {
 }
 .feat-full-card {
   display: block;
-  width: 36vw;
+  width: 24vw;
   min-width: 260px;
   flex-shrink: 0;
   text-decoration: none;
@@ -1363,7 +1363,7 @@ body[data-page="contact"] .scene-speech::after {
   .hero-name .ln2 { padding-left: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-stk { display: none; }
-  .feat-full-card { width: 54vw; }
+  .feat-full-card { width: 42vw; }
   .home-about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-cols { grid-template-columns: 1fr 1fr; }
@@ -1379,7 +1379,7 @@ body[data-page="contact"] .scene-speech::after {
   .hero-content { max-width: 100%; }
   .hero-name { font-size: clamp(3.8rem, 17vw, 6rem); }
   .editorial-band { min-height: 80vh; padding: 4rem 8%; }
-  .feat-full-card { width: 76vw; }
+  .feat-full-card { width: 68vw; }
   .feat-track-outer { padding: 0.5rem 6% 3rem; }
   .project-grid { grid-template-columns: 1fr; }
   .skills-cols { grid-template-columns: 1fr; }
