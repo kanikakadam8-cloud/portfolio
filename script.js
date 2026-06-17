@@ -515,11 +515,9 @@ function openProject(id) {
   document.getElementById('m-insight').textContent = `"${p.insight}"`;
   document.getElementById('m-tags').innerHTML = p.tags.map(t=>`<span class="m-tag">${t}</span>`).join('');
 
-  // Cover — real photo or CAD render as hero
+  // Cover hidden for now
   const coverSec = document.getElementById('m-cover-section');
-  coverSec.innerHTML = p.cover
-    ? `<img src="${p.cover}" alt="${p.title}" class="modal-cover-img" loading="lazy"/>`
-    : `<div class="modal-cover-ph"><span>Project Images Coming Soon</span></div>`;
+  coverSec.innerHTML = '';
 
   // Case study sections
   const csSec = document.getElementById('m-case-study');
