@@ -291,10 +291,11 @@ const VOLUNTEERS = {
 (function initHomeCinematic() {
   if (document.body.dataset.page !== 'home') return;
 
-  const charZoom = document.getElementById('char-zoom');
-  const charPara = document.getElementById('char-para');
-  const charImg  = document.getElementById('hc-main');
-  const speechEl = document.getElementById('hc-speech');
+  const charZoom  = document.getElementById('char-zoom');
+  const charPara  = document.getElementById('char-para');
+  const charPanel = document.getElementById('char-panel');
+  const charImg   = document.getElementById('hc-main');
+  const speechEl  = document.getElementById('hc-speech');
   if (!charZoom) return;
 
   const POSES = {
@@ -351,21 +352,31 @@ const VOLUNTEERS = {
       ? Math.min(Math.max(window.scrollY / totalScroll, 0), 1)
       : 0;
 
-    /* Zoom: 0 → 38% scroll = scale 2.5 → 1.0 */
-    const zoomP = Math.min(progress / 0.38, 1);
+    /* Zoom: 0 → 42% of scroll = scale 2.5 → 1.0 */
+    const zoomP = Math.min(progress / 0.42, 1);
     scale       = 2.5 - (1.5 * easeOut(zoomP));
 
     /* Phase thresholds → pose + speech */
     const phase = progress < 0.15 ? 0
-                : progress < 0.42 ? 1
-                : progress < 0.68 ? 2
+                : progress < 0.52 ? 1
+                : progress < 0.76 ? 2
                 : 3;
 
     if (phase !== lastPhase) {
       lastPhase = phase;
-      const poses  = ['front', 'front', 'back3q', 'back'];
+      const poses = ['front', 'front', 'side', 'back3q'];
       switchPose(poses[phase]);
       showSpeech(SPEECH[phase]);
+    }
+
+    /* Fade char-panel out in the last 24% of cinematic scroll */
+    if (charPanel) {
+      if (progress > 0.76) {
+        const fadeP = Math.min((progress - 0.76) / 0.24, 1);
+        charPanel.style.opacity = String(1 - fadeP);
+      } else {
+        charPanel.style.opacity = '1';
+      }
     }
   }
 
@@ -397,6 +408,47 @@ const VOLUNTEERS = {
   /* Boot */
   onScroll();
   showSpeech(SPEECH[0]);
+})();
+
+/* ─────────────────────────────────────────
+   FEATURED GALLERY  (index.html)
+   Horizontal drag-to-scroll + staggered
+   card reveal when section enters viewport.
+───────────────────────────────────────── */
+(function initFeatDrag() {
+  if (document.body.dataset.page !== 'home') return;
+  const outer = document.getElementById('feat-track-outer');
+  if (!outer) return;
+
+  /* Drag-to-scroll */
+  let isDown = false, startX = 0, scrollLeft = 0;
+  outer.addEventListener('mousedown', e => {
+    isDown = true;
+    outer.classList.add('is-grabbing');
+    startX     = e.pageX - outer.offsetLeft;
+    scrollLeft = outer.scrollLeft;
+  });
+  const endDrag = () => { isDown = false; outer.classList.remove('is-grabbing'); };
+  outer.addEventListener('mouseleave', endDrag);
+  outer.addEventListener('mouseup',    endDrag);
+  outer.addEventListener('mousemove',  e => {
+    if (!isDown) return;
+    e.preventDefault();
+    outer.scrollLeft = scrollLeft - (e.pageX - outer.offsetLeft - startX) * 1.5;
+  });
+
+  /* Card reveal — trigger all when section enters viewport */
+  const section = document.getElementById('featured');
+  if (!section) return;
+  const cards = section.querySelectorAll('.feat-full-card');
+  let revealed = false;
+  const obs = new IntersectionObserver(entries => {
+    if (revealed || !entries[0].isIntersecting) return;
+    revealed = true;
+    cards.forEach(c => c.classList.add('in'));
+    obs.disconnect();
+  }, { threshold: 0.15 });
+  obs.observe(section);
 })();
 
 /* ─────────────────────────────────────────

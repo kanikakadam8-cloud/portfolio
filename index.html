@@ -36,7 +36,7 @@
     <a href="contact.html" class="nav-cta">Get in Touch</a>
   </nav>
 
-  <!-- ═══ HOME CINEMATIC — split 50/50 ═══ -->
+  <!-- ═══ HOME CINEMATIC — split 50/50, hero + editorial only ═══ -->
   <div id="home-cinematic">
 
     <!-- LEFT: sticky character panel (zoom-out on scroll) -->
@@ -51,7 +51,7 @@
       <div id="hc-speech"></div>
     </div>
 
-    <!-- RIGHT: content scrolls -->
+    <!-- RIGHT: hero + editorial quote -->
     <div id="home-content">
 
       <!-- ═══ SCENE 1 · HERO ═══ -->
@@ -75,88 +75,108 @@
         </div>
       </section>
 
-      <!-- ═══ SCENE 2 · EDITORIAL ═══ -->
-      <div class="editorial-band rv">
-        <p class="editorial-statement">
-          Design is the space between<br/>
-          what exists and <em>what could.</em>
-        </p>
+      <!-- ═══ SCENE 2 · EDITORIAL QUOTE ═══ -->
+      <div class="editorial-band rv" id="editorial-band">
+        <div class="editorial-inner">
+          <span class="editorial-ornament">✦</span>
+          <p class="editorial-statement">
+            Design is the space between<br/>
+            what exists and <em>what could.</em>
+          </p>
+          <div class="editorial-meta">Kanika Kadam · 2026</div>
+        </div>
       </div>
-
-      <!-- ═══ SCENE 3 · FEATURED WORK ═══ -->
-      <section id="featured" class="chapter-bg">
-        <div class="sw">
-          <div class="chapter-label rv">Chapter 01 · Selected Work</div>
-          <div class="featured-header rv">
-            <div>
-              <span class="eyebrow">Portfolio</span>
-              <h2 class="sec-heading" style="font-size:clamp(2.5rem,5vw,4.5rem);">Recent Projects</h2>
-            </div>
-            <a href="work.html" class="text-link">View all 8 projects</a>
-          </div>
-          <div class="featured-grid stg">
-            <a href="work.html#lamp" class="feat-card rv-img">
-              <div class="feat-img">
-                <img src="images/projects/Lamp Design/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_40_32 PM.png"
-                     alt="Mad Hatter Lamp"
-                     onerror="this.parentElement.style.background='var(--border)'"/>
-                <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
-              </div>
-              <div class="feat-meta">
-                <span class="feat-cat">Product Design · Lighting</span>
-                <span class="feat-title">Mad Hatter Lamp</span>
-              </div>
-            </a>
-            <a href="work.html#toss" class="feat-card rv-img">
-              <div class="feat-img">
-                <img src="images/projects/toss/cover photo/ChatGPT Image Jun 17, 2026, 08_08_55 PM.png"
-                     alt="TOSS 2025"
-                     onerror="this.parentElement.style.background='var(--border)'"/>
-                <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
-              </div>
-              <div class="feat-meta">
-                <span class="feat-cat">Spatial Design · Installation</span>
-                <span class="feat-title">TOSS 2025 — 3D Typography</span>
-              </div>
-            </a>
-            <a href="work.html#stressball" class="feat-card rv-img">
-              <div class="feat-img">
-                <img src="images/projects/stress-ball/cover photo/ChatGPT Image Jun 17, 2026, 10_42_46 PM.png"
-                     alt="Interactive Stress Ball"
-                     onerror="this.parentElement.style.background='var(--border)'"/>
-                <div class="feat-veil"><span class="feat-veil-label">View Case Study</span></div>
-              </div>
-              <div class="feat-meta">
-                <span class="feat-cat">Product Design · Wellbeing</span>
-                <span class="feat-title">Interactive Stress Ball</span>
-              </div>
-            </a>
-          </div>
-          <div class="featured-cta rv">
-            <a href="work.html" class="text-link">Explore all 8 projects</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═══ SCENE 4 · ABOUT TEASER ═══ -->
-      <section id="home-about" class="chapter-bg">
-        <div class="sw-sm">
-          <div class="chapter-label rv">Chapter 02 · The Designer</div>
-          <div class="home-about-grid rv">
-            <div>
-              <p class="home-about-stat">BDes<br/>Product<br/>Design<br/>2026</p>
-            </div>
-            <div>
-              <span class="eyebrow">About Me</span>
-              <p class="home-about-body">Passionate about product and furniture design, with a deep love for the relationship between materials, craft, and functionality. Working with wood — lathe turning, laser cutting, Dremel detailing — is where I feel most in my element.</p>
-              <a href="about.html" class="text-link">More about me</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </div><!-- /home-content -->
   </div><!-- /home-cinematic -->
+
+  <!-- ═══ FULL WIDTH · FEATURED WORK ═══ -->
+  <section id="featured">
+    <div class="feat-intro sw">
+      <div class="chapter-label rv">Chapter 01 · Selected Work</div>
+      <div class="feat-intro-row rv">
+        <h2 class="sec-heading">Recent Projects</h2>
+        <a href="work.html" class="text-link">View all 8 projects</a>
+      </div>
+    </div>
+
+    <div class="feat-track-outer" id="feat-track-outer">
+      <div class="feat-track" id="feat-track">
+
+        <a href="work.html#lamp" class="feat-full-card" style="--card-i:0">
+          <div class="ffc-img">
+            <img src="images/projects/Lamp Design/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_40_32 PM.png"
+                 alt="Mad Hatter Lamp"
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="ffc-veil"><span>View Case Study ↗</span></div>
+          </div>
+          <div class="ffc-meta">
+            <span class="ffc-num">01</span>
+            <div class="ffc-text">
+              <span class="ffc-cat">Product Design · Lighting</span>
+              <h3 class="ffc-title">Mad Hatter Lamp</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="work.html#toss" class="feat-full-card" style="--card-i:1">
+          <div class="ffc-img">
+            <img src="images/projects/toss/cover photo/ChatGPT Image Jun 17, 2026, 08_08_55 PM.png"
+                 alt="TOSS 2025"
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="ffc-veil"><span>View Case Study ↗</span></div>
+          </div>
+          <div class="ffc-meta">
+            <span class="ffc-num">02</span>
+            <div class="ffc-text">
+              <span class="ffc-cat">Spatial Design · Installation</span>
+              <h3 class="ffc-title">TOSS 2025 — 3D Typography</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="work.html#stressball" class="feat-full-card" style="--card-i:2">
+          <div class="ffc-img">
+            <img src="images/projects/stress-ball/cover photo/ChatGPT Image Jun 17, 2026, 10_42_46 PM.png"
+                 alt="Interactive Stress Ball"
+                 onerror="this.parentElement.style.background='var(--border)'"/>
+            <div class="ffc-veil"><span>View Case Study ↗</span></div>
+          </div>
+          <div class="ffc-meta">
+            <span class="ffc-num">03</span>
+            <div class="ffc-text">
+              <span class="ffc-cat">Product Design · Wellbeing</span>
+              <h3 class="ffc-title">Interactive Stress Ball</h3>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="feat-drag-hint rv">
+      <span class="feat-drag-line"></span>
+      <span class="feat-drag-txt">drag to explore</span>
+      <span class="feat-drag-line"></span>
+    </div>
+  </section>
+
+  <!-- ═══ FULL WIDTH · ABOUT TEASER ═══ -->
+  <section id="home-about" class="chapter-bg">
+    <div class="sw-sm">
+      <div class="chapter-label rv">Chapter 02 · The Designer</div>
+      <div class="home-about-grid rv">
+        <div>
+          <p class="home-about-stat">BDes<br/>Product<br/>Design<br/>2026</p>
+        </div>
+        <div>
+          <span class="eyebrow">About Me</span>
+          <p class="home-about-body">Passionate about product and furniture design, with a deep love for the relationship between materials, craft, and functionality. Working with wood — lathe turning, laser cutting, Dremel detailing — is where I feel most in my element.</p>
+          <a href="about.html" class="text-link">More about me</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="mauve-rule"></div>
 
