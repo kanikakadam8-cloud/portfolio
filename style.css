@@ -1350,20 +1350,60 @@ body[data-page="contact"] .scene-speech::after {
 .stg > *:nth-child(8) { transition-delay: 0.63s; }
 
 /* ═══════════════════════════════════════════════════════
+   HAMBURGER NAV TOGGLE
+═══════════════════════════════════════════════════════ */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 32px; height: 32px;
+  background: none; border: none;
+  cursor: pointer; padding: 2px 0;
+  color: var(--ink);
+  position: relative; z-index: 201;
+  flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; height: 1.5px;
+  background: currentColor; border-radius: 1px;
+  transition: transform 0.32s cubic-bezier(.23,1,.32,1),
+              opacity 0.22s ease, width 0.22s ease;
+}
+.nav-burger span:nth-child(1) { width: 22px; }
+.nav-burger span:nth-child(2) { width: 13px; }
+.nav-burger span:nth-child(3) { width: 22px; }
+.nav-burger.open span:nth-child(1) { width: 20px; transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { width: 20px; transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile-only CTA inside the overlay */
+.nav-cta-mob { display: none; }
+
+/* Touch-flip: tapped state mirrors hover */
+.project-card.tapped .card-inner,
+.vol-card.tapped .card-inner { transform: rotateY(180deg); }
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 980px) ── */
 @media (max-width: 980px) {
   .page-split { display: block; }
   .page-split-left { display: none; }
   .page-split-right { min-height: auto; padding: 6.5rem 5% 2.5rem; border-bottom: 1px solid var(--border); }
-  #home-cinematic { display: block; }
-  #char-panel { display: none; }
+
+  /* Narrower char panel on tablet — still split, just tighter */
+  #home-cinematic { grid-template-columns: 38% 62%; }
   #home-content { width: 100%; }
   #hero { padding: 7rem 5% 4rem; }
   .hero-name .ln2 { padding-left: 0; }
+
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-stk { display: none; }
-  .feat-full-card { width: 42vw; }
+  .feat-full-card { width: 44vw; }
   .home-about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-cols { grid-template-columns: 1fr 1fr; }
@@ -1371,29 +1411,153 @@ body[data-page="contact"] .scene-speech::after {
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
   .vol-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Mobile (≤ 620px) ── */
 @media (max-width: 620px) {
-  #nav { padding: 1.2rem 4%; }
-  .nav-links { gap: 1.5rem; }
+  /* NAV */
+  #nav { padding: 1rem 5%; }
+  .nav-burger { display: flex; }
   .nav-cta { display: none; }
-  .hero-content { max-width: 100%; }
-  .hero-name { font-size: clamp(3.8rem, 17vw, 6rem); }
+
+  /* Mobile overlay — nav-links becomes full-screen menu */
+  .nav-links {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    list-style: none;
+    opacity: 0; pointer-events: none;
+    transform: translateY(-18px);
+    transition: opacity 0.35s ease, transform 0.38s cubic-bezier(.23,1,.32,1);
+  }
+  .nav-links.mobile-open {
+    opacity: 1; pointer-events: all;
+    transform: translateY(0);
+  }
+  /* Large serif links in overlay */
+  .nav-links li a {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-transform: none;
+    display: block;
+    padding: 0.5rem 2rem;
+    transition: color 0.2s;
+  }
+  .nav-links li a.active, .nav-links li a:hover { color: var(--mauve); }
+  .nav-theme-li { margin-top: 2.5rem; }
+  .nav-theme-li .theme-btn { width: 42px; height: 42px; }
+
+  /* CTA inside overlay */
+  .nav-cta-mob { display: none; }
+  .nav-links.mobile-open .nav-cta-mob {
+    display: block;
+    margin-top: 1.2rem;
+  }
+  .nav-cta-mob a {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 0.65rem 1.6rem;
+    border-radius: 2rem;
+    transition: background 0.22s, color 0.22s;
+  }
+  .nav-cta-mob a:hover { background: var(--accent); color: var(--bg); }
+
+  /* ── HOME MASCOT on mobile ──
+     Absolute-positioned to the right of the hero.
+     Mascot sits behind the text (z-index 0) and fades
+     out as the user scrolls past the hero. */
+  #home-cinematic {
+    display: block;
+    position: relative;
+    overflow-x: hidden;
+  }
+  #char-panel {
+    display: flex;            /* override any hide */
+    position: absolute;
+    top: 0; right: -3%;
+    width: 55%;
+    height: 100vh;
+    background: transparent;
+    border: none;
+    padding: 5rem 0 0;
+    align-items: flex-start;
+    justify-content: center;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  #char-para { width: 100%; display: flex; justify-content: center; }
+  #char-zoom { transform: none !important; } /* no desktop zoom on mobile */
+  #hc-main {
+    height: 68vh;
+    max-height: 420px;
+    opacity: 0.82;
+    filter: drop-shadow(0 20px 40px rgba(68,50,35,0.14));
+  }
+  #hc-speech {
+    top: 10%; right: auto; left: -8%;
+    max-width: 130px;
+    font-size: 0.72rem;
+  }
+
+  /* Hero: text fills left ~70%, mascot floats right */
+  #home-content { width: 100%; position: relative; z-index: 1; }
+  #hero { padding: 8rem 5% 4rem; position: relative; }
+  .hero-content { max-width: 70%; }
+  .hero-name { font-size: clamp(3rem, 13vw, 5rem) !important; line-height: 0.9; }
+  .hero-bio { font-size: 0.74rem; line-height: 1.85; }
+
+  /* Editorial */
   .editorial-band { padding: 5rem 8% 6rem; }
-  .feat-full-card { width: 68vw; }
+  .editorial-statement { font-size: clamp(1.5rem, 7vw, 2rem); }
+
+  /* Featured gallery */
+  .feat-full-card { width: 72vw; min-width: 220px; }
   .feat-track-outer { padding: 0.5rem 6% 3rem; }
+
+  /* Work & Volunteer grids */
   .project-grid { grid-template-columns: 1fr; }
+  .vol-grid { grid-template-columns: 1fr; }
+
+  /* Skills */
   .skills-cols { grid-template-columns: 1fr; }
   .sk-col:nth-child(2), .sk-col:nth-child(3) { grid-column: 1; }
-  .vol-grid { grid-template-columns: 1fr; }
+
+  /* About */
   .about-details { grid-template-columns: 1fr; }
-  #modal-panel { width: 100%; }
+
+  /* Modals */
+  #modal-panel, #vol-modal-panel { width: 100%; border-radius: 0; }
   .modal-top, .modal-hdr { padding-left: 1.2rem; padding-right: 1.2rem; }
   .modal-sec-lbl, .modal-video-wrap, .modal-stk-row { padding-left: 1.2rem; padding-right: 1.2rem; }
   #m-photos { grid-template-columns: 1fr 1fr; padding-left: 1.2rem; padding-right: 1.2rem; }
   #m-case-study { padding-left: 1.2rem; padding-right: 1.2rem; }
   .cs-row { grid-template-columns: 1fr; gap: 0.5rem; }
   .page-hdr { padding-top: 7rem; }
-  .editorial-statement { font-size: clamp(1.5rem, 7vw, 2rem); }
   .chapter-bg-num { font-size: 40vw; }
+  .home-about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Touch-device flip hint: show CTA on back cards without hover */
+  .card-back-cta { opacity: 0.8; }
+}
+
+/* ── Very small phones (≤ 380px) ── */
+@media (max-width: 380px) {
+  .hero-content { max-width: 78%; }
+  .hero-name { font-size: clamp(2.6rem, 15vw, 3.8rem) !important; }
+  #char-panel { width: 52%; right: -5%; }
+  #hc-main { height: 60vh; max-height: 360px; opacity: 0.72; }
+  .feat-full-card { width: 82vw; }
 }
 
 /* ═══════════════════════════════════════════════════════

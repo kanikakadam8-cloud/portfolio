@@ -1,4 +1,36 @@
 /* ─────────────────────────────────────────
+   MOBILE NAV  — hamburger open/close
+───────────────────────────────────────── */
+(function initMobileNav() {
+  const burger   = document.getElementById('nav-burger');
+  const navLinks = document.getElementById('nav-links');
+  if (!burger || !navLinks) return;
+
+  function open()  {
+    navLinks.classList.add('mobile-open');
+    burger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    navLinks.classList.remove('mobile-open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', () =>
+    navLinks.classList.contains('mobile-open') ? close() : open()
+  );
+
+  /* Close when any link is tapped */
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', close)
+  );
+
+  /* Close on Escape */
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
+/* ─────────────────────────────────────────
    THEME TOGGLE  (light ↔ dark)
    Reads/writes localStorage key 'kk-theme'.
    FOUC prevention: each HTML <head> also has
@@ -346,6 +378,24 @@ const VOLUNTEERS = {
   function onScroll() {
     const cinematic = document.getElementById('home-cinematic');
     if (!cinematic) return;
+
+    const isMobile = window.innerWidth <= 620;
+
+    if (isMobile) {
+      /* Mobile: no zoom. Fade mascot out as hero scrolls away. */
+      scale = 1.0;
+      if (charPanel) {
+        const hero = document.getElementById('hero');
+        const heroH = hero ? hero.offsetHeight : window.innerHeight;
+        if (window.scrollY > heroH * 0.55) {
+          const fadeP = Math.min((window.scrollY - heroH * 0.55) / (heroH * 0.45), 1);
+          charPanel.style.opacity = String(1 - fadeP);
+        } else {
+          charPanel.style.opacity = '1';
+        }
+      }
+      return;
+    }
 
     const totalScroll = cinematic.offsetHeight - window.innerHeight;
     const progress    = totalScroll > 0
@@ -899,5 +949,36 @@ window.addEventListener('load', () => {
 
   document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
   document.addEventListener('mouseenter', () => { dot.style.opacity = '';  ring.style.opacity = '';  });
+})();
+
+/* ─────────────────────────────────────────
+   TOUCH FLIP CARDS
+   First tap flips to show back; second tap
+   fires the existing onclick (open modal).
+   Tap outside any card to un-flip.
+───────────────────────────────────────── */
+(function initTouchFlip() {
+  if (!('ontouchstart' in window)) return;
+
+  const cards = document.querySelectorAll('.project-card, .vol-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (this.classList.contains('tapped')) return; /* let onclick fire */
+      e.preventDefault();
+      e.stopPropagation();
+      /* un-flip any other open card */
+      cards.forEach(c => { if (c !== this) c.classList.remove('tapped'); });
+      this.classList.add('tapped');
+    }, { capture: true });
+  });
+
+  /* Tap outside → un-flip all */
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.project-card, .vol-card')) {
+      cards.forEach(c => c.classList.remove('tapped'));
+    }
+  });
 })();
 
