@@ -206,6 +206,81 @@ const PROJECTS = {
 };
 
 /* ─────────────────────────────────────────
+   VOLUNTEER DATA
+───────────────────────────────────────── */
+const VOLUNTEERS = {
+  designvichar: {
+    num: '01 / 03', cat: 'Community · Design Events', year: '2024',
+    title: 'Design Vichaar',
+    org: 'Frelo · Somaiya School of Design',
+    role: 'Event Volunteer & Logistics Coordinator',
+    duration: '2024',
+    desc: 'Attended sessions by Punit Chawla, Dhisti Desai, Shanoo Bhatia, and others — helping coordinate event flow and manage real-time logistics for this design community gathering.',
+    learnings: 'Design community events move fast — the invisible logistics work of setting up rooms, managing speaker transitions, and coordinating real-time is a design problem in itself. Exposure to practitioner voices outside the academic format was invaluable.',
+    reflection: 'Being behind the scenes at a design event taught me that facilitation is design. How a space is arranged, how people move through it, how conversations are made to happen — these are designed outcomes, not accidents.',
+    cover: 'images/projects/Voluntering/design vichar/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_27_18 PM.png',
+    photos: [
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.26.35 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.02 AM (1).jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.17 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.19 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.20 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.21 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.24 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.32.46 AM.jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.32.49 AM (1).jpeg',
+      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 3.13.37 AM.jpeg'
+    ]
+  },
+  permaculture: {
+    num: '02 / 03', cat: 'Sustainability · Farming', year: '2024',
+    title: 'Permaculture Design Course',
+    org: 'Earthen Routes · Manasvini Tyagi',
+    role: 'Course Participant',
+    duration: 'Alibaug · 2024',
+    desc: 'Explored raised beds, multilayer farming, soil health, and biodiversity — learning how nature-first systems thinking can inform sustainable and circular design practice.',
+    learnings: 'Permaculture is systems design with living materials. Every principle — stacking functions, observing before acting, valuing edges — translates directly to product and spatial design. The course rewired how I think about waste, cycles, and material life.',
+    reflection: 'Designing with nature rather than against it isn\'t a constraint — it\'s an invitation to be more creative. The most interesting design brief is one where the material itself teaches you what it wants to become.',
+    cover: 'images/projects/Voluntering/permaculture/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_34_02 PM.png',
+    photos: [
+      'images/projects/Voluntering/permaculture/Photos/01.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/02.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/03.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/04.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/05.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/06.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/07.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/08.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/09.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/10.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/11.jpeg',
+      'images/projects/Voluntering/permaculture/Photos/12.jpeg'
+    ]
+  },
+  siif: {
+    num: '03 / 03', cat: 'Festival · Workshop Design', year: '2025',
+    title: 'SIIF — Design Workshop Lead',
+    org: 'Somaiya Innovation & Impact Festival',
+    role: 'Design Workshop Lead',
+    duration: '3 Days · 2025',
+    desc: 'Led the Design Workshop team at a 3-day campus festival — from curation and pitching to organising, decorating, and facilitating sessions during the event.',
+    learnings: 'Running a workshop at scale means your design decisions are tested in real time by hundreds of people. Spatial layout, material choices, session pacing — everything communicates. The gap between the designed experience and the lived one is always instructive.',
+    reflection: 'Leadership in a festival context is fundamentally about keeping the energy of a space alive. This role taught me to design not just objects, but atmospheres — to think about what a room feels like and how people move through it.',
+    cover: 'images/projects/Voluntering/SIIF/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_53_02 PM.png',
+    photos: [
+      'images/projects/Voluntering/SIIF/PHOTOS/432a3990-22d9-4d81-8918-caa517c05e98.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/467cd5c7-f780-40b7-9b8b-dc7d8a6403b1.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/4d061db0-3699-4273-8785-63545239a6fb.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/62aac081-a6c7-43ab-93ea-f8bbd4ddeae1.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/939ab67b-57eb-4092-a6b0-d1e7a4d8d680.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/WhatsApp Image 2026-06-17 at 11.44.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/a5a29243-0c5b-4e2c-bfec-f898fd4be222.jpg',
+      'images/projects/Voluntering/SIIF/PHOTOS/b87bfa10-f407-46f7-81e0-6e08b0324b0d.jpg'
+    ]
+  }
+};
+
+/* ─────────────────────────────────────────
    HOME SPLIT CHARACTER
    Sticky left-panel character on index.html.
    Swaps pose + speech as right-panel sections
@@ -627,7 +702,59 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
   if (document.getElementById('lb')?.classList.contains('open')) closeLB();
+  else if (document.getElementById('vol-modal')?.classList.contains('open')) closeVolModal();
   else closeModal();
+});
+
+/* ─────────────────────────────────────────
+   VOLUNTEER MODAL
+───────────────────────────────────────── */
+function openVolunteer(id) {
+  const v = VOLUNTEERS[id];
+  if (!v) return;
+
+  document.getElementById('vm-num').textContent      = v.num;
+  document.getElementById('vm-cat').textContent      = v.cat;
+  document.getElementById('vm-title').textContent    = v.title;
+  document.getElementById('vm-org').textContent      = v.org;
+  document.getElementById('vm-role').textContent     = v.role;
+  document.getElementById('vm-duration').textContent = v.duration;
+  document.getElementById('vm-desc').textContent     = v.desc;
+
+  const coverSec = document.getElementById('vm-cover-section');
+  coverSec.innerHTML = v.cover
+    ? `<img class="modal-cover-img" src="${v.cover}" alt="${v.title}" onerror="this.parentElement.innerHTML=''"/>`
+    : '';
+
+  document.getElementById('vm-learnings-section').innerHTML = `
+    <div class="cs-row"><span class="cs-label">Learnings</span><p class="cs-body">${v.learnings}</p></div>
+    <div class="cs-row"><span class="cs-label">Reflection</span><p class="cs-body">${v.reflection}</p></div>
+  `;
+
+  const photosSec  = document.getElementById('vm-photos-section');
+  const photosGrid = document.getElementById('vm-photos');
+  if (v.photos && v.photos.length) {
+    photosGrid.innerHTML = v.photos.map(src =>
+      `<img src="${src}" alt="" loading="lazy" onclick="openLB('${src}')" onerror="this.style.display='none'"/>`
+    ).join('');
+    photosSec.style.display = '';
+  } else {
+    photosSec.style.display = 'none';
+  }
+
+  document.getElementById('vol-modal-panel').scrollTop = 0;
+  document.getElementById('vol-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVolModal() {
+  document.getElementById('vol-modal')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('vol-modal-close')?.addEventListener('click', closeVolModal);
+  document.getElementById('vol-modal-bg')?.addEventListener('click', closeVolModal);
 });
 
 /* ─────────────────────────────────────────

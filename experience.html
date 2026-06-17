@@ -99,31 +99,88 @@
       <span class="eyebrow rv">Community &amp; Volunteering</span>
       <div class="vol-grid stg">
 
-        <div class="vol-item rv">
-          <img class="vol-img"
-               src="images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.26.35 AM.jpeg"
-               alt="Design Vichaar"
-               onerror="this.outerHTML='<div class=\'vol-ph\'></div>'"/>
-          <div class="vol-name">Design Vichaar</div>
-          <span class="vol-org">Frelo · Somaiya School of Design · 2024</span>
-          <p class="vol-desc">Attended sessions by Punit Chawla, Dhisti Desai, Shanoo Bhatia, and others — helping coordinate event flow and manage real-time logistics for this design community gathering.</p>
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('designvichar')">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/projects/Voluntering/design vichar/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_27_18 PM.png"
+                     alt="Design Vichaar"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Community · Design Events</span><h3 class="proj-title">Design Vichaar</h3></div>
+                <span class="proj-yr">2024</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.26.35 AM.jpeg"
+                   alt="Design Vichaar"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Community · Design Events</span>
+                <h3 class="card-back-title">Design Vichaar</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-item rv">
-          <img class="vol-img"
-               src="images/projects/permaculture/Photos/01.jpeg"
-               alt="Permaculture Design Course"
-               onerror="this.outerHTML='<div class=\'vol-ph\'></div>'"/>
-          <div class="vol-name">Permaculture Design Course</div>
-          <span class="vol-org">Earthen Routes · Manasvini Tyagi · Alibaug</span>
-          <p class="vol-desc">Explored raised beds, multilayer farming, soil health, and biodiversity — learning how nature-first systems thinking can inform sustainable and circular design practice.</p>
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('permaculture')">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/projects/Voluntering/permaculture/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_34_02 PM.png"
+                     alt="Permaculture Design Course"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Sustainability · Farming</span><h3 class="proj-title">Permaculture Design Course</h3></div>
+                <span class="proj-yr">2024</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/projects/Voluntering/permaculture/Photos/01.jpeg"
+                   alt="Permaculture Design Course"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Sustainability · Farming</span>
+                <h3 class="card-back-title">Permaculture Design Course</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="vol-item rv">
-          <div class="vol-ph"></div>
-          <div class="vol-name">SIIF – Design Workshop Lead</div>
-          <span class="vol-org">Somaiya Innovation &amp; Impact Festival · 2025</span>
-          <p class="vol-desc">Led the Design Workshop team at a 3-day campus festival — from curation and pitching to organising, decorating, and facilitating sessions during the event.</p>
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('siif')">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/projects/Voluntering/SIIF/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_53_02 PM.png"
+                     alt="SIIF Design Workshop Lead"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Festival · Workshop Design</span><h3 class="proj-title">SIIF — Design Workshop Lead</h3></div>
+                <span class="proj-yr">2025</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/projects/Voluntering/SIIF/PHOTOS/432a3990-22d9-4d81-8918-caa517c05e98.jpg"
+                   alt="SIIF Design Workshop Lead"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Festival · Workshop Design</span>
+                <h3 class="card-back-title">SIIF — Design Workshop Lead</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -139,6 +196,39 @@
 
     </div><!-- /story-right -->
   </div><!-- /story-split -->
+
+  <!-- VOLUNTEER MODAL -->
+  <div id="vol-modal">
+    <div id="vol-modal-bg"></div>
+    <div id="vol-modal-panel">
+      <div class="modal-top">
+        <span class="modal-num" id="vm-num">Volunteer</span>
+        <button id="vol-modal-close">&#215;</button>
+      </div>
+      <div id="vm-cover-section"></div>
+      <div class="modal-hdr">
+        <span id="vm-cat"></span>
+        <h2 id="vm-title"></h2>
+        <div class="vm-meta-row">
+          <div><span class="vm-meta-label">Organisation</span><span class="vm-meta-val" id="vm-org"></span></div>
+          <div><span class="vm-meta-label">Role</span><span class="vm-meta-val" id="vm-role"></span></div>
+          <div><span class="vm-meta-label">Duration</span><span class="vm-meta-val" id="vm-duration"></span></div>
+        </div>
+        <p id="vm-desc"></p>
+      </div>
+      <div id="vm-learnings-section"></div>
+      <div id="vm-photos-section" style="display:none">
+        <span class="modal-sec-lbl">Photographs</span>
+        <div id="vm-photos"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lb">
+    <button id="lb-x">&#215;</button>
+    <img id="lb-img" src="" alt=""/>
+  </div>
 
   <footer class="site-footer">
     <span class="site-footer-copy">© 2026 Kanika Kadam</span>
