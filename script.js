@@ -160,7 +160,7 @@ const PROJECTS = {
     },
     insight: 'the most human products are the ones that respond — not just react',
     tags: ['Product Design','Wellbeing','Interaction Design','Sensors','User Research'],
-    cover: 'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.23.56 PM.jpeg',
+    cover: 'images/projects/stress-ball/cover photo/ChatGPT Image Jun 17, 2026, 10_42_46 PM.png',
     photos: [
       'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.23.56 PM.jpeg',
       'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.23.56 PM (1).jpeg',
