@@ -43,7 +43,7 @@ const PROJECTS = {
     },
     insight: 'form follows feeling, not just function — some designs need a little madness',
     tags: ['Product Design','Lighting','Concept Design','Prototyping','Material Exploration'],
-    cover: 'images/projects/Lamp Design/Mad hatter behance ppt/1.png',
+    cover: 'images/projects/Lamp Design/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_40_32 PM.png',
     photos: Array.from({length:10},(_,i)=>`images/projects/Lamp Design/Mad hatter behance ppt/${i+2}.png`)
   },
   compost: {
@@ -59,7 +59,7 @@ const PROJECTS = {
     },
     insight: 'good sustainability design isn\'t about sacrifice — it\'s making the right choice feel like the easy choice',
     tags: ['Product Design','Sustainability','Home','Circular Design','Vermicomposting'],
-    cover: 'images/projects/Wormy compost bin/Photos/WhatsApp Image 2025-03-19 at 5.09.10 PM.jpeg',
+    cover: 'images/projects/Wormy compost bin/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_51_48 PM.png',
     photos: [
       'images/projects/Wormy compost bin/Photos/kanika wormy compost bin illustration-01.jpg',
       'images/projects/Wormy compost bin/Photos/WhatsApp Image 2025-03-19 at 5.09.10 PM.jpeg'
@@ -78,7 +78,7 @@ const PROJECTS = {
     },
     insight: 'furniture is the smallest architecture — it shapes how we inhabit a room',
     tags: ['Furniture Design','Organic Form','Ergonomics','Wood','Spatial Design'],
-    cover: 'images/projects/Furniture design/Curved table with relaxation space/extracted pdf/1.png',
+    cover: 'images/projects/Furniture design/Curved table with relaxation space/cover photo/ChatGPT Image Jun 17, 2026, 06_48_13 PM.png',
     photos: Array.from({length:11},(_,i)=>`images/projects/Furniture design/Curved table with relaxation space/extracted pdf/${i+2}.png`)
   },
   packaging: {
@@ -118,7 +118,7 @@ const PROJECTS = {
     },
     insight: 'scale changes everything — a letter at 6 feet is a completely different design problem',
     tags: ['Spatial Design','Installation','CNC Cutting','Fabrication','Typography','Fusion 360'],
-    cover: 'images/projects/toss/Photos/01.jpeg',
+    cover: 'images/projects/toss/cover photo/ChatGPT Image Jun 17, 2026, 08_08_55 PM.png',
     photos: [
       'images/projects/toss/Photos/01.jpeg',
       'images/projects/toss/Photos/03.jpeg',
@@ -144,7 +144,7 @@ const PROJECTS = {
     },
     insight: 'the best way to explain a machine\'s capabilities is to let the material speak for itself',
     tags: ['Wood','Lathe','Laser Cutting','Dremel','Material Exploration','Display Design'],
-    cover: 'images/projects/woodworking/Photos/01.jpeg',
+    cover: 'images/projects/woodworking/wood working/ChatGPT Image Jun 17, 2026, 08_16_48 PM.png',
     photos: Array.from({length:11},(_,i)=>`images/projects/woodworking/Photos/${String(i+1).padStart(2,'0')}.jpeg`)
   },
   stressball: {
@@ -186,7 +186,7 @@ const PROJECTS = {
     },
     insight: 'every fold mechanism is a decision that touches the user directly — nothing is neutral in furniture',
     tags: ['Furniture Design','Human-Centred Design','Capstone 2025','Prototyping','Wood','Research'],
-    cover: 'images/projects/Furniture design/FOLDABLE STUDY TABLE/Cad model/capstone jury final render  4.png',
+    cover: 'images/projects/Furniture design/FOLDABLE STUDY TABLE/cover photo/ChatGPT Image Jun 17, 2026, 08_41_17 PM.png',
     photos: [
       'images/projects/Furniture design/FOLDABLE STUDY TABLE/Cad model/capstone jury final render white.png',
       'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/WhatsApp Image 2025-12-18 at 1.15.33 AM.jpeg',
@@ -539,9 +539,12 @@ function openProject(id) {
   document.getElementById('m-insight').textContent = `"${p.insight}"`;
   document.getElementById('m-tags').innerHTML = p.tags.map(t=>`<span class="m-tag">${t}</span>`).join('');
 
-  // Cover hidden for now
   const coverSec = document.getElementById('m-cover-section');
-  coverSec.innerHTML = '';
+  if (p.cover) {
+    coverSec.innerHTML = `<img class="modal-cover-img" src="${p.cover}" alt="${p.title}" onerror="this.parentElement.innerHTML='<div class=\'modal-cover-ph\'><span>Cover</span></div>'"/>`;
+  } else {
+    coverSec.innerHTML = '';
+  }
 
   // Case study sections
   const csSec = document.getElementById('m-case-study');
