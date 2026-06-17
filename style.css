@@ -494,21 +494,10 @@ body[data-page="contact"] .scene-speech::after {
    full page scroll — always present, never decorative.
 ═══════════════════════════════════════════════════════ */
 .story-split {
-  display: grid;
-  grid-template-columns: 44% 56%;
-  align-items: start;
+  display: block;
 }
 .story-left {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  background: var(--white);
-  border-right: 1px solid var(--border);
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 2rem;
+  display: none;
 }
 .story-char-wrap {
   position: relative;
@@ -569,20 +558,14 @@ body[data-page="contact"] .scene-speech::after {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 6.5rem 8% 2.5rem;
-  min-height: 55vh;
+  padding: 6.5rem 5% 2.5rem;
+  min-height: 40vh;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 .story-hdr .sec-heading {
   font-size: clamp(3rem, 6vw, 5.5rem);
-}
-
-@media (max-width: 980px) {
-  .story-split { display: block; }
-  .story-left  { display: none;  }
-  .story-hdr   { padding: 6.5rem 5% 2.5rem; min-height: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1112,9 +1095,9 @@ body[data-page="contact"] .scene-speech::after {
   background: var(--dark);
   min-height: 100vh;
   display: flex; flex-direction: column;
-  justify-content: center; padding: 9rem 5% 5rem;
+  align-items: center; justify-content: center;
 }
-.contact-inner { max-width: 640px; }
+.contact-inner { max-width: 760px; width: 100%; }
 .contact-eye {
   font-size: 0.58rem; font-weight: 400;
   letter-spacing: 0.32em; text-transform: uppercase;
