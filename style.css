@@ -737,10 +737,9 @@ body[data-page="contact"] .scene-speech::after {
    EDITORIAL INTRO BAND  — full-viewport quote moment
 ═══════════════════════════════════════════════════════ */
 .editorial-band {
-  min-height: 100vh;
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 6rem 10%;
+  padding: 8rem 10% 9rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -782,7 +781,7 @@ body[data-page="contact"] .scene-speech::after {
 ═══════════════════════════════════════════════════════ */
 #featured {
   background: var(--white);
-  padding: 6rem 0 0;
+  padding: 4rem 0 0;
   overflow: hidden;
 }
 .feat-intro { padding-bottom: 2.5rem; }
@@ -1378,7 +1377,7 @@ body[data-page="contact"] .scene-speech::after {
   .nav-cta { display: none; }
   .hero-content { max-width: 100%; }
   .hero-name { font-size: clamp(3.8rem, 17vw, 6rem); }
-  .editorial-band { min-height: 80vh; padding: 4rem 8%; }
+  .editorial-band { padding: 5rem 8% 6rem; }
   .feat-full-card { width: 68vw; }
   .feat-track-outer { padding: 0.5rem 6% 3rem; }
   .project-grid { grid-template-columns: 1fr; }
