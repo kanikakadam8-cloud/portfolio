@@ -640,3 +640,40 @@ window.addEventListener('load', () => {
   }
 });
 
+/* ─────────────────────────────────────────
+   CUSTOM CURSOR  — dot + lagging ring
+───────────────────────────────────────── */
+(function initCursor() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  const dot  = Object.assign(document.createElement('div'), { className: 'cursor-dot' });
+  const ring = Object.assign(document.createElement('div'), { className: 'cursor-ring' });
+  document.body.append(dot, ring);
+
+  let mx = -200, my = -200, rx = -200, ry = -200;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px)`;
+  });
+
+  (function lerp() {
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    ring.style.transform = `translate(${rx}px,${ry}px)`;
+    requestAnimationFrame(lerp);
+  })();
+
+  // Interactive state via delegation
+  document.addEventListener('mouseover', e => {
+    const hit = e.target.closest('a,button,[onclick],.project-card,.feat-card,.cl,.nav-cta,.sticky');
+    document.body.classList.toggle('cur-link', !!hit);
+  });
+
+  document.addEventListener('mousedown', () => document.body.classList.add('cur-click'));
+  document.addEventListener('mouseup',   () => document.body.classList.remove('cur-click'));
+
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '';  ring.style.opacity = '';  });
+})();
+
