@@ -364,7 +364,7 @@ const VOLUNTEERS = {
 
     if (phase !== lastPhase) {
       lastPhase = phase;
-      const poses = ['front', 'front', 'side', 'back3q'];
+      const poses = ['front', 'front', 'front', 'front'];
       switchPose(poses[phase]);
       showSpeech(SPEECH[phase]);
     }
