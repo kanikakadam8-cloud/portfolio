@@ -128,13 +128,10 @@ const PROJECTS = {
     tags: ['Packaging Design','Sustainability','Identity','Grain','Indigenous Culture'],
     cover: 'images/projects/Grain milet Packaging/cover photo/ChatGPT Image Jun 17, 2026, 11_00_39 PM.png',
     photos: [
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-05-23 at 11.26.39 PM.jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.12 PM.jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.13 PM.jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.13 PM (1).jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.13 PM (2).jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.14 PM.jpeg',
-      'images/projects/Grain milet Packaging/Photos/WhatsApp Image 2025-06-25 at 2.13.14 PM (1).jpeg'
+      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_03_24 PM.png',
+      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_09_46 PM.png',
+      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_11_16 PM.png',
+      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_12_54 PM.png'
     ]
   },
   toss: {
