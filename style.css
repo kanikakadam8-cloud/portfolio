@@ -1702,13 +1702,13 @@ body[data-page="contact"] .scene-speech::after {
   transition: opacity 0.2s, background 0.18s, width 0.2s, height 0.2s, margin 0.2s;
 }
 .cursor-ring {
-  width: 40px; height: 24px;
+  width: 38px; height: 38px;
   border: 1.5px solid var(--clockwork);
-  border-radius: 50px;
-  margin: -12px 0 0 -20px; opacity: 0.4;
-  transition: width 0.28s cubic-bezier(.23,1,.32,1),
-              height 0.28s cubic-bezier(.23,1,.32,1),
-              margin 0.28s cubic-bezier(.23,1,.32,1),
+  border-radius: 50%;
+  margin: -19px 0 0 -19px; opacity: 0.38;
+  transition: width 0.26s cubic-bezier(.23,1,.32,1),
+              height 0.26s cubic-bezier(.23,1,.32,1),
+              margin 0.26s cubic-bezier(.23,1,.32,1),
               opacity 0.22s, border-color 0.22s;
 }
 body.cur-link .cursor-dot {
@@ -1716,7 +1716,7 @@ body.cur-link .cursor-dot {
   width: 12px; height: 12px; margin: -6px 0 0 -6px;
 }
 body.cur-link .cursor-ring {
-  width: 56px; height: 32px; margin: -16px 0 0 -28px;
+  width: 52px; height: 52px; margin: -26px 0 0 -26px;
   border-color: var(--mauve); opacity: 0.52;
 }
 body.cur-click .cursor-dot {
