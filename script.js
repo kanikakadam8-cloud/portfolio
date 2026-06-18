@@ -729,12 +729,49 @@ const VOLUNTEERS = {
 })();
 
 /* ─────────────────────────────────────────
+   BURST PARTICLES  (fire from card on click)
+───────────────────────────────────────── */
+function spawnBurst(cardEl) {
+  const rect = cardEl.getBoundingClientRect();
+  const cx = rect.left + rect.width  * 0.5;
+  const cy = rect.top  + rect.height * 0.42; // aim toward image area
+  const glyphs = ['✦', '◆', '○', '×', '—', '✧', '·', '◇'];
+  const count  = 10;
+  for (let i = 0; i < count; i++) {
+    const el  = document.createElement('span');
+    el.className = 'modal-burst';
+    el.textContent = glyphs[i % glyphs.length];
+    const angle = (i / count) * 360 + Math.random() * 18;
+    const dist  = 55 + Math.random() * 70;
+    const dx    = Math.cos(angle * Math.PI / 180) * dist;
+    const dy    = Math.sin(angle * Math.PI / 180) * dist;
+    const size  = (0.55 + Math.random() * 0.65).toFixed(2);
+    el.style.cssText = `left:${cx}px;top:${cy}px;font-size:${size}rem;transform:translate(-50%,-50%)`;
+    document.body.appendChild(el);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      el.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`;
+      el.style.opacity   = '0';
+    }));
+    setTimeout(() => el.remove(), 850);
+  }
+}
+
+/* ─────────────────────────────────────────
    MODAL
 ───────────────────────────────────────── */
-function openProject(id) {
+let _activeModalCard = null;
+
+function openProject(id, cardEl) {
   const p = PROJECTS[id];
   const modal = document.getElementById('modal');
   if (!p || !modal) return;
+
+  // Flip card and burst
+  if (cardEl) {
+    _activeModalCard = cardEl;
+    spawnBurst(cardEl);
+    cardEl.classList.add('launching');
+  }
 
   document.getElementById('m-num').textContent     = p.num;
   document.getElementById('m-cat').textContent     = p.cat;
@@ -743,32 +780,35 @@ function openProject(id) {
   document.getElementById('m-insight').textContent = `"${p.insight}"`;
   document.getElementById('m-tags').innerHTML = p.tags.map(t=>`<span class="m-tag">${t}</span>`).join('');
 
+  // Cover in left column
   const coverSec = document.getElementById('m-cover-section');
   if (p.cover) {
     coverSec.innerHTML = `<img class="modal-cover-img" src="${p.cover}" alt="${p.title}" onerror="this.parentElement.innerHTML='<div class=\'modal-cover-ph\'><span>Cover</span></div>'"/>`;
   } else {
-    coverSec.innerHTML = '';
+    coverSec.innerHTML = '<div class="modal-cover-ph"><span>No Image</span></div>';
   }
+  const coverCat   = document.getElementById('m-cover-cat');
+  const coverTitle = document.getElementById('m-cover-title');
+  if (coverCat)   coverCat.textContent   = p.cat;
+  if (coverTitle) coverTitle.textContent = p.title;
 
-  // Case study sections
+  // Case study
   const csSec = document.getElementById('m-case-study');
   if (p.casestudy) {
     const items = [
-      { label: 'Problem Statement', key: 'problem' },
-      { label: 'Research',          key: 'research' },
-      { label: 'Design Process',    key: 'process'  },
-      { label: 'Final Outcome',     key: 'outcome'  },
-      { label: 'Reflection',        key: 'reflection'}
+      { label: 'Problem Statement', key: 'problem'    },
+      { label: 'Research',          key: 'research'   },
+      { label: 'Design Process',    key: 'process'    },
+      { label: 'Final Outcome',     key: 'outcome'    },
+      { label: 'Reflection',        key: 'reflection' }
     ];
     csSec.innerHTML = items
       .filter(item => p.casestudy[item.key])
       .map(item => `<div class="cs-row"><span class="cs-label">${item.label}</span><p class="cs-body">${p.casestudy[item.key]}</p></div>`)
       .join('');
-  } else {
-    csSec.innerHTML = '';
-  }
+  } else { csSec.innerHTML = ''; }
 
-  // Photos — actual project photographs
+  // Photos
   const phSec = document.getElementById('m-photos-section');
   if (p.photos?.length) {
     document.getElementById('m-photos').innerHTML = p.photos.map(s=>
@@ -782,7 +822,10 @@ function openProject(id) {
   if (p.video) { document.getElementById('m-video').src = p.video; vSec.style.display = ''; }
   else { vSec.style.display = 'none'; }
 
-  document.getElementById('modal-panel').scrollTop = 0;
+  // Reset scroll on right content column
+  const col = document.getElementById('modal-content-col');
+  if (col) col.scrollTop = 0;
+
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -792,18 +835,18 @@ function closeModal() {
   if (!modal) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
+  // Un-flip the card that launched the modal
+  if (_activeModalCard) {
+    _activeModalCard.classList.remove('launching');
+    _activeModalCard = null;
+  }
   const v = document.getElementById('m-video');
   if (v) { v.pause(); v.currentTime = 0; }
 }
 
-document.getElementById?.('modal-close')?.addEventListener('click', closeModal);
-document.getElementById?.('modal-bg')?.addEventListener('click', closeModal);
-
 document.addEventListener('DOMContentLoaded', () => {
-  const closeBtn = document.getElementById('modal-close');
-  const bg = document.getElementById('modal-bg');
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (bg) bg.addEventListener('click', closeModal);
+  document.getElementById('modal-close')?.addEventListener('click', closeModal);
+  document.getElementById('modal-bg')?.addEventListener('click', closeModal);
 });
 
 /* ─────────────────────────────────────────
@@ -838,9 +881,18 @@ document.addEventListener('keydown', e => {
 /* ─────────────────────────────────────────
    VOLUNTEER MODAL
 ───────────────────────────────────────── */
-function openVolunteer(id) {
+let _activeVolCard = null;
+
+function openVolunteer(id, cardEl) {
   const v = VOLUNTEERS[id];
-  if (!v) return;
+  const volModal = document.getElementById('vol-modal');
+  if (!v || !volModal) return;
+
+  if (cardEl) {
+    _activeVolCard = cardEl;
+    spawnBurst(cardEl);
+    cardEl.classList.add('launching');
+  }
 
   document.getElementById('vm-num').textContent      = v.num;
   document.getElementById('vm-cat').textContent      = v.cat;
@@ -850,10 +902,15 @@ function openVolunteer(id) {
   document.getElementById('vm-duration').textContent = v.duration;
   document.getElementById('vm-desc').textContent     = v.desc;
 
+  // Cover in left column
   const coverSec = document.getElementById('vm-cover-section');
   coverSec.innerHTML = v.cover
-    ? `<img class="modal-cover-img" src="${v.cover}" alt="${v.title}" onerror="this.parentElement.innerHTML=''"/>`
-    : '';
+    ? `<img class="modal-cover-img" src="${v.cover}" alt="${v.title}" onerror="this.parentElement.innerHTML='<div class=\'modal-cover-ph\'><span>No Image</span></div>'"/>`
+    : '<div class="modal-cover-ph"><span>Volunteer</span></div>';
+  const vmCoverCat   = document.getElementById('vm-cover-cat');
+  const vmCoverTitle = document.getElementById('vm-cover-title');
+  if (vmCoverCat)   vmCoverCat.textContent   = v.cat;
+  if (vmCoverTitle) vmCoverTitle.textContent = v.title;
 
   document.getElementById('vm-learnings-section').innerHTML = `
     <div class="cs-row"><span class="cs-label">Learnings</span><p class="cs-body">${v.learnings}</p></div>
@@ -871,19 +928,24 @@ function openVolunteer(id) {
     photosSec.style.display = 'none';
   }
 
-  document.getElementById('vol-modal-panel').scrollTop = 0;
-  document.getElementById('vol-modal').classList.add('open');
+  const col = document.getElementById('vol-modal-content-col');
+  if (col) col.scrollTop = 0;
+
+  volModal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeVolModal() {
   document.getElementById('vol-modal')?.classList.remove('open');
   document.body.style.overflow = '';
+  if (_activeVolCard) {
+    _activeVolCard.classList.remove('launching');
+    _activeVolCard = null;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('vol-modal-close')?.addEventListener('click', closeVolModal);
-  document.getElementById('vol-modal-bg')?.addEventListener('click', closeVolModal);
 });
 
 /* ─────────────────────────────────────────
