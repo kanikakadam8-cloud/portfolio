@@ -1689,42 +1689,40 @@ body[data-page="contact"] .scene-speech::after {
 @media (hover: hover) {
   * { cursor: none !important; }
 }
-/* Diamond cursor — square rotated 45° via JS transform */
+/* Cursor — filled dot + hollow pill ring */
 .cursor-dot, .cursor-ring {
   position: fixed; top: 0; left: 0; z-index: 9999;
   pointer-events: none; will-change: transform;
 }
 .cursor-dot {
-  width: 9px; height: 9px;
+  width: 8px; height: 8px;
   background: var(--clockwork);
-  margin: -4.5px 0 0 -4.5px;
-  border-radius: 1px;
-  transition: opacity 0.2s, background 0.18s, width 0.18s, height 0.18s, margin 0.18s;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  transition: opacity 0.2s, background 0.18s, width 0.2s, height 0.2s, margin 0.2s;
 }
 .cursor-ring {
-  width: 36px; height: 36px;
+  width: 40px; height: 24px;
   border: 1.5px solid var(--clockwork);
-  border-radius: 2px;
-  margin: -18px 0 0 -18px; opacity: 0.38;
-  transition: width 0.24s cubic-bezier(.23,1,.32,1),
-              height 0.24s cubic-bezier(.23,1,.32,1),
-              margin 0.24s cubic-bezier(.23,1,.32,1),
+  border-radius: 50px;
+  margin: -12px 0 0 -20px; opacity: 0.4;
+  transition: width 0.28s cubic-bezier(.23,1,.32,1),
+              height 0.28s cubic-bezier(.23,1,.32,1),
+              margin 0.28s cubic-bezier(.23,1,.32,1),
               opacity 0.22s, border-color 0.22s;
 }
-/* Hover over interactive elements */
 body.cur-link .cursor-dot {
   background: var(--mauve);
-  width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px;
+  width: 12px; height: 12px; margin: -6px 0 0 -6px;
 }
 body.cur-link .cursor-ring {
-  width: 52px; height: 52px; margin: -26px 0 0 -26px;
-  border-color: var(--mauve); opacity: 0.5;
+  width: 56px; height: 32px; margin: -16px 0 0 -28px;
+  border-color: var(--mauve); opacity: 0.52;
 }
-/* Click burst */
 body.cur-click .cursor-dot {
-  width: 22px; height: 22px; margin: -11px 0 0 -11px; opacity: 0.18;
+  width: 18px; height: 18px; margin: -9px 0 0 -9px; opacity: 0.15;
 }
-body.cur-click .cursor-ring { opacity: 0.1; }
+body.cur-click .cursor-ring { opacity: 0.08; }
 @media (hover: none) { .cursor-dot, .cursor-ring { display: none !important; } }
 
 /* ═══════════════════════════════════════════════════════

@@ -969,13 +969,13 @@ window.addEventListener('load', () => {
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx}px,${my}px) rotate(45deg)`;
+    dot.style.transform = `translate(${mx}px,${my}px)`;
   });
 
   (function lerp() {
     rx += (mx - rx) * 0.13;
     ry += (my - ry) * 0.13;
-    ring.style.transform = `translate(${rx}px,${ry}px) rotate(45deg)`;
+    ring.style.transform = `translate(${rx}px,${ry}px)`;
     requestAnimationFrame(lerp);
   })();
 
