@@ -114,18 +114,18 @@ const PROJECTS = {
     photos: Array.from({length:11},(_,i)=>`images/projects/Furniture design/Curved table with relaxation space/extracted pdf/${i+2}.png`)
   },
   packaging: {
-    num: '04 / 08', cat: 'Packaging Design · Identity', year: '2025',
+    num: '04 / 08', cat: 'Packaging Design · Structural', year: '2025',
     title: 'Millet Packaging for a Healthier Tomorrow',
-    desc: 'A packaging system for grain millet that communicates health, tradition, and sustainability — reconnecting modern consumers with indigenous grain culture through thoughtful visual storytelling.',
+    desc: 'A resealable, stackable packaging system for millets — designed to solve the everyday frustration of plastic grain packets that can\'t be closed once opened, while letting customers mix their own grain combinations in a single pack.',
     casestudy: {
-      problem: 'Millet is nutritionally superior to most common grains, widely grown across India, and deeply rooted in regional food culture — yet supermarket shelves treat it as a niche health product with generic, forgettable packaging.',
-      research: 'Researched millet\'s agricultural history across Deccan and Sahyadri farming communities. Surveyed health food consumers in Mumbai on packaging preferences and audited existing grain packaging for visual language and material choices.',
-      process: 'Explored earthy colour palettes drawn from the grain\'s own tones — terracotta, warm ochre, field green. Developed botanical hand-drawn motifs referencing the millet plant\'s distinctive feathery head. Typography balanced Devanagari and Latin scripts to honour dual linguistic identity.',
-      outcome: 'A packaging system in kraft board and deep terracotta that positions millet as aspirational health food without losing its agricultural honesty. Each variety has a distinct botanical illustration within a unified structural and colour system.',
-      reflection: 'Packaging design is a form of cultural translation. This project asked me to hold two registers at once — the contemporary health consumer and the grain\'s centuries of Indian agricultural heritage — and find the visual language that could speak to both.'
+      problem: 'In India, millets are sold in plastic packets that tear open and cannot be resealed. Once open, you need extra clips or attachments just to keep the packet closed — an everyday frustration that discourages buying in quantity and adds clutter to the kitchen.',
+      research: 'Observed how people actually store grains at home — folded packets, rubber bands, repurposed containers. Identified two key needs: a reliable reseal mechanism and a way to reduce the number of separate packets a household manages at once.',
+      process: 'Designed a structure that opens cleanly and closes with a press-fit lid, so the packet functions like a container. The form was developed to stack and arrange neatly on a shelf. Internal partitions were added to allow two or more grain varieties to coexist in one single unit — reducing packaging material and giving the user flexibility.',
+      outcome: 'A single millet pack that opens, uses, and closes — no clips needed. It stacks on shelf like modular units. The partition system means customers at a grocery store can select their own grain combination and have it packed together, or buy a pre-mixed variety pack.',
+      reflection: 'This project taught me that good packaging solves a behaviour problem, not just an aesthetic one. The real brief was the rubber band on the kitchen counter.'
     },
-    insight: 'packaging is a promise — the first conversation a product has with the person who picks it up',
-    tags: ['Packaging Design','Sustainability','Identity','Grain','Indigenous Culture'],
+    insight: 'the best packaging is the one you never have to think about twice',
+    tags: ['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'],
     cover: 'images/projects/Grain milet Packaging/cover photo/ChatGPT Image Jun 17, 2026, 11_00_39 PM.png',
     photos: [
       'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_03_24 PM.png',
