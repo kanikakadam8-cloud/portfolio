@@ -379,24 +379,6 @@ const VOLUNTEERS = {
     const cinematic = document.getElementById('home-cinematic');
     if (!cinematic) return;
 
-    const isMobile = window.innerWidth <= 620;
-
-    if (isMobile) {
-      /* Mobile: no zoom. Fade mascot out as hero scrolls away. */
-      scale = 1.0;
-      if (charPanel) {
-        const hero = document.getElementById('hero');
-        const heroH = hero ? hero.offsetHeight : window.innerHeight;
-        if (window.scrollY > heroH * 0.55) {
-          const fadeP = Math.min((window.scrollY - heroH * 0.55) / (heroH * 0.45), 1);
-          charPanel.style.opacity = String(1 - fadeP);
-        } else {
-          charPanel.style.opacity = '1';
-        }
-      }
-      return;
-    }
-
     const totalScroll = cinematic.offsetHeight - window.innerHeight;
     const progress    = totalScroll > 0
       ? Math.min(Math.max(window.scrollY / totalScroll, 0), 1)
