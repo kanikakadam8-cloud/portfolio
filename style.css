@@ -916,22 +916,25 @@ body[data-page="contact"] .scene-speech::after {
   white-space: nowrap;
 }
 
-/* Home about band */
-#home-about { background: var(--bg); }
+/* Home about band — Cedar background */
+#home-about { background: var(--cedar); }
 .home-about-grid {
   display: grid; grid-template-columns: 1fr 2fr;
   gap: 4rem; align-items: center;
-  padding: 3rem 0; border-top: 1px solid var(--border);
+  padding: 3rem 0; border-top: 1px solid rgba(255,249,243,0.15);
   position: relative; z-index: 1;
 }
+#home-about .chapter-label { color: rgba(255,249,243,0.55); }
+#home-about .chapter-bg-num { color: rgba(255,249,243,0.06); }
 .home-about-stat {
   font-family: var(--serif); font-weight: 300;
   font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.12; color: var(--ink);
+  line-height: 1.12; color: rgba(255,249,243,0.96);
 }
+.home-about-stat em { color: rgba(255,249,243,0.55); }
 .home-about-body {
   font-size: 0.86rem; font-weight: 300;
-  line-height: 1.95; color: var(--mid); margin-bottom: 1.6rem;
+  line-height: 1.95; color: rgba(255,249,243,0.7); margin-bottom: 1.6rem;
 }
 
 /* Mauve accent band between featured and about */
@@ -1286,9 +1289,19 @@ body[data-page="contact"] .scene-speech::after {
 .d-val { font-size: 0.8rem; font-weight: 300; color: var(--ink); line-height: 1.55; }
 
 /* ═══════════════════════════════════════════════════════
-   SKILLS  (about.html)  — Cedar column borders
+   SKILLS  (about.html)  — Cedar background
 ═══════════════════════════════════════════════════════ */
-#skills { background: var(--white); }
+#skills { background: var(--cedar); }
+#skills .chapter-label,
+#skills .eyebrow { color: rgba(255,249,243,0.55); }
+#skills .chapter-bg-num { color: rgba(255,249,243,0.06); }
+#skills .sec-heading,
+#skills .sk-col-title { color: rgba(255,249,243,0.96); }
+#skills .sk-list li { color: rgba(255,249,243,0.75); }
+#skills .sk-col { border-right-color: rgba(255,249,243,0.14); }
+#skills .skills-cols { border-top-color: rgba(255,249,243,0.14); }
+#skills .sk-col-title { border-bottom-color: rgba(255,249,243,0.14); }
+#skills .sk-list li::before { color: rgba(255,249,243,0.45); }
 .skills-cols {
   display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--border);
@@ -1719,35 +1732,35 @@ body.cur-click .cursor-dot { transform: scale(3); opacity: 0.2; }
 .card-back {
   position: absolute; inset: 0;
   transform: rotateY(180deg);
-  background: var(--dark);
+  background: var(--mauve);          /* Mauve — #755151 */
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 1.6rem; overflow: hidden;
 }
 .card-back-cat {
   font-size: 0.5rem; font-weight: 500; letter-spacing: 0.26em;
-  text-transform: uppercase; color: rgba(255,249,243,0.32);
+  text-transform: uppercase; color: rgba(255,249,243,0.55);
   margin-bottom: 0.5rem; display: block;
 }
 .card-back-title {
   font-family: var(--serif); font-weight: 300;
   font-size: clamp(1.1rem, 1.8vw, 1.55rem);
-  line-height: 1.18; color: rgba(255,249,243,0.92); margin-bottom: 0.65rem;
+  line-height: 1.18; color: rgba(255,249,243,0.96); margin-bottom: 0.65rem;
 }
 .card-back-desc {
   font-size: 0.73rem; font-weight: 300; line-height: 1.7;
-  color: rgba(255,249,243,0.45); margin-bottom: 0.8rem;
+  color: rgba(255,249,243,0.62); margin-bottom: 0.8rem;
   display: -webkit-box; -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; overflow: hidden; flex: 1;
 }
 .card-back-yr {
   font-size: 0.54rem; letter-spacing: 0.18em;
-  color: rgba(255,249,243,0.2); margin-bottom: 0.75rem; display: block;
+  color: rgba(255,249,243,0.35); margin-bottom: 0.75rem; display: block;
 }
 .card-back-cta {
   font-size: 0.57rem; font-weight: 500; letter-spacing: 0.2em;
-  text-transform: uppercase; color: rgba(255,249,243,0.65);
+  text-transform: uppercase; color: rgba(255,249,243,0.9);
   display: inline-flex; align-items: center; gap: 0.5rem;
-  border-bottom: 1px solid rgba(255,249,243,0.22);
+  border-bottom: 1px solid rgba(255,249,243,0.45);
   padding-bottom: 0.12rem; align-self: flex-start;
   transition: gap 0.2s, color 0.2s;
 }
