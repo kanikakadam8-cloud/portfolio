@@ -754,6 +754,152 @@ function spawnBurst(cardEl) {
 }
 
 /* ─────────────────────────────────────────
+   PRESENTATION BUILDER  (work.html)
+   Constructs scrollable case-study scenes
+───────────────────────────────────────── */
+function buildPresentation(p) {
+  const photos = p.photos || [];
+  const cs = p.casestudy || {};
+  let h = '';
+
+  // HERO — cover fills full viewport, title overlaid at bottom
+  h += `<div class="pres-hero">
+    <img class="pres-hero-bg" src="${p.cover}" alt="${p.title}"/>
+    <div class="pres-hero-body">
+      <span class="pres-hero-eyebrow">${p.num}&nbsp;&nbsp;·&nbsp;&nbsp;${p.cat}&nbsp;&nbsp;·&nbsp;&nbsp;${p.year}</span>
+      <h2 class="pres-hero-title">${p.title}</h2>
+      <span class="pres-scroll-hint">Scroll to explore</span>
+    </div>
+  </div>`;
+
+  // INTRO — description + brief
+  h += `<div class="pres-text">
+    <span class="pres-label">The Project</span>
+    <p class="pres-intro-desc">${p.desc}</p>
+    ${cs.problem ? `<div class="pres-divider"></div>
+    <span class="pres-label">The Brief</span>
+    <p class="pres-body">${cs.problem}</p>` : ''}
+  </div>`;
+
+  // FIRST FULL-BLEED PHOTO
+  if (photos.length > 0) {
+    h += `<div class="pres-fullbleed"><img src="${photos[0]}" alt="" loading="lazy"/></div>`;
+  }
+
+  // RESEARCH
+  if (cs.research) {
+    h += `<div class="pres-text">
+      <span class="pres-label">Research</span>
+      <p class="pres-body">${cs.research}</p>
+    </div>`;
+  }
+
+  // SECOND FULL-BLEED PHOTO (if enough photos)
+  if (photos.length > 2) {
+    h += `<div class="pres-fullbleed"><img src="${photos[1]}" alt="" loading="lazy"/></div>`;
+  }
+
+  // PROCESS
+  if (cs.process) {
+    h += `<div class="pres-text">
+      <span class="pres-label">Design Process</span>
+      <p class="pres-body">${cs.process}</p>
+    </div>`;
+  }
+
+  // GALLERY — remaining photos
+  const gallStart = photos.length > 2 ? 2 : (photos.length > 0 ? 1 : 0);
+  const gallPhotos = photos.slice(gallStart);
+  if (gallPhotos.length >= 4) {
+    h += `<div class="pres-gallery-strip">
+      ${gallPhotos.map(s => `<div class="pres-gallery-strip-item" onclick="openLB('${s.replace(/'/g,"\\'")}')">
+        <img src="${s}" alt="" loading="lazy"/>
+      </div>`).join('')}
+    </div>`;
+  } else if (gallPhotos.length > 0) {
+    h += `<div class="pres-gallery-grid">
+      ${gallPhotos.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+    </div>`;
+  }
+
+  // VIDEO (if any)
+  if (p.video) {
+    h += `<div class="pres-text pres-video-scene">
+      <span class="pres-label">Demo</span>
+      <video class="pres-video" src="${p.video}" controls playsinline></video>
+    </div>`;
+  }
+
+  // OUTCOME — latte background
+  if (cs.outcome) {
+    h += `<div class="pres-text pres-outcome">
+      <span class="pres-label">Final Outcome</span>
+      <p class="pres-body">${cs.outcome}</p>
+    </div>`;
+  }
+
+  // QUOTE — cedar background
+  h += `<div class="pres-quote">
+    <blockquote>&ldquo;${p.insight}&rdquo;</blockquote>
+  </div>`;
+
+  // REFLECTION + TAGS
+  h += `<div class="pres-end">
+    ${cs.reflection ? `<span class="pres-label">Reflection</span>
+    <p class="pres-body" style="margin-bottom:0">${cs.reflection}</p>` : ''}
+    <div class="pres-tags-row">
+      ${p.tags.map(t => `<span class="m-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+function initPresReveal(pres) {
+  const els = pres.querySelectorAll(
+    '.pres-text, .pres-fullbleed, .pres-gallery-strip, .pres-gallery-grid, .pres-quote, .pres-end'
+  );
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('pv'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.04, root: pres });
+  els.forEach(el => obs.observe(el));
+}
+
+function initStripDrag(strip) {
+  let isDown = false, startX = 0, scrollLeft = 0, didDrag = false;
+  strip.addEventListener('mousedown', e => {
+    isDown = true; didDrag = false;
+    startX = e.pageX - strip.offsetLeft;
+    scrollLeft = strip.scrollLeft;
+  });
+  const end = () => { isDown = false; };
+  strip.addEventListener('mouseleave', end);
+  strip.addEventListener('mouseup', end);
+  strip.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const dx = e.pageX - strip.offsetLeft - startX;
+    if (Math.abs(dx) > 8) didDrag = true;
+    strip.scrollLeft = scrollLeft - dx * 1.5;
+  });
+  // Block click-to-lightbox if user just dragged
+  strip.addEventListener('click', e => {
+    if (didDrag) { e.stopImmediatePropagation(); didDrag = false; }
+  }, true);
+  // Touch
+  let touchStartX = 0, touchScrollLeft = 0;
+  strip.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchScrollLeft = strip.scrollLeft;
+  }, { passive: true });
+  strip.addEventListener('touchmove', e => {
+    strip.scrollLeft = touchScrollLeft + (touchStartX - e.touches[0].clientX);
+  }, { passive: true });
+}
+
+/* ─────────────────────────────────────────
    MODAL
 ───────────────────────────────────────── */
 let _activeModalCard = null;
@@ -763,65 +909,24 @@ function openProject(id, cardEl) {
   const modal = document.getElementById('modal');
   if (!p || !modal) return;
 
-  // Flip card and burst
   if (cardEl) {
     _activeModalCard = cardEl;
     spawnBurst(cardEl);
     cardEl.classList.add('launching');
   }
 
-  document.getElementById('m-num').textContent     = p.num;
-  document.getElementById('m-cat').textContent     = p.cat;
-  document.getElementById('m-title').textContent   = p.title;
-  document.getElementById('m-desc').textContent    = p.desc;
-  document.getElementById('m-insight').textContent = `"${p.insight}"`;
-  document.getElementById('m-tags').innerHTML = p.tags.map(t=>`<span class="m-tag">${t}</span>`).join('');
+  document.getElementById('m-num').textContent = p.num;
 
-  // Cover in left column
-  const coverSec = document.getElementById('m-cover-section');
-  if (p.cover) {
-    coverSec.innerHTML = `<img class="modal-cover-img" src="${p.cover}" alt="${p.title}" onerror="this.parentElement.innerHTML='<div class=\'modal-cover-ph\'><span>Cover</span></div>'"/>`;
-  } else {
-    coverSec.innerHTML = '<div class="modal-cover-ph"><span>No Image</span></div>';
+  const pres = document.getElementById('modal-pres');
+  if (pres) {
+    pres.innerHTML = buildPresentation(p);
+    pres.scrollTop = 0;
+    requestAnimationFrame(() => {
+      initPresReveal(pres);
+      const strip = pres.querySelector('.pres-gallery-strip');
+      if (strip) initStripDrag(strip);
+    });
   }
-  const coverCat   = document.getElementById('m-cover-cat');
-  const coverTitle = document.getElementById('m-cover-title');
-  if (coverCat)   coverCat.textContent   = p.cat;
-  if (coverTitle) coverTitle.textContent = p.title;
-
-  // Case study
-  const csSec = document.getElementById('m-case-study');
-  if (p.casestudy) {
-    const items = [
-      { label: 'Problem Statement', key: 'problem'    },
-      { label: 'Research',          key: 'research'   },
-      { label: 'Design Process',    key: 'process'    },
-      { label: 'Final Outcome',     key: 'outcome'    },
-      { label: 'Reflection',        key: 'reflection' }
-    ];
-    csSec.innerHTML = items
-      .filter(item => p.casestudy[item.key])
-      .map(item => `<div class="cs-row"><span class="cs-label">${item.label}</span><p class="cs-body">${p.casestudy[item.key]}</p></div>`)
-      .join('');
-  } else { csSec.innerHTML = ''; }
-
-  // Photos
-  const phSec = document.getElementById('m-photos-section');
-  if (p.photos?.length) {
-    document.getElementById('m-photos').innerHTML = p.photos.map(s=>
-      `<img src="${s}" loading="lazy" alt="" onclick="openLB('${s.replace(/'/g,"\\'")}')" />`
-    ).join('');
-    phSec.style.display = '';
-  } else { phSec.style.display = 'none'; }
-
-  // Video
-  const vSec = document.getElementById('m-video-section');
-  if (p.video) { document.getElementById('m-video').src = p.video; vSec.style.display = ''; }
-  else { vSec.style.display = 'none'; }
-
-  // Reset scroll on right content column
-  const col = document.getElementById('modal-content-col');
-  if (col) col.scrollTop = 0;
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -832,12 +937,11 @@ function closeModal() {
   if (!modal) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  // Un-flip the card that launched the modal
   if (_activeModalCard) {
     _activeModalCard.classList.remove('launching');
     _activeModalCard = null;
   }
-  const v = document.getElementById('m-video');
+  const v = document.querySelector('#modal-pres .pres-video');
   if (v) { v.pause(); v.currentTime = 0; }
 }
 
