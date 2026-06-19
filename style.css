@@ -1666,6 +1666,7 @@ body[data-page="contact"] .scene-speech::after {
 .vol-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem 2.5rem;
 }
+.vol-card .proj-img { aspect-ratio: 16/9; max-height: 300px; }
 .vol-img {
   width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
   margin-bottom: 1.1rem; background: var(--border); transition: opacity 0.3s;
