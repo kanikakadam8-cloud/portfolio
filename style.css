@@ -1008,6 +1008,37 @@ body[data-page="contact"] .scene-speech::after {
 }
 
 /* ═══════════════════════════════════════════════════════
+   INLINE CASE STUDY  (work.html — expands below grid)
+═══════════════════════════════════════════════════════ */
+#project-cs {
+  display: none;
+  width: 100%;
+  background: var(--bg);
+  border-top: 1.5px solid var(--ink);
+}
+#project-cs.open { display: block; }
+.cs-topbar {
+  position: sticky; top: 0; z-index: 50;
+  padding: 0.9rem 4%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cs-topbar-num {
+  font: 400 0.52rem/1 var(--sans);
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid);
+}
+#cs-close {
+  font: 500 0.52rem/1 var(--sans);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  background: var(--ink); color: var(--bg);
+  border: none; padding: 0.55rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.22s;
+}
+#cs-close:hover { background: var(--mauve); }
+
+/* ═══════════════════════════════════════════════════════
    MODAL  (Full-screen takeover — slides up from bottom)
 ═══════════════════════════════════════════════════════ */
 #modal {
@@ -1398,14 +1429,14 @@ body[data-page="contact"] .scene-speech::after {
 
 /* ── INTRO SPLIT (replaces hero) ── */
 .pres-intro {
-  display: grid; grid-template-columns: 42% 58%;
-  min-height: 85vh; background: var(--bg);
+  display: grid; grid-template-columns: 34% 66%;
+  min-height: 80vh; background: var(--bg);
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.8s ease 0.1s, transform 0.8s cubic-bezier(.23,1,.32,1) 0.1s;
 }
 .pres-intro.pv { opacity: 1; transform: translateY(0); }
 .pres-intro-text {
-  padding: clamp(4.5rem,8vh,7rem) clamp(2rem,7%,5.5rem);
+  padding: clamp(4rem,7vh,6rem) clamp(1.8rem,6%,4.5rem);
   display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid var(--border);
 }
@@ -1448,7 +1479,7 @@ body[data-page="contact"] .scene-speech::after {
 
 /* ── TEXT + PHOTO SIDE SECTION ── */
 .pres-textside {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 34% 66%;
   background: var(--bg); border-top: 1px solid var(--border);
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.23,1,.32,1);
@@ -1456,12 +1487,12 @@ body[data-page="contact"] .scene-speech::after {
 .pres-textside.pv { opacity: 1; transform: translateY(0); }
 .pres-textside--solo { grid-template-columns: 1fr; }
 .pres-textside-body {
-  padding: clamp(3.5rem,6vw,5.5rem) clamp(1.5rem,6%,5rem);
+  padding: clamp(3rem,5vw,5rem) clamp(1.5rem,5%,4rem);
   display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid var(--border);
 }
 .pres-textside--solo .pres-textside-body {
-  border-right: none; max-width: 680px;
+  border-right: none; max-width: 720px;
 }
 
 /* ── PHOTO GRID (inside textside) ── */
@@ -1491,8 +1522,8 @@ body[data-page="contact"] .scene-speech::after {
   .pres-quote { padding: 3rem 8%; }
   .pres-end { padding: 3rem 6%; }
   .pres-intro { grid-template-columns: 1fr; min-height: auto; }
-  .pres-intro-text { border-right: none; border-bottom: 1px solid var(--border); min-height: 60vh; }
-  .pres-intro-photo { height: 56vw; }
+  .pres-intro-text { border-right: none; border-bottom: 1px solid var(--border); min-height: 55vw; }
+  .pres-intro-photo { height: 60vw; }
   .pres-brief { padding: 3.5rem 6%; }
   .pres-textside { grid-template-columns: 1fr; }
   .pres-textside-body { border-right: none; border-bottom: 1px solid var(--border); }

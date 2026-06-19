@@ -869,16 +869,17 @@ function buildPresentation(p) {
   return h;
 }
 
-function initPresReveal(pres) {
-  const els = pres.querySelectorAll(
+function initPresReveal(content) {
+  const els = content.querySelectorAll(
     '.pres-intro, .pres-brief, .pres-textside, ' +
     '.pres-text, .pres-fullbleed, .pres-gallery-strip, .pres-gallery-grid, .pres-quote, .pres-end'
   );
+  // root: null = use viewport (content is inline on the page, not in a scroll container)
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('pv'); obs.unobserve(e.target); }
     });
-  }, { threshold: 0.04, root: pres });
+  }, { threshold: 0.04, root: null });
   els.forEach(el => obs.observe(el));
 }
 
@@ -915,52 +916,57 @@ function initStripDrag(strip) {
 }
 
 /* ─────────────────────────────────────────
-   MODAL
+   INLINE CASE STUDY  (work.html)
 ───────────────────────────────────────── */
-let _activeModalCard = null;
-
 function openProject(id, cardEl) {
   const p = PROJECTS[id];
-  const modal = document.getElementById('modal');
-  if (!p || !modal) return;
+  const cs = document.getElementById('project-cs');
+  if (!p || !cs) return;
 
+  // Brief burst + flip, then settle
   if (cardEl) {
-    _activeModalCard = cardEl;
     spawnBurst(cardEl);
     cardEl.classList.add('launching');
+    setTimeout(() => cardEl.classList.remove('launching'), 380);
   }
 
-  document.getElementById('m-num').textContent = p.num;
+  document.getElementById('cs-num').textContent = p.num;
 
-  const pres = document.getElementById('modal-pres');
-  if (pres) {
-    pres.innerHTML = buildPresentation(p);
-    pres.scrollTop = 0;
-    requestAnimationFrame(() => {
-      initPresReveal(pres);
-      const strip = pres.querySelector('.pres-gallery-strip');
-      if (strip) initStripDrag(strip);
-    });
-  }
+  const content = document.getElementById('cs-content');
+  content.innerHTML = buildPresentation(p);
 
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  cs.classList.add('open');
+
+  // Scroll to case study
+  setTimeout(() => cs.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+
+  requestAnimationFrame(() => {
+    initPresReveal(content);
+    const strip = content.querySelector('.pres-gallery-strip');
+    if (strip) initStripDrag(strip);
+  });
 }
 
+function closeProjectCS() {
+  const cs = document.getElementById('project-cs');
+  if (!cs) return;
+  // Pause any playing video
+  const v = cs.querySelector('.pres-video');
+  if (v) { v.pause(); v.currentTime = 0; }
+  cs.classList.remove('open');
+  document.getElementById('work-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Keep closeModal for experience.html vol-modal compatibility */
 function closeModal() {
   const modal = document.getElementById('modal');
   if (!modal) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  if (_activeModalCard) {
-    _activeModalCard.classList.remove('launching');
-    _activeModalCard = null;
-  }
-  const v = document.querySelector('#modal-pres .pres-video');
-  if (v) { v.pause(); v.currentTime = 0; }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('cs-close')?.addEventListener('click', closeProjectCS);
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
   document.getElementById('modal-bg')?.addEventListener('click', closeModal);
 });
@@ -991,6 +997,7 @@ document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
   if (document.getElementById('lb')?.classList.contains('open')) closeLB();
   else if (document.getElementById('vol-modal')?.classList.contains('open')) closeVolModal();
+  else if (document.getElementById('project-cs')?.classList.contains('open')) closeProjectCS();
   else closeModal();
 });
 
