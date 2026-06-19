@@ -761,68 +761,82 @@ function buildPresentation(p) {
   const photos = p.photos || [];
   const cs = p.casestudy || {};
   let h = '';
+  let used = 0; // tracks which photo index we're on
 
-  // HERO — cover fills full viewport, title overlaid at bottom
-  h += `<div class="pres-hero">
-    <img class="pres-hero-bg" src="${p.cover}" alt="${p.title}"/>
-    <div class="pres-hero-body">
-      <span class="pres-hero-eyebrow">${p.num}&nbsp;&nbsp;·&nbsp;&nbsp;${p.cat}&nbsp;&nbsp;·&nbsp;&nbsp;${p.year}</span>
-      <h2 class="pres-hero-title">${p.title}</h2>
-      <span class="pres-scroll-hint">Scroll to explore</span>
+  // ── INTRO: title/desc left | key photo right ──
+  const introPhoto = photos[used] || null;
+  if (introPhoto) used++;
+  h += `<div class="pres-intro">
+    <div class="pres-intro-text">
+      <span class="pres-eyebrow">${p.num}&nbsp;&nbsp;·&nbsp;&nbsp;${p.cat}</span>
+      <h2 class="pres-main-title">${p.title}</h2>
+      <p class="pres-lead">${p.desc}</p>
+      <span class="pres-year-badge">${p.year}</span>
+    </div>
+    <div class="pres-intro-photo">
+      ${introPhoto ? `<img src="${introPhoto}" alt="${p.title}" loading="eager"/>` : ''}
     </div>
   </div>`;
 
-  // INTRO — description + brief
-  h += `<div class="pres-text">
-    <span class="pres-label">The Project</span>
-    <p class="pres-intro-desc">${p.desc}</p>
-    ${cs.problem ? `<div class="pres-divider"></div>
-    <span class="pres-label">The Brief</span>
-    <p class="pres-body">${cs.problem}</p>` : ''}
-  </div>`;
-
-  // FIRST FULL-BLEED PHOTO
-  if (photos.length > 0) {
-    h += `<div class="pres-fullbleed"><img src="${photos[0]}" alt="" loading="lazy"/></div>`;
+  // ── BRIEF (large editorial text) ──
+  if (cs.problem) {
+    h += `<div class="pres-brief">
+      <span class="pres-label">The Brief</span>
+      <p class="pres-brief-body">${cs.problem}</p>
+    </div>`;
   }
 
-  // RESEARCH
+  // ── FULL-BLEED SPREAD ──
+  if (photos[used]) {
+    h += `<div class="pres-fullbleed"><img src="${photos[used]}" alt="" loading="lazy"/></div>`;
+    used++;
+  }
+
+  // ── RESEARCH: text left, photo grid right ──
   if (cs.research) {
-    h += `<div class="pres-text">
-      <span class="pres-label">Research</span>
-      <p class="pres-body">${cs.research}</p>
+    const rp = [];
+    while (rp.length < 4 && photos[used]) rp.push(photos[used++]);
+    h += `<div class="pres-textside${rp.length ? '' : ' pres-textside--solo'}">
+      <div class="pres-textside-body">
+        <span class="pres-label">Research</span>
+        <p class="pres-body">${cs.research}</p>
+      </div>
+      ${rp.length ? `<div class="pres-sc-photos pres-sc-n${rp.length}">
+        ${rp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+      </div>` : ''}
     </div>`;
   }
 
-  // SECOND FULL-BLEED PHOTO (if enough photos)
-  if (photos.length > 2) {
-    h += `<div class="pres-fullbleed"><img src="${photos[1]}" alt="" loading="lazy"/></div>`;
-  }
-
-  // PROCESS
+  // ── PROCESS: text left, photo grid right ──
   if (cs.process) {
-    h += `<div class="pres-text">
-      <span class="pres-label">Design Process</span>
-      <p class="pres-body">${cs.process}</p>
+    const pp = [];
+    while (pp.length < 4 && photos[used]) pp.push(photos[used++]);
+    h += `<div class="pres-textside${pp.length ? '' : ' pres-textside--solo'}">
+      <div class="pres-textside-body">
+        <span class="pres-label">Design Process</span>
+        <p class="pres-body">${cs.process}</p>
+      </div>
+      ${pp.length ? `<div class="pres-sc-photos pres-sc-n${pp.length}">
+        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+      </div>` : ''}
     </div>`;
   }
 
-  // GALLERY — remaining photos
-  const gallStart = photos.length > 2 ? 2 : (photos.length > 0 ? 1 : 0);
-  const gallPhotos = photos.slice(gallStart);
-  if (gallPhotos.length >= 4) {
+  // ── REMAINING GALLERY ──
+  const rem = photos.slice(used);
+  if (rem.length >= 3) {
     h += `<div class="pres-gallery-strip">
-      ${gallPhotos.map(s => `<div class="pres-gallery-strip-item" onclick="openLB('${s.replace(/'/g,"\\'")}')">
+      ${rem.map(s => `<div class="pres-gallery-strip-item" onclick="openLB('${s.replace(/'/g,"\\'")}')">
         <img src="${s}" alt="" loading="lazy"/>
       </div>`).join('')}
     </div>`;
-  } else if (gallPhotos.length > 0) {
+  } else if (rem.length > 0) {
     h += `<div class="pres-gallery-grid">
-      ${gallPhotos.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+      ${rem.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
     </div>`;
   }
 
-  // VIDEO (if any)
+  // ── VIDEO ──
   if (p.video) {
     h += `<div class="pres-text pres-video-scene">
       <span class="pres-label">Demo</span>
@@ -830,7 +844,7 @@ function buildPresentation(p) {
     </div>`;
   }
 
-  // OUTCOME — latte background
+  // ── OUTCOME ──
   if (cs.outcome) {
     h += `<div class="pres-text pres-outcome">
       <span class="pres-label">Final Outcome</span>
@@ -838,12 +852,12 @@ function buildPresentation(p) {
     </div>`;
   }
 
-  // QUOTE — cedar background
+  // ── QUOTE ──
   h += `<div class="pres-quote">
     <blockquote>&ldquo;${p.insight}&rdquo;</blockquote>
   </div>`;
 
-  // REFLECTION + TAGS
+  // ── REFLECTION + TAGS ──
   h += `<div class="pres-end">
     ${cs.reflection ? `<span class="pres-label">Reflection</span>
     <p class="pres-body" style="margin-bottom:0">${cs.reflection}</p>` : ''}
@@ -857,6 +871,7 @@ function buildPresentation(p) {
 
 function initPresReveal(pres) {
   const els = pres.querySelectorAll(
+    '.pres-intro, .pres-brief, .pres-textside, ' +
     '.pres-text, .pres-fullbleed, .pres-gallery-strip, .pres-gallery-grid, .pres-quote, .pres-end'
   );
   const obs = new IntersectionObserver(entries => {
