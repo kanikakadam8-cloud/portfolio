@@ -135,7 +135,7 @@ const PROJECTS = {
     ]
   },
   toss: {
-    num: '05 / 09', cat: 'Spatial Design · Installation', year: '2025',
+    num: '06 / 09', cat: 'Spatial Design · Installation', year: '2025',
     title: 'TOSS 2025 — 3D Illuminated Typography',
     desc: 'Large-scale illuminated 3D letter installations for Somaiya Vidyavihar University\'s annual sports event — fully end-to-end from Illustrator to CNC fabrication to on-ground installation.',
     casestudy: {
@@ -161,7 +161,7 @@ const PROJECTS = {
     ]
   },
   woodworking: {
-    num: '06 / 09', cat: 'Material Exploration · Display', year: '2024',
+    num: '07 / 09', cat: 'Material Exploration · Display', year: '2024',
     title: 'Woodworking Lab — riidl Studio',
     desc: 'A collection of demonstration pieces created to communicate the woodworking lab\'s full range of capabilities to clients — each piece a direct, legible expression of one machine process.',
     casestudy: {
@@ -177,7 +177,7 @@ const PROJECTS = {
     photos: Array.from({length:11},(_,i)=>`images/projects/woodworking/Photos/${String(i+1).padStart(2,'0')}.jpeg`)
   },
   stressball: {
-    num: '07 / 09', cat: 'Product Design · Wellbeing', year: '2024',
+    num: '08 / 09', cat: 'Product Design · Wellbeing', year: '2024',
     title: 'Interactive Stress Ball',
     desc: 'A sensor-integrated stress relief tool that responds to pressure with soothing sounds and gentle vibration — designed for teachers, professionals, and parents carrying invisible daily loads.',
     casestudy: {
@@ -203,7 +203,7 @@ const PROJECTS = {
     video: 'images/projects/stress-ball/demo.mp4'
   },
   capstone: {
-    num: '08 / 09', cat: 'Furniture Design · Capstone', year: '2025',
+    num: '09 / 09', cat: 'Furniture Design · Capstone', year: '2025',
     title: 'Foldable Study Table for Children in Compact Homes',
     desc: 'A human-centred capstone project addressing how children study in small urban homes — balancing spatial constraints with ergonomics through deep research and a fully fabricated prototype.',
     casestudy: {
@@ -233,7 +233,7 @@ const PROJECTS = {
     ]
   },
   photoshop: {
-    num: '09 / 09', cat: 'Graphic Design · Illustration', year: '2025',
+    num: '05 / 09', cat: 'Graphic Design · Illustration', year: '2025',
     title: 'Graphic Design & Illustration',
     desc: 'A collection of digital illustration and graphic design work in Adobe Photoshop — character portraits, poster compositions, and visual storytelling exploring colour, form, and typography.',
     casestudy: {
@@ -244,11 +244,12 @@ const PROJECTS = {
     },
     insight: '2D and 3D design teach each other — every flat composition is a spatial problem in disguise',
     tags: ['Photoshop', 'Illustration', 'Graphic Design', 'Digital Art', 'Character Design', 'Typography'],
-    cover: 'images/projects/Photoshop/Karan Illustration kaniii-01.jpg',
+    cover: 'images/projects/Photoshop/cover photo/ChatGPT Image Jun 19, 2026, 06_10_34 PM.png',
     photos: [
-      'images/projects/Photoshop/Ram photoshop Behance post.png',
-      'images/projects/Photoshop/Screenshot 2025-07-24 232528.png',
-      'images/projects/Photoshop/WhatsApp Image 2025-08-09 at 9.06.24 PM.jpeg'
+      'images/projects/Photoshop/photos/Karan Illustration kaniii-01.jpg',
+      'images/projects/Photoshop/photos/Ram photoshop Behance post.png',
+      'images/projects/Photoshop/photos/Screenshot 2025-07-24 232528.png',
+      'images/projects/Photoshop/photos/WhatsApp Image 2025-08-09 at 9.06.24 PM.jpeg'
     ]
   }
 };
