@@ -63,7 +63,7 @@
 ───────────────────────────────────────── */
 const PROJECTS = {
   lamp: {
-    num: '01 / 08', cat: 'Product Design · Lighting', year: '2024',
+    num: '01 / 09', cat: 'Product Design · Lighting', year: '2024',
     title: 'Mad Hatter Lamp',
     desc: 'An unconventional lamp design inspired by the whimsy of Alice in Wonderland\'s Mad Hatter — an exploration of theatrical form, light diffusion, and material play through iterative prototyping.',
     casestudy: {
@@ -79,7 +79,7 @@ const PROJECTS = {
     photos: Array.from({length:10},(_,i)=>`images/projects/Lamp Design/Mad hatter behance ppt/${i+2}.png`)
   },
   compost: {
-    num: '02 / 08', cat: 'Product Design · Sustainability', year: '2025',
+    num: '02 / 09', cat: 'Product Design · Sustainability', year: '2025',
     title: 'Wormy — Compost Bin',
     desc: 'A home vermicomposting system designed to make worm farming intuitive, approachable, and beautiful — balancing the functional needs of worm welfare with an aesthetic that invites everyday use.',
     casestudy: {
@@ -98,7 +98,7 @@ const PROJECTS = {
     ]
   },
   furniture: {
-    num: '03 / 08', cat: 'Furniture Design · Spatial', year: '2024',
+    num: '03 / 09', cat: 'Furniture Design · Spatial', year: '2024',
     title: 'Curved Table with Relaxation Space',
     desc: 'An exploration of organic form in furniture design — a table that integrates a contemplative alcove, questioning the boundary between functional surface and habitable space.',
     casestudy: {
@@ -114,7 +114,7 @@ const PROJECTS = {
     photos: Array.from({length:11},(_,i)=>`images/projects/Furniture design/Curved table with relaxation space/extracted pdf/${i+2}.png`)
   },
   packaging: {
-    num: '04 / 08', cat: 'Packaging Design · Structural', year: '2025',
+    num: '04 / 09', cat: 'Packaging Design · Structural', year: '2025',
     title: 'Millet Packaging for a Healthier Tomorrow',
     desc: 'A resealable, stackable packaging system for millets — designed to solve the everyday frustration of plastic grain packets that can\'t be closed once opened, while letting customers mix their own grain combinations in a single pack.',
     casestudy: {
@@ -135,7 +135,7 @@ const PROJECTS = {
     ]
   },
   toss: {
-    num: '05 / 08', cat: 'Spatial Design · Installation', year: '2025',
+    num: '05 / 09', cat: 'Spatial Design · Installation', year: '2025',
     title: 'TOSS 2025 — 3D Illuminated Typography',
     desc: 'Large-scale illuminated 3D letter installations for Somaiya Vidyavihar University\'s annual sports event — fully end-to-end from Illustrator to CNC fabrication to on-ground installation.',
     casestudy: {
@@ -161,7 +161,7 @@ const PROJECTS = {
     ]
   },
   woodworking: {
-    num: '06 / 08', cat: 'Material Exploration · Display', year: '2024',
+    num: '06 / 09', cat: 'Material Exploration · Display', year: '2024',
     title: 'Woodworking Lab — riidl Studio',
     desc: 'A collection of demonstration pieces created to communicate the woodworking lab\'s full range of capabilities to clients — each piece a direct, legible expression of one machine process.',
     casestudy: {
@@ -177,7 +177,7 @@ const PROJECTS = {
     photos: Array.from({length:11},(_,i)=>`images/projects/woodworking/Photos/${String(i+1).padStart(2,'0')}.jpeg`)
   },
   stressball: {
-    num: '07 / 08', cat: 'Product Design · Wellbeing', year: '2024',
+    num: '07 / 09', cat: 'Product Design · Wellbeing', year: '2024',
     title: 'Interactive Stress Ball',
     desc: 'A sensor-integrated stress relief tool that responds to pressure with soothing sounds and gentle vibration — designed for teachers, professionals, and parents carrying invisible daily loads.',
     casestudy: {
@@ -203,7 +203,7 @@ const PROJECTS = {
     video: 'images/projects/stress-ball/demo.mp4'
   },
   capstone: {
-    num: '08 / 08', cat: 'Furniture Design · Capstone', year: '2025',
+    num: '08 / 09', cat: 'Furniture Design · Capstone', year: '2025',
     title: 'Foldable Study Table for Children in Compact Homes',
     desc: 'A human-centred capstone project addressing how children study in small urban homes — balancing spatial constraints with ergonomics through deep research and a fully fabricated prototype.',
     casestudy: {
@@ -231,6 +231,25 @@ const PROJECTS = {
       'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251218_135308391.jpg',
       'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251218_135313507.jpg'
     ]
+  },
+  photoshop: {
+    num: '09 / 09', cat: 'Graphic Design · Illustration', year: '2025',
+    title: 'Graphic Design & Illustration',
+    desc: 'A collection of digital illustration and graphic design work in Adobe Photoshop — character portraits, poster compositions, and visual storytelling exploring colour, form, and typography.',
+    casestudy: {
+      problem: 'Developing a parallel practice in 2D digital art alongside physical product design — exploring how visual communication and image-making inform and sharpen three-dimensional design thinking.',
+      process: 'Character illustrations built from life reference and imagination, developed through layered brushwork in Photoshop. Poster compositions explore typographic hierarchy and image-text relationships. Each piece was an exercise in restraint: knowing when to add and when to leave space.',
+      outcome: 'A series of illustrated works including character portraits and graphic design compositions. Working regularly in 2D has sharpened my understanding of colour relationships, negative space, and visual balance — skills that transfer directly into product and packaging design.',
+      reflection: 'Working in Photoshop is a different kind of making from physical prototyping. Without the resistance of material, the quality of visual decisions alone determines the outcome — which makes it the most demanding and most instructive medium I work in.'
+    },
+    insight: '2D and 3D design teach each other — every flat composition is a spatial problem in disguise',
+    tags: ['Photoshop', 'Illustration', 'Graphic Design', 'Digital Art', 'Character Design', 'Typography'],
+    cover: 'images/projects/Photoshop/Karan Illustration kaniii-01.jpg',
+    photos: [
+      'images/projects/Photoshop/Ram photoshop Behance post.png',
+      'images/projects/Photoshop/Screenshot 2025-07-24 232528.png',
+      'images/projects/Photoshop/WhatsApp Image 2025-08-09 at 9.06.24 PM.jpeg'
+    ]
   }
 };
 
@@ -239,7 +258,7 @@ const PROJECTS = {
 ───────────────────────────────────────── */
 const VOLUNTEERS = {
   designvichar: {
-    num: '01 / 03', cat: 'Community · Design Events', year: '2024',
+    num: '01 / 04', cat: 'Community · Design Events', year: '2024',
     title: 'Design Vichaar',
     org: 'Frelo · Somaiya School of Design',
     role: 'Event Volunteer & Logistics Coordinator',
@@ -262,7 +281,7 @@ const VOLUNTEERS = {
     ]
   },
   permaculture: {
-    num: '02 / 03', cat: 'Sustainability · Farming', year: '2024',
+    num: '02 / 04', cat: 'Sustainability · Farming', year: '2024',
     title: 'Permaculture Design Course',
     org: 'Earthen Routes · Manasvini Tyagi',
     role: 'Course Participant',
@@ -287,7 +306,7 @@ const VOLUNTEERS = {
     ]
   },
   siif: {
-    num: '03 / 03', cat: 'Festival · Workshop Design', year: '2025',
+    num: '03 / 04', cat: 'Festival · Workshop Design', year: '2025',
     title: 'SIIF — Design Workshop Lead',
     org: 'Somaiya Innovation & Impact Festival',
     role: 'Design Workshop Lead',
@@ -306,6 +325,18 @@ const VOLUNTEERS = {
       'images/projects/Voluntering/SIIF/PHOTOS/a5a29243-0c5b-4e2c-bfec-f898fd4be222.jpg',
       'images/projects/Voluntering/SIIF/PHOTOS/b87bfa10-f407-46f7-81e0-6e08b0324b0d.jpg'
     ]
+  },
+  pottery: {
+    num: '04 / 04', cat: 'Craft · Making', year: '2026',
+    title: 'Pottery Workshop',
+    org: 'Community Craft Studio',
+    role: 'Workshop Participant',
+    duration: '2026',
+    desc: 'A hands-on pottery workshop exploring wheel-throwing and hand-building techniques — a direct encounter with material resistance and the deeply iterative nature of making.',
+    learnings: 'Clay is one of the most honest materials I\'ve worked with — it responds immediately to every decision and forgives nothing. The workshop reinforced how much design understanding lives in the hands, not just the mind. Centering clay on a wheel taught me more about balance and tension than any studio brief.',
+    reflection: 'Pottery is one of the oldest forms of design. Every vessel is a solution to a problem: hold, pour, store. Sitting at a wheel reminded me that before every product is a sketch, there is a material — and learning to listen to it changes how you design with everything else.',
+    cover: 'images/projects/Voluntering/Pottery/Cover photo/ChatGPT Image Jun 19, 2026, 05_47_25 PM.png',
+    photos: []
   }
 };
 
