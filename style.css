@@ -1596,9 +1596,9 @@ body[data-page="contact"] .scene-speech::after {
 .d-val { font-size: 0.8rem; font-weight: 300; color: var(--ink); line-height: 1.55; }
 
 /* ═══════════════════════════════════════════════════════
-   SKILLS  (about.html)  — Cedar background
+   SKILLS  (about.html)  — Mauve background
 ═══════════════════════════════════════════════════════ */
-#skills { background: var(--cedar); }
+#skills { background: var(--mauve); }
 #skills .chapter-label,
 #skills .eyebrow { color: rgba(255,249,243,0.55); }
 #skills .chapter-bg-num { color: rgba(255,249,243,0.06); }
