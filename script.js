@@ -337,7 +337,18 @@ const VOLUNTEERS = {
     learnings: 'Clay is one of the most honest materials I\'ve worked with — it responds immediately to every decision and forgives nothing. The workshop reinforced how much design understanding lives in the hands, not just the mind. Centering clay on a wheel taught me more about balance and tension than any studio brief.',
     reflection: 'Pottery is one of the oldest forms of design. Every vessel is a solution to a problem: hold, pour, store. Sitting at a wheel reminded me that before every product is a sketch, there is a material — and learning to listen to it changes how you design with everything else.',
     cover: 'images/projects/Voluntering/Pottery/Cover photo/ChatGPT Image Jun 19, 2026, 05_47_25 PM.png',
-    photos: []
+    photos: [
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.25.38 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.25.59 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.25 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.25 PM (1).jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.26 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.27 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.33 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.34 PM.jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.35 PM (1).jpeg',
+      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.35 PM (2).jpeg'
+    ]
   }
 };
 

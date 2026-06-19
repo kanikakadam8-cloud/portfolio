@@ -1664,7 +1664,7 @@ body[data-page="contact"] .scene-speech::after {
 ═══════════════════════════════════════════════════════ */
 #vol { background: var(--white); }
 .vol-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem 2.5rem;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem 2.5rem;
 }
 .vol-img {
   width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
