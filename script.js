@@ -1,4 +1,4 @@
-/* ─────────────────────────────────────────
+﻿/* ─────────────────────────────────────────
    MOBILE NAV  — hamburger open/close
 ───────────────────────────────────────── */
 (function initMobileNav() {
@@ -797,6 +797,22 @@ function spawnBurst(cardEl) {
 }
 
 /* ─────────────────────────────────────────
+   PHOTO COLLAGE BUILDER
+   1=full  2=side-by-side  3=large+2stacked
+   4=2x2 grid  5+=feature+strip
+───────────────────────────────────────── */
+function makeCollage(photos) {
+  if (!photos || !photos.length) return '';
+  const esc = s => s.replace(/'/g, "\\'");
+  const img = s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`;
+  const n = photos.length;
+  if (n === 1) return `<div class="pc pc-1">${img(photos[0])}</div>`;
+  if (n === 2) return `<div class="pc pc-2">${photos.map(img).join('')}</div>`;
+  if (n === 3) return `<div class="pc pc-3">${photos.map(img).join('')}</div>`;
+  if (n === 4) return `<div class="pc pc-4">${photos.map(img).join('')}</div>`;
+  return `<div class="pc pc-n"><img class="pc-feat" src="${photos[0]}" alt="" loading="lazy" onclick="openLB('${esc(photos[0])}')"/><div class="pc-strip">${photos.slice(1).map(img).join('')}</div></div>`;
+}
+/* ─────────────────────────────────────────
    PRESENTATION BUILDER  (work.html)
    Constructs scrollable case-study scenes
 ───────────────────────────────────────── */
@@ -835,35 +851,24 @@ function buildPresentation(p) {
     </div>
   </div>`;
 
-  // ── CARD 2: SPREAD — full-width photo, natural height ──
-  const spread = next();
-  if (spread) {
-    h += `<div class="pcard pcard-spread pres-r">
-      <img src="${spread}" alt="" loading="lazy"/>
-    </div>`;
-  }
 
-  // ── CARD 3: RESEARCH — text left | photos right ──
+  // ── CARD 2: RESEARCH — text left | collage right ──
   if (cs.research) {
-    const rp = take(2);
+    const rp = take(3);
     h += `<div class="pcard pcard-sec pres-r">
       <div class="pcard-sec-text">
         <span class="pcard-label">Research</span>
         <p class="pcard-body">${cs.research}</p>
       </div>
-      <div class="pcard-sec-imgs">
-        ${rp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
-      </div>
+      ${makeCollage(rp)}
     </div>`;
   }
 
-  // ── CARD 4: PROCESS — photos left | text right ──
+  // ── CARD 3: PROCESS — collage left | text right ──
   if (cs.process) {
-    const pp = take(3);
+    const pp = take(4);
     h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
-      <div class="pcard-sec-imgs">
-        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
-      </div>
+      ${makeCollage(pp)}
       <div class="pcard-sec-text">
         <span class="pcard-label">Design Process</span>
         <p class="pcard-body">${cs.process}</p>
@@ -871,16 +876,10 @@ function buildPresentation(p) {
     </div>`;
   }
 
-  // ── CARD 5: GALLERY — remaining photos, natural ratio ──
+  // ── CARD 4: GALLERY — remaining photos as collage ──
   const rem = photos.slice(used);
-  if (rem.length === 1) {
-    h += `<div class="pcard pcard-spread pres-r">
-      <img src="${rem[0]}" alt="" loading="lazy" onclick="openLB('${esc(rem[0])}')"/>
-    </div>`;
-  } else if (rem.length >= 2) {
-    h += `<div class="pcard pcard-gallery pres-r">
-      ${rem.map((s, i) => `<img${i === 0 ? ' class="pg-wide"' : ''} src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
-    </div>`;
+  if (rem.length > 0) {
+    h += `<div class="pcard pres-r">${makeCollage(rem)}</div>`;
   }
 
   // ── VIDEO ──

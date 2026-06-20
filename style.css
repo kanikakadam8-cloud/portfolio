@@ -1341,11 +1341,7 @@ body[data-page="contact"] .scene-speech::after {
   object-fit: contain; display: block;
 }
 
-/* ── CARD 2: SPREAD — capped height, full image visible ── */
-.pcard-spread { background: var(--sticky); line-height: 0; max-height: 50vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.pcard-spread img { width: 100%; max-height: 50vh; object-fit: contain; display: block; }
-
-/* ── CARD 3/4: SECTION — text | photos or photos | text ── */
+/* ── CARD 2/3: SECTION — text | collage or collage | text ── */
 .pcard-sec {
   display: grid; grid-template-columns: 1fr 1fr;
   align-items: start;
@@ -1361,29 +1357,39 @@ body[data-page="contact"] .scene-speech::after {
   font: 300 0.82rem/1.92 var(--sans);
   color: var(--ink); margin: 0;
 }
-.pcard-sec-imgs {
-  display: flex; flex-direction: column; gap: 2px;
-  background: var(--sticky); line-height: 0;
-}
-.pcard-sec-imgs img {
-  width: 100%; max-height: 220px;
-  object-fit: contain; display: block;
-  cursor: pointer; transition: opacity 0.22s;
-}
-.pcard-sec-imgs img:hover { opacity: 0.84; }
 
-/* ── CARD 5: GALLERY — remaining photos, 2-col, first spans full ── */
-.pcard-gallery {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2px; background: rgba(68,50,35,0.08); line-height: 0;
+/* ── PHOTO COLLAGES ── */
+.pc {
+  background: var(--sticky); line-height: 0; overflow: hidden;
 }
-.pcard-gallery img {
-  width: 100%; max-height: 260px;
-  object-fit: contain; display: block;
-  cursor: pointer; transition: opacity 0.22s;
+.pc img {
+  display: block; cursor: pointer;
+  transition: opacity 0.22s;
 }
-.pcard-gallery img:hover { opacity: 0.86; }
-.pg-wide { grid-column: 1 / -1; }
+.pc img:hover { opacity: 0.84; }
+
+/* 1 photo — full width, natural ratio */
+.pc-1 img { width: 100%; height: auto; max-height: 340px; object-fit: contain; }
+
+/* 2 photos — side by side */
+.pc-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.pc-2 img { width: 100%; max-height: 240px; object-fit: contain; }
+
+/* 3 photos — large left (spans 2 rows) + 2 stacked right */
+.pc-3 { display: grid; grid-template-columns: 60% 40%; grid-template-rows: 1fr 1fr; gap: 3px; min-height: 240px; }
+.pc-3 img:first-child { grid-row: 1 / 3; width: 100%; height: 100%; object-fit: contain; }
+.pc-3 img:not(:first-child) { width: 100%; height: 100%; object-fit: contain; }
+
+/* 4 photos — 2×2 grid */
+.pc-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.pc-4 img { width: 100%; max-height: 200px; object-fit: contain; }
+
+/* 5+ photos — feature top + thumbnail strip */
+.pc-n { display: flex; flex-direction: column; gap: 3px; }
+.pc-feat { width: 100%; max-height: 280px; object-fit: contain; display: block; cursor: pointer; transition: opacity 0.22s; }
+.pc-feat:hover { opacity: 0.84; }
+.pc-strip { display: flex; gap: 3px; }
+.pc-strip img { flex: 1; min-width: 0; max-height: 140px; object-fit: contain; }
 
 /* ── VIDEO ── */
 .pcard-video {
@@ -1435,10 +1441,11 @@ body[data-page="contact"] .scene-speech::after {
   .pcard-sec { grid-template-columns: 1fr; }
   .pcard-sec:not(.pcard-sec--flip) .pcard-sec-text { border-right: none; border-bottom: 1px solid rgba(68,50,35,0.1); }
   .pcard-sec--flip { display: flex; flex-direction: column; }
-  .pcard-sec--flip .pcard-sec-imgs { order: -1; }
-  .pcard-sec--flip .pcard-sec-text { border-left: none; border-top: 1px solid rgba(68,50,35,0.1); }
-  .pcard-gallery { grid-template-columns: 1fr; }
-  .pg-wide { grid-column: 1; }
+  .pcard-sec--flip .pcard-sec-text { border-left: none; border-top: 1px solid rgba(68,50,35,0.1); order: 1; }
+  .pcard-sec--flip .pc { order: -1; }
+  .pc-2, .pc-4 { grid-template-columns: 1fr 1fr; }
+  .pc-3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .pc-3 img:first-child { grid-row: auto; grid-column: 1 / -1; max-height: 200px; }
 }
 
 /* Card click: burst particles */
