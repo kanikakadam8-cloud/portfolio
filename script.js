@@ -803,106 +803,114 @@ function spawnBurst(cardEl) {
 function buildPresentation(p) {
   const photos = p.photos || [];
   const cs = p.casestudy || {};
-  let h = '';
+  const esc = s => s.replace(/'/g, "\\'");
   let used = 0;
+  const next = () => photos[used] ? photos[used++] : null;
+  const take = n => { const a = []; while (a.length < n && photos[used]) a.push(photos[used++]); return a; };
+  let h = '';
 
-  // ── OPENING: pure typography, no photo ──
-  h += `<div class="pres-open pres-r">
-    <div class="pres-open-meta">
-      <span class="pres-num">${p.num}</span>
-      <span class="pres-cat-line">${p.cat}</span>
-      <span class="pres-yr">${p.year}</span>
+  // ── CARD 1: INTRO — text left | main image right ──
+  const mainPhoto = next();
+  const thumbs = take(2);
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">${p.num} &nbsp;·&nbsp; ${p.cat}</span>
+        <h2 class="pcard-title">${p.title}</h2>
+        <p class="pcard-desc">${p.desc}</p>
+        ${cs.problem ? `<div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">${cs.problem}</p>
+        </div>` : ''}
+      </div>
+      <div class="pcard-intro-foot">
+        ${thumbs.length ? `<div class="pcard-thumbs">
+          ${thumbs.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
+        </div>` : ''}
+        <span class="pcard-year">${p.year}</span>
+      </div>
     </div>
-    <h2 class="pres-title">${p.title}</h2>
-    <p class="pres-desc">${p.desc}</p>
+    <div class="pcard-intro-img">
+      ${mainPhoto ? `<img src="${mainPhoto}" alt="${p.title}" loading="eager"/>` : ''}
+    </div>
   </div>`;
 
-  // ── THE BRIEF ──
-  if (cs.problem) {
-    h += `<div class="pres-brief pres-r">
-      <span class="pres-label">The Brief</span>
-      <p class="pres-brief-text">${cs.problem}</p>
+  // ── CARD 2: SPREAD — full-width photo, natural height ──
+  const spread = next();
+  if (spread) {
+    h += `<div class="pcard pcard-spread pres-r">
+      <img src="${spread}" alt="" loading="lazy"/>
     </div>`;
   }
 
-  // ── FIRST PHOTO: full width, natural ratio, no crop ──
-  if (photos[used]) {
-    h += `<div class="pres-fullphoto pres-r">
-      <img src="${photos[used]}" alt="" loading="lazy"/>
-    </div>`;
-    used++;
-  }
-
-  // ── RESEARCH: text left | 1-2 photos right ──
+  // ── CARD 3: RESEARCH — text left | photos right ──
   if (cs.research) {
-    const rp = [];
-    while (rp.length < 2 && photos[used]) rp.push(photos[used++]);
-    h += `<div class="pres-aside pres-r">
-      <div class="pres-aside-text">
-        <span class="pres-label">Research</span>
-        <p class="pres-body">${cs.research}</p>
+    const rp = take(2);
+    h += `<div class="pcard pcard-sec pres-r">
+      <div class="pcard-sec-text">
+        <span class="pcard-label">Research</span>
+        <p class="pcard-body">${cs.research}</p>
       </div>
-      <div class="pres-aside-imgs">
-        ${rp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+      <div class="pcard-sec-imgs">
+        ${rp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
       </div>
     </div>`;
   }
 
-  // ── PROCESS: 1-2 photos left | text right ──
+  // ── CARD 4: PROCESS — photos left | text right ──
   if (cs.process) {
-    const pp = [];
-    while (pp.length < 2 && photos[used]) pp.push(photos[used++]);
-    h += `<div class="pres-aside pres-aside--flip pres-r">
-      <div class="pres-aside-imgs">
-        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+    const pp = take(3);
+    h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+      <div class="pcard-sec-imgs">
+        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
       </div>
-      <div class="pres-aside-text">
-        <span class="pres-label">Design Process</span>
-        <p class="pres-body">${cs.process}</p>
+      <div class="pcard-sec-text">
+        <span class="pcard-label">Design Process</span>
+        <p class="pcard-body">${cs.process}</p>
       </div>
     </div>`;
   }
 
-  // ── REMAINING GALLERY: natural ratio, no crop ──
+  // ── CARD 5: GALLERY — remaining photos, natural ratio ──
   const rem = photos.slice(used);
   if (rem.length === 1) {
-    h += `<div class="pres-fullphoto pres-r">
-      <img src="${rem[0]}" alt="" loading="lazy" onclick="openLB('${rem[0].replace(/'/g,"\\'")}')"/>
+    h += `<div class="pcard pcard-spread pres-r">
+      <img src="${rem[0]}" alt="" loading="lazy" onclick="openLB('${esc(rem[0])}')"/>
     </div>`;
   } else if (rem.length >= 2) {
-    h += `<div class="pres-gallery pres-r">
-      ${rem.map((s, i) => `<img${i === 0 ? ' class="pres-gallery-wide"' : ''} src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+    h += `<div class="pcard pcard-gallery pres-r">
+      ${rem.map((s, i) => `<img${i === 0 ? ' class="pg-wide"' : ''} src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
     </div>`;
   }
 
   // ── VIDEO ──
   if (p.video) {
-    h += `<div class="pres-video-wrap pres-r">
-      <span class="pres-label">Demo</span>
-      <video class="pres-video" src="${p.video}" controls playsinline muted></video>
+    h += `<div class="pcard pcard-video pres-r">
+      <span class="pcard-label">Demo</span>
+      <video class="pcard-vid-el" src="${p.video}" controls playsinline muted></video>
     </div>`;
   }
 
-  // ── OUTCOME ──
+  // ── CARD 6: OUTCOME ──
   if (cs.outcome) {
-    h += `<div class="pres-outcome pres-r">
-      <span class="pres-label">Outcome</span>
-      <p class="pres-brief-text">${cs.outcome}</p>
+    h += `<div class="pcard pcard-outcome pres-r">
+      <span class="pcard-label">Outcome</span>
+      <p class="pcard-brief-body">${cs.outcome}</p>
     </div>`;
   }
 
-  // ── INSIGHT QUOTE ──
+  // ── CARD 7: QUOTE ──
   if (p.insight) {
-    h += `<div class="pres-quote pres-r">
+    h += `<div class="pcard pcard-quote pres-r">
       <blockquote>&ldquo;${p.insight}&rdquo;</blockquote>
     </div>`;
   }
 
-  // ── END: reflection + tags ──
-  h += `<div class="pres-end pres-r">
-    ${cs.reflection ? `<p class="pres-reflection">${cs.reflection}</p>` : ''}
-    <div class="pres-tags">
-      ${(p.tags || []).map(t => `<span class="pres-tag">${t}</span>`).join('')}
+  // ── CARD 8: END — reflection + tags ──
+  h += `<div class="pcard pcard-end pres-r">
+    ${cs.reflection ? `<p class="pcard-reflection">${cs.reflection}</p>` : ''}
+    <div class="pcard-tags">
+      ${(p.tags || []).map(t => `<span class="pcard-tag">${t}</span>`).join('')}
     </div>
   </div>`;
 
