@@ -804,108 +804,105 @@ function buildPresentation(p) {
   const photos = p.photos || [];
   const cs = p.casestudy || {};
   let h = '';
-  let used = 0; // tracks which photo index we're on
+  let used = 0;
 
-  // ── INTRO: title/desc left | key photo right ──
-  const introPhoto = photos[used] || null;
-  if (introPhoto) used++;
-  h += `<div class="pres-intro">
-    <div class="pres-intro-text">
-      <span class="pres-eyebrow">${p.num}&nbsp;&nbsp;·&nbsp;&nbsp;${p.cat}</span>
-      <h2 class="pres-main-title">${p.title}</h2>
-      <p class="pres-lead">${p.desc}</p>
-      <span class="pres-year-badge">${p.year}</span>
+  // ── OPENING: pure typography, no photo ──
+  h += `<div class="pres-open pres-r">
+    <div class="pres-open-meta">
+      <span class="pres-num">${p.num}</span>
+      <span class="pres-cat-line">${p.cat}</span>
+      <span class="pres-yr">${p.year}</span>
     </div>
-    <div class="pres-intro-photo">
-      ${introPhoto ? `<img src="${introPhoto}" alt="${p.title}" loading="eager"/>` : ''}
-    </div>
+    <h2 class="pres-title">${p.title}</h2>
+    <p class="pres-desc">${p.desc}</p>
   </div>`;
 
-  // ── BRIEF (large editorial text) ──
+  // ── THE BRIEF ──
   if (cs.problem) {
-    h += `<div class="pres-brief">
+    h += `<div class="pres-brief pres-r">
       <span class="pres-label">The Brief</span>
-      <p class="pres-brief-body">${cs.problem}</p>
+      <p class="pres-brief-text">${cs.problem}</p>
     </div>`;
   }
 
-  // ── FULL-BLEED SPREAD ──
+  // ── FIRST PHOTO: full width, natural ratio, no crop ──
   if (photos[used]) {
-    h += `<div class="pres-fullbleed"><img src="${photos[used]}" alt="" loading="lazy"/></div>`;
+    h += `<div class="pres-fullphoto pres-r">
+      <img src="${photos[used]}" alt="" loading="lazy"/>
+    </div>`;
     used++;
   }
 
-  // ── RESEARCH: text left, photo grid right ──
+  // ── RESEARCH: text left | 1-2 photos right ──
   if (cs.research) {
     const rp = [];
-    while (rp.length < 4 && photos[used]) rp.push(photos[used++]);
-    h += `<div class="pres-textside${rp.length ? '' : ' pres-textside--solo'}">
-      <div class="pres-textside-body">
+    while (rp.length < 2 && photos[used]) rp.push(photos[used++]);
+    h += `<div class="pres-aside pres-r">
+      <div class="pres-aside-text">
         <span class="pres-label">Research</span>
         <p class="pres-body">${cs.research}</p>
       </div>
-      ${rp.length ? `<div class="pres-sc-photos pres-sc-n${rp.length}">
+      <div class="pres-aside-imgs">
         ${rp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
-      </div>` : ''}
+      </div>
     </div>`;
   }
 
-  // ── PROCESS: text left, photo grid right ──
+  // ── PROCESS: 1-2 photos left | text right ──
   if (cs.process) {
     const pp = [];
-    while (pp.length < 4 && photos[used]) pp.push(photos[used++]);
-    h += `<div class="pres-textside${pp.length ? '' : ' pres-textside--solo'}">
-      <div class="pres-textside-body">
+    while (pp.length < 2 && photos[used]) pp.push(photos[used++]);
+    h += `<div class="pres-aside pres-aside--flip pres-r">
+      <div class="pres-aside-imgs">
+        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+      </div>
+      <div class="pres-aside-text">
         <span class="pres-label">Design Process</span>
         <p class="pres-body">${cs.process}</p>
       </div>
-      ${pp.length ? `<div class="pres-sc-photos pres-sc-n${pp.length}">
-        ${pp.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
-      </div>` : ''}
     </div>`;
   }
 
-  // ── REMAINING GALLERY ──
+  // ── REMAINING GALLERY: natural ratio, no crop ──
   const rem = photos.slice(used);
-  if (rem.length >= 3) {
-    h += `<div class="pres-gallery-strip">
-      ${rem.map(s => `<div class="pres-gallery-strip-item" onclick="openLB('${s.replace(/'/g,"\\'")}')">
-        <img src="${s}" alt="" loading="lazy"/>
-      </div>`).join('')}
+  if (rem.length === 1) {
+    h += `<div class="pres-fullphoto pres-r">
+      <img src="${rem[0]}" alt="" loading="lazy" onclick="openLB('${rem[0].replace(/'/g,"\\'")}')"/>
     </div>`;
-  } else if (rem.length > 0) {
-    h += `<div class="pres-gallery-grid">
-      ${rem.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
+  } else if (rem.length >= 2) {
+    h += `<div class="pres-gallery pres-r">
+      ${rem.map((s, i) => `<img${i === 0 ? ' class="pres-gallery-wide"' : ''} src="${s}" alt="" loading="lazy" onclick="openLB('${s.replace(/'/g,"\\'")}')"/>`).join('')}
     </div>`;
   }
 
   // ── VIDEO ──
   if (p.video) {
-    h += `<div class="pres-text pres-video-scene">
+    h += `<div class="pres-video-wrap pres-r">
       <span class="pres-label">Demo</span>
-      <video class="pres-video" src="${p.video}" controls playsinline></video>
+      <video class="pres-video" src="${p.video}" controls playsinline muted></video>
     </div>`;
   }
 
   // ── OUTCOME ──
   if (cs.outcome) {
-    h += `<div class="pres-text pres-outcome">
-      <span class="pres-label">Final Outcome</span>
-      <p class="pres-body">${cs.outcome}</p>
+    h += `<div class="pres-outcome pres-r">
+      <span class="pres-label">Outcome</span>
+      <p class="pres-brief-text">${cs.outcome}</p>
     </div>`;
   }
 
-  // ── QUOTE ──
-  h += `<div class="pres-quote">
-    <blockquote>&ldquo;${p.insight}&rdquo;</blockquote>
-  </div>`;
+  // ── INSIGHT QUOTE ──
+  if (p.insight) {
+    h += `<div class="pres-quote pres-r">
+      <blockquote>&ldquo;${p.insight}&rdquo;</blockquote>
+    </div>`;
+  }
 
-  // ── REFLECTION + TAGS ──
-  h += `<div class="pres-end">
-    ${cs.reflection ? `<span class="pres-label">Reflection</span>
-    <p class="pres-body" style="margin-bottom:0">${cs.reflection}</p>` : ''}
-    <div class="pres-tags-row">
-      ${p.tags.map(t => `<span class="m-tag">${t}</span>`).join('')}
+  // ── END: reflection + tags ──
+  h += `<div class="pres-end pres-r">
+    ${cs.reflection ? `<p class="pres-reflection">${cs.reflection}</p>` : ''}
+    <div class="pres-tags">
+      ${(p.tags || []).map(t => `<span class="pres-tag">${t}</span>`).join('')}
     </div>
   </div>`;
 
@@ -913,49 +910,13 @@ function buildPresentation(p) {
 }
 
 function initPresReveal(content) {
-  const els = content.querySelectorAll(
-    '.pres-intro, .pres-brief, .pres-textside, ' +
-    '.pres-text, .pres-fullbleed, .pres-gallery-strip, .pres-gallery-grid, .pres-quote, .pres-end'
-  );
-  // root: null = use viewport (content is inline on the page, not in a scroll container)
+  const els = content.querySelectorAll('.pres-r');
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('pv'); obs.unobserve(e.target); }
     });
   }, { threshold: 0.04, root: null });
   els.forEach(el => obs.observe(el));
-}
-
-function initStripDrag(strip) {
-  let isDown = false, startX = 0, scrollLeft = 0, didDrag = false;
-  strip.addEventListener('mousedown', e => {
-    isDown = true; didDrag = false;
-    startX = e.pageX - strip.offsetLeft;
-    scrollLeft = strip.scrollLeft;
-  });
-  const end = () => { isDown = false; };
-  strip.addEventListener('mouseleave', end);
-  strip.addEventListener('mouseup', end);
-  strip.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const dx = e.pageX - strip.offsetLeft - startX;
-    if (Math.abs(dx) > 8) didDrag = true;
-    strip.scrollLeft = scrollLeft - dx * 1.5;
-  });
-  // Block click-to-lightbox if user just dragged
-  strip.addEventListener('click', e => {
-    if (didDrag) { e.stopImmediatePropagation(); didDrag = false; }
-  }, true);
-  // Touch
-  let touchStartX = 0, touchScrollLeft = 0;
-  strip.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    touchScrollLeft = strip.scrollLeft;
-  }, { passive: true });
-  strip.addEventListener('touchmove', e => {
-    strip.scrollLeft = touchScrollLeft + (touchStartX - e.touches[0].clientX);
-  }, { passive: true });
 }
 
 /* ─────────────────────────────────────────
@@ -983,11 +944,7 @@ function openProject(id, cardEl) {
   // Scroll to case study
   setTimeout(() => cs.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 
-  requestAnimationFrame(() => {
-    initPresReveal(content);
-    const strip = content.querySelector('.pres-gallery-strip');
-    if (strip) initStripDrag(strip);
-  });
+  requestAnimationFrame(() => { initPresReveal(content); });
 }
 
 function closeProjectCS() {
