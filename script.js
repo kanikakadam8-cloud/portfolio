@@ -75,8 +75,8 @@ const PROJECTS = {
     },
     insight: 'form follows feeling, not just function — some designs need a little madness',
     tags: ['Product Design','Lighting','Concept Design','Prototyping','Material Exploration'],
-    cover: 'images/projects/Lamp Design/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_40_32 PM.png',
-    photos: Array.from({length:10},(_,i)=>`images/projects/Lamp Design/Mad hatter behance ppt/${i+2}.png`)
+    cover: 'images/mad-hatter-lamp/mad-hatter-lamp-cover.png',
+    photos: Array.from({length:10},(_,i)=>`images/mad-hatter-lamp/mad-hatter-lamp-${String(i+1).padStart(2,'0')}.png`)
   },
   compost: {
     num: '02 / 09', cat: 'Product Design · Sustainability', year: '2025',
@@ -91,13 +91,14 @@ const PROJECTS = {
     },
     insight: 'good sustainability design isn\'t about sacrifice — it\'s making the right choice feel like the easy choice',
     tags: ['Product Design','Sustainability','Home','Circular Design','Vermicomposting'],
-    cover: 'images/projects/Wormy compost bin/COVER PHOTO/ChatGPT Image Jun 17, 2026, 06_51_48 PM.png',
+    cover: 'images/wormy-compost-bin/wormy-compost-bin-cover.png',
     photos: [
-      'images/projects/Wormy compost bin/Photos/kanika wormy compost bin illustration-01.jpg',
-      'images/projects/Wormy compost bin/Photos/WhatsApp Image 2025-03-19 at 5.09.10 PM.jpeg'
+      'images/wormy-compost-bin/wormy-compost-bin-01.jpg',
+      'images/wormy-compost-bin/wormy-compost-bin-02.jpeg'
     ]
   },
   furniture: {
+    customPres: true,
     num: '03 / 09', cat: 'Furniture Design · Spatial', year: '2024',
     title: 'Curved Table with Relaxation Space',
     desc: 'An exploration of organic form in furniture design — a table that integrates a contemplative alcove, questioning the boundary between functional surface and habitable space.',
@@ -110,8 +111,8 @@ const PROJECTS = {
     },
     insight: 'furniture is the smallest architecture — it shapes how we inhabit a room',
     tags: ['Furniture Design','Organic Form','Ergonomics','Wood','Spatial Design'],
-    cover: 'images/projects/Furniture design/Curved table with relaxation space/cover photo/ChatGPT Image Jun 17, 2026, 06_48_13 PM.png',
-    photos: Array.from({length:11},(_,i)=>`images/projects/Furniture design/Curved table with relaxation space/extracted pdf/${i+2}.png`)
+    cover: 'images/curved-table/curved-table-cover.png',
+    photos: []
   },
   packaging: {
     num: '04 / 09', cat: 'Packaging Design · Structural', year: '2025',
@@ -126,12 +127,12 @@ const PROJECTS = {
     },
     insight: 'the best packaging is the one you never have to think about twice',
     tags: ['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'],
-    cover: 'images/projects/Grain milet Packaging/cover photo/ChatGPT Image Jun 17, 2026, 11_00_39 PM.png',
+    cover: 'images/millet-packaging/millet-packaging-cover.png',
     photos: [
-      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_03_24 PM.png',
-      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_09_46 PM.png',
-      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_11_16 PM.png',
-      'images/projects/Grain milet Packaging/Photos/ChatGPT Image Jun 18, 2026, 04_12_54 PM.png'
+      'images/millet-packaging/millet-packaging-01.png',
+      'images/millet-packaging/millet-packaging-02.png',
+      'images/millet-packaging/millet-packaging-03.png',
+      'images/millet-packaging/millet-packaging-04.png'
     ]
   },
   toss: {
@@ -147,17 +148,17 @@ const PROJECTS = {
     },
     insight: 'scale changes everything — a letter at 6 feet is a completely different design problem',
     tags: ['Spatial Design','Installation','CNC Cutting','Fabrication','Typography','Fusion 360'],
-    cover: 'images/projects/toss/cover photo/ChatGPT Image Jun 17, 2026, 08_08_55 PM.png',
+    cover: 'images/toss-2025-typography/toss-2025-typography-cover.png',
     photos: [
-      'images/projects/toss/Photos/01.jpeg',
-      'images/projects/toss/Photos/03.jpeg',
-      'images/projects/toss/Photos/04.jpeg',
-      'images/projects/toss/Photos/05.jpeg',
-      'images/projects/toss/Photos/06.jpeg',
-      'images/projects/toss/Photos/07.jpeg',
-      'images/projects/toss/Photos/08.jpeg',
-      'images/projects/toss/Photos/09.jpeg',
-      'images/projects/toss/Photos/7d3b199f-383c-4121-a3fb-d35e5933c1e5.jpg'
+      'images/toss-2025-typography/toss-2025-typography-01.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-02.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-03.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-04.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-05.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-06.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-07.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-08.jpeg',
+      'images/toss-2025-typography/toss-2025-typography-09.jpg'
     ]
   },
   woodworking: {
@@ -173,8 +174,8 @@ const PROJECTS = {
     },
     insight: 'the best way to explain a machine\'s capabilities is to let the material speak for itself',
     tags: ['Wood','Lathe','Laser Cutting','Dremel','Material Exploration','Display Design'],
-    cover: 'images/projects/woodworking/wood working/ChatGPT Image Jun 17, 2026, 08_16_48 PM.png',
-    photos: Array.from({length:11},(_,i)=>`images/projects/woodworking/Photos/${String(i+1).padStart(2,'0')}.jpeg`)
+    cover: 'images/woodworking-lab/woodworking-lab-cover.png',
+    photos: Array.from({length:11},(_,i)=>`images/woodworking-lab/woodworking-lab-${String(i+1).padStart(2,'0')}.jpeg`)
   },
   stressball: {
     num: '08 / 09', cat: 'Product Design · Wellbeing', year: '2024',
@@ -189,20 +190,21 @@ const PROJECTS = {
     },
     insight: 'the most human products are the ones that respond — not just react',
     tags: ['Product Design','Wellbeing','Interaction Design','Sensors','User Research'],
-    cover: 'images/projects/stress-ball/cover photo/ChatGPT Image Jun 17, 2026, 10_42_46 PM.png',
+    cover: 'images/interactive-stress-ball/interactive-stress-ball-cover.png',
     photos: [
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.23.56 PM.jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.23.56 PM (1).jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.28.14 PM.jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.28.14 PM (1).jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.28.14 PM (2).jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.28.15 PM.jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.28.15 PM (1).jpeg',
-      'images/projects/stress-ball/photos/WhatsApp Image 2025-09-02 at 9.35.24 PM.jpeg'
+      'images/interactive-stress-ball/interactive-stress-ball-01.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-02.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-03.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-04.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-05.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-06.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-07.jpeg',
+      'images/interactive-stress-ball/interactive-stress-ball-08.jpeg'
     ],
-    video: 'images/projects/stress-ball/demo.mp4'
+    video: 'images/interactive-stress-ball/interactive-stress-ball-demo.mp4'
   },
   capstone: {
+    customPres: true,
     num: '09 / 09', cat: 'Furniture Design · Capstone', year: '2025',
     title: 'Foldable Study Table for Children in Compact Homes',
     desc: 'A human-centred capstone project addressing how children study in small urban homes — balancing spatial constraints with ergonomics through deep research and a fully fabricated prototype.',
@@ -215,22 +217,8 @@ const PROJECTS = {
     },
     insight: 'every fold mechanism is a decision that touches the user directly — nothing is neutral in furniture',
     tags: ['Furniture Design','Human-Centred Design','Capstone 2025','Prototyping','Wood','Research'],
-    cover: 'images/projects/Furniture design/FOLDABLE STUDY TABLE/cover photo/ChatGPT Image Jun 17, 2026, 08_41_17 PM.png',
-    photos: [
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/Cad model/capstone jury final render white.png',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/WhatsApp Image 2025-12-18 at 1.15.33 AM.jpeg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/WhatsApp Image 2025-12-18 at 1.15.33 AM (1).jpeg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/WhatsApp Image 2025-12-18 at 1.15.33 AM (2).jpeg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/WhatsApp Image 2025-12-18 at 1.15.34 AM.jpeg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/20251222_154024.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/20251222_154103.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/20251222_154142.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/20251222_154230.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251217_215601726.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251217_215606199.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251218_135308391.jpg',
-      'images/projects/Furniture design/FOLDABLE STUDY TABLE/pHOTOS/IMG_20251218_135313507.jpg'
-    ]
+    cover: 'images/foldable-study-table/foldable-study-table-cover.png',
+    photos: []
   },
   photoshop: {
     num: '05 / 09', cat: 'Graphic Design · Illustration', year: '2025',
@@ -244,12 +232,12 @@ const PROJECTS = {
     },
     insight: '2D and 3D design teach each other — every flat composition is a spatial problem in disguise',
     tags: ['Photoshop', 'Illustration', 'Graphic Design', 'Digital Art', 'Character Design', 'Typography'],
-    cover: 'images/projects/Photoshop/cover photo/ChatGPT Image Jun 19, 2026, 06_10_34 PM.png',
+    cover: 'images/graphic-design-illustration/graphic-design-illustration-cover.png',
     photos: [
-      'images/projects/Photoshop/photos/Karan Illustration kaniii-01.jpg',
-      'images/projects/Photoshop/photos/Ram photoshop Behance post.png',
-      'images/projects/Photoshop/photos/Screenshot 2025-07-24 232528.png',
-      'images/projects/Photoshop/photos/WhatsApp Image 2025-08-09 at 9.06.24 PM.jpeg'
+      'images/graphic-design-illustration/graphic-design-illustration-01.jpg',
+      'images/graphic-design-illustration/graphic-design-illustration-02.png',
+      'images/graphic-design-illustration/graphic-design-illustration-03.png',
+      'images/graphic-design-illustration/graphic-design-illustration-04.jpeg'
     ]
   }
 };
@@ -267,18 +255,17 @@ const VOLUNTEERS = {
     desc: 'Attended sessions by Punit Chawla, Dhisti Desai, Shanoo Bhatia, and others — helping coordinate event flow and manage real-time logistics for this design community gathering.',
     learnings: 'Design community events move fast — the invisible logistics work of setting up rooms, managing speaker transitions, and coordinating real-time is a design problem in itself. Exposure to practitioner voices outside the academic format was invaluable.',
     reflection: 'Being behind the scenes at a design event taught me that facilitation is design. How a space is arranged, how people move through it, how conversations are made to happen — these are designed outcomes, not accidents.',
-    cover: 'images/projects/Voluntering/design vichar/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_27_18 PM.png',
+    cover: 'images/volunteer/design-vichaar/design-vichaar-cover.png',
     photos: [
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.26.35 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.02 AM (1).jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.17 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.19 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.20 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.21 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.25.24 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.32.46 AM.jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 2.32.49 AM (1).jpeg',
-      'images/projects/Voluntering/design vichar/Photos/WhatsApp Image 2025-08-20 at 3.13.37 AM.jpeg'
+      'images/volunteer/design-vichaar/design-vichaar-01.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-02.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-03.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-05.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-06.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-07.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-08.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-09.jpeg',
+      'images/volunteer/design-vichaar/design-vichaar-10.jpeg'
     ]
   },
   permaculture: {
@@ -290,20 +277,19 @@ const VOLUNTEERS = {
     desc: 'Explored raised beds, multilayer farming, soil health, and biodiversity — learning how nature-first systems thinking can inform sustainable and circular design practice.',
     learnings: 'Permaculture is systems design with living materials. Every principle — stacking functions, observing before acting, valuing edges — translates directly to product and spatial design. The course rewired how I think about waste, cycles, and material life.',
     reflection: 'Designing with nature rather than against it isn\'t a constraint — it\'s an invitation to be more creative. The most interesting design brief is one where the material itself teaches you what it wants to become.',
-    cover: 'images/projects/Voluntering/permaculture/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_34_02 PM.png',
+    cover: 'images/volunteer/permaculture/permaculture-cover.png',
     photos: [
-      'images/projects/Voluntering/permaculture/Photos/01.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/02.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/03.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/04.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/05.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/06.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/07.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/08.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/09.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/10.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/11.jpeg',
-      'images/projects/Voluntering/permaculture/Photos/12.jpeg'
+      'images/volunteer/permaculture/permaculture-02.jpeg',
+      'images/volunteer/permaculture/permaculture-03.jpeg',
+      'images/volunteer/permaculture/permaculture-04.jpeg',
+      'images/volunteer/permaculture/permaculture-05.jpeg',
+      'images/volunteer/permaculture/permaculture-06.jpeg',
+      'images/volunteer/permaculture/permaculture-07.jpeg',
+      'images/volunteer/permaculture/permaculture-08.jpeg',
+      'images/volunteer/permaculture/permaculture-09.jpeg',
+      'images/volunteer/permaculture/permaculture-10.jpeg',
+      'images/volunteer/permaculture/permaculture-11.jpeg',
+      'images/volunteer/permaculture/permaculture-12.jpeg'
     ]
   },
   siif: {
@@ -315,16 +301,15 @@ const VOLUNTEERS = {
     desc: 'Led the Design Workshop team at a 3-day campus festival — from curation and pitching to organising, decorating, and facilitating sessions during the event.',
     learnings: 'Running a workshop at scale means your design decisions are tested in real time by hundreds of people. Spatial layout, material choices, session pacing — everything communicates. The gap between the designed experience and the lived one is always instructive.',
     reflection: 'Leadership in a festival context is fundamentally about keeping the energy of a space alive. This role taught me to design not just objects, but atmospheres — to think about what a room feels like and how people move through it.',
-    cover: 'images/projects/Voluntering/SIIF/COVER PHOTO/ChatGPT Image Jun 17, 2026, 11_53_02 PM.png',
+    cover: 'images/volunteer/siif/siif-cover.png',
     photos: [
-      'images/projects/Voluntering/SIIF/PHOTOS/432a3990-22d9-4d81-8918-caa517c05e98.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/467cd5c7-f780-40b7-9b8b-dc7d8a6403b1.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/4d061db0-3699-4273-8785-63545239a6fb.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/62aac081-a6c7-43ab-93ea-f8bbd4ddeae1.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/939ab67b-57eb-4092-a6b0-d1e7a4d8d680.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/WhatsApp Image 2026-06-17 at 11.44.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/a5a29243-0c5b-4e2c-bfec-f898fd4be222.jpg',
-      'images/projects/Voluntering/SIIF/PHOTOS/b87bfa10-f407-46f7-81e0-6e08b0324b0d.jpg'
+      'images/volunteer/siif/siif-01.jpg',
+      'images/volunteer/siif/siif-02.jpg',
+      'images/volunteer/siif/siif-03.jpg',
+      'images/volunteer/siif/siif-04.jpg',
+      'images/volunteer/siif/siif-05.jpg',
+      'images/volunteer/siif/siif-07.jpg',
+      'images/volunteer/siif/siif-08.jpg'
     ]
   },
   pottery: {
@@ -336,18 +321,18 @@ const VOLUNTEERS = {
     desc: 'A hands-on pottery workshop exploring wheel-throwing and hand-building techniques — a direct encounter with material resistance and the deeply iterative nature of making.',
     learnings: 'Clay is one of the most honest materials I\'ve worked with — it responds immediately to every decision and forgives nothing. The workshop reinforced how much design understanding lives in the hands, not just the mind. Centering clay on a wheel taught me more about balance and tension than any studio brief.',
     reflection: 'Pottery is one of the oldest forms of design. Every vessel is a solution to a problem: hold, pour, store. Sitting at a wheel reminded me that before every product is a sketch, there is a material — and learning to listen to it changes how you design with everything else.',
-    cover: 'images/projects/Voluntering/Pottery/Cover photo/ChatGPT Image Jun 19, 2026, 05_47_25 PM.png',
+    cover: 'images/volunteer/pottery/pottery-cover.png',
     photos: [
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.25.38 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.25.59 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.25 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.25 PM (1).jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.26 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.27 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.33 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.34 PM.jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.35 PM (1).jpeg',
-      'images/projects/Voluntering/Pottery/photos/WhatsApp Image 2026-06-19 at 3.27.35 PM (2).jpeg'
+      'images/volunteer/pottery/pottery-01.jpeg',
+      'images/volunteer/pottery/pottery-02.jpeg',
+      'images/volunteer/pottery/pottery-03.jpeg',
+      'images/volunteer/pottery/pottery-04.jpeg',
+      'images/volunteer/pottery/pottery-05.jpeg',
+      'images/volunteer/pottery/pottery-06.jpeg',
+      'images/volunteer/pottery/pottery-07.jpeg',
+      'images/volunteer/pottery/pottery-08.jpeg',
+      'images/volunteer/pottery/pottery-09.jpeg',
+      'images/volunteer/pottery/pottery-10.jpeg'
     ]
   }
 };
@@ -371,10 +356,10 @@ const VOLUNTEERS = {
   if (!charZoom) return;
 
   const POSES = {
-    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
-    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
-    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
-    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
+    front:  'images/mascot/mascot-front.png',
+    side:   'images/mascot/mascot-side.png',
+    back3q: 'images/mascot/mascot-back3q.png',
+    back:   'images/mascot/mascot-back.png',
   };
 
   const SPEECH = {
@@ -536,10 +521,10 @@ const VOLUNTEERS = {
   if (!charImg) return;
 
   const POSES = {
-    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
-    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
-    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
-    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
+    front:  'images/mascot/mascot-front.png',
+    side:   'images/mascot/mascot-side.png',
+    back3q: 'images/mascot/mascot-back3q.png',
+    back:   'images/mascot/mascot-back.png',
   };
 
   let currentPose = null;
@@ -619,10 +604,10 @@ const VOLUNTEERS = {
 ───────────────────────────────────────── */
 (function initSceneChars() {
   const POSES = {
-    front:  'images/mascot/mascot png/main/ChatGPT_Image_Jun_16__2026__06_00_11_PM-removebg-preview.png',
-    side:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_39_28 PM.png',
-    back3q: 'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_51_18 PM.png',
-    back:   'images/mascot/mascot png/another angles and poses/ChatGPT Image Jun 16, 2026, 11_53_06 PM.png',
+    front:  'images/mascot/mascot-front.png',
+    side:   'images/mascot/mascot-side.png',
+    back3q: 'images/mascot/mascot-back3q.png',
+    back:   'images/mascot/mascot-back.png',
   };
 
   const chars = document.querySelectorAll('.scene-char');
@@ -813,6 +798,384 @@ function makeCollage(photos) {
   return `<div class="pc pc-n"><img class="pc-feat" src="${photos[0]}" alt="" loading="lazy" onclick="openLB('${esc(photos[0])}')"/><div class="pc-strip">${photos.slice(1).map(img).join('')}</div></div>`;
 }
 /* ─────────────────────────────────────────
+   CURVED TABLE CUSTOM PRESENTATION BUILDER
+───────────────────────────────────────── */
+function buildFurniturePresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt||''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const base  = 'images/curved-table/';
+
+  // Assets
+  const render  = base + 'curved-table-render.png';
+  const sk1     = base + 'curved-table-sketch.png';   // measurement sketch (bg removed)
+  const sk2     = base + 'curved-table-sketch.png';
+  const pt1     = base + 'curved-table-prototype-01.jpeg';
+  const pt2     = base + 'curved-table-prototype-02.jpeg';
+  const pt3     = base + 'curved-table-prototype-03.jpeg';
+  const pt4     = base + 'curved-table-prototype-04.jpeg';
+  // Process photos in chronological order
+  const p1 = base + 'curved-table-process-01.jpg';  // drilling curved panel
+  const p2 = base + 'curved-table-process-02.jpg';  // drilling edge
+  const p3 = base + 'curved-table-process-03.jpg';  // curved formers
+  const p4 = base + 'curved-table-process-04.jpg';  // raw structure assembled
+  const p5 = base + 'curved-table-process-05.jpg';  // laminating surface
+  const p6 = base + 'curved-table-process-06.jpg';  // top view post-laminate
+  const p7 = base + 'curved-table-process-07.jpg';  // front view complete
+  const p8 = base + 'curved-table-process-08.jpg';  // front slider visible
+  let h = '';
+
+  // ── CARD 1: INTRO — title + desc left | clean render right ──
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">03 / 09 &nbsp;&middot;&nbsp; Furniture Design &middot; Spatial</span>
+        <h2 class="pcard-title">Curved Table with Storage and Relaxation Space</h2>
+        <p class="pcard-desc">A furniture piece that does more than hold things &mdash; it carves out a space for the body to rest, think, and retreat within a single object.</p>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2024</span></div>
+    </div>
+    <div class="pcard-intro-img">${i(render, 'Curved Table render')}</div>
+  </div>`;
+
+  // ── CARD 2: BRIEF — goal + user needs text only ──
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Brief</span>
+      <h3 class="pcard-sec-h">The Goal</h3>
+      <p class="pcard-body">To create furniture that is practical, comfortable, and looks good &mdash; fitting well into modern homes. The design integrates a curved tabletop with a leg relaxation alcove below, questioning the boundary between work surface and personal space.</p>
+    </div>
+    <div class="pcard-sec-text" style="border-left:1px solid rgba(68,50,35,0.1)">
+      <span class="pcard-label">User Needs</span>
+      <div class="pcard-needs-list">
+        <div class="pcard-need"><strong>Storage</strong><span>Help people keep their things organised and reduce mess.</span></div>
+        <div class="pcard-need"><strong>Comfort</strong><span>Easy to use and convenient for daily activities.</span></div>
+        <div class="pcard-need"><strong>Looks</strong><span>Stylish with a unique curved tabletop &mdash; modern and elegant, fitting different home interiors.</span></div>
+        <div class="pcard-need"><strong>Durability</strong><span>Strong and long-lasting, made from good materials.</span></div>
+        <div class="pcard-need"><strong>Versatility</strong><span>Useful for working, relaxing, or storing items.</span></div>
+      </div>
+    </div>
+  </div>`;
+
+  // ── PROCESS SCATTER 1: Early making — drilling curved panels ──
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pc pc-2 pc--fill">${i(p1)}${i(p2)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Making</span>
+      <h3 class="pcard-sec-h">Bending &amp; Forming</h3>
+      <p class="pcard-body">The curved tabletop required bending thin plywood sheets around a form and fixing them in place while wet &mdash; a technique that needed several attempts to get the radius right without cracking the grain.</p>
+    </div>
+  </div>`;
+
+  // ── CARD 3: TARGET AUDIENCE ──
+  h += `<div class="pcard pcard-audience pres-r">
+    <span class="pcard-label">Target Audience</span>
+    <div class="pcard-audience-grid">
+      <div class="pcard-aud-item">
+        <h4>Working Professionals</h4>
+        <p>Individuals looking for a comfortable, stylish desk for home offices or workspaces who need practical storage solutions for work essentials.</p>
+      </div>
+      <div class="pcard-aud-item">
+        <h4>Students</h4>
+        <p>Those who need an ergonomic desk for studying, writing, or computer use. The storage keeps books, supplies, and gadgets organised in one place.</p>
+      </div>
+      <div class="pcard-aud-item">
+        <h4>Minimalist Enthusiasts</h4>
+        <p>People who prefer sleek, space-saving furniture that complements modern interiors without adding visual clutter.</p>
+      </div>
+    </div>
+  </div>`;
+
+  // ── CARD 4: PROTOTYPE — 3 cardboard model photos ──
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-3" style="align-self:stretch">${i(pt1)}${i(pt2)}${i(pt3)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Prototype</span>
+      <h3 class="pcard-sec-h">First Physical Model</h3>
+      <p class="pcard-body">A compact cardboard prototype with an inbuilt laptop stand for better ergonomics, a half-slider in the middle for added functionality, and side storage compartments for efficient organisation.</p>
+      <p class="pcard-body" style="margin-top:1rem">The model allowed testing of proportions, ergonomic reach, and the structural behaviour of the curved form before committing to full-scale fabrication in plywood.</p>
+    </div>
+  </div>`;
+
+  // ── CARD 4b: SKETCH top + 2 process photos bottom ──
+  h += `<div class="pcard pres-r">
+    <div class="pc pc-stack">
+      <div class="pc-stack-top"><img src="${pt4}" alt="Prototype sketch" onclick="openLB('${pt4.replace(/'/g,"\\'")}')"/></div>
+      <div class="pc-stack-bottom">${i(p3)}${i(p4)}</div>
+    </div>
+  </div>`;
+
+  // ── CARD 5: SKETCHES & CONCEPT + MEASUREMENTS (combined) ──
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Sketches &amp; Concept</span>
+      <h3 class="pcard-sec-h">Form &amp; Dimensions</h3>
+      <p class="pcard-body">Ergonomic considerations drove the form: the curved tabletop follows the natural arc of the arm, while the space beneath creates a dedicated leg relaxation zone.</p>
+      <p class="pcard-body" style="margin-top:1rem">The two defining features: a <strong>curved tabletop</strong> for comfort and a <strong>leg relaxation alcove</strong> that turns under-desk space into intentional design.</p>
+      <ul class="pcard-cad-list" style="margin-top:1.4rem">
+        <li>Width: <strong>3 ft</strong></li>
+        <li>Depth: <strong>1.5 ft</strong></li>
+        <li>Height: <strong>2 ft</strong></li>
+        <li>Side storage: <strong>1.25 ft &times; 1 ft 10 in</strong></li>
+        <li>Curved top thickness: <strong>7 in</strong></li>
+      </ul>
+    </div>
+    <div class="pc pc--sketch pc--sketch-single" style="align-self:stretch">${i(sk1, 'Front measurement sketch')}</div>
+  </div>`;
+
+  // ── CARD 6: TECHNICAL DETAILS — text only ──
+  h += `<div class="pcard pcard-tech-mat pres-r">
+    <div class="pcard-tech-col">
+      <div class="pcard-tech-text">
+        <span class="pcard-label">Technical Details</span>
+        <ul class="pcard-cad-list">
+          <li><strong>Joinery:</strong> Screws, glue, L Bihari hinges, and curved plywood techniques</li>
+          <li><strong>Hardware:</strong> Drawer channels for the sliding shelf</li>
+          <li><strong>Structure:</strong> Load-bearing design &mdash; no visible hardware on exterior faces</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pcard-tech-col pcard-tech-col--right">
+      <div class="pcard-tech-text">
+        <span class="pcard-label">Materials &amp; Manufacturing</span>
+        <ul class="pcard-cad-list">
+          <li><strong>Material:</strong> Plywood for structural durability, laminate for surface aesthetics</li>
+          <li><strong>Why not lightweight:</strong> Sturdiness for daily use was the priority</li>
+          <li><strong>Process:</strong> Manual cutting, assembly, and finishing &mdash; hands-on throughout</li>
+        </ul>
+      </div>
+    </div>
+  </div>`;
+
+  // ── PROCESS SCATTER 3: Laminating + post-laminate top view ──
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(p5)}${i(p6)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Surface Treatment</span>
+      <h3 class="pcard-sec-h">Laminating &amp; Finishing</h3>
+      <p class="pcard-body">Laminate sheets were applied over the plywood surface for durability and a clean aesthetic. The curved edge required careful trimming to follow the radius without lifting or bubbling at the edges.</p>
+    </div>
+  </div>`;
+
+  // ── CARD 7: CAD MODELS — Fusion 360, no image (user will provide renders) ──
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">CAD Models &amp; Renders</span>
+    <h3 class="pcard-sec-h" style="margin-bottom:0.8rem">Modelled in Autodesk Fusion 360</h3>
+    <p class="pcard-brief-body">The final form was fully modelled in <strong>Autodesk Fusion 360</strong> before fabrication began. The 3D model confirmed the proportions, the curvature of the tabletop, the internal shelf spacing, and the slider mechanism clearances before any wood was cut.</p>
+  </div>`;
+
+  // ── PROCESS SCATTER 4: Completed table in workshop ──
+  h += `<div class="pcard pres-r">${makeCollage([p7, p8])}</div>`;
+
+  // ── CARD 8: FINAL PRODUCT — slide 11 (3 in-use photos) ──
+  h += `<div class="pcard pcard-slide-full pres-r">
+    <span class="pcard-label pcard-label--pad">Final Product</span>
+    <div class="pcard-slide-full-img">${i(base + 'curved-table-final.png', 'Final product in use')}</div>
+  </div>`;
+
+  // ── QUOTE ──
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;furniture is the smallest architecture &mdash; it shapes how we inhabit a room&rdquo;</blockquote>
+  </div>`;
+
+  // ── END ──
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Furniture design at its most interesting operates at the scale of the body and the room simultaneously. This piece taught me to think about furniture as the smallest architecture.</p>
+    <div class="pcard-tags">
+      ${['Furniture Design','Ergonomics','Curved Plywood','Autodesk Fusion 360','Spatial Design','Wood','Fabrication'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+/* ─────────────────────────────────────────
+   CAPSTONE CUSTOM PRESENTATION BUILDER
+───────────────────────────────────────── */
+function buildCapstonePresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const img = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const base = 'images/foldable-study-table/';
+  const ph   = base;
+  const cad  = base;
+  let h = '';
+
+  // 1. INTRO
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">09 / 09 &nbsp;&middot;&nbsp; Furniture Design &middot; Capstone</span>
+        <h2 class="pcard-title">Foldable Study Table for Children in Compact Homes</h2>
+        <p class="pcard-desc">A human-centred capstone project addressing how children study in small urban homes &mdash; balancing spatial constraints with ergonomics through deep research and a fully fabricated prototype.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">In Mumbai&rsquo;s compact 1&ndash;2 BHK apartments, children rarely have a dedicated study space. The shared kitchen table is impermanent and not scaled to a child&rsquo;s body &mdash; resulting in poor posture, disrupted focus, and no ownership over the act of studying.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot">
+        <span class="pcard-year">2025</span>
+      </div>
+    </div>
+    <div class="pcard-intro-img">${img(cad + 'foldable-study-table-render-white.png', 'Foldable Study Table CAD')}</div>
+  </div>`;
+
+  // 2. CONTEXT & USER RESEARCH
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Research</span>
+      <h3 class="pcard-sec-h">Wood Furniture in the Indian Home</h3>
+      <p class="pcard-body">Research started with mapping traditional Indian furniture archetypes &mdash; Sandook, Almari, Jaali Cabinets, and storage units with built-in mechanisms. These revealed how Indian households have always valued furniture that does dual duty: store, divide, and display.</p>
+      <p class="pcard-body" style="margin-top:1rem">Field visits across 8 families in Ghatkopar, Kurla, and Chembur (1&ndash;2 BHK homes) confirmed the target user: the <strong>low to middle income group</strong>, for whom furniture must be functional + space-efficient above all else.</p>
+      <div class="pcard-tag-row">
+        <span class="pcard-tag">Function</span><span class="pcard-tag">Multi-use</span><span class="pcard-tag">Compact</span><span class="pcard-tag">Affordable</span>
+      </div>
+    </div>
+    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-research-01.png')}${img(ph + 'foldable-study-table-research-02.png')}</div>
+  </div>`;
+
+  // 3. REQUIREMENTS
+  h += `<div class="pcard pcard-reqs pres-r">
+    <span class="pcard-label">List of Requirements</span>
+    <div class="pcard-reqs-grid">
+      ${[
+        ['Compact',          'Folds to one-third its size when not in use'],
+        ['Multifunctional',  'Does more than one job at a time'],
+        ['Affordable',       'Cost-effective &mdash; target range ₹4,000&ndash;5,000'],
+        ['Ergonomic',        'Comfortable posture; 8&ndash;10 users confirm positive feedback'],
+        ['Lightweight',      'Max 12&ndash;18 kg; one person can lift and carry'],
+        ['Portable',         'Age 12+ can carry independently when folded'],
+        ['Durable',          'Lasts at least 4&ndash;5 years; does not loosen or break easily'],
+        ['Repairable',       'Parts easily replaceable; 6&ndash;8 users confirm repairability'],
+        ['Safe',             'No sharp edges; pinch-free mechanism throughout operation'],
+        ['Sustainable',      'Eco-friendly material; life cycle assessment planned'],
+      ].map(([t, d]) => `<div class="pcard-req-item"><strong>${t}</strong><span>${d}</span></div>`).join('')}
+    </div>
+  </div>`;
+
+  // 4. IDEATION — mind map + morphological chart intro
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-ideation-01.jpg')}${img(ph + 'foldable-study-table-ideation-02.jpg')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Ideation</span>
+      <h3 class="pcard-sec-h">From Mind Map to Morphological Chart</h3>
+      <p class="pcard-body">The study table&rsquo;s design space was opened through a mind map covering: folding mechanism, workspace, book storage, wall mounting, charging port, modular add-ons, coffee mug holder, laptop stand, and integrated lighting.</p>
+      <p class="pcard-body" style="margin-top:1rem">A full morphological chart then mapped every parameter &mdash; table top surface, mechanism type, leg structure, storage form, locking system, portability, lighting, accessories, joinery &mdash; before the most promising combinations were pulled into three concepts.</p>
+    </div>
+  </div>`;
+
+  // 5. MORPHOLOGICAL CHART detail photo
+  h += `<div class="pcard pres-r">${makeCollage([ph + 'foldable-study-table-morph-01.png', ph + 'foldable-study-table-morph-02.jpg', ph + 'foldable-study-table-morph-03.jpg', ph + 'foldable-study-table-morph-04.jpg'])}</div>`;
+
+  // 6. THREE CONCEPTS
+  h += `<div class="pcard pcard-concepts pres-r">
+    <span class="pcard-label">Concept Generation</span>
+    <div class="pcard-concepts-grid">
+      <div class="pcard-concept">
+        <span class="pcard-concept-num">01</span>
+        <h4>Flip Fold Study Table</h4>
+        <p>Top splits and flips out using a hinge mechanism with hydraulic support. Detachable legs slot into the table top. Storage inside the body. Hook-lock system when in use. Folds flat with built-in leg slots.</p>
+      </div>
+      <div class="pcard-concept pcard-concept--selected">
+        <span class="pcard-concept-num">02</span>
+        <h4>Split Fold Study Table <em>Selected</em></h4>
+        <p>Table top splits in two and folds inward &mdash; legs fold upward simultaneously. Slim storage drawer under the surface. Gyro cup holder integrated on top. Most compact when folded, simplest for a child to operate.</p>
+      </div>
+      <div class="pcard-concept">
+        <span class="pcard-concept-num">03</span>
+        <h4>Untitled Study Table</h4>
+        <p>Legs and top fold inside the table like a book; opens outward when in use. LED strip lighting. Gyro cup holder. Compact flat form but more complex folding action for a young child.</p>
+      </div>
+    </div>
+  </div>`;
+
+  // 7. CONCEPT SELECTION
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Concept Selection</span>
+      <h3 class="pcard-sec-h">Weighted Criteria &mdash; Concept 2 Chosen</h3>
+      <p class="pcard-body">All three concepts were evaluated against weighted design criteria: Compactness (20%), Repairability (15%), Cost (15%), Ergonomics (10%), Aesthetics (10%), Durability (10%), Safety (10%), Multifunctionality (10%).</p>
+      <p class="pcard-body" style="margin-top:1rem">Concept 2 &mdash; the Split Fold &mdash; scored highest. Its simultaneous top-and-leg fold achieved the greatest space reduction, used the fewest mechanical parts (lower failure rate, lower cost), and was the most intuitive for a child to operate independently.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-selection-01.jpg')}${img(ph + 'foldable-study-table-selection-02.jpg')}</div>
+  </div>`;
+
+  // 8. CAD DEVELOPMENT — Fusion 360
+  h += `<div class="pcard pcard-cad pres-r">
+    <div class="pcard-cad-col">
+      <span class="pcard-label">CAD Development</span>
+      <h3 class="pcard-sec-h">Modelled in Autodesk Fusion 360</h3>
+      <p class="pcard-body">The final form was developed as a full parametric model in <strong>Autodesk Fusion 360</strong>. Every joint, hinge point, and panel thickness was modelled and checked for clearance before any cutting began. The split-fold mechanism was animated and simulated within Fusion 360 to confirm the folding motion worked without pinch points or binding.</p>
+      <ul class="pcard-cad-list">
+        <li>Software: <strong>Autodesk Fusion 360</strong></li>
+        <li>Table surface height: <strong>52 cm</strong> (correct for children aged 6&ndash;12)</li>
+        <li>Folded depth: <strong>under 15 cm</strong></li>
+        <li>Material: <strong>Birch plywood</strong> with steel hinge inserts</li>
+        <li>Weight: <strong>under 14 kg</strong></li>
+        <li>Joinery: wooden dowels + screws and bolts</li>
+      </ul>
+    </div>
+    <div class="pcard-cad-renders">
+      ${img(cad + 'foldable-study-table-render-4.png',    'Fusion 360 render')}
+      ${img(cad + 'foldable-study-table-render-white.png', 'Fusion 360 render white')}
+    </div>
+  </div>`;
+
+  // 9. FABRICATION — scattered images
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-3" style="align-self:stretch">${img(ph + 'foldable-study-table-fab-01.jpg')}${img(ph + 'foldable-study-table-fab-02.jpg')}${img(ph + 'foldable-study-table-fab-03.jpg')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Fabrication</span>
+      <h3 class="pcard-sec-h">From Digital to Physical</h3>
+      <p class="pcard-body">Panels were cut from birch plywood, sanded, and fitted with the steel hinge and slide-bolt locking mechanism drawn from the Fusion 360 model. Each component was test-fitted before final assembly to verify the fold clearances matched the simulation.</p>
+    </div>
+  </div>`;
+
+  h += `<div class="pcard pres-r">${makeCollage([
+    ph + 'foldable-study-table-fab-04.jpg',
+    ph + 'foldable-study-table-fab-05.jpg',
+    ph + 'foldable-study-table-fab-06.jpg',
+    ph + 'foldable-study-table-fab-07.jpg',
+    ph + 'foldable-study-table-fab-08.jpg',
+  ])}</div>`;
+
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Assembly &amp; User Testing</span>
+      <h3 class="pcard-sec-h">Child-Tested Setup</h3>
+      <p class="pcard-body">Three children aged 7&ndash;11 were asked to set up and pack down the table independently. All three completed the process within two minutes &mdash; confirming the fold mechanism was intuitive enough for the target age group without adult assistance.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-test-01.jpeg')}${img(ph + 'foldable-study-table-test-02.jpeg')}</div>
+  </div>`;
+
+  h += `<div class="pcard pres-r">${makeCollage([
+    ph + 'foldable-study-table-final-01.jpeg',
+    ph + 'foldable-study-table-final-02.jpeg',
+    ph + 'foldable-study-table-final-03.jpeg',
+    ph + 'foldable-study-table-final-04.jpeg',
+    ph + 'foldable-study-table-final-05.png',
+  ])}</div>`;
+
+  // 10. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A freestanding fold-flat study table scaled for children aged 6&ndash;12. Folds to under 15 cm depth for wall storage. Surface height 52 cm &mdash; correct for a sitting child. All materials non-toxic and child-safe. Three children aged 7&ndash;11 were able to set up and pack down independently within two minutes.</p>
+  </div>`;
+
+  // 11. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;every fold mechanism is a decision that touches the user directly &mdash; nothing is neutral in furniture&rdquo;</blockquote>
+  </div>`;
+
+  // 12. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Designing for children is designing for autonomy &mdash; the child&rsquo;s ability to own and operate their own space is the whole point. Every complexity in the fold mechanism was weighed against whether a 7-year-old could navigate it alone.</p>
+    <div class="pcard-tags">
+      ${['Furniture Design','Human-Centred Design','Capstone 2025','Prototyping','Wood','Autodesk Fusion 360','Research'].map(t => `<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
    PRESENTATION BUILDER  (work.html)
    Constructs scrollable case-study scenes
 ───────────────────────────────────────── */
@@ -944,7 +1307,9 @@ function openProject(id, cardEl) {
   document.getElementById('cs-num').textContent = p.num;
 
   const content = document.getElementById('cs-content');
-  content.innerHTML = buildPresentation(p);
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation };
+  const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
+  content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
 
   cs.classList.add('open');
 
@@ -977,6 +1342,29 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
   document.getElementById('modal-bg')?.addEventListener('click', closeModal);
 });
+
+/* ─────────────────────────────────────────
+   STANDALONE PROJECT PAGE
+   A dedicated HTML page (e.g. curved-table.html)
+   carries <main id="cs-content" data-project="furniture">.
+   Render the same presentation builder into it.
+───────────────────────────────────────── */
+(function initStandaloneProject() {
+  const content = document.getElementById('cs-content');
+  const id = content?.getAttribute('data-project');
+  if (!content || !id) return;
+  const p = PROJECTS[id];
+  if (!p) return;
+
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation };
+  const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
+  content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
+
+  const numEl = document.getElementById('cs-num');
+  if (numEl) numEl.textContent = p.num;
+
+  requestAnimationFrame(() => initPresReveal(content));
+})();
 
 /* ─────────────────────────────────────────
    LIGHTBOX
@@ -1095,10 +1483,10 @@ window.addEventListener('load', () => {
   if (!window.matchMedia('(hover: hover)').matches) return;
 
   const dot  = Object.assign(document.createElement('div'), { className: 'cursor-dot' });
-  const ring = Object.assign(document.createElement('div'), { className: 'cursor-ring' });
-  document.body.append(dot, ring);
+  const glow = Object.assign(document.createElement('div'), { className: 'cursor-glow' });
+  document.body.append(glow, dot); // glow behind dot
 
-  let mx = -200, my = -200, rx = -200, ry = -200;
+  let mx = -300, my = -300, gx = -300, gy = -300;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
@@ -1106,13 +1494,12 @@ window.addEventListener('load', () => {
   });
 
   (function lerp() {
-    rx += (mx - rx) * 0.13;
-    ry += (my - ry) * 0.13;
-    ring.style.transform = `translate(${rx}px,${ry}px)`;
+    gx += (mx - gx) * 0.09;
+    gy += (my - gy) * 0.09;
+    glow.style.transform = `translate(${gx}px,${gy}px)`;
     requestAnimationFrame(lerp);
   })();
 
-  // Interactive state via delegation
   document.addEventListener('mouseover', e => {
     const hit = e.target.closest('a,button,[onclick],.project-card,.feat-card,.cl,.nav-cta,.sticky');
     document.body.classList.toggle('cur-link', !!hit);
@@ -1121,8 +1508,8 @@ window.addEventListener('load', () => {
   document.addEventListener('mousedown', () => document.body.classList.add('cur-click'));
   document.addEventListener('mouseup',   () => document.body.classList.remove('cur-click'));
 
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '';  ring.style.opacity = '';  });
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; glow.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '';  glow.style.opacity = '';  });
 })();
 
 /* ─────────────────────────────────────────

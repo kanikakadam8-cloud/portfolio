@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beyond the Studio — Kanika Kadam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script>if(localStorage.getItem('kk-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+</head>
+<body data-page="beyond">
+
+  <div id="progress"></div>
+
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Kanika Kadam</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="beyond-the-studio.html" class="active">Beyond the Studio</a></li>
+      <li><a href="curriculum-vitae.html">Curriculum Vitae</a></li>
+      <li class="nav-cta-mob"><a href="contact.html">Get in Touch</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    <a href="contact.html" class="nav-cta">Get in Touch</a>
+  </nav>
+
+  <!-- STORY SPLIT: sticky character left, full page scroll right -->
+  <div class="story-split">
+    <div class="story-right">
+
+      <div class="story-hdr chapter-bg"
+           data-char="back" data-speech="beyond the studio">
+        <div class="chapter-label rv">Community &amp; Volunteering</div>
+        <span class="eyebrow rv">Design happens everywhere</span>
+        <h1 class="sec-heading line-reveal">
+          <span class="lr"><span>Beyond the</span></span>
+          <span class="lr"><span>Studio</span></span>
+        </h1>
+        <p class="story-hdr-lede rv">Design doesn't stop at the brief. The most interesting learning happens in the field — in community events, on farms, in festival workshops, and at the potter's wheel.</p>
+      </div>
+
+  <!-- VOLUNTEERING -->
+  <section id="vol"
+           data-char="side" data-flip="true" data-speech="learning in the field">
+    <div class="sw">
+      <div class="vol-grid stg">
+
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('designvichar',this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/volunteer/design-vichaar/design-vichaar-cover.png"
+                     alt="Design Vichaar"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Community · Design Events</span><h3 class="proj-title">Design Vichaar</h3></div>
+                <span class="proj-yr">2024</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/volunteer/design-vichaar/design-vichaar-back.jpeg"
+                   alt="Design Vichaar"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Community · Design Events</span>
+                <h3 class="card-back-title">Design Vichaar</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('permaculture',this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/volunteer/permaculture/permaculture-cover.png"
+                     alt="Permaculture Design Course"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Sustainability · Farming</span><h3 class="proj-title">Permaculture Design Course</h3></div>
+                <span class="proj-yr">2024</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/volunteer/permaculture/permaculture-back.jpeg"
+                   alt="Permaculture Design Course"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Sustainability · Farming</span>
+                <h3 class="card-back-title">Permaculture Design Course</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('siif',this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/volunteer/siif/siif-cover.png"
+                     alt="SIIF Design Workshop Lead"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Festival · Workshop Design</span><h3 class="proj-title">SIIF — Design Workshop Lead</h3></div>
+                <span class="proj-yr">2025</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/volunteer/siif/siif-back.jpg"
+                   alt="SIIF Design Workshop Lead"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Festival · Workshop Design</span>
+                <h3 class="card-back-title">SIIF — Design Workshop Lead</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card vol-card rv-img" onclick="openVolunteer('pottery',this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="proj-img">
+                <img src="images/volunteer/pottery/pottery-cover.png"
+                     alt="Pottery Workshop"
+                     onerror="this.parentElement.innerHTML='<div class=\'proj-ph\'></div>'"/>
+                <div class="proj-veil"><span class="proj-veil-label">View Details</span></div>
+              </div>
+              <div class="proj-meta">
+                <div><span class="proj-cat">Craft · Making</span><h3 class="proj-title">Pottery Workshop</h3></div>
+                <span class="proj-yr">2026</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <img class="vol-back-photo"
+                   src="images/volunteer/pottery/pottery-back.jpg"
+                   alt="Pottery Workshop"
+                   onerror="this.style.display='none'"/>
+              <div class="vol-back-overlay">
+                <span class="card-back-cat">Craft · Making</span>
+                <h3 class="card-back-title">Pottery Workshop</h3>
+                <span class="card-back-cta">View Details ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:3rem;display:flex;justify-content:flex-end;" class="rv">
+        <div class="sticky sr3">
+          <span class="stk-lbl">beyond the studio</span>
+          design doesn't stop at the brief — the most interesting learning happens in the field
+        </div>
+      </div>
+    </div>
+  </section>
+
+    </div><!-- /story-right -->
+  </div><!-- /story-split -->
+
+  <!-- VOLUNTEER MODAL -->
+  <div id="vol-modal">
+    <div id="vol-modal-panel">
+      <!-- Floating controls -->
+      <div class="modal-top">
+        <span class="modal-num" id="vm-num">Volunteer</span>
+        <button id="vol-modal-close">&#215;</button>
+      </div>
+      <!-- Left: sticky cover image -->
+      <div class="modal-cover-col">
+        <div id="vm-cover-section"></div>
+        <div class="modal-cover-overlay"></div>
+        <div class="modal-cover-meta">
+          <span class="m-cover-cat" id="vm-cover-cat"></span>
+          <h2 class="m-cover-title" id="vm-cover-title"></h2>
+        </div>
+      </div>
+      <!-- Right: scrollable content -->
+      <div class="modal-content-col" id="vol-modal-content-col">
+        <div class="modal-hdr">
+          <span id="vm-cat"></span>
+          <h2 id="vm-title"></h2>
+          <div class="vm-meta-row">
+            <div><span class="vm-meta-label">Organisation</span><span class="vm-meta-val" id="vm-org"></span></div>
+            <div><span class="vm-meta-label">Role</span><span class="vm-meta-val" id="vm-role"></span></div>
+            <div><span class="vm-meta-label">Duration</span><span class="vm-meta-val" id="vm-duration"></span></div>
+          </div>
+          <p id="vm-desc"></p>
+        </div>
+        <div id="vm-learnings-section"></div>
+        <div id="vm-photos-section" style="display:none">
+          <span class="modal-sec-lbl">Photographs</span>
+          <div id="vm-photos"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lb">
+    <button id="lb-x">&#215;</button>
+    <img id="lb-img" src="" alt=""/>
+  </div>
+
+  <footer class="site-footer">
+    <span class="site-footer-copy">© 2026 Kanika Kadam</span>
+    <div class="site-footer-links">
+      <a href="work.html">Work</a>
+      <a href="about.html">About Me</a>
+      <a href="curriculum-vitae.html">Curriculum Vitae</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

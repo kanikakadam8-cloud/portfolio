@@ -1,0 +1,8 @@
+# Unused / unlinked images — kept locally, not pushed
+work-experience/images/other-images/
+
+# OS / editor cruft
+desktop.ini
+.DS_Store
+Thumbs.db
+*.tmp
