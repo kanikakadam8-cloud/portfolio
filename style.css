@@ -817,7 +817,15 @@ body[data-page="contact"] .scene-speech::after {
   justify-content: flex-start;
   position: relative;
 }
-.editorial-inner { max-width: 92%; }
+.editorial-inner {
+  max-width: 92%;
+  transition: transform 0.9s cubic-bezier(.23,1,.32,1), opacity 0.7s ease;
+}
+/* When the mascot vanishes, glide the quote to the viewport centre.
+   --quote-shift is measured precisely in JS; -25vw is a pre-JS fallback. */
+.editorial-band.is-centered .editorial-inner {
+  transform: translateX(var(--quote-shift, -25vw)) scale(1.08);
+}
 .editorial-ornament {
   display: block;
   font-size: 0.9rem;
@@ -989,18 +997,19 @@ body[data-page="contact"] .scene-speech::after {
 
 /* Home about band — Cedar background */
 #home-about { background: var(--cedar); }
+#home-about .sw-sm { padding-top: 0.6rem; padding-bottom: 0.6rem; }
 .home-about-grid {
   display: grid; grid-template-columns: 1fr 2fr;
   gap: 4rem; align-items: center;
-  padding: 3rem 0; border-top: 1px solid rgba(255,249,243,0.15);
+  padding: 0.8rem 0; border-top: 1px solid rgba(255,249,243,0.15);
   position: relative; z-index: 1;
 }
 #home-about .chapter-label { color: rgba(255,249,243,0.55); }
 #home-about .chapter-bg-num { color: rgba(255,249,243,0.06); }
 .home-about-stat {
   font-family: var(--serif); font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.12; color: rgba(255,249,243,0.96);
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  line-height: 1.05; color: rgba(255,249,243,0.96);
 }
 .home-about-stat em { color: rgba(255,249,243,0.55); }
 .home-about-body {
@@ -1444,11 +1453,24 @@ body[data-page="contact"] .scene-speech::after {
   width: 72%; height: auto; object-fit: contain;
   display: block; background-color: var(--bg);
 }
+/* Right column: big image on top, thumbnails beneath it */
+.pcard-intro-img-col {
+  display: flex; flex-direction: column; background: var(--bg);
+}
+.pcard-intro-img-col .pcard-intro-img { flex: 1; }
+.pcard-intro-img-col .pcard-thumbs {
+  gap: 8px; padding: 0 2rem 2rem;
+}
+.pcard-intro-img-col .pcard-thumbs img {
+  flex: 1; min-width: 0; width: 0;
+  height: 130px; max-height: none; aspect-ratio: auto;
+  object-fit: cover; border-radius: 7px;
+}
 
 /* ── CARD 2/3: SECTION — text | collage or collage | text ── */
 .pcard-sec {
   display: grid; grid-template-columns: 1fr 1fr;
-  align-items: start;
+  align-items: stretch;
 }
 .pcard-sec-text { padding: 3rem 2.8rem; }
 .pcard-sec:not(.pcard-sec--flip) .pcard-sec-text {
@@ -1462,6 +1484,48 @@ body[data-page="contact"] .scene-speech::after {
   color: var(--ink); margin: 0;
 }
 
+/* ── NO-CROP image groups — show full images, card grows to fit ── */
+.pc-nocrop {
+  display: flex; gap: 3px; align-items: flex-start;
+  background: var(--bg); line-height: 0;
+}
+.pc-nocrop img {
+  flex: 1; min-width: 0; width: 0; height: auto;
+  object-fit: contain; display: block;
+  cursor: pointer; transition: opacity 0.22s;
+}
+.pc-nocrop img:hover { opacity: 0.84; }
+.pc-nocrop--1 img { flex: none; width: 100%; }
+@media (max-width: 700px) {
+  .pc-nocrop { flex-direction: column; }
+  .pc-nocrop img { width: 100%; }
+}
+
+/* Single photo capped to viewport so it fits on one screen */
+.pc-screen {
+  background: var(--bg); line-height: 0;
+  display: flex; justify-content: center; align-items: center;
+  padding: 0.5rem 2rem 2rem;
+}
+.pc-screen img {
+  max-height: 72vh; max-width: 100%; width: auto; height: auto;
+  object-fit: contain; display: block;
+  cursor: pointer; transition: opacity 0.22s; border-radius: 7px;
+}
+.pc-screen img:hover { opacity: 0.84; }
+
+/* Larger 2-up grid — taller cells for portrait photos */
+.pc-duo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+  background: var(--sticky); line-height: 0;
+}
+.pc-duo img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  display: block; cursor: pointer; transition: opacity 0.22s;
+}
+.pc-duo img:hover { opacity: 0.84; }
+@media (max-width: 700px) { .pc-duo { grid-template-columns: 1fr; } }
+
 /* ── PHOTO COLLAGES ── */
 .pc {
   background: var(--sticky); line-height: 0; overflow: hidden;
@@ -1471,6 +1535,34 @@ body[data-page="contact"] .scene-speech::after {
   transition: opacity 0.22s;
 }
 .pc img:hover { opacity: 0.84; }
+
+/* Final product — equal 3-up grid sized for portrait phone photos */
+.pc-final {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  background: var(--sticky); line-height: 0;
+}
+.pc-final img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+  display: block; cursor: pointer; transition: opacity 0.22s;
+}
+.pc-final img:hover { opacity: 0.84; }
+@media (max-width: 700px) {
+  .pc-final { grid-template-columns: 1fr 1fr; }
+}
+
+/* CAD renders — equal 3-up grid sized for landscape renders */
+.pc-cad {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  background: var(--sticky); line-height: 0;
+}
+.pc-cad img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  display: block; cursor: pointer; transition: opacity 0.22s;
+}
+.pc-cad img:hover { opacity: 0.84; }
+@media (max-width: 700px) {
+  .pc-cad { grid-template-columns: 1fr 1fr; }
+}
 
 /* transparent PNG variant — background matches card, images use contain + padding */
 .pc--sketch {
@@ -2065,6 +2157,8 @@ body[data-page="contact"] .scene-speech::after {
   /* Narrower char panel on tablet — still split, just tighter */
   #home-cinematic { grid-template-columns: 38% 62%; }
   #home-content { width: 100%; }
+  /* Centre offset computed precisely in JS via --quote-shift */
+  .editorial-band.is-centered .editorial-inner { transform: translateX(var(--quote-shift, -19vw)) scale(1.06); }
   #hero { padding: 7rem 5% 4rem; }
   .hero-name .ln2 { padding-left: 0; }
 
@@ -2163,6 +2257,8 @@ body[data-page="contact"] .scene-speech::after {
   /* Editorial */
   .editorial-band { padding: 5rem 8% 6rem; }
   .editorial-statement { font-size: clamp(1.5rem, 7vw, 2rem); }
+  /* Stacked layout is already full-width — no centre shift */
+  .editorial-band.is-centered .editorial-inner { transform: none; }
 
   /* Featured gallery */
   .feat-full-card { width: 72vw; min-width: 220px; }
@@ -2457,3 +2553,26 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   #vm-photos { grid-template-columns: 1fr 1fr; padding-left: 1.4rem; padding-right: 1.4rem; }
   .vm-meta-row { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   SUBTLE ROUNDED CORNERS  — a little curve on the boxes
+═══════════════════════════════════════════════════════ */
+.pcard,
+.project-card,
+.ffc-img,
+.proj-img,
+.about-img,
+.sticky,
+.cl,
+.pcard-sketch-full,
+.pc-stack,
+.pcard-tag,
+.nav-cta,
+.proj-page-back,
+.proj-page-bar,
+#cs-close,
+.cv-cta,
+.vol-card .card-front,
+.vol-card .card-back,
+.pc-1 img,
+.pc-feat { border-radius: 7px; }

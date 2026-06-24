@@ -63,6 +63,7 @@
 ───────────────────────────────────────── */
 const PROJECTS = {
   lamp: {
+    customPres: true,
     num: '01 / 09', cat: 'Product Design · Lighting', year: '2024',
     title: 'Mad Hatter Lamp',
     desc: 'An unconventional lamp design inspired by the whimsy of Alice in Wonderland\'s Mad Hatter — an exploration of theatrical form, light diffusion, and material play through iterative prototyping.',
@@ -75,10 +76,11 @@ const PROJECTS = {
     },
     insight: 'form follows feeling, not just function — some designs need a little madness',
     tags: ['Product Design','Lighting','Concept Design','Prototyping','Material Exploration'],
-    cover: 'images/mad-hatter-lamp/mad-hatter-lamp-cover.png',
-    photos: Array.from({length:10},(_,i)=>`images/mad-hatter-lamp/mad-hatter-lamp-${String(i+1).padStart(2,'0')}.png`)
+    cover: 'images/mad-hatter-lamp/mad-hatter-lamp-cover.jpg',
+    photos: []
   },
   compost: {
+    customPres: true,
     num: '02 / 09', cat: 'Product Design · Sustainability', year: '2025',
     title: 'Wormy — Compost Bin',
     desc: 'A home vermicomposting system designed to make worm farming intuitive, approachable, and beautiful — balancing the functional needs of worm welfare with an aesthetic that invites everyday use.',
@@ -92,10 +94,7 @@ const PROJECTS = {
     insight: 'good sustainability design isn\'t about sacrifice — it\'s making the right choice feel like the easy choice',
     tags: ['Product Design','Sustainability','Home','Circular Design','Vermicomposting'],
     cover: 'images/wormy-compost-bin/wormy-compost-bin-cover.png',
-    photos: [
-      'images/wormy-compost-bin/wormy-compost-bin-01.jpg',
-      'images/wormy-compost-bin/wormy-compost-bin-02.jpeg'
-    ]
+    photos: []
   },
   furniture: {
     customPres: true,
@@ -115,6 +114,7 @@ const PROJECTS = {
     photos: []
   },
   packaging: {
+    customPres: true,
     num: '04 / 09', cat: 'Packaging Design · Structural', year: '2025',
     title: 'Millet Packaging for a Healthier Tomorrow',
     desc: 'A resealable, stackable packaging system for millets — designed to solve the everyday frustration of plastic grain packets that can\'t be closed once opened, while letting customers mix their own grain combinations in a single pack.',
@@ -127,13 +127,8 @@ const PROJECTS = {
     },
     insight: 'the best packaging is the one you never have to think about twice',
     tags: ['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'],
-    cover: 'images/millet-packaging/millet-packaging-cover.png',
-    photos: [
-      'images/millet-packaging/millet-packaging-01.png',
-      'images/millet-packaging/millet-packaging-02.png',
-      'images/millet-packaging/millet-packaging-03.png',
-      'images/millet-packaging/millet-packaging-04.png'
-    ]
+    cover: 'images/millet-packaging/millet-packaging-cover.jpeg',
+    photos: []
   },
   toss: {
     num: '06 / 09', cat: 'Spatial Design · Installation', year: '2025',
@@ -178,6 +173,7 @@ const PROJECTS = {
     photos: Array.from({length:11},(_,i)=>`images/woodworking-lab/woodworking-lab-${String(i+1).padStart(2,'0')}.jpeg`)
   },
   stressball: {
+    customPres: true,
     num: '08 / 09', cat: 'Product Design · Wellbeing', year: '2024',
     title: 'Interactive Stress Ball',
     desc: 'A sensor-integrated stress relief tool that responds to pressure with soothing sounds and gentle vibration — designed for teachers, professionals, and parents carrying invisible daily loads.',
@@ -353,6 +349,7 @@ const VOLUNTEERS = {
   const charPanel = document.getElementById('char-panel');
   const charImg   = document.getElementById('hc-main');
   const speechEl  = document.getElementById('hc-speech');
+  const editorialBand = document.getElementById('editorial-band');
   if (!charZoom) return;
 
   const POSES = {
@@ -435,7 +432,34 @@ const VOLUNTEERS = {
         charPanel.style.opacity = '1';
       }
     }
+
+    /* As the mascot vanishes, slide the editorial quote to screen center */
+    if (editorialBand) {
+      editorialBand.classList.toggle('is-centered', progress > 0.8);
+    }
   }
+
+  /* Measure the exact shift needed to centre the quote in the viewport.
+     Reads the inner's natural (untransformed) centre, then sets --quote-shift. */
+  function measureQuoteShift() {
+    if (!editorialBand) return;
+    const inner = editorialBand.querySelector('.editorial-inner');
+    if (!inner) return;
+    const prevTransition = inner.style.transition;
+    const prevTransform  = inner.style.transform;
+    inner.style.transition = 'none';
+    inner.style.transform  = 'none';                 // measure natural position
+    const rect = inner.getBoundingClientRect();
+    const naturalCenter = rect.left + rect.width / 2;
+    const shift = Math.round(window.innerWidth / 2 - naturalCenter);
+    inner.style.transform  = prevTransform;          // restore (class controls it)
+    void inner.offsetWidth;                           // flush before re-enabling transition
+    inner.style.transition = prevTransition;
+    editorialBand.style.setProperty('--quote-shift', shift + 'px');
+  }
+  measureQuoteShift();
+  window.addEventListener('load', measureQuoteShift);
+  window.addEventListener('resize', measureQuoteShift);
 
   /* Mouse parallax — drives charPara horizontal offset */
   document.addEventListener('mousemove', e => {
@@ -956,20 +980,21 @@ function buildFurniturePresentation(p) {
     </div>
   </div>`;
 
-  // ── CARD 7: CAD MODELS — Fusion 360, no image (user will provide renders) ──
+  // ── CARD 7: CAD MODELS — Fusion 360 text + renders ──
   h += `<div class="pcard pcard-outcome pres-r">
     <span class="pcard-label">CAD Models &amp; Renders</span>
     <h3 class="pcard-sec-h" style="margin-bottom:0.8rem">Modelled in Autodesk Fusion 360</h3>
     <p class="pcard-brief-body">The final form was fully modelled in <strong>Autodesk Fusion 360</strong> before fabrication began. The 3D model confirmed the proportions, the curvature of the tabletop, the internal shelf spacing, and the slider mechanism clearances before any wood was cut.</p>
   </div>`;
+  h += `<div class="pcard pres-r"><div class="pc-cad">${i(base + 'curved-table-cad-01.png')}${i(base + 'curved-table-cad-02.png')}${i(base + 'curved-table-cad-03.png')}</div></div>`;
 
   // ── PROCESS SCATTER 4: Completed table in workshop ──
   h += `<div class="pcard pres-r">${makeCollage([p7, p8])}</div>`;
 
-  // ── CARD 8: FINAL PRODUCT — slide 11 (3 in-use photos) ──
+  // ── CARD 8: FINAL PRODUCT — finished photos (equal 3-up grid) ──
   h += `<div class="pcard pcard-slide-full pres-r">
     <span class="pcard-label pcard-label--pad">Final Product</span>
-    <div class="pcard-slide-full-img">${i(base + 'curved-table-final.png', 'Final product in use')}</div>
+    <div class="pc-final">${i(base + 'curved-table-final-01.jpeg')}${i(base + 'curved-table-final-02.jpeg')}${i(base + 'curved-table-final-03.jpeg')}</div>
   </div>`;
 
   // ── QUOTE ──
@@ -1176,6 +1201,399 @@ function buildCapstonePresentation(p) {
 }
 
 /* ─────────────────────────────────────────
+   MAD HATTER LAMP CUSTOM BUILDER
+───────────────────────────────────────── */
+function buildLampPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const b = 'images/mad-hatter-lamp/';
+  const hero     = b + 'mad-hatter-lamp-hero.png';
+  const paper    = b + 'mad-hatter-lamp-paper-01.jpeg';
+  const card1    = b + 'mad-hatter-lamp-cardboard-01.jpeg'; // structure
+  const card2    = b + 'mad-hatter-lamp-cardboard-02.jpeg'; // papier-mache
+  const card3    = b + 'mad-hatter-lamp-cardboard-03.jpeg'; // green on head
+  const card5    = b + 'mad-hatter-lamp-cardboard-05.jpeg'; // decorated cardboard
+  const acr1     = b + 'mad-hatter-lamp-acrylic-01.jpeg';   // small acrylic on head
+  const acr2     = b + 'mad-hatter-lamp-acrylic-02.jpeg';   // small acrylic lit
+  const build1   = b + 'mad-hatter-lamp-build-01.jpeg';     // bare acrylic
+  const build2   = b + 'mad-hatter-lamp-build-02.jpeg';     // bare acrylic w/ brim
+  const fin2     = b + 'mad-hatter-lamp-cover.jpg';        // final product, lit
+  let h = '';
+
+  // 1. INTRO — text + bg-removed hero
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">01 / 09 &nbsp;&middot;&nbsp; Product Design &middot; Lighting</span>
+        <h2 class="pcard-title">Mad Hatter Lamp</h2>
+        <p class="pcard-desc">An unconventional lamp inspired by the whimsy of Alice in Wonderland's Mad Hatter &mdash; an exploration of theatrical form, light diffusion, and material play through iterative prototyping.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">Most lamps are designed to disappear into a room. The brief was the opposite: design a lamp that becomes a conversation piece &mdash; one that carries personality and narrative without sacrificing the quality of the light it produces.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2024</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img">${i(hero, 'Mad Hatter Lamp')}</div>
+    </div>
+  </div>`;
+
+  // 2. CONCEPT
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Concept</span>
+    <h3 class="pcard-sec-h" style="margin-bottom:0.8rem">A Top Hat that Glows</h3>
+    <p class="pcard-brief-body">Drawing from theatrical lighting and the visual language of Lewis Carroll's illustrations, the top hat became the primary shade element &mdash; its tapered form chosen for how it diffuses a warm, theatrical pool of light. Reaching that form, however, meant working through three very different materials.</p>
+  </div>`;
+
+  // 3. PROTOTYPE — PAPER (failed)
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Prototype 01 &middot; Paper</span>
+      <h3 class="pcard-sec-h">Starting with Paper</h3>
+      <p class="pcard-body">I began with a quick paper prototype &mdash; strips of paper formed over a balloon to test the hat's silhouette. It collapsed and held no structure, so the paper route was abandoned almost immediately.</p>
+    </div>
+    <div class="pc pc-1 pc--fill">${i(paper, 'Paper prototype')}</div>
+  </div>`;
+
+  // 4. PROTOTYPE — CARDBOARD
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(card1)}${i(card2)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Prototype 02 &middot; Cardboard</span>
+      <h3 class="pcard-sec-h">Building it in Cardboard</h3>
+      <p class="pcard-body">Next I moved to cardboard &mdash; cutting and taping a sturdier hat structure, then layering it with papier-m&acirc;ch&eacute; to smooth the form. This held its shape and let me test proportion at full scale.</p>
+    </div>
+  </div>`;
+  h += `<div class="pcard pres-r"><div class="pc-duo">${i(card5)}${i(card3)}</div></div>`;
+
+  // 5. PROTOTYPE — ACRYLIC (small scale)
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Prototype 03 &middot; Acrylic</span>
+      <h3 class="pcard-sec-h">A Small-Scale Acrylic Test</h3>
+      <p class="pcard-body">With the form resolved, I made a small-scaled acrylic prototype to test translucency and how the material would carry light. The glow through the acrylic confirmed the direction &mdash; so I jumped into building the full-size final piece.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(acr1)}${i(acr2)}</div>
+  </div>`;
+
+  // 6. FINAL — build form
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(build1)}${i(build2)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Final Product</span>
+      <h3 class="pcard-sec-h">The Full-Scale Acrylic Hat</h3>
+      <p class="pcard-body">The final shade was built as a large translucent acrylic top hat with a wide brim base. Its layered walls diffuse the light evenly, glowing in any colour driven through the LED set inside.</p>
+      <p class="pcard-body" style="margin-top:1rem">The top couldn't be 3D printed in one piece &mdash; the closed top required tree supports that ruined the translucency and surface. So the top plate was printed separately and then bonded onto the body, keeping the walls clean and clear.</p>
+    </div>
+  </div>`;
+
+  // 7. FINAL — decorated & lit
+  h += `<div class="pcard pcard-slide-full pres-r">
+    <span class="pcard-label pcard-label--pad">Final Product &middot; Styled</span>
+    <div class="pc-screen">${i(fin2, 'Final lamp, lit')}</div>
+  </div>`;
+
+  // 8. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A statement table lamp built around a layered top-hat acrylic shade, dressed with feathers, a leather-and-pearl band, and a hanging clock. It throws a warm, theatrically diffused light and sits exactly at the boundary between product and prop.</p>
+  </div>`;
+
+  // 9. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;form follows feeling, not just function &mdash; some designs need a little madness&rdquo;</blockquote>
+  </div>`;
+
+  // 10. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Absurdist reference in design only works when every functional decision is made seriously. The whimsy comes from the concept &mdash; not from abandoning craft.</p>
+    <div class="pcard-tags">
+      ${['Product Design','Lighting','Concept Design','Prototyping','Material Exploration','Acrylic'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
+   WORMY COMPOST BIN CUSTOM BUILDER
+───────────────────────────────────────── */
+function buildCompostPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const b = 'images/wormy-compost-bin/';
+  const cover    = b + 'wormy-compost-bin-cover.png';
+  const diagram  = b + 'wormy-compost-bin-diagram.png';
+  const make1    = b + 'wormy-compost-bin-making-01.jpeg';
+  const make2    = b + 'wormy-compost-bin-making-02.jpeg';
+  const mech     = b + 'wormy-compost-bin-mechanism-01.jpeg';
+  const worms    = b + 'wormy-compost-bin-worms-01.jpeg';
+  const fin      = b + 'wormy-compost-bin-final.jpeg';
+  let h = '';
+
+  // 1. INTRO
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">02 / 09 &nbsp;&middot;&nbsp; Product Design &middot; Sustainability</span>
+        <h2 class="pcard-title">Wormy &mdash; Compost Bin</h2>
+        <p class="pcard-desc">A home vermicompost bin made to be easy to use, friendly, and nice to look at &mdash; so turning food waste into compost feels simple, not gross.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">Vermicomposting works well, but it scares people off. Most bins are ugly, too plain, and hard to keep in a small home. So even people who want to compost often don't &mdash; it just feels unpleasant.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2025</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img">${i(cover, 'Wormy Compost Bin')}</div>
+    </div>
+  </div>`;
+
+  // 2. SYSTEM — diagram
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The System</span>
+      <h3 class="pcard-sec-h">Three Stacked Parts</h3>
+      <p class="pcard-body">The bin has three parts stacked on top of each other. Wet food waste goes in the top, under a worm blanket. A revolving plate lets it drop into the middle, where the worms eat it and make compost. The bottom part collects the worm tea &mdash; a liquid plant food &mdash; which you can pour out from a small tap.</p>
+    </div>
+    <div class="pc-nocrop pc-nocrop--1" style="padding:1.5rem;align-items:center;">${i(diagram, 'Compost system diagram')}</div>
+  </div>`;
+
+  // 3. RESEARCH
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Research</span>
+    <p class="pcard-brief-body">We talked to people living in Mumbai flats about how they deal with kitchen waste and why they don't compost. We also looked at what worms need &mdash; some moisture, fresh air, and darkness &mdash; and at other bins on the market. The problem was never how well they worked. It was that using them felt gross and hard.</p>
+  </div>`;
+
+  // 4. MAKING — process
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(make1)}${i(make2)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Making</span>
+      <h3 class="pcard-sec-h">Made from Stacked Containers</h3>
+      <p class="pcard-body">We built the model from clear plastic containers stacked on top of each other. Each one was wrapped in jute and coir rope to make it look warm and natural instead of like plastic. The parts were glued and sealed by hand so the whole stack feels like one nice object.</p>
+    </div>
+  </div>`;
+
+  // 5. MECHANISM + WORMS
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Mechanism</span>
+      <h3 class="pcard-sec-h">The Revolving Plate</h3>
+      <p class="pcard-body">A revolving plate sits between the top and middle parts. When you turn it, the older waste drops down to the worms while fresh food stays on top. Small coir blocks keep the moisture right, and the worms do their work in the layer below.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(mech)}${i(worms)}</div>
+  </div>`;
+
+  // 6. FINAL PROTOTYPE
+  h += `<div class="pcard pcard-slide-full pres-r">
+    <span class="pcard-label pcard-label--pad">Final Prototype</span>
+    <div class="pc-screen">${i(fin, 'Final compost bin prototype')}</div>
+  </div>`;
+
+  // 7. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A stacked vermicompost bin with separate parts for feeding, composting, and collecting worm tea. The soft, jute-wrapped shape makes it feel friendly &mdash; turning a chore people avoid into a nice object that fits easily in a home or balcony garden.</p>
+  </div>`;
+
+  // 8. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;good sustainability design isn't about sacrifice &mdash; it's making the right choice feel like the easy choice&rdquo;</blockquote>
+  </div>`;
+
+  // 9. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Eco-friendly products fail when they ask too much of people. This project was about making each step easier until composting felt like a normal part of the day &mdash; not a hard thing you force yourself to do.</p>
+    <div class="pcard-tags">
+      ${['Product Design','Sustainability','Home','Circular Design','Vermicomposting'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
+   MILLET PACKAGING CUSTOM BUILDER
+───────────────────────────────────────── */
+function buildPackagingPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const b = 'images/millet-packaging/';
+  const front = b + 'millet-packaging-front.jpeg';
+  const side  = b + 'millet-packaging-side.jpeg';
+  const open1 = b + 'millet-packaging-open-01.jpeg';
+  const open2 = b + 'millet-packaging-open-02.jpeg';
+  let h = '';
+
+  // 1. INTRO
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">04 / 09 &nbsp;&middot;&nbsp; Packaging Design &middot; Structural</span>
+        <h2 class="pcard-title">Millet Packaging for a Healthier Tomorrow</h2>
+        <p class="pcard-desc">A resealable, stackable pack for millets &mdash; built to fix the everyday annoyance of plastic grain packets that can't be closed once opened, and to let people mix their own grains in one pack.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">In India, millets come in plastic packets that tear open and can't be re-closed. Once open, you need a clip or a rubber band just to keep them shut &mdash; a small daily annoyance that adds clutter to the kitchen.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2025</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img">${i(front, 'Millet packaging')}</div>
+    </div>
+  </div>`;
+
+  // 2. RESEARCH
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Research</span>
+    <p class="pcard-brief-body">We looked at how people actually store grains at home &mdash; folded packets, rubber bands, old containers. Two needs stood out: a packet that closes back on its own, and a way to keep fewer separate packets in the kitchen.</p>
+  </div>`;
+
+  // 3. STRUCTURE — open views
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(open2)}${i(open1)}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The Structure</span>
+      <h3 class="pcard-sec-h">Opens and Closes Like a Box</h3>
+      <p class="pcard-body">The pack opens cleanly from the top and folds shut again, so it works like a small container &mdash; no clip needed. Inside, a divider lets two grains sit in one pack, so people can mix their own combination or buy a ready mix.</p>
+      <p class="pcard-body" style="margin-top:1rem">The tapered shape stacks and lines up neatly on a shelf, using less material than separate packets.</p>
+    </div>
+  </div>`;
+
+  // 4. WINDOWS — front + side
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The Window</span>
+      <h3 class="pcard-sec-h">See the Grain Inside</h3>
+      <p class="pcard-body">Hexagon-shaped windows on the front and sides let you see the grain straight away, so you know exactly what you're buying. The two-tone kraft and brown finish keeps it looking natural and honest.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(front)}${i(side)}</div>
+  </div>`;
+
+  // 5. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A single millet pack that opens, pours, and closes &mdash; no clips needed. It stacks neatly on a shelf, and the inside divider means a shop can pack a customer's own grain mix together, or sell a ready-made variety pack.</p>
+  </div>`;
+
+  // 6. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;the best packaging is the one you never have to think about twice&rdquo;</blockquote>
+  </div>`;
+
+  // 7. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">This project taught me that good packaging solves a behaviour problem, not just a look. The real brief was the rubber band on the kitchen counter.</p>
+    <div class="pcard-tags">
+      ${['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
+   INTERACTIVE STRESS BALL CUSTOM BUILDER
+───────────────────────────────────────── */
+function buildStressballPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const base = 'images/interactive-stress-ball/';
+  const elec1 = base + 'interactive-stress-ball-01.jpeg';  // components laid out
+  const foam1 = base + 'interactive-stress-ball-03.jpeg';  // foam ball — battery + motor
+  const elec2 = base + 'interactive-stress-ball-04.jpeg';  // battery + full build
+  const foam2 = base + 'interactive-stress-ball-05.jpeg';  // foam ball — full electronics
+  const board1 = base + 'interactive-stress-ball-06.jpeg'; // whiteboard — soothing sound circuit
+  const board2 = base + 'interactive-stress-ball-07.jpeg'; // whiteboard — A/B/C concept board
+  const cover  = base + 'interactive-stress-ball-cover.png';
+  let h = '';
+
+  // 1. INTRO — text + big build image (no thumbnails)
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">08 / 09 &nbsp;&middot;&nbsp; Product Design &middot; Wellbeing</span>
+        <h2 class="pcard-title">Interactive Stress Ball</h2>
+        <p class="pcard-desc">A sensor-integrated stress relief tool that responds to pressure with soothing sounds and gentle vibration &mdash; designed for teachers, professionals, and parents carrying invisible daily loads.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">Stress among working adults &mdash; especially teachers and parents &mdash; rarely has a physical outlet. Existing stress toys are passive, uninspiring, and feel juvenile. People in high-stress roles need something dignified and genuinely responsive.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2024</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img">${i(elec1, 'Stress ball electronics')}</div>
+    </div>
+  </div>`;
+
+  // 2. BRAINSTORMING — whiteboard sketches
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Brainstorming</span>
+      <h3 class="pcard-sec-h">Three Concept Directions</h3>
+      <p class="pcard-body">User interviews with teachers and design professionals showed that physical tactility alone wasn't enough &mdash; sensory feedback through sound and vibration mattered far more for genuine stress relief.</p>
+      <p class="pcard-body" style="margin-top:1rem">That insight shaped three concept directions, mapped out on the board: <strong>A</strong> &mdash; a normal squeeze ball, <strong>B</strong> &mdash; one with vibration feedback driven by a flex sensor, and <strong>C</strong> &mdash; one that plays a soothing sound on press, built around an MP3 module, speaker, and rechargeable cell.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(board2, 'Concept brainstorm board')}${i(board1, 'Soothing sound circuit sketch')}</div>
+  </div>`;
+
+  // 3. PROTOTYPING — foam ball builds
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(foam1, 'Foam ball build')}${i(foam2, 'Foam ball with electronics')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Prototyping</span>
+      <h3 class="pcard-sec-h">Building Inside the Ball</h3>
+      <p class="pcard-body">The electronics were fitted inside a soft foam core: a coin cell and vibration motor in the early build, then the full sound build with a speaker, MP3 module, and pressure switch packed into the ball so it stays squeezable.</p>
+      <p class="pcard-body" style="margin-top:1rem">Iterating through material hardnesses tuned the grip feel, while routing the wiring around the foam kept the form soft and natural in the hand.</p>
+    </div>
+  </div>`;
+
+  // 4. ELECTRONICS / BUILD detail
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The Build</span>
+      <h3 class="pcard-sec-h">Sound &amp; Vibration on Press</h3>
+      <p class="pcard-body">Pressure on the ball triggers a microcontroller that plays ambient sound samples &mdash; rain, resonant chimes &mdash; alongside a gentle vibration motor at set pressure thresholds. A Type-C rechargeable cell keeps it desk-friendly.</p>
+    </div>
+    <div class="pc pc-1 pc--fill">${i(elec2, 'Full electronics build')}</div>
+  </div>`;
+
+  // 5. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A soft-body stress ball with embedded pressure sensors that responds to squeeze with ambient audio and gentle vibration. Tested with teachers over two weeks &mdash; all reported using it during high-stress moments. The form is calm and professional, appropriate for a desk context.</p>
+  </div>`;
+
+  // 6. VIDEO
+  if (p.video) {
+    h += `<div class="pcard pcard-video pres-r">
+      <span class="pcard-label">Demo</span>
+      <video class="pcard-vid-el" src="${base}interactive-stress-ball-demo.mp4" controls playsinline muted></video>
+    </div>`;
+  }
+
+  // 7. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;the most human products are the ones that respond &mdash; not just react&rdquo;</blockquote>
+  </div>`;
+
+  // 8. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">The most human products respond to you rather than just reacting. The difference between reaction and response is intelligence &mdash; and even a minimal embedded system can carry that distinction through to the user experience.</p>
+    <div class="pcard-tags">
+      ${['Product Design','Wellbeing','Interaction Design','Sensors','User Research','Embedded'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
    PRESENTATION BUILDER  (work.html)
    Constructs scrollable case-study scenes
 ───────────────────────────────────────── */
@@ -1203,14 +1621,16 @@ function buildPresentation(p) {
         </div>` : ''}
       </div>
       <div class="pcard-intro-foot">
-        ${thumbs.length ? `<div class="pcard-thumbs">
-          ${thumbs.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
-        </div>` : ''}
         <span class="pcard-year">${p.year}</span>
       </div>
     </div>
-    <div class="pcard-intro-img">
-      ${mainPhoto ? `<img src="${mainPhoto}" alt="${p.title}" loading="eager"/>` : ''}
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img">
+        ${mainPhoto ? `<img src="${mainPhoto}" alt="${p.title}" loading="eager"/>` : ''}
+      </div>
+      ${thumbs.length ? `<div class="pcard-thumbs">
+        ${thumbs.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
+      </div>` : ''}
     </div>
   </div>`;
 
@@ -1307,7 +1727,7 @@ function openProject(id, cardEl) {
   document.getElementById('cs-num').textContent = p.num;
 
   const content = document.getElementById('cs-content');
-  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation };
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation };
   const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
   content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
 
@@ -1356,7 +1776,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const p = PROJECTS[id];
   if (!p) return;
 
-  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation };
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation };
   const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
   content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
 
