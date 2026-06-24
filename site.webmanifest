@@ -1,0 +1,12 @@
+{
+  "name": "Kanika Kadam — Product & Furniture Designer",
+  "short_name": "Kanika Kadam",
+  "description": "Portfolio of Kanika Kadam, a product and furniture designer based in Mumbai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F3",
+  "theme_color": "#7C7960",
+  "icons": [
+    { "src": "/app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

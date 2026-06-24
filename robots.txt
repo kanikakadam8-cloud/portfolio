@@ -1,0 +1,21 @@
+# Allow all crawlers, including AI / generative engines
+User-agent: *
+Allow: /
+
+# Common AI crawlers (explicitly welcomed)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: https://kanikakadam.vercel.app/sitemap.xml

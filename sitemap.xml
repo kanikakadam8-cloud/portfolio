@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kanikakadam.vercel.app/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/beyond-the-studio</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/curriculum-vitae</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/mad-hatter-lamp</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/wormy-compost-bin</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/curved-table</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/millet-packaging</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/graphic-design-illustration</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/toss-2025-typography</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/woodworking-lab</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/interactive-stress-ball</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kanikakadam.vercel.app/work-experience/foldable-study-table</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+</urlset>

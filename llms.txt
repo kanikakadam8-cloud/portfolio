@@ -1,0 +1,28 @@
+# Kanika Kadam
+
+> Kanika Kadam is a product and furniture designer based in Mumbai, India (BDes Product Design, Somaiya School of Design, 2026). She designs practical, well-crafted objects at the intersection of materials, craft, and human experience — working hands-on with wood, lathe turning, laser cutting, CNC, 3D printing, and physical prototyping.
+
+## About
+- Role: Product & Furniture Designer
+- Location: Mumbai, India
+- Education: BDes Product Design, Somaiya School of Design (2022–2026)
+- Focus: furniture, product design, packaging, spatial installations, fabrication
+- Contact: kanikakadam8@gmail.com
+
+## Selected Projects
+- [Mad Hatter Lamp](/work-experience/mad-hatter-lamp): A statement table lamp with a translucent acrylic top-hat shade, developed through paper, cardboard, and acrylic prototypes.
+- [Wormy — Compost Bin](/work-experience/wormy-compost-bin): A friendly home vermicompost bin with three stacked chambers and a revolving plate (group project).
+- [Curved Table with Relaxation Space](/work-experience/curved-table): A furniture piece with a curved tabletop and a leg-relaxation alcove, modelled in Autodesk Fusion 360.
+- [Millet Packaging](/work-experience/millet-packaging): A resealable, stackable kraft pack with hexagonal windows and an internal divider for mixing grains (group project).
+- [TOSS 2025 — 3D Typography](/work-experience/toss-2025-typography): Large illuminated CNC-cut letters for a university sports festival.
+- [Woodworking Lab — riidl Studio](/work-experience/woodworking-lab): Demonstration pieces showcasing lathe, laser, and Dremel processes.
+- [Interactive Stress Ball](/work-experience/interactive-stress-ball): A sensor stress-relief tool that responds to pressure with sound and vibration.
+- [Foldable Study Table](/work-experience/foldable-study-table): Capstone — a fold-flat study table for children in compact homes.
+
+## Pages
+- [Home](/)
+- [About Me](/about)
+- [Work](/work)
+- [Beyond the Studio](/beyond-the-studio): community, volunteering, and craft work
+- [Curriculum Vitae](/curriculum-vitae)
+- [Contact](/contact)
