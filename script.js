@@ -76,7 +76,7 @@ const PROJECTS = {
     },
     insight: 'form follows feeling, not just function — some designs need a little madness',
     tags: ['Product Design','Lighting','Concept Design','Prototyping','Material Exploration'],
-    cover: 'images/mad-hatter-lamp/mad-hatter-lamp-cover.jpg',
+    cover: 'images/mad-hatter-lamp/mad-hatter-lamp-cover.png',
     photos: []
   },
   compost: {
@@ -127,10 +127,11 @@ const PROJECTS = {
     },
     insight: 'the best packaging is the one you never have to think about twice',
     tags: ['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'],
-    cover: 'images/millet-packaging/millet-packaging-cover.jpeg',
+    cover: 'images/millet-packaging/millet-packaging-cover.png',
     photos: []
   },
   toss: {
+    customPres: true,
     num: '06 / 09', cat: 'Spatial Design · Installation', year: '2025',
     title: 'TOSS 2025 — 3D Illuminated Typography',
     desc: 'Large-scale illuminated 3D letter installations for Somaiya Vidyavihar University\'s annual sports event — fully end-to-end from Illustrator to CNC fabrication to on-ground installation.',
@@ -159,18 +160,29 @@ const PROJECTS = {
   woodworking: {
     num: '07 / 09', cat: 'Material Exploration · Display', year: '2024',
     title: 'Woodworking Lab — riidl Studio',
-    desc: 'A collection of demonstration pieces created to communicate the woodworking lab\'s full range of capabilities to clients — each piece a direct, legible expression of one machine process.',
+    customPres: true,
+    desc: 'A set of hands-on demonstration pieces made during my internship at the riidl woodworking lab — each one made on a different machine to show, at a glance, exactly what that tool can do.',
     casestudy: {
       problem: 'The woodworking lab at riidl, Somaiya needed demonstration pieces that could immediately communicate what each machine could do — to visiting clients, students, and collaborators who had never seen the equipment before.',
-      research: 'Mapped each machine\'s characteristic output: the lathe\'s rotational symmetry, the laser\'s precision etching, the Dremel\'s free-form carving, the scroll saw\'s intricate profiles. Researched display design in museum contexts for how objects carry their own explanations.',
-      process: 'Each piece was designed with legibility of process as the primary brief. The lathe-turned bowl celebrates form through rotation. The laser panel showcases depth and tonal control on timber surface. The Dremel piece shows flowing freehand marks. Materials selected for grain visibility and surface response to each tool.',
-      outcome: 'A permanent collection of display pieces now exhibited in the riidl woodworking lab. Clients immediately understand the lab\'s range on arrival. The pieces have since been photographed for the studio\'s capability portfolio.',
+      research: 'I mapped each machine to its most legible output: the lathe\'s rotational symmetry, the Dremel\'s free-form carving, and the surprising patterns hidden in the cross-section of layered plywood.',
+      process: 'I made each piece on the machine it was meant to demonstrate — turning balusters on the wood lathe, free-hand carving toys with the Dremel, and cutting and laminating plywood to reveal its striped edge as a pattern. Every piece was chosen so the process reads straight off the object.',
+      outcome: 'A small collection of display pieces — turned spindles, carved toys, and patterned trays and coasters — now used in the lab to show its range. Clients understand what the equipment can do the moment they pick one up.',
       reflection: 'Designing to communicate a process rather than to fulfil a function is a different kind of brief — it requires making the invisible visible. This internship taught me that the best demonstration is always an object, never an explanation.'
     },
     insight: 'the best way to explain a machine\'s capabilities is to let the material speak for itself',
-    tags: ['Wood','Lathe','Laser Cutting','Dremel','Material Exploration','Display Design'],
+    tags: ['Wood','Lathe','Dremel','Plywood','Material Exploration','Display Design'],
     cover: 'images/woodworking-lab/woodworking-lab-cover.png',
-    photos: Array.from({length:11},(_,i)=>`images/woodworking-lab/woodworking-lab-${String(i+1).padStart(2,'0')}.jpeg`)
+    photos: [
+      'images/woodworking-lab/woodworking-lab-09.jpeg',
+      'images/woodworking-lab/woodworking-lab-07.jpeg',
+      'images/woodworking-lab/woodworking-lab-08.jpeg',
+      'images/woodworking-lab/woodworking-lab-01.jpeg',
+      'images/woodworking-lab/woodworking-lab-03.jpeg',
+      'images/woodworking-lab/woodworking-lab-06.jpeg',
+      'images/woodworking-lab/woodworking-lab-02.jpeg',
+      'images/woodworking-lab/woodworking-lab-10.jpeg',
+      'images/woodworking-lab/woodworking-lab-11.jpeg'
+    ]
   },
   stressball: {
     customPres: true,
@@ -219,21 +231,25 @@ const PROJECTS = {
   photoshop: {
     num: '05 / 09', cat: 'Graphic Design · Illustration', year: '2025',
     title: 'Graphic Design & Illustration',
-    desc: 'A collection of digital illustration and graphic design work in Adobe Photoshop — character portraits, poster compositions, and visual storytelling exploring colour, form, and typography.',
+    customPres: true,
+    desc: 'A digital illustration of Lord Rama drawn in Adobe Photoshop — built up from reference into line art and full colour, then composed into a poster and printed as devotional bookmarks.',
     casestudy: {
-      problem: 'Developing a parallel practice in 2D digital art alongside physical product design — exploring how visual communication and image-making inform and sharpen three-dimensional design thinking.',
-      process: 'Character illustrations built from life reference and imagination, developed through layered brushwork in Photoshop. Poster compositions explore typographic hierarchy and image-text relationships. Each piece was an exercise in restraint: knowing when to add and when to leave space.',
-      outcome: 'A series of illustrated works including character portraits and graphic design compositions. Working regularly in 2D has sharpened my understanding of colour relationships, negative space, and visual balance — skills that transfer directly into product and packaging design.',
+      problem: 'A Photoshop assignment to illustrate Lord Rama — translating a reference image into an original digital painting, then carrying it through to a finished, printable graphic-design piece.',
+      process: 'I worked from a reference image, tracing the figure into clean line art on a graphics tablet, then layering in colour and shading in Photoshop. The finished illustration was placed on a "Jai Shree Ram" poster layout and turned into bookmark designs.',
+      outcome: 'A finished digital illustration, a typographic poster, and a set of printed bookmarks. The project sharpened my sense of colour, line, and composition — skills that carry straight into product and packaging design.',
       reflection: 'Working in Photoshop is a different kind of making from physical prototyping. Without the resistance of material, the quality of visual decisions alone determines the outcome — which makes it the most demanding and most instructive medium I work in.'
     },
     insight: '2D and 3D design teach each other — every flat composition is a spatial problem in disguise',
-    tags: ['Photoshop', 'Illustration', 'Graphic Design', 'Digital Art', 'Character Design', 'Typography'],
+    tags: ['Photoshop', 'Digital Illustration', 'Graphic Design', 'Line Art', 'Typography', 'Print'],
     cover: 'images/graphic-design-illustration/graphic-design-illustration-cover.png',
     photos: [
-      'images/graphic-design-illustration/graphic-design-illustration-01.jpg',
-      'images/graphic-design-illustration/graphic-design-illustration-02.png',
-      'images/graphic-design-illustration/graphic-design-illustration-03.png',
-      'images/graphic-design-illustration/graphic-design-illustration-04.jpeg'
+      'images/graphic-design-illustration/graphic-design-illustration-final.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-poster.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-lineart.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-drawing.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-coloring.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-print-01.jpeg',
+      'images/graphic-design-illustration/graphic-design-illustration-print-02.jpeg'
     ]
   }
 };
@@ -406,9 +422,9 @@ const VOLUNTEERS = {
       ? Math.min(Math.max(window.scrollY / totalScroll, 0), 1)
       : 0;
 
-    /* Zoom: 0 → 42% of scroll = scale 2.5 → 1.0 */
+    /* Zoom: stays zoomed-in as a background — eases 2.4 → 1.6, never small */
     const zoomP = Math.min(progress / 0.42, 1);
-    scale       = 2.5 - (1.5 * easeOut(zoomP));
+    scale       = 2.4 - (0.8 * easeOut(zoomP));
 
     /* Phase thresholds → pose + speech */
     const phase = progress < 0.15 ? 0
@@ -496,40 +512,77 @@ const VOLUNTEERS = {
    Horizontal drag-to-scroll + staggered
    card reveal when section enters viewport.
 ───────────────────────────────────────── */
-(function initFeatDrag() {
+(function initDisciplines() {
   if (document.body.dataset.page !== 'home') return;
-  const outer = document.getElementById('feat-track-outer');
-  if (!outer) return;
+  const track = document.getElementById('disc-track');
+  if (!track) return;
 
-  /* Drag-to-scroll */
-  let isDown = false, startX = 0, scrollLeft = 0;
-  outer.addEventListener('mousedown', e => {
-    isDown = true;
-    outer.classList.add('is-grabbing');
-    startX     = e.pageX - outer.offsetLeft;
-    scrollLeft = outer.scrollLeft;
-  });
-  const endDrag = () => { isDown = false; outer.classList.remove('is-grabbing'); };
-  outer.addEventListener('mouseleave', endDrag);
-  outer.addEventListener('mouseup',    endDrag);
-  outer.addEventListener('mousemove',  e => {
-    if (!isDown) return;
-    e.preventDefault();
-    outer.scrollLeft = scrollLeft - (e.pageX - outer.offsetLeft - startX) * 1.5;
-  });
+  const DISC = [
+    { n: '01', name: 'Product Design', subs: [
+      { t: 'Mad Hatter Lamp',         s: 'Lighting',       href: 'work-experience/mad-hatter-lamp.html',          img: 'work-experience/images/mad-hatter-lamp/mad-hatter-lamp-cover.png' },
+      { t: 'Interactive Stress Ball', s: 'Wellbeing',      href: 'work-experience/interactive-stress-ball.html',  img: 'work-experience/images/interactive-stress-ball/interactive-stress-ball-cover.png' },
+      { t: 'Wormy — Compost Bin',     s: 'Sustainability', href: 'work-experience/wormy-compost-bin.html',        img: 'work-experience/images/wormy-compost-bin/wormy-compost-bin-cover.png' },
+    ]},
+    { n: '02', name: 'Furniture Design', subs: [
+      { t: 'Curved Table',         s: 'Spatial',  href: 'work-experience/curved-table.html',         img: 'work-experience/images/curved-table/curved-table-cover.png' },
+      { t: 'Foldable Study Table', s: 'Capstone', href: 'work-experience/foldable-study-table.html', img: 'work-experience/images/foldable-study-table/foldable-study-table-cover.png' },
+    ]},
+    { n: '03', name: 'Spatial & Installation', subs: [
+      { t: 'TOSS 2025 — 3D Typography', s: 'Installation', href: 'work-experience/toss-2025-typography.html', img: 'work-experience/images/toss-2025-typography/toss-2025-typography-cover.png' },
+    ]},
+    { n: '04', name: 'Graphic & Packaging', subs: [
+      { t: 'Graphic Design & Illustration', s: 'Illustration', href: 'work-experience/graphic-design-illustration.html', img: 'work-experience/images/graphic-design-illustration/graphic-design-illustration-cover.png' },
+      { t: 'Millet Packaging',              s: 'Identity',     href: 'work-experience/millet-packaging.html',            img: 'work-experience/images/millet-packaging/millet-packaging-cover.png' },
+    ]},
+    { n: '05', name: 'Material & Craft', subs: [
+      { t: 'Woodworking Lab — riidl', s: 'Display', href: 'work-experience/woodworking-lab.html', img: 'work-experience/images/woodworking-lab/woodworking-lab-cover.png' },
+    ]},
+  ];
 
-  /* Card reveal — trigger all when section enters viewport */
-  const section = document.getElementById('featured');
-  if (!section) return;
-  const cards = section.querySelectorAll('.feat-full-card');
-  let revealed = false;
-  const obs = new IntersectionObserver(entries => {
-    if (revealed || !entries[0].isIntersecting) return;
-    revealed = true;
-    cards.forEach(c => c.classList.add('in'));
-    obs.disconnect();
-  }, { threshold: 0.15 });
-  obs.observe(section);
+  const cardHTML = d => `
+    <div class="disc-card">
+      <div class="disc-head">
+        <span class="disc-num">${d.n}</span>
+        <h3 class="disc-name">${d.name}</h3>
+        <span class="disc-count">${d.subs.length} project${d.subs.length > 1 ? 's' : ''}</span>
+      </div>
+      <div class="disc-subs">
+        ${d.subs.map(p => `
+          <a class="disc-sub" href="${p.href}">
+            <span class="disc-sub-img"><img src="${p.img}" alt="${p.t}" loading="lazy" onerror="this.parentElement.style.background='var(--border)'"/></span>
+            <span class="disc-sub-text"><span class="disc-sub-cat">${p.s}</span><span class="disc-sub-title">${p.t}</span></span>
+          </a>`).join('')}
+      </div>
+    </div>`;
+
+  const set = DISC.map(cardHTML).join('');
+  track.innerHTML = set + set; // duplicate set → seamless CSS marquee loop
+})();
+
+/* ─────────────────────────────────────────
+   WORK FILTERS  (work.html)
+   Discipline derived from each card's .proj-cat
+───────────────────────────────────────── */
+(function initWorkFilters() {
+  if (document.body.dataset.page !== 'work') return;
+  const chips = document.querySelectorAll('.wf-chip');
+  const cards = document.querySelectorAll('.project-grid .project-card');
+  if (!chips.length || !cards.length) return;
+
+  const discOf = card => {
+    const cat = card.querySelector('.proj-cat');
+    return cat ? cat.textContent.trim().split(/[\s·]+/)[0].toLowerCase() : '';
+  };
+
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    const f = chip.dataset.filter;
+    const allowed = f.split(',');
+    chips.forEach(c => c.classList.toggle('is-active', c === chip));
+    cards.forEach(card => {
+      const show = f === 'all' || allowed.includes(discOf(card));
+      card.style.display = show ? '' : 'none';
+    });
+  }));
 })();
 
 /* ─────────────────────────────────────────
@@ -1039,21 +1092,18 @@ function buildCapstonePresentation(p) {
         <span class="pcard-year">2025</span>
       </div>
     </div>
-    <div class="pcard-intro-img">${img(cad + 'foldable-study-table-render-white.png', 'Foldable Study Table CAD')}</div>
+    <div class="pcard-intro-img pcard-intro-img--lg">${img(ph + 'foldable-study-table-fab-04.jpg', 'The folded study table carried like a briefcase')}</div>
   </div>`;
 
-  // 2. CONTEXT & USER RESEARCH
-  h += `<div class="pcard pcard-sec pres-r">
-    <div class="pcard-sec-text">
-      <span class="pcard-label">Research</span>
-      <h3 class="pcard-sec-h">Wood Furniture in the Indian Home</h3>
-      <p class="pcard-body">Research started with mapping traditional Indian furniture archetypes &mdash; Sandook, Almari, Jaali Cabinets, and storage units with built-in mechanisms. These revealed how Indian households have always valued furniture that does dual duty: store, divide, and display.</p>
-      <p class="pcard-body" style="margin-top:1rem">Field visits across 8 families in Ghatkopar, Kurla, and Chembur (1&ndash;2 BHK homes) confirmed the target user: the <strong>low to middle income group</strong>, for whom furniture must be functional + space-efficient above all else.</p>
-      <div class="pcard-tag-row">
-        <span class="pcard-tag">Function</span><span class="pcard-tag">Multi-use</span><span class="pcard-tag">Compact</span><span class="pcard-tag">Affordable</span>
-      </div>
+  // 2. CONTEXT & USER RESEARCH (text)
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Research</span>
+    <h3 class="pcard-sec-h" style="margin:0.4rem 0 0.9rem">Wood Furniture in the Indian Home</h3>
+    <p class="pcard-brief-body">Research started with mapping traditional Indian furniture archetypes &mdash; Sandook, Almari, Jaali Cabinets, and storage units with built-in mechanisms. These revealed how Indian households have always valued furniture that does dual duty: store, divide, and display.</p>
+    <p class="pcard-brief-body" style="margin-top:1rem">Field visits across 8 families in Ghatkopar, Kurla, and Chembur (1&ndash;2 BHK homes) confirmed the target user: the <strong>low to middle income group</strong>, for whom furniture must be functional and space-efficient above all else.</p>
+    <div class="pcard-tag-row" style="margin-top:1.3rem">
+      <span class="pcard-tag">Function</span><span class="pcard-tag">Multi-use</span><span class="pcard-tag">Compact</span><span class="pcard-tag">Affordable</span>
     </div>
-    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-research-01.png')}${img(ph + 'foldable-study-table-research-02.png')}</div>
   </div>`;
 
   // 3. REQUIREMENTS
@@ -1075,21 +1125,27 @@ function buildCapstonePresentation(p) {
     </div>
   </div>`;
 
-  // 4. IDEATION — mind map + morphological chart intro
-  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
-    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-ideation-01.jpg')}${img(ph + 'foldable-study-table-ideation-02.jpg')}</div>
+  // 4a. IDEATION — Mind Map (text + board photo) + full-width mind map
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r" style="grid-template-columns:1.85fr 1fr; min-height:82vh;">
+    <div class="pc pc-1 pc--fill">${img(ph + 'foldable-study-table-final-04.jpeg', 'Building the mind map board')}</div>
     <div class="pcard-sec-text">
       <span class="pcard-label">Ideation</span>
-      <h3 class="pcard-sec-h">From Mind Map to Morphological Chart</h3>
-      <p class="pcard-body">The study table&rsquo;s design space was opened through a mind map covering: folding mechanism, workspace, book storage, wall mounting, charging port, modular add-ons, coffee mug holder, laptop stand, and integrated lighting.</p>
-      <p class="pcard-body" style="margin-top:1rem">A full morphological chart then mapped every parameter &mdash; table top surface, mechanism type, leg structure, storage form, locking system, portability, lighting, accessories, joinery &mdash; before the most promising combinations were pulled into three concepts.</p>
+      <h3 class="pcard-sec-h">The Mind Map</h3>
+      <p class="pcard-body">The design space was opened through a mind map covering folding mechanism, workspace, book storage, wall mounting, charging port, modular add-ons, cup holder, laptop stand, and integrated lighting.</p>
     </div>
   </div>`;
 
-  // 5. MORPHOLOGICAL CHART detail photo
-  h += `<div class="pcard pres-r">${makeCollage([ph + 'foldable-study-table-morph-01.png', ph + 'foldable-study-table-morph-02.jpg', ph + 'foldable-study-table-morph-03.jpg', ph + 'foldable-study-table-morph-04.jpg'])}</div>`;
+  // 4b. MORPHOLOGICAL CHART — chart beside its text
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc-doc">${img(ph + 'foldable-study-table-morph-01.png', 'Morphological chart')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Morphological Chart</span>
+      <h3 class="pcard-sec-h">Mapping Every Parameter</h3>
+      <p class="pcard-body">A full morphological chart mapped every parameter &mdash; table-top surface, mechanism type, leg structure, storage form, locking system, portability, lighting, accessories, and joinery &mdash; before the strongest combinations were pulled into three concepts.</p>
+    </div>
+  </div>`;
 
-  // 6. THREE CONCEPTS
+  // 5. THREE CONCEPTS
   h += `<div class="pcard pcard-concepts pres-r">
     <span class="pcard-label">Concept Generation</span>
     <div class="pcard-concepts-grid">
@@ -1111,74 +1167,83 @@ function buildCapstonePresentation(p) {
     </div>
   </div>`;
 
-  // 7. CONCEPT SELECTION
+  // 6. CONCEPT SELECTION (text) + full-width chart
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Concept Selection</span>
+    <h3 class="pcard-sec-h" style="margin:0.4rem 0 0.9rem">Weighted Criteria &mdash; Concept 2 Chosen</h3>
+    <p class="pcard-brief-body">All three concepts were scored against weighted design criteria: Compactness (20%), Repairability (15%), Cost (15%), Ergonomics (10%), Aesthetics (10%), Durability (10%), Safety (10%), Multifunctionality (10%).</p>
+    <p class="pcard-brief-body" style="margin-top:1rem">Concept 2 &mdash; the Split Fold &mdash; scored highest. Its simultaneous top-and-leg fold achieved the greatest space reduction, used the fewest mechanical parts, and was the most intuitive for a child to operate independently.</p>
+  </div>`;
+
+  // 7. CAD DEVELOPMENT — Fusion 360 (text) + full-width renders
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">CAD Development</span>
+    <h3 class="pcard-sec-h" style="margin:0.4rem 0 0.9rem">Modelled in Autodesk Fusion 360</h3>
+    <p class="pcard-brief-body">The final form was developed as a full parametric model in <strong>Autodesk Fusion 360</strong>. Every joint, hinge point, and panel thickness was modelled and checked for clearance before any cutting began. The split-fold mechanism was animated and simulated to confirm the folding motion worked without pinch points or binding.</p>
+    <ul class="pcard-cad-list" style="margin-top:1.2rem">
+      <li>Software: <strong>Autodesk Fusion 360</strong></li>
+      <li>Table surface height: <strong>52 cm</strong> (correct for children aged 6&ndash;12)</li>
+      <li>Folded depth: <strong>under 15 cm</strong></li>
+      <li>Material: <strong>Birch plywood</strong> with steel hinge inserts</li>
+      <li>Weight: <strong>under 14 kg</strong></li>
+      <li>Joinery: wooden dowels + screws and bolts</li>
+    </ul>
+  </div>`;
+  h += `<div class="pcard pres-r"><div class="pc-fit" style="grid-template-columns:0.946fr 1.087fr">${img(cad + 'foldable-study-table-render-white.png', 'Fusion 360 render')}${img(cad + 'foldable-study-table-render-4.png', 'Fusion 360 render')}</div></div>`;
+
+  // 8. MAKING — Cut & Shaped (sander)
   h += `<div class="pcard pcard-sec pres-r">
     <div class="pcard-sec-text">
-      <span class="pcard-label">Concept Selection</span>
-      <h3 class="pcard-sec-h">Weighted Criteria &mdash; Concept 2 Chosen</h3>
-      <p class="pcard-body">All three concepts were evaluated against weighted design criteria: Compactness (20%), Repairability (15%), Cost (15%), Ergonomics (10%), Aesthetics (10%), Durability (10%), Safety (10%), Multifunctionality (10%).</p>
-      <p class="pcard-body" style="margin-top:1rem">Concept 2 &mdash; the Split Fold &mdash; scored highest. Its simultaneous top-and-leg fold achieved the greatest space reduction, used the fewest mechanical parts (lower failure rate, lower cost), and was the most intuitive for a child to operate independently.</p>
+      <span class="pcard-label">Making · Fabrication</span>
+      <h3 class="pcard-sec-h">Cut &amp; Shaped by Hand</h3>
+      <p class="pcard-body">Panels were first <strong>CNC-cut</strong> from birch plywood to exact dimensions straight from the Fusion 360 model.</p>
+      <p class="pcard-body" style="margin-top:1rem">I then <strong>shaped and smoothed every edge by hand on the sander</strong> until the surfaces were clean and ready to assemble.</p>
     </div>
-    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-selection-01.jpg')}${img(ph + 'foldable-study-table-selection-02.jpg')}</div>
+    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-ideation-01.jpg', 'CNC-cutting the panels')}${img(ph + 'foldable-study-table-final-01.jpeg', 'Hand sanding the panels')}</div>
   </div>`;
 
-  // 8. CAD DEVELOPMENT — Fusion 360
-  h += `<div class="pcard pcard-cad pres-r">
-    <div class="pcard-cad-col">
-      <span class="pcard-label">CAD Development</span>
-      <h3 class="pcard-sec-h">Modelled in Autodesk Fusion 360</h3>
-      <p class="pcard-body">The final form was developed as a full parametric model in <strong>Autodesk Fusion 360</strong>. Every joint, hinge point, and panel thickness was modelled and checked for clearance before any cutting began. The split-fold mechanism was animated and simulated within Fusion 360 to confirm the folding motion worked without pinch points or binding.</p>
-      <ul class="pcard-cad-list">
-        <li>Software: <strong>Autodesk Fusion 360</strong></li>
-        <li>Table surface height: <strong>52 cm</strong> (correct for children aged 6&ndash;12)</li>
-        <li>Folded depth: <strong>under 15 cm</strong></li>
-        <li>Material: <strong>Birch plywood</strong> with steel hinge inserts</li>
-        <li>Weight: <strong>under 14 kg</strong></li>
-        <li>Joinery: wooden dowels + screws and bolts</li>
-      </ul>
-    </div>
-    <div class="pcard-cad-renders">
-      ${img(cad + 'foldable-study-table-render-4.png',    'Fusion 360 render')}
-      ${img(cad + 'foldable-study-table-render-white.png', 'Fusion 360 render white')}
-    </div>
-  </div>`;
-
-  // 9. FABRICATION — scattered images
+  // 8b. MAKING — Assembled by Hand (assembly + screwdriver)
   h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
-    <div class="pc pc-3" style="align-self:stretch">${img(ph + 'foldable-study-table-fab-01.jpg')}${img(ph + 'foldable-study-table-fab-02.jpg')}${img(ph + 'foldable-study-table-fab-03.jpg')}</div>
+    <div class="pc pc-1 pc--fill">${img(ph + 'foldable-study-table-test-02.jpeg', 'Driving the hinge screws')}</div>
     <div class="pcard-sec-text">
-      <span class="pcard-label">Fabrication</span>
-      <h3 class="pcard-sec-h">From Digital to Physical</h3>
-      <p class="pcard-body">Panels were cut from birch plywood, sanded, and fitted with the steel hinge and slide-bolt locking mechanism drawn from the Fusion 360 model. Each component was test-fitted before final assembly to verify the fold clearances matched the simulation.</p>
+      <span class="pcard-label">Making · Assembly</span>
+      <h3 class="pcard-sec-h">Assembled by Hand</h3>
+      <p class="pcard-body">The body was <strong>assembled with screws and the slide-bolt hinge using a screwdriver</strong> &mdash; fitting the storage compartments and the fold mechanism together piece by piece.</p>
     </div>
   </div>`;
 
-  h += `<div class="pcard pres-r">${makeCollage([
-    ph + 'foldable-study-table-fab-04.jpg',
-    ph + 'foldable-study-table-fab-05.jpg',
-    ph + 'foldable-study-table-fab-06.jpg',
-    ph + 'foldable-study-table-fab-07.jpg',
-    ph + 'foldable-study-table-fab-08.jpg',
-  ])}</div>`;
+  // 8b. TESTING THE RAW BUILD
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-1 pc--fill">${img(ph + 'foldable-study-table-test-01.jpeg', 'Checking the fold and fit of the raw table')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Making · Raw Build</span>
+      <h3 class="pcard-sec-h">Testing the Raw Table</h3>
+      <p class="pcard-body">With the raw table standing, I checked the fold and the fit against the drawings &mdash; opening, closing, and packing it down to make sure everything moved cleanly before any finishing.</p>
+    </div>
+  </div>`;
 
+  // 8c. FINISHING — painting
   h += `<div class="pcard pcard-sec pres-r">
     <div class="pcard-sec-text">
-      <span class="pcard-label">Assembly &amp; User Testing</span>
-      <h3 class="pcard-sec-h">Child-Tested Setup</h3>
-      <p class="pcard-body">Three children aged 7&ndash;11 were asked to set up and pack down the table independently. All three completed the process within two minutes &mdash; confirming the fold mechanism was intuitive enough for the target age group without adult assistance.</p>
+      <span class="pcard-label">Making · Finishing</span>
+      <h3 class="pcard-sec-h">Painting the Surface</h3>
+      <p class="pcard-body">Once the raw build was confirmed, I spray-painted the whole piece in a warm brown for a clean, durable, child-safe finish &mdash; coating the panels and the storage compartments evenly.</p>
     </div>
-    <div class="pc pc-2 pc--fill">${img(ph + 'foldable-study-table-test-01.jpeg')}${img(ph + 'foldable-study-table-test-02.jpeg')}</div>
+    <div class="pc-vstack">
+      <div class="pc-vstack-top">${img(ph + 'foldable-study-table-morph-02.jpg')}</div>
+      <div class="pc-vstack-bottom">${img(ph + 'foldable-study-table-morph-03.jpg')}${img(ph + 'foldable-study-table-morph-04.jpg')}</div>
+    </div>
   </div>`;
 
-  h += `<div class="pcard pres-r">${makeCollage([
-    ph + 'foldable-study-table-final-01.jpeg',
-    ph + 'foldable-study-table-final-02.jpeg',
-    ph + 'foldable-study-table-final-03.jpeg',
-    ph + 'foldable-study-table-final-04.jpeg',
-    ph + 'foldable-study-table-final-05.png',
-  ])}</div>`;
+  // 10. FINAL PRODUCT (end of the deck)
+  h += `<div class="pcard pcard-slide-full pres-r">
+    <span class="pcard-label pcard-label--pad">Final Product</span>
+    <div class="pc-doc">${img(ph + '32374fe5-268e-47ae-bd43-167369929219.jpg', 'Finished foldable study table')}${img(ph + 'foldable-study-table-final-05.jpg', 'Finished table, open')}</div>
+  </div>`;
+  h += `<div class="pcard pres-r"><div class="pc pc-2">${img(ph + 'foldable-study-table-fab-03.jpg')}${img(ph + 'foldable-study-table-fab-08.jpg')}</div></div>`;
+  h += `<div class="pcard pres-r"><div class="pc pc-2">${img(ph + 'foldable-study-table-fab-06.jpg')}${img(ph + 'foldable-study-table-fab-07.jpg')}</div></div>`;
 
-  // 10. OUTCOME
+  // 11. OUTCOME
   h += `<div class="pcard pcard-outcome pres-r">
     <span class="pcard-label">Outcome</span>
     <p class="pcard-brief-body">A freestanding fold-flat study table scaled for children aged 6&ndash;12. Folds to under 15 cm depth for wall storage. Surface height 52 cm &mdash; correct for a sitting child. All materials non-toxic and child-safe. Three children aged 7&ndash;11 were able to set up and pack down independently within two minutes.</p>
@@ -1217,7 +1282,7 @@ function buildLampPresentation(p) {
   const acr2     = b + 'mad-hatter-lamp-acrylic-02.jpeg';   // small acrylic lit
   const build1   = b + 'mad-hatter-lamp-build-01.jpeg';     // bare acrylic
   const build2   = b + 'mad-hatter-lamp-build-02.jpeg';     // bare acrylic w/ brim
-  const fin2     = b + 'mad-hatter-lamp-cover.jpg';        // final product, lit
+  const fin2     = b + 'mad-hatter-lamp-final.jpg';        // final product, lit — feathers, band & clock
   let h = '';
 
   // 1. INTRO — text + bg-removed hero
@@ -1434,10 +1499,10 @@ function buildPackagingPresentation(p) {
       <div class="pcard-intro-text">
         <span class="pcard-eyebrow">04 / 09 &nbsp;&middot;&nbsp; Packaging Design &middot; Structural</span>
         <h2 class="pcard-title">Millet Packaging for a Healthier Tomorrow</h2>
-        <p class="pcard-desc">A resealable, stackable pack for millets &mdash; built to fix the everyday annoyance of plastic grain packets that can't be closed once opened, and to let people mix their own grains in one pack.</p>
+        <p class="pcard-desc">A resealable, stackable pack for millets &mdash; you can open it, use the millets, and close the lid again when you don't need it. No clips, no extra attachments.</p>
         <div class="pcard-brief">
           <span class="pcard-label">The Brief</span>
-          <p class="pcard-brief-body">In India, millets come in plastic packets that tear open and can't be re-closed. Once open, you need a clip or a rubber band just to keep them shut &mdash; a small daily annoyance that adds clutter to the kitchen.</p>
+          <p class="pcard-brief-body">In India, millets come in plastic packets. Once you tear a packet open, you can't close it again &mdash; you need a clip or some other attachment to keep it shut. I wanted to fix that small, everyday problem.</p>
         </div>
       </div>
       <div class="pcard-intro-foot"><span class="pcard-year">2025</span></div>
@@ -1447,37 +1512,32 @@ function buildPackagingPresentation(p) {
     </div>
   </div>`;
 
-  // 2. RESEARCH
-  h += `<div class="pcard pcard-outcome pres-r">
-    <span class="pcard-label">Research</span>
-    <p class="pcard-brief-body">We looked at how people actually store grains at home &mdash; folded packets, rubber bands, old containers. Two needs stood out: a packet that closes back on its own, and a way to keep fewer separate packets in the kitchen.</p>
-  </div>`;
-
-  // 3. STRUCTURE — open views
+  // 2. STRUCTURE — open / use / close (initial prototype)
   h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
     <div class="pc pc-2 pc--fill">${i(open2)}${i(open1)}</div>
     <div class="pcard-sec-text">
-      <span class="pcard-label">The Structure</span>
-      <h3 class="pcard-sec-h">Opens and Closes Like a Box</h3>
-      <p class="pcard-body">The pack opens cleanly from the top and folds shut again, so it works like a small container &mdash; no clip needed. Inside, a divider lets two grains sit in one pack, so people can mix their own combination or buy a ready mix.</p>
-      <p class="pcard-body" style="margin-top:1rem">The tapered shape stacks and lines up neatly on a shelf, using less material than separate packets.</p>
+      <span class="pcard-label">Initial Prototype</span>
+      <h3 class="pcard-sec-h">Open, Use, Close</h3>
+      <p class="pcard-body">This was my initial prototype. I shaped it so you can open the top, take out the millets you need, and close the lid back when you're done &mdash; so the pack stays shut on its own, without any clip.</p>
+      <p class="pcard-body" style="margin-top:1rem">I chose this shape on purpose: the packs can be arranged and stacked together neatly on a shelf, so they take up less space and look tidy.</p>
     </div>
   </div>`;
 
-  // 4. WINDOWS — front + side
+  // 3. PARTITIONS — two grains in one pack
   h += `<div class="pcard pcard-sec pres-r">
     <div class="pcard-sec-text">
-      <span class="pcard-label">The Window</span>
-      <h3 class="pcard-sec-h">See the Grain Inside</h3>
-      <p class="pcard-body">Hexagon-shaped windows on the front and sides let you see the grain straight away, so you know exactly what you're buying. The two-tone kraft and brown finish keeps it looking natural and honest.</p>
+      <span class="pcard-label">Partitions</span>
+      <h3 class="pcard-sec-h">Two Grains in One Pack</h3>
+      <p class="pcard-body">Later I thought &mdash; instead of keeping just one type of grain in a packet, why not keep two or more grains in a single pack? So I added partitions inside to separate them, which you can see through the windows.</p>
+      <p class="pcard-body" style="margin-top:1rem">It also opens up a nice use at the grocery shop: people can pick their own combination of millets and have them packed together in one single pack.</p>
     </div>
     <div class="pc pc-2 pc--fill">${i(front)}${i(side)}</div>
   </div>`;
 
-  // 5. OUTCOME
+  // 4. OUTCOME
   h += `<div class="pcard pcard-outcome pres-r">
     <span class="pcard-label">Outcome</span>
-    <p class="pcard-brief-body">A single millet pack that opens, pours, and closes &mdash; no clips needed. It stacks neatly on a shelf, and the inside divider means a shop can pack a customer's own grain mix together, or sell a ready-made variety pack.</p>
+    <p class="pcard-brief-body">A single millet pack that opens, lets you use the grain, and closes again &mdash; no clips needed. It stacks neatly on a shelf, and the partitions inside mean one pack can hold a mix of millets, or a combination a customer picks at the shop.</p>
   </div>`;
 
   // 6. QUOTE
@@ -1487,9 +1547,119 @@ function buildPackagingPresentation(p) {
 
   // 7. END
   h += `<div class="pcard pcard-end pres-r">
-    <p class="pcard-reflection">This project taught me that good packaging solves a behaviour problem, not just a look. The real brief was the rubber band on the kitchen counter.</p>
+    <p class="pcard-reflection">This project showed me that good packaging solves a behaviour problem, not just how it looks. The real problem was the clip on the kitchen shelf.</p>
     <div class="pcard-tags">
       ${['Packaging Design','Structural Design','Resealable','Millet','Grain','Daily Use'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+/* ─────────────────────────────────────────
+   TOSS 2025 TYPOGRAPHY CUSTOM BUILDER
+───────────────────────────────────────── */
+function buildTossPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const b = 'images/toss-2025-typography/';
+  const hero  = b + 'toss-2025-typography-01.jpeg'; // letters + ball on field (dusk)
+  const night = b + 'toss-2025-typography-09.jpg';  // night with fog
+  const posing= b + '6e33281a-417a-4f4f-ad54-fae56f2f7f86.jpg'; // Kanika posing
+  const team1 = b + 'toss-2025-typography-03.jpeg'; // team at sunset with letters
+  const team2 = b + 'toss-2025-typography-02.jpeg'; // team with tennis ball
+  const proc1 = b + 'toss-2025-typography-05.jpeg'; // workshop, raw letters
+  const proc2 = b + 'toss-2025-typography-06.jpeg'; // building the S
+  const proc3 = b + 'toss-2025-typography-08.jpeg'; // blue paint on hands
+  let h = '';
+
+  // 1. INTRO — enlarged hero
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">06 / 09 &nbsp;&middot;&nbsp; Spatial Design &middot; Installation</span>
+        <h2 class="pcard-title">TOSS 2025 &mdash; 3D Illuminated Typography</h2>
+        <p class="pcard-desc">For a dynamic cricket-themed event, the TOSS 3D letters were designed as a striking decor element. Crafted with precision using plywood and flexible ply, they added a visually appealing, immersive experience for everyone at the event.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">TOSS 2025 needed a bold physical centrepiece for the university's sports event &mdash; big enough to read across the ground, photograph well, and stand securely outdoors, built entirely with university workshop resources.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2025</span></div>
+    </div>
+    <div class="pcard-intro-img pcard-intro-img--lg">${i(hero, 'TOSS letters on the field')}</div>
+  </div>`;
+
+  // 2. MATERIALS + CHALLENGES
+  h += `<div class="pcard pcard-tech-mat pres-r">
+    <div class="pcard-tech-col">
+      <div class="pcard-tech-text">
+        <span class="pcard-label">Materials &amp; Construction</span>
+        <ul class="pcard-cad-list">
+          <li><strong>Plywood</strong> &mdash; durability and a strong base structure</li>
+          <li><strong>Flexible Ply</strong> &mdash; seamless curved sections and a refined finish</li>
+          <li><strong>Paint</strong> &mdash; vibrant colour and a polished final look</li>
+          <li><strong>Brushes</strong> &mdash; even paint and smooth detailing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pcard-tech-col pcard-tech-col--right">
+      <div class="pcard-tech-text">
+        <span class="pcard-label">Challenges &amp; Solutions</span>
+        <ul class="pcard-cad-list">
+          <li><strong>Curved Sections</strong> &mdash; flexible ply created smooth edges without compromising the structure</li>
+          <li><strong>Structural Stability</strong> &mdash; a reinforced base and hidden supports kept the letters upright and secure</li>
+        </ul>
+      </div>
+    </div>
+  </div>`;
+
+  // 3. PROCESS
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc-vstack">
+      <div class="pc-vstack-top">${i(proc1)}</div>
+      <div class="pc-vstack-bottom">${i(proc2)}${i(proc3)}</div>
+    </div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Process</span>
+      <h3 class="pcard-sec-h">Built by Hand in the Workshop</h3>
+      <p class="pcard-body">Each letter started as a plywood base for strength, with flexible ply bent around the curves to keep the edges smooth. Once the shapes were solid, we sanded them down and hand-painted them with brushes for a clean, vibrant finish.</p>
+      <p class="pcard-body" style="margin-top:1rem">Every letter was built and finished by hand in the university workshop &mdash; paint-stained fingers and all.</p>
+    </div>
+  </div>`;
+
+  // 3. FINISHED PRODUCT
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Finished &amp; Installed</span>
+      <h3 class="pcard-sec-h">On the Ground at TOSS</h3>
+      <p class="pcard-body">Installed on the sports ground with the giant Somaiya tennis ball, the letters became a key branding and decor feature &mdash; readable from across the ground and one of the most photographed spots at the event.</p>
+    </div>
+    <div class="pc pc-1 pc--fill">${i(night)}</div>
+  </div>`;
+  h += `<div class="pcard pres-r">
+    <div class="pc-vstack pc-vstack--auto">
+      <div class="pc-vstack-top">${i(posing)}</div>
+      <div class="pc-vstack-bottom">${i(team1)}${i(team2)}</div>
+    </div>
+  </div>`;
+
+  // 4. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">The finished 3D letters successfully added an engaging visual element to the event. They served as a key branding and decor feature &mdash; enhancing the overall ambiance and providing an excellent backdrop for event photography.</p>
+  </div>`;
+
+  // 5. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;scale changes everything &mdash; a letter at six feet is a completely different design problem&rdquo;</blockquote>
+  </div>`;
+
+  // 6. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Scale changes everything. A letter at this size behaves completely differently from a letterform on a screen &mdash; every curve and edge becomes a structural decision. This was the most direct link I've found between design thinking and physical making.</p>
+    <div class="pcard-tags">
+      ${['Spatial Design','Installation','Plywood','Flexible Ply','Hand-painted','Typography','Fabrication'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
     </div>
   </div>`;
 
@@ -1587,6 +1757,191 @@ function buildStressballPresentation(p) {
     <p class="pcard-reflection">The most human products respond to you rather than just reacting. The difference between reaction and response is intelligence &mdash; and even a minimal embedded system can carry that distinction through to the user experience.</p>
     <div class="pcard-tags">
       ${['Product Design','Wellbeing','Interaction Design','Sensors','User Research','Embedded'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+function buildPhotoshopPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const base = 'images/graphic-design-illustration/';
+  const finalArt = base + 'graphic-design-illustration-final.jpeg';    // clean final illustration on white
+  const poster   = base + 'graphic-design-illustration-poster.jpeg';   // orange "Jai Shree Ram" poster
+  const lineart  = base + 'graphic-design-illustration-lineart.jpeg';  // reference + line art on screen
+  const drawing  = base + 'graphic-design-illustration-drawing.jpeg';  // drawing on graphics tablet
+  const coloring = base + 'graphic-design-illustration-coloring.jpeg'; // colouring at the laptop
+  const print1   = base + 'graphic-design-illustration-print-01.jpeg'; // printed bookmarks stacked
+  const print2   = base + 'graphic-design-illustration-print-02.jpeg'; // bookmark styled on paper
+  let h = '';
+
+  // 1. INTRO — text + final illustration (contained, fully visible)
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">05 / 09 &nbsp;&middot;&nbsp; Graphic Design &middot; Illustration</span>
+        <h2 class="pcard-title">Graphic Design &amp; Illustration</h2>
+        <p class="pcard-desc">A digital illustration of Lord Rama, drawn in Adobe Photoshop &mdash; built up from reference into clean line art and full colour, then composed into a poster and printed as devotional bookmarks.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">A Photoshop assignment to illustrate Lord Rama: translate a reference image into an original digital painting, then carry it all the way through to a finished, printable graphic-design piece.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2025</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img pcard-intro-img--lg">${i(finalArt, 'Final digital illustration of Lord Rama')}</div>
+    </div>
+  </div>`;
+
+  // 2. PROCESS — reference to line art
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Process &middot; Line Art</span>
+      <h3 class="pcard-sec-h">From Reference to Line Art</h3>
+      <p class="pcard-body">I started from a reference image of Lord Rama, kept open beside my canvas in Photoshop. Working on a graphics tablet, I traced the figure into clean <strong>line art</strong> &mdash; locking in the pose, the bow, and the fall of the hair before any colour went down.</p>
+    </div>
+    <div class="pc pc-1 pc--fill">${i(lineart, 'Reference image beside the line art in Photoshop')}</div>
+  </div>`;
+
+  // 3. PROCESS — drawing & colouring
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-2 pc--fill">${i(drawing, 'Drawing the line art on a graphics tablet')}${i(coloring, 'Building up colour and shading at the laptop')}</div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Process &middot; Colour</span>
+      <h3 class="pcard-sec-h">Drawing &amp; Colouring</h3>
+      <p class="pcard-body">Every line was drawn by hand with the stylus, then layered with colour and shading &mdash; the blue skin, the saffron robe, the beads and the weathered bow &mdash; built up gradually until the figure had depth and weight.</p>
+      <p class="pcard-body" style="margin-top:1rem">Knowing when to stop mattered as much as the rendering: leaving the background clean kept all the attention on the figure.</p>
+    </div>
+  </div>`;
+
+  // 4. FINAL APPLICATION — poster (contained, fully visible)
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">The Composition</span>
+    <h3 class="pcard-sec-h" style="margin:0.4rem 0 0.9rem">Composed into a Poster</h3>
+    <p class="pcard-brief-body">The finished illustration was set on a warm saffron gradient with a hand-placed &ldquo;&#2332;&#2351; &#2358;&#2381;&#2352;&#2368; &#2352;&#2366;&#2350;&rdquo; headline &mdash; balancing the typography against the figure to read as a complete, shareable poster.</p>
+  </div>`;
+  h += `<div class="pcard pres-r"><div class="pc-screen">${i(poster, 'Jai Shree Ram poster composition')}</div></div>`;
+
+  // 5. FINAL APPLICATION — printed bookmarks
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">In Print</span>
+      <h3 class="pcard-sec-h">Printed as Bookmarks</h3>
+      <p class="pcard-body">The artwork was laid out as a tall bookmark with a repeated &ldquo;&#2332;&#2351; &#2332;&#2351; &#2358;&#2381;&#2352;&#2368; &#2352;&#2366;&#2350;&rdquo; pattern and printed &mdash; a small devotional keepsake taking the digital piece off the screen and into the hand.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(print1, 'Printed Jai Shree Ram bookmarks')}${i(print2, 'Bookmark styled on handmade paper')}</div>
+  </div>`;
+
+  // 6. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A finished digital illustration, a typographic poster, and a set of printed bookmarks &mdash; one piece of art carried all the way from reference to a tangible, printed object. The project sharpened my feel for colour, line, and composition, skills that carry straight into product and packaging design.</p>
+  </div>`;
+
+  // 7. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;every flat composition is a spatial problem in disguise&rdquo;</blockquote>
+  </div>`;
+
+  // 8. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Working in Photoshop is a different kind of making from physical prototyping. Without the resistance of material, the quality of the visual decisions alone determines the outcome &mdash; which makes it the most demanding and most instructive medium I work in.</p>
+    <div class="pcard-tags">
+      ${['Photoshop','Digital Illustration','Graphic Design','Line Art','Typography','Print'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
+    </div>
+  </div>`;
+
+  return h;
+}
+
+function buildWoodworkingPresentation(p) {
+  const esc = s => s.replace(/'/g, "\\'");
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const base = 'images/woodworking-lab/';
+  const spindles  = base + 'woodworking-lab-09.jpeg';  // four finished turned spindles
+  const lathe1    = base + 'woodworking-lab-07.jpeg';  // lathe turning — wide action
+  const lathe2    = base + 'woodworking-lab-08.jpeg';  // lathe turning — close action
+  const dremelAct = base + 'woodworking-lab-01.jpeg';  // carving with the Dremel
+  const car       = base + 'woodworking-lab-03.jpeg';  // carved wooden car
+  const dino      = base + 'woodworking-lab-06.jpeg';  // carved wooden dinosaur
+  const plyRaw    = base + 'woodworking-lab-02.jpeg';  // herringbone tray + coaster, raw on bench
+  const plyTray   = base + 'woodworking-lab-10.jpeg';  // finished varnished tray + coaster
+  const plyCoast  = base + 'woodworking-lab-11.jpeg';  // round coaster — cross-grain pattern
+  let h = '';
+
+  // 1. INTRO — text + finished turned spindles (contained, fully visible)
+  h += `<div class="pcard pcard-intro pres-r">
+    <div class="pcard-intro-body">
+      <div class="pcard-intro-text">
+        <span class="pcard-eyebrow">07 / 09 &nbsp;&middot;&nbsp; Material Exploration &middot; Display</span>
+        <h2 class="pcard-title">Woodworking Lab &mdash; riidl Studio</h2>
+        <p class="pcard-desc">A set of hands-on demonstration pieces made during my internship at the riidl woodworking lab &mdash; each one made on a different machine to show, at a glance, exactly what that tool can do.</p>
+        <div class="pcard-brief">
+          <span class="pcard-label">The Brief</span>
+          <p class="pcard-brief-body">The lab needed pieces that could instantly communicate what each machine could do &mdash; to visiting clients and students who had never seen the equipment before. The answer wasn&rsquo;t a poster; it was an object you could pick up.</p>
+        </div>
+      </div>
+      <div class="pcard-intro-foot"><span class="pcard-year">2024</span></div>
+    </div>
+    <div class="pcard-intro-img-col">
+      <div class="pcard-intro-img pcard-intro-img--lg">${i(spindles, 'Lathe-turned spindles')}</div>
+    </div>
+  </div>`;
+
+  // 2. THE LATHE — turning action
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The Lathe</span>
+      <h3 class="pcard-sec-h">Turning Forms on the Wood Lathe</h3>
+      <p class="pcard-body">The lathe spins a block of wood while a chisel shapes it &mdash; so everything it makes is <strong>perfectly symmetrical around its axis</strong>. I turned a series of balusters, each with a different profile of beads, coves, and tapers, to show the range of forms a single machine can produce.</p>
+      <p class="pcard-body" style="margin-top:1rem">It&rsquo;s the most direct way to feel how the tool, the speed, and the angle of the chisel translate straight into form.</p>
+    </div>
+    <div class="pc pc-2 pc--fill">${i(lathe1, 'Turning a baluster on the lathe')}${i(lathe2, 'Refining the spindle profile')}</div>
+  </div>`;
+
+  // 3. THE DREMEL — freehand carving (action big + two finished pieces)
+  h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
+    <div class="pc pc-vstack" style="align-self:stretch">
+      <div class="pc-vstack-top"><img src="${dino}" alt="Hand-carved wooden dinosaur" loading="lazy" style="object-position:center bottom;" onclick="openLB('${esc(dino)}')"/></div>
+      <div class="pc-vstack-bottom">${i(car, 'Hand-carved wooden car')}${i(dremelAct, 'Carving with the Dremel tool')}</div>
+    </div>
+    <div class="pcard-sec-text">
+      <span class="pcard-label">The Dremel</span>
+      <h3 class="pcard-sec-h">Freehand Carving Small Forms</h3>
+      <p class="pcard-body">Where the lathe is all symmetry, the Dremel is all freedom. Holding the piece in one hand and the rotary tool in the other, I carved small toy forms &mdash; a little car and a dinosaur &mdash; entirely by hand.</p>
+      <p class="pcard-body" style="margin-top:1rem">These pieces show the opposite end of the lab&rsquo;s range: <strong>free-form, sculptural shapes</strong> that no fixed machine could cut.</p>
+    </div>
+  </div>`;
+
+  // 4. LAYERED PLYWOOD — pattern from the edge (raw + finished + detail)
+  h += `<div class="pcard pcard-sec pres-r">
+    <div class="pcard-sec-text">
+      <span class="pcard-label">Layered Plywood</span>
+      <h3 class="pcard-sec-h">Pattern from the Edge</h3>
+      <p class="pcard-body">Plywood is made of thin layers glued together &mdash; and when you cut and re-lay those layers, the striped <strong>cross-section becomes the pattern</strong>. I cut and laminated offcuts into herringbone and parquet arrangements, then built them into small trays and coasters.</p>
+      <p class="pcard-body" style="margin-top:1rem">Sanded and varnished, the everyday material turns into something that looks deliberately designed &mdash; a quiet demonstration of how much is hiding inside a sheet of ply.</p>
+    </div>
+    <div class="pc pc-3" style="align-self:stretch">${i(plyTray, 'Finished herringbone plywood tray')}${i(plyRaw, 'Raw tray and coaster on the bench')}${i(plyCoast, 'Cross-grain plywood coaster')}</div>
+  </div>`;
+
+  // 5. OUTCOME
+  h += `<div class="pcard pcard-outcome pres-r">
+    <span class="pcard-label">Outcome</span>
+    <p class="pcard-brief-body">A small collection of demonstration pieces &mdash; turned spindles, carved toys, and patterned trays and coasters &mdash; now used in the lab to show its range. Each one was made on the machine it represents, so clients understand what the equipment can do the moment they pick one up.</p>
+  </div>`;
+
+  // 6. QUOTE
+  h += `<div class="pcard pcard-quote pres-r">
+    <blockquote>&ldquo;the best demonstration is always an object, never an explanation&rdquo;</blockquote>
+  </div>`;
+
+  // 7. END
+  h += `<div class="pcard pcard-end pres-r">
+    <p class="pcard-reflection">Designing to communicate a process rather than to fulfil a function is a different kind of brief &mdash; it asks you to make the invisible visible. The most convincing way to explain a machine is to hand someone something it made.</p>
+    <div class="pcard-tags">
+      ${['Wood','Lathe','Dremel','Plywood','Material Exploration','Display Design'].map(t=>`<span class="pcard-tag">${t}</span>`).join('')}
     </div>
   </div>`;
 
@@ -1727,7 +2082,7 @@ function openProject(id, cardEl) {
   document.getElementById('cs-num').textContent = p.num;
 
   const content = document.getElementById('cs-content');
-  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation };
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation, toss: buildTossPresentation, photoshop: buildPhotoshopPresentation, woodworking: buildWoodworkingPresentation };
   const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
   content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
 
@@ -1776,7 +2131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const p = PROJECTS[id];
   if (!p) return;
 
-  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation };
+  const builders = { furniture: buildFurniturePresentation, capstone: buildCapstonePresentation, stressball: buildStressballPresentation, lamp: buildLampPresentation, compost: buildCompostPresentation, packaging: buildPackagingPresentation, toss: buildTossPresentation, photoshop: buildPhotoshopPresentation, woodworking: buildWoodworkingPresentation };
   const builder = Object.keys(builders).find(k => PROJECTS[k] === p);
   content.innerHTML = builder ? builders[builder](p) : buildPresentation(p);
 
@@ -1784,6 +2139,46 @@ document.addEventListener('DOMContentLoaded', () => {
   if (numEl) numEl.textContent = p.num;
 
   requestAnimationFrame(() => initPresReveal(content));
+})();
+
+/* ─────────────────────────────────────────
+   STANDALONE VOLUNTEER PAGE
+   A dedicated HTML page carries
+   <main id="vol-page" data-volunteer="permaculture">.
+   Renders the volunteer story centered — no cover image.
+───────────────────────────────────────── */
+(function initStandaloneVolunteer() {
+  const el = document.getElementById('vol-page');
+  const id = el?.getAttribute('data-volunteer');
+  if (!el || !id) return;
+  const v = VOLUNTEERS[id];
+  if (!v) return;
+
+  const esc = s => String(s).replace(/'/g, "\\'");
+  const photos = (v.photos && v.photos.length)
+    ? `<div class="vp-photos">${v.photos.map(s =>
+        `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')" onerror="this.style.display='none'"/>`
+      ).join('')}</div>`
+    : '';
+
+  el.innerHTML = `
+    <div class="vp-inner">
+      <a href="beyond-the-studio.html" class="vp-back">← Beyond the Studio</a>
+      <span class="vp-num">${v.num}</span>
+      <span class="vp-cat">${v.cat}</span>
+      <h1 class="vp-title">${v.title}</h1>
+      <div class="vp-meta">
+        <div><span class="vp-meta-lbl">Organisation</span><span class="vp-meta-val">${v.org}</span></div>
+        <div><span class="vp-meta-lbl">Role</span><span class="vp-meta-val">${v.role}</span></div>
+        <div><span class="vp-meta-lbl">Duration</span><span class="vp-meta-val">${v.duration}</span></div>
+      </div>
+      <p class="vp-desc">${v.desc}</p>
+      <div class="cs-row"><span class="cs-label">Learnings</span><p class="cs-body">${v.learnings}</p></div>
+      <div class="cs-row"><span class="cs-label">Reflection</span><p class="cs-body">${v.reflection}</p></div>
+      ${photos}
+    </div>`;
+
+  document.title = v.title + ' — Kanika Kadam';
 })();
 
 /* ─────────────────────────────────────────
