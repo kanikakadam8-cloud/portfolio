@@ -422,9 +422,14 @@ const VOLUNTEERS = {
       ? Math.min(Math.max(window.scrollY / totalScroll, 0), 1)
       : 0;
 
-    /* Zoom: stays zoomed-in as a background — eases 2.4 → 1.6, never small */
-    const zoomP = Math.min(progress / 0.42, 1);
-    scale       = 2.4 - (0.8 * easeOut(zoomP));
+    /* Zoom: stays zoomed-in as a background on desktop (2.4 → 1.6).
+       On mobile the mascot sits in a small sticky banner, so use a
+       gentler range (2.2 → 1.0) that keeps the whole figure in frame. */
+    const zoomP  = Math.min(progress / 0.42, 1);
+    const mobile = window.innerWidth <= 620;
+    scale = mobile
+      ? 2.2 - (1.2 * easeOut(zoomP))
+      : 2.4 - (0.8 * easeOut(zoomP));
 
     /* Phase thresholds → pose + speech */
     const phase = progress < 0.15 ? 0
