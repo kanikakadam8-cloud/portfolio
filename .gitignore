@@ -1,6 +1,9 @@
 # Unused / unlinked images — kept locally, not pushed
 work-experience/images/other-images/
 
+# AI-generated experiments — kept locally, not pushed
+**/ai images/
+
 # OS / editor cruft
 desktop.ini
 .DS_Store
