@@ -13,3 +13,6 @@ desktop.ini
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Local AI-tooling config
+.claude/
