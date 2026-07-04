@@ -41,7 +41,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 
 /* Dark mode removed — site is always light. */
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   background: var(--bg);
@@ -50,7 +50,9 @@ body {
   font-weight: 300;
   font-size: 15px;
   line-height: 1.7;
-  overflow-x: hidden;
+  /* clip, not hidden: hidden creates a scroll container that breaks
+     position:sticky (mascot panel, CV sidebar); clip only cuts overflow */
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   animation: pageFadeIn 0.45s ease both;
 }
@@ -78,15 +80,21 @@ body {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; gap: 1.6rem;
   padding: 1.4rem 5%;
-  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
-.nav-links { flex: 1; justify-content: center; }
-#nav.scrolled, #nav.solid {
+/* Background + blur live on a pseudo-element, NOT on #nav itself:
+   backdrop-filter on #nav would make it the containing block for
+   position:fixed children — breaking the mobile menu overlay. */
+#nav::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
   background: rgba(255,249,243,0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 0 rgba(68,50,35,0.08);
+  opacity: 0; transition: opacity 0.5s ease;
+  pointer-events: none;
 }
+.nav-links { flex: 1; justify-content: center; }
+#nav.scrolled::before, #nav.solid::before { opacity: 1; }
 .nav-logo {
   font-family: var(--serif);
   font-weight: 500; font-size: 1.15rem;
@@ -313,8 +321,8 @@ body[data-page="contact"] .scene-speech::after {
 /* ═══════════════════════════════════════════════════════
    SECTION HELPERS
 ═══════════════════════════════════════════════════════ */
-.sw    { padding: 3.5rem 5%; }
-.sw-sm { padding: 2.5rem 5%; }
+.sw    { padding: 3.5rem 5%; max-width: 1720px; margin-left: auto; margin-right: auto; }
+.sw-sm { padding: 2.5rem 5%; max-width: 1480px; margin-left: auto; margin-right: auto; }
 
 .eyebrow {
   font-size: 0.58rem; font-weight: 500;
@@ -626,8 +634,11 @@ body[data-page="contact"] .scene-speech::after {
 }
 .cv-fullscreen-link:hover { text-decoration: underline; }
 @media (max-width: 780px) {
-  .cv-frame { aspect-ratio: auto; height: 1500px; }
+  /* A4 ratio is unreadable at phone width — give the frame a viewport
+     height instead; the résumé inside scrolls within the frame */
+  .cv-frame { aspect-ratio: auto; height: 76vh; height: 76dvh; }
   .cv-download { width: 100%; justify-content: center; }
+  .cv-embed-wrap { padding-top: 7rem; }
 }
 
 .cv-hero {
@@ -729,25 +740,7 @@ body[data-page="contact"] .scene-speech::after {
   transition: opacity 0.45s ease;
   user-select: none; pointer-events: none;
 }
-#hc-speech {
-  position: absolute;
-  top: 12%;
-  right: 9%;
-  white-space: nowrap;
-  background: rgba(255,252,248,0.92);
-  color: var(--ink);
-  font-family: var(--hand);
-  font-size: 0.88rem;
-  padding: 0.35rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 1.2rem;
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.25,.46,.45,.94);
-}
-#hc-speech.visible { opacity: 1; transform: translateY(0); }
+/* (speech bubble removed — element no longer exists) */
 
 /* ═══════════════════════════════════════════════════════
    INNER PAGE SPLIT HEADER
@@ -1051,7 +1044,7 @@ body[data-page="contact"] .scene-speech::after {
 
 /* Home about band — Cedar background */
 #home-about { background: var(--cedar); }
-#home-about .sw-sm { padding-top: 0.6rem; padding-bottom: 0.6rem; }
+#home-about .sw-sm { padding-top: 2.6rem; padding-bottom: 3rem; }
 .home-about-grid {
   display: grid; grid-template-columns: 1fr;
   gap: 4rem; align-items: center;
@@ -1071,6 +1064,30 @@ body[data-page="contact"] .scene-speech::after {
   font-size: 0.86rem; font-weight: 300;
   line-height: 1.95; color: rgba(255,249,243,0.7); margin-bottom: 1.6rem;
 }
+
+/* Closing CTA band on home */
+#home-cta { background: var(--bg); }
+#home-cta .sw-sm { padding-top: 5rem; padding-bottom: 5rem; text-align: center; }
+.home-cta-head {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1;
+  color: var(--ink); margin: 0.4rem 0 2rem;
+}
+.home-cta-head em { font-style: italic; color: var(--mauve); }
+.home-cta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.8rem; flex-wrap: wrap;
+}
+.home-cta-btn {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 0.95rem 2.2rem; border-radius: 2rem;
+  background: var(--ink); color: var(--bg);
+  font: 500 0.68rem/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.22s ease;
+}
+.home-cta-btn:hover { background: var(--mauve); transform: translateY(-2px); }
+.home-cta-btn span { transition: transform 0.22s ease; }
+.home-cta-btn:hover span { transform: translateX(4px); }
 
 /* Mauve accent band between featured and about */
 .mauve-rule {
@@ -1570,9 +1587,12 @@ body[data-page="contact"] .scene-speech::after {
    a row fills the width at equal height with no gaps. 1 column = full-width. */
 .pc-fit {
   display: grid; gap: 3px; background: var(--sticky); line-height: 0;
+  align-items: stretch;
 }
 .pc-fit img {
-  width: 100%; height: auto; display: block;
+  /* height 100% + cover: cells stretch to the tallest, so auto-height
+     images would otherwise be stretched out of proportion */
+  width: 100%; height: 100%; object-fit: cover; display: block;
   cursor: pointer; transition: opacity 0.22s;
 }
 .pc-fit img:hover { opacity: 0.84; }
@@ -1605,7 +1625,9 @@ body[data-page="contact"] .scene-speech::after {
   background: var(--sticky);
 }
 .pc-vstack--auto .pc-vstack-bottom img {
-  width: 100%; height: auto; aspect-ratio: auto; object-fit: fill;
+  /* cover, not fill: grid rows stretch both cells to equal height, and
+     fill would distort whichever photo doesn't match its column ratio */
+  width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover;
   display: block;
 }
 @media (max-width: 700px) {
@@ -2362,37 +2384,42 @@ body[data-page="contact"] .scene-speech::after {
   .vol-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* ── Mobile (≤ 620px) ── */
-@media (max-width: 620px) {
-  /* ── NAV: hamburger + full-screen overlay menu ── */
+/* ── NAV: hamburger + full-screen overlay (phones AND tablets) ── */
+@media (max-width: 920px) {
   #nav { padding: 1rem 5%; gap: 1rem; }
-  .nav-logo { font-size: 1rem; z-index: 201; }
+  .nav-logo { font-size: 1rem; position: relative; z-index: 201; }
   .nav-burger { display: flex; margin-left: auto; }
   .nav-cta { display: none; }
 
   .nav-links {
-    position: fixed; inset: 0;
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 100vh; height: 100dvh;
     flex-direction: column; justify-content: center; align-items: center;
-    gap: 1.5rem;
+    gap: 1.4rem;
     background: var(--bg);
     transform: translateX(100%);
     transition: transform 0.42s cubic-bezier(.23,1,.32,1);
     z-index: 200;
+    overscroll-behavior: contain;
   }
   .nav-links.mobile-open { transform: translateX(0); }
   .nav-links li a {
     font-family: var(--serif); font-weight: 400;
-    font-size: 1.5rem; letter-spacing: 0.02em;
+    font-size: 1.6rem; letter-spacing: 0.02em;
     text-transform: none; color: var(--ink);
-    padding: 0.3rem 0.5rem; margin: 0;
+    padding: 0.4rem 1rem; margin: 0;
   }
   .nav-links li a.active, .nav-links li a:hover { color: var(--mauve); }
   .nav-cta-mob { display: block; margin-top: 0.8rem; }
   .nav-cta-mob a {
     border: 1px solid var(--mauve); color: var(--mauve);
-    border-radius: 2rem; padding: 0.7rem 1.8rem;
-    font-size: 1rem; letter-spacing: 0.04em;
+    border-radius: 2rem; padding: 0.8rem 2rem;
+    font-size: 1.05rem; letter-spacing: 0.04em;
   }
+}
+
+/* ── Mobile (≤ 620px) ── */
+@media (max-width: 620px) {
 
   /* ── HOME: mascot stacks ABOVE text, stays sticky ──
      Same zoom animation as desktop — char-panel is now a
@@ -2426,11 +2453,6 @@ body[data-page="contact"] .scene-speech::after {
     max-height: 480px;
     opacity: 1;
     filter: drop-shadow(0 20px 40px rgba(68,50,35,0.18));
-  }
-  #hc-speech {
-    top: 8%; right: 10%; left: auto;
-    max-width: 145px;
-    font-size: 0.76rem;
   }
 
   /* Hero text: full width below the mascot banner */
@@ -2468,6 +2490,12 @@ body[data-page="contact"] .scene-speech::after {
   /* About */
   .about-details { grid-template-columns: 1fr; }
   .home-about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Contact: keep long emails/URLs inside the viewport */
+  .cl { gap: 0.85rem; font-size: 0.8rem; }
+  .cl-label { min-width: 0; overflow-wrap: anywhere; }
+  .cl-meta { display: none; }
+  .contact-inner { padding-left: 6%; padding-right: 6%; }
 
   /* Project modal: single column, no cover */
   #modal-panel { display: block; }

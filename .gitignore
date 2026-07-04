@@ -4,6 +4,10 @@ work-experience/images/other-images/
 # AI-generated experiments — kept locally, not pushed
 **/ai images/
 
+# Internal H2L work docs — local only, NOT for the public portfolio repo.
+# (Remove this line if you intend to deploy/publish the work/ folder.)
+work/
+
 # OS / editor cruft
 desktop.ini
 .DS_Store
