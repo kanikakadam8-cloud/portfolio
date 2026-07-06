@@ -440,18 +440,30 @@ body[data-page="contact"] .scene-speech::after {
   color: var(--cedar); display: block; margin-bottom: 1rem;
 }
 .hero-content { max-width: 100%; }
+/* V1 hierarchy: name (one line) → role subtitle → specialties → bio */
 .hero-name {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(4.5rem, 9vw, 9rem);
-  line-height: 0.88; letter-spacing: -0.015em; color: var(--ink);
-  margin-bottom: 2rem;
+  /* capped so "Kanika Kadam" stays on one line inside the home 50% column */
+  font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+  line-height: 0.95; letter-spacing: -0.015em; color: var(--ink);
+  margin-bottom: 0.9rem;
+  white-space: nowrap;
 }
-.hero-name .ln2 { padding-left: 0; display: block; color: var(--clockwork); }
-.hero-meta { display: flex; align-items: center; gap: 1.5rem; }
-.hero-role  { font-size: 0.76rem; font-weight: 300; letter-spacing: 0.06em; color: var(--mid); }
-.hero-sep   { width: 1px; height: 26px; background: var(--border); flex-shrink: 0; }
-.hero-loc   { font-size: 0.7rem; font-weight: 300; letter-spacing: 0.06em; color: var(--light); }
+.hero-name .ln2 { color: var(--clockwork); }
+.hero-role-main {
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: clamp(1.05rem, 1.9vw, 1.5rem);
+  color: var(--ink); margin-bottom: 1.6rem; line-height: 1.3;
+}
+.hero-role-main .hero-role-dim { font-style: normal; color: var(--mid); font-family: var(--sans); font-size: 0.82em; letter-spacing: 0.02em; }
+.hero-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.hero-role  { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cedar); }
+.hero-sep   { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+.hero-loc   { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; color: var(--light); }
+
+/* Mobile-only profile chip — hidden on desktop (cinematic mascot shows there) */
+.hero-chip { display: none; }
 
 .hero-right {
   display: flex; flex-direction: column;
@@ -498,8 +510,9 @@ body[data-page="contact"] .scene-speech::after {
 
 /* Hero load animations */
 .hero-eyebrow  { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.1s both; }
-.hero-name     { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.24s both; }
-.hero-meta     { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.42s both; }
+.hero-name      { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.24s both; }
+.hero-role-main { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.36s both; }
+.hero-meta      { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.42s both; }
 .hero-bio      { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.52s both; }
 .hero-scroll   { animation: fadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.62s both; }
 
@@ -844,8 +857,11 @@ body[data-page="contact"] .scene-speech::after {
    FEATURED WORK  (index.html — full-width horizontal gallery)
 ═══════════════════════════════════════════════════════ */
 #featured {
-  background: var(--white);
-  padding: 4rem 0 0;
+  /* warm sand band so Recent Projects reads as its own zone, not floating white */
+  background: #F1E7D8;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 0 1rem;
   overflow: hidden;
 }
 .feat-intro { padding-bottom: 2.5rem; }
@@ -879,9 +895,10 @@ body[data-page="contact"] .scene-speech::after {
 
 .disc-card {
   flex-shrink: 0; width: 340px;
-  background: var(--bg); border: 1px solid var(--border);
+  background: #FFFDFA; border: 1px solid rgba(68,50,35,0.08);
   border-radius: 14px; padding: 1.4rem 1.4rem 1.1rem;
   display: flex; flex-direction: column;
+  box-shadow: 0 6px 24px rgba(68,50,35,0.06);
 }
 .disc-head {
   display: flex; align-items: baseline; gap: 0.7rem;
@@ -906,10 +923,10 @@ body[data-page="contact"] .scene-speech::after {
   padding: 0.4rem; border-radius: 9px;
   transition: background 0.25s ease;
 }
-.disc-sub:hover { background: var(--white); }
+.disc-sub:hover { background: #F1E7D8; }
 .disc-sub-img {
-  width: 58px; height: 58px; flex-shrink: 0;
-  border-radius: 7px; overflow: hidden; background: var(--border); display: block;
+  width: 66px; height: 66px; flex-shrink: 0;
+  border-radius: 9px; overflow: hidden; background: var(--border); display: block;
 }
 .disc-sub-img img { width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.4s ease; }
@@ -2425,46 +2442,33 @@ body[data-page="contact"] .scene-speech::after {
 /* ── Mobile (≤ 620px) ── */
 @media (max-width: 620px) {
 
-  /* ── HOME: mascot stacks ABOVE text, stays sticky ──
-     Same zoom animation as desktop — char-panel is now a
-     full-width sticky banner. JS zoom still runs. */
-  #home-cinematic {
-    display: flex;
-    flex-direction: column;
-  }
-  #char-panel {
-    display: flex;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 56vh;
-    min-height: 240px;
-    max-height: 380px;
-    background: var(--white);
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding-top: 2.5vh;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 5;
-    pointer-events: none;
-  }
-  #char-para { width: auto; display: flex; justify-content: center; }
-  /* char-zoom: let JS control transform (same zoom as desktop) */
-  #hc-main {
-    height: 70vh;
-    max-height: 480px;
-    opacity: 1;
-    filter: drop-shadow(0 20px 40px rgba(68,50,35,0.18));
-  }
+  /* ── HOME (mobile): drop the cinematic zooming mascot entirely.
+     Show a simple square avatar + name chip at the top of the hero. */
+  #home-cinematic { display: flex; flex-direction: column; }
+  #char-panel { display: none; }
 
-  /* Hero text: full width below the mascot banner */
   #home-content { width: 100%; }
-  #hero { padding: 4rem 6% 3rem; }
+  #hero { padding: 6.5rem 7% 3rem; min-height: auto; }
   .hero-content { max-width: 100%; }
-  .hero-name { font-size: clamp(3rem, 12vw, 5rem) !important; line-height: 0.9; }
-  .hero-bio { font-size: 0.74rem; line-height: 1.85; }
+
+  .hero-chip {
+    display: flex; align-items: center; gap: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .hero-chip-av {
+    width: 66px; height: 66px; flex-shrink: 0;
+    border-radius: 16px; background: var(--white);
+    border: 1px solid var(--border); overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-chip-av img { width: 118%; height: auto; display: block; }
+  .hero-chip-text { display: flex; flex-direction: column; gap: 0.15rem; }
+  .hero-chip-name { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); line-height: 1.1; }
+  .hero-chip-role { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cedar); }
+  /* chip carries the identity on mobile — hide the large name/subtitle */
+  .hero-name, .hero-role-main { display: none; }
+  .hero-meta { margin-top: 0; }
+  .hero-bio { font-size: 0.82rem; line-height: 1.85; margin-top: 1.4rem; }
 
   /* Editorial */
   .editorial-band { padding: 5rem 8% 6rem; }
