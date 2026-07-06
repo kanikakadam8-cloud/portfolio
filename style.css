@@ -2796,3 +2796,118 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 .vol-card .card-back,
 .pc-1 img,
 .pc-feat { border-radius: 7px; }
+
+/* ═══════════════════════════════════════════════════════
+   AI MODE  — glass / holographic skin  (data-mode="ai")
+   + the Human/AI toggle button (all pages)
+═══════════════════════════════════════════════════════ */
+
+/* ── Toggle button ── */
+.mode-toggle {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: none; border: none; cursor: pointer; padding: 0.3rem 0.2rem;
+  flex-shrink: 0; font: 500 0.56rem/1 var(--sans);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid);
+}
+.mode-toggle .mt-opt { transition: color 0.25s; }
+.mode-toggle .mt-human { color: var(--ink); }
+.mode-toggle .mt-ai { color: var(--mid); }
+.mode-toggle.is-ai .mt-human { color: var(--mid); }
+.mode-toggle.is-ai .mt-ai { color: #7b5cff; }
+.mt-track {
+  width: 34px; height: 18px; border-radius: 10px; position: relative;
+  background: var(--border); transition: background 0.3s;
+}
+.mode-toggle.is-ai .mt-track {
+  background: linear-gradient(90deg, #7b5cff, #4fc3f7);
+}
+.mt-thumb {
+  position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
+  border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+  transition: transform 0.3s cubic-bezier(.23,1,.32,1);
+}
+.mode-toggle.is-ai .mt-thumb { transform: translateX(16px); }
+@media (max-width: 920px) {
+  .mode-toggle { margin-left: auto; margin-right: 0.4rem; }
+  .mode-toggle .mt-opt { display: none; }
+}
+
+/* ── Glass skin ── */
+:root[data-mode="ai"] {
+  --accent: #7b5cff;
+  --mauve:  #8a63ff;
+  --cedar:  #6f79c9;
+}
+:root[data-mode="ai"] body {
+  background:
+    radial-gradient(1100px 760px at 12% -12%, rgba(123,92,255,0.16), transparent 60%),
+    radial-gradient(1000px 720px at 102% 6%, rgba(79,195,247,0.14), transparent 55%),
+    radial-gradient(900px 900px at 50% 120%, rgba(214,120,220,0.12), transparent 60%),
+    #f4f2fb;
+  background-attachment: fixed;
+}
+
+/* frosted nav */
+:root[data-mode="ai"] #nav::before {
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  opacity: 1;
+  box-shadow: 0 1px 0 rgba(123,92,255,0.18);
+}
+
+/* glass card surfaces */
+:root[data-mode="ai"] .disc-card,
+:root[data-mode="ai"] .project-card .card-front,
+:root[data-mode="ai"] .project-card .card-back,
+:root[data-mode="ai"] .cl,
+:root[data-mode="ai"] .cv-frame {
+  background: rgba(255,255,255,0.42);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow: 0 10px 42px rgba(123,92,255,0.14),
+              inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* the Recent Projects band → translucent so the gradient glows through */
+:root[data-mode="ai"] #featured {
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(123,92,255,0.18);
+  border-bottom: 1px solid rgba(123,92,255,0.18);
+}
+:root[data-mode="ai"] #home-about { background: rgba(111,121,201,0.9); }
+:root[data-mode="ai"] .disc-sub:hover { background: rgba(123,92,255,0.1); }
+
+/* iridescent accents */
+:root[data-mode="ai"] .home-cta-btn,
+:root[data-mode="ai"] .cv-download {
+  background: linear-gradient(90deg, #7b5cff, #4fc3f7);
+}
+:root[data-mode="ai"] .home-cta-btn:hover,
+:root[data-mode="ai"] .cv-download:hover {
+  background: linear-gradient(90deg, #6a4bff, #35b8f0);
+  box-shadow: 0 8px 30px rgba(123,92,255,0.35);
+}
+:root[data-mode="ai"] .hero-name { color: #4a3d7a; }
+:root[data-mode="ai"] .hero-role-main .hero-role-dim,
+:root[data-mode="ai"] .hero-role { color: #7b5cff; }
+:root[data-mode="ai"] .mauve-rule {
+  background: linear-gradient(90deg, transparent, #7b5cff 30%, #4fc3f7 80%, transparent);
+}
+
+/* an unobtrusive "AI MODE" chip in the hero */
+:root[data-mode="ai"] .hero-content::before {
+  content: "✦ AI MODE";
+  display: inline-block; margin-bottom: 1rem;
+  font: 500 0.56rem/1 var(--sans); letter-spacing: 0.28em;
+  color: #7b5cff;
+  padding: 0.4rem 0.8rem; border-radius: 2rem;
+  border: 1px solid rgba(123,92,255,0.4);
+  background: rgba(123,92,255,0.08);
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-mode="ai"] .disc-track { animation-duration: 48s; }
+}

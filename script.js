@@ -1,4 +1,82 @@
 ﻿/* ─────────────────────────────────────────
+   AI / HUMAN MODE
+   Runtime toggle. AI mode swaps each image to its
+   mirror under images-ai/ (falling back to the real
+   photo if the AI twin doesn't exist), swaps any
+   [data-ai] text, and flips the glass skin via
+   data-mode="ai" on <html>.
+───────────────────────────────────────── */
+/* set as early as possible to limit flash */
+try { if (localStorage.getItem('kk-mode') === 'ai') document.documentElement.setAttribute('data-mode', 'ai'); } catch (e) {}
+
+(function initAIMode() {
+  const root = document.documentElement;
+  const isAI = () => root.getAttribute('data-mode') === 'ai';
+
+  /* Inject the toggle into the nav (so we don't touch 20 HTML files) */
+  let btn = null;
+  const nav = document.getElementById('nav');
+  if (nav && !document.getElementById('mode-toggle')) {
+    btn = document.createElement('button');
+    btn.id = 'mode-toggle';
+    btn.className = 'mode-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle AI mode');
+    btn.innerHTML =
+      '<span class="mt-opt mt-human">Human</span>' +
+      '<span class="mt-track"><span class="mt-thumb"></span></span>' +
+      '<span class="mt-opt mt-ai">AI</span>';
+    const cta = nav.querySelector('.nav-cta');
+    nav.insertBefore(btn, cta || null);
+  }
+
+  function swapImages(ai) {
+    document.querySelectorAll('img').forEach(img => {
+      if (img.hasAttribute('data-noai')) return;
+      if (!('human' in img.dataset)) img.dataset.human = img.getAttribute('src') || '';
+      const human = img.dataset.human;
+      if (!human) return;
+      let target = human;
+      if (ai) {
+        if (human.indexOf('work-experience/images/') === 0)
+          target = human.replace('work-experience/images/', 'work-experience/images-ai/');
+        else if (human.indexOf('images/') === 0)
+          target = human.replace('images/', 'images-ai/');
+        else return; // external / absolute — leave alone
+      }
+      if ((img.getAttribute('src') || '') === target) return;
+      img.onerror = ai ? function () { this.onerror = null; this.src = human; } : null;
+      img.src = target;
+    });
+  }
+
+  function swapText(ai) {
+    document.querySelectorAll('[data-ai]').forEach(el => {
+      if (!('human' in el.dataset)) el.dataset.human = el.innerHTML;
+      el.innerHTML = ai ? el.getAttribute('data-ai') : el.dataset.human;
+    });
+  }
+
+  /* exposed so JS-injected content (project decks, marquee) can re-apply */
+  window.applyMode = function () {
+    const ai = isAI();
+    swapImages(ai);
+    swapText(ai);
+    if (btn) btn.classList.toggle('is-ai', ai);
+  };
+
+  if (btn) btn.addEventListener('click', () => {
+    if (isAI()) { root.removeAttribute('data-mode'); try { localStorage.setItem('kk-mode', 'human'); } catch (e) {} }
+    else { root.setAttribute('data-mode', 'ai'); try { localStorage.setItem('kk-mode', 'ai'); } catch (e) {} }
+    window.applyMode();
+  });
+
+  const run = () => setTimeout(window.applyMode, 0);
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+})();
+
+/* ─────────────────────────────────────────
    MOBILE NAV  — hamburger open/close
 ───────────────────────────────────────── */
 (function initMobileNav() {
@@ -2096,7 +2174,7 @@ function openProject(id, cardEl) {
   // Scroll to case study
   setTimeout(() => cs.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 
-  requestAnimationFrame(() => { initPresReveal(content); });
+  requestAnimationFrame(() => { initPresReveal(content); if (window.applyMode) window.applyMode(); });
 }
 
 function closeProjectCS() {
@@ -2143,7 +2221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const numEl = document.getElementById('cs-num');
   if (numEl) numEl.textContent = p.num;
 
-  requestAnimationFrame(() => initPresReveal(content));
+  requestAnimationFrame(() => { initPresReveal(content); if (window.applyMode) window.applyMode(); });
 })();
 
 /* ─────────────────────────────────────────
