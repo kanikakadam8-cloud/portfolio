@@ -2915,3 +2915,27 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 @media (prefers-reduced-motion: no-preference) {
   :root[data-mode="ai"] .disc-track { animation-duration: 48s; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   LINE-WRAP PASS  — headings wrap evenly and use the full
+   row before dropping a line; body text avoids orphan words
+═══════════════════════════════════════════════════════ */
+.sec-heading, .contact-head, .home-cta-head, .cv-embed-title,
+.vp-title, .pcard-title, .pcard-sec-h, .pcard-concept h4,
+.disc-name, .proj-title, .card-back-title, .hero-role-main,
+.exp-role, .d-val, .editorial-statement {
+  text-wrap: balance;
+}
+.hero-bio, .story-hdr-lede, .feat-intro-sub, .home-about-body,
+.contact-sub, .cv-embed-sub, .vp-desc, .vp-meta-val,
+.about-body p, .cv-lede, .exp-detail,
+.pcard-desc, .pcard-body, .pcard-brief-body, .card-back-desc,
+.disc-sub-title, .cs-body {
+  text-wrap: pretty;
+}
+
+/* Anchor offset so the fixed nav never hides a section heading */
+#hero, #featured, #home-about, #home-cta, #work-grid, #about-section,
+#skills, #experience-section, #vol, #contact-section, .story-hdr {
+  scroll-margin-top: 5rem;
+}
