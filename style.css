@@ -602,9 +602,10 @@ body[data-page="contact"] .scene-speech::after {
   font-size: clamp(3rem, 6vw, 5.5rem);
 }
 .story-hdr-lede {
-  margin-top: 1.6rem; max-width: 46ch;
-  font: 300 0.92rem/1.85 var(--sans); color: var(--mid);
+  margin-top: 1.6rem; max-width: min(64ch, 60vw);
+  font: 300 1rem/1.9 var(--sans); color: var(--mid);
 }
+@media (max-width: 720px) { .story-hdr-lede { max-width: 100%; font-size: 0.9rem; } }
 
 /* ═══════════════════════════════════════════════════════
    CURRICULUM VITAE PAGE
@@ -2813,13 +2814,13 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 .mode-toggle .mt-human { color: var(--ink); }
 .mode-toggle .mt-ai { color: var(--mid); }
 .mode-toggle.is-ai .mt-human { color: var(--mid); }
-.mode-toggle.is-ai .mt-ai { color: #7b5cff; }
+.mode-toggle.is-ai .mt-ai { color: #6b7a35; }
 .mt-track {
   width: 34px; height: 18px; border-radius: 10px; position: relative;
   background: var(--border); transition: background 0.3s;
 }
 .mode-toggle.is-ai .mt-track {
-  background: linear-gradient(90deg, #7b5cff, #4fc3f7);
+  background: linear-gradient(90deg, #6b7a35, #aab56a);
 }
 .mt-thumb {
   position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
@@ -2834,16 +2835,16 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 
 /* ── Glass skin ── */
 :root[data-mode="ai"] {
-  --accent: #7b5cff;
-  --mauve:  #8a63ff;
-  --cedar:  #6f79c9;
+  --accent: #6b7a35;
+  --mauve:  #7c8a3f;
+  --cedar:  #8a9358;
 }
 :root[data-mode="ai"] body {
   background:
-    radial-gradient(1100px 760px at 12% -12%, rgba(123,92,255,0.16), transparent 60%),
-    radial-gradient(1000px 720px at 102% 6%, rgba(79,195,247,0.14), transparent 55%),
-    radial-gradient(900px 900px at 50% 120%, rgba(214,120,220,0.12), transparent 60%),
-    #f4f2fb;
+    radial-gradient(1100px 760px at 12% -12%, rgba(107,122,53,0.16), transparent 60%),
+    radial-gradient(1000px 720px at 102% 6%, rgba(170,181,106,0.14), transparent 55%),
+    radial-gradient(900px 900px at 50% 120%, rgba(150,160,90,0.12), transparent 60%),
+    #f2f3e8;
   background-attachment: fixed;
 }
 
@@ -2853,49 +2854,52 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   backdrop-filter: blur(18px) saturate(1.4);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   opacity: 1;
-  box-shadow: 0 1px 0 rgba(123,92,255,0.18);
+  box-shadow: 0 1px 0 rgba(107,122,53,0.18);
 }
 
-/* glass card surfaces */
+/* glass card surfaces — kept fairly opaque so text stays readable */
 :root[data-mode="ai"] .disc-card,
 :root[data-mode="ai"] .project-card .card-front,
 :root[data-mode="ai"] .project-card .card-back,
 :root[data-mode="ai"] .cl,
 :root[data-mode="ai"] .cv-frame {
-  background: rgba(255,255,255,0.42);
-  backdrop-filter: blur(16px) saturate(1.3);
-  -webkit-backdrop-filter: blur(16px) saturate(1.3);
-  border: 1px solid rgba(255,255,255,0.65);
-  box-shadow: 0 10px 42px rgba(123,92,255,0.14),
-              inset 0 1px 0 rgba(255,255,255,0.6);
+  background: linear-gradient(160deg, rgba(255,255,255,0.82), rgba(244,246,232,0.72));
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border: 1px solid rgba(139,147,88,0.28);
+  box-shadow: 0 10px 38px rgba(107,122,53,0.16),
+              inset 0 1px 0 rgba(255,255,255,0.7);
 }
+/* work project cards: text sits on the lower half — give it a solid footing */
+:root[data-mode="ai"] .project-card .proj-meta,
+:root[data-mode="ai"] .project-card .card-back { color: var(--ink); }
 
-/* the Recent Projects band → translucent so the gradient glows through */
+/* the Recent Projects band → softly tinted, still readable */
 :root[data-mode="ai"] #featured {
-  background: rgba(255,255,255,0.28);
+  background: rgba(244,246,232,0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(123,92,255,0.18);
-  border-bottom: 1px solid rgba(123,92,255,0.18);
+  border-top: 1px solid rgba(107,122,53,0.2);
+  border-bottom: 1px solid rgba(107,122,53,0.2);
 }
-:root[data-mode="ai"] #home-about { background: rgba(111,121,201,0.9); }
-:root[data-mode="ai"] .disc-sub:hover { background: rgba(123,92,255,0.1); }
+:root[data-mode="ai"] #home-about { background: rgba(120,128,74,0.9); }
+:root[data-mode="ai"] .disc-sub:hover { background: rgba(107,122,53,0.1); }
 
 /* iridescent accents */
 :root[data-mode="ai"] .home-cta-btn,
 :root[data-mode="ai"] .cv-download {
-  background: linear-gradient(90deg, #7b5cff, #4fc3f7);
+  background: linear-gradient(90deg, #6b7a35, #aab56a);
 }
 :root[data-mode="ai"] .home-cta-btn:hover,
 :root[data-mode="ai"] .cv-download:hover {
-  background: linear-gradient(90deg, #6a4bff, #35b8f0);
-  box-shadow: 0 8px 30px rgba(123,92,255,0.35);
+  background: linear-gradient(90deg, #5c6a2e, #98a457);
+  box-shadow: 0 8px 30px rgba(107,122,53,0.35);
 }
-:root[data-mode="ai"] .hero-name { color: #4a3d7a; }
+:root[data-mode="ai"] .hero-name { color: #3f4826; }
 :root[data-mode="ai"] .hero-role-main .hero-role-dim,
-:root[data-mode="ai"] .hero-role { color: #7b5cff; }
+:root[data-mode="ai"] .hero-role { color: #6b7a35; }
 :root[data-mode="ai"] .mauve-rule {
-  background: linear-gradient(90deg, transparent, #7b5cff 30%, #4fc3f7 80%, transparent);
+  background: linear-gradient(90deg, transparent, #6b7a35 30%, #aab56a 80%, transparent);
 }
 
 /* an unobtrusive "AI MODE" chip in the hero */
@@ -2903,10 +2907,10 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   content: "✦ AI MODE";
   display: inline-block; margin-bottom: 1rem;
   font: 500 0.56rem/1 var(--sans); letter-spacing: 0.28em;
-  color: #7b5cff;
+  color: #6b7a35;
   padding: 0.4rem 0.8rem; border-radius: 2rem;
-  border: 1px solid rgba(123,92,255,0.4);
-  background: rgba(123,92,255,0.08);
+  border: 1px solid rgba(107,122,53,0.4);
+  background: rgba(107,122,53,0.08);
 }
 @media (prefers-reduced-motion: no-preference) {
   :root[data-mode="ai"] .disc-track { animation-duration: 48s; }
