@@ -1,0 +1,4 @@
+# Keep the job-agent, CI, and source docs OUT of the Vercel deployment
+job-agent/
+.github/
+work/

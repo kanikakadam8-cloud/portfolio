@@ -1,0 +1,35 @@
+# Tier-C studio & brand watchlist — CHECK THESE CAREER PAGES MANUALLY each run.
+# The best furniture/product roles never hit a job board. Add/remove freely;
+# put your must-include dream targets at the top. Verify each career URL once.
+#
+# Format:  Name | careers URL | note
+# (lines starting with # are ignored)
+
+## Product / industrial design consultancies (India)
+Onio Design (Pune)        | https://www.onio.com/               | product/ID consultancy
+Elephant Design (Pune)    | https://elephantdesign.com/         | product + brand
+Foley Designs (Bengaluru) | https://www.foleydesigns.com/       | industrial design
+Studio ABD                | https://www.studioabd.com/          | product/ID
+Lokus Design              | https://www.lokusdesign.com/        | product design
+Ticket Design             | https://www.ticketdesign.in/        | product/ID
+Studio Carbon (Ahmedabad) | https://www.studiocarbon.in/        | product/ID
+Design Directions (Pune)  | https://designdirections.org/       | design + education
+
+## Furniture & lifestyle brands (India)
+Godrej Interio            | https://www.godrejinterio.com/careers | furniture, big brand
+IKEA India                | https://www.ikea.com/in/en/this-is-ikea/work-with-us/ | furniture, global
+Pepperfry                 | https://www.pepperfry.com/          | furniture e-com
+Nilkamal                  | https://www.nilkamalfurniture.com/  | furniture
+Urban Ladder              | https://www.urbanladder.com/        | furniture
+Gulmohar Lane             | https://www.gulmoharlane.com/       | boutique furniture
+Baaya Design              | https://www.baaya.in/               | craft + interiors
+Orange Tree               | https://www.orangetree.in/          | solid-wood furniture
+
+## CMF / lifestyle product
+Nicobar                   | https://www.nicobar.com/            | lifestyle product
+Chumbak                   | https://www.chumbak.com/            | product/homeware
+Ellementry                | https://ellementry.com/             | tableware/homeware
+
+## Mumbai boutiques (from a live search — verify they're still hiring)
+Divya Sheth Design Studio | (search LinkedIn/Instagram)         | Mumbai, furniture/interior
+Bombay Design Lab         | (search LinkedIn)                   | Mumbai, furniture/interior

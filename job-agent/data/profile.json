@@ -1,0 +1,177 @@
+{
+  "name": "Kanika Kadam",
+  "title": "Product & Furniture Designer",
+  "seniority": "fresher / junior (BDes graduating 2026)",
+  "seniorityMode": "fulltime",
+  "location": "Mumbai, India",
+  "geoScope": "india",
+  "availability": "Full-time from July 2026",
+  "targetTitles": [
+    "product designer",
+    "furniture designer",
+    "industrial designer",
+    "junior product designer",
+    "design associate",
+    "cmf designer",
+    "furniture & product designer",
+    "design researcher",
+    "spatial designer",
+    "design-adjacent AI"
+  ],
+  "education": [
+    {
+      "degree": "BDes Product Design",
+      "school": "Somaiya School of Design",
+      "years": "2022–2026"
+    }
+  ],
+  "makingSkills": [
+    "wood lathe turning",
+    "laser cutting",
+    "CNC",
+    "3D printing",
+    "Dremel detailing",
+    "model making",
+    "prototyping",
+    "material exploration",
+    "craft"
+  ],
+  "software": [
+    "Autodesk Fusion 360",
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "MidJourney",
+    "ChatGPT",
+    "Fusion 360",
+    "Illustrator",
+    "Photoshop",
+    "CNC",
+    "3D Printing",
+    "Laser"
+  ],
+  "softwareGaps": [
+    "Rhino",
+    "KeyShot",
+    "SolidWorks",
+    "SketchUp",
+    "Blender",
+    "AutoCAD"
+  ],
+  "disciplines": [
+    "Furniture & Product Design",
+    "Human-Centred Design",
+    "Prototyping & Model Making",
+    "Material & Craft Exploration",
+    "Visual Communication",
+    "Packaging"
+  ],
+  "experience": [
+    {
+      "role": "Social Media & Marketing Manager",
+      "org": "H2L Robotics India Pvt. Ltd.",
+      "dates": "Jun 2026 – Present"
+    },
+    {
+      "role": "Graphic & Product Designer",
+      "org": "Breen Lifestyles Pvt. Ltd.",
+      "dates": "Jan – May 2026"
+    },
+    {
+      "role": "3D Typography Design Intern",
+      "org": "Somaiya Sports · riidl Design Studio",
+      "dates": "Jan – Feb 2025"
+    },
+    {
+      "role": "Woodworking Display Design",
+      "org": "riidl Design Studio",
+      "dates": "Nov 2024 – Jan 2025"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Mad Hatter Lamp",
+      "category": "Product Design · Lighting",
+      "accomplishment": "A narrative table lamp drawn from Alice in Wonderland — exploring organic form, warm timber, and storytelling in product design."
+    },
+    {
+      "title": "Wormy — Compost Bin",
+      "category": "Product Design · Sustainability",
+      "accomplishment": "A home composting system designed for urban kitchens — approachable, odour-free, and genuinely well-designed."
+    },
+    {
+      "title": "Curved Table with Relaxation Space",
+      "category": "Furniture Design · Spatial",
+      "accomplishment": "A solid wood table where the surface cantilevers over a curved alcove — furniture as the smallest architecture."
+    },
+    {
+      "title": "Millet Packaging for a Healthier Tomorrow",
+      "category": "Packaging Design · Identity",
+      "accomplishment": "A packaging system that connects health consumers with India's indigenous grain heritage through visual storytelling."
+    },
+    {
+      "title": "Graphic Design & Illustration",
+      "category": "Graphic Design · Illustration",
+      "accomplishment": "Character portraits, poster design, and visual storytelling in Adobe Photoshop — a digital practice running alongside physical making."
+    },
+    {
+      "title": "TOSS 2025 — 3D Illuminated Typography",
+      "category": "Spatial Design · Installation",
+      "accomplishment": "Six 1.5m illuminated letter installations — end-to-end from Illustrator to CNC fabrication and on-ground install."
+    },
+    {
+      "title": "Woodworking Lab — riidl Studio",
+      "category": "Material Exploration · Display",
+      "accomplishment": "Demonstration pieces for riidl's woodworking lab — each object makes one machine process legible."
+    },
+    {
+      "title": "Interactive Stress Ball",
+      "category": "Product Design · Wellbeing",
+      "accomplishment": "A sensor-integrated stress ball that responds to squeeze with ambient sound and vibration — for teachers and professionals."
+    },
+    {
+      "title": "Foldable Study Table for Compact Homes",
+      "category": "Furniture Design · Capstone",
+      "accomplishment": "A foldable study table for children in Mumbai's compact homes — ergonomic, space-saving, and independently operable."
+    }
+  ],
+  "keywords": [
+    "wood lathe turning",
+    "laser cutting",
+    "CNC",
+    "3D printing",
+    "Dremel detailing",
+    "model making",
+    "prototyping",
+    "material exploration",
+    "craft",
+    "autodesk fusion 360",
+    "adobe illustrator",
+    "adobe photoshop",
+    "midjourney",
+    "chatgpt",
+    "fusion 360",
+    "illustrator",
+    "photoshop",
+    "cnc",
+    "3d printing",
+    "laser",
+    "furniture & product design",
+    "human-centred design",
+    "prototyping & model making",
+    "material & craft exploration",
+    "visual communication",
+    "packaging",
+    "furniture",
+    "product design",
+    "industrial design",
+    "material",
+    "cmf"
+  ],
+  "parsedFrom": [
+    "kanika-kadam-resume.html",
+    "about.html",
+    "work.html"
+  ],
+  "parsedAt": "2026-07-07T11:42:10.840Z",
+  "resumeHash": "c3a8fbae07c2"
+}

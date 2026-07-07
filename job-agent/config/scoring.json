@@ -1,0 +1,33 @@
+{
+  "_comment": "Rubric from the brief. Full-time-only seniority, India-focused location. Edit keywords freely.",
+  "bands": { "applyToday": 9, "apply": 7, "tailor": 5, "reach": 3 },
+  "discipline": {
+    "max": 4,
+    "_note": "strong = role-defining phrases; if present in the TITLE → 4. onTarget elsewhere → 3. generic words never award 4 alone.",
+    "strong": ["furniture design", "furniture designer", "product designer", "product design", "industrial design", "industrial designer", "cmf designer", "footwear design", "toy design", "furniture & product", "furniture and product", "hardgoods designer", "soft goods designer"],
+    "onTarget": ["woodwork", "joinery", "cabinet maker", "homeware", "home decor", "lifestyle product", "consumer product", "houseware", "cmf", "material designer", "design & make"],
+    "generic": ["material", "lighting", "craft", "furniture", "cabinet", "design consultant", "design engineer"],
+    "adjacent": ["spatial design", "packaging design", "exhibition design", "retail design", "set design", "visual merchandis", "design research", "ceramic", "concept designer", "furniture and interior", "interior product"],
+    "aiAdjacent": ["design ai", "generative design", "ai product design", "3d generation", "creative technolog", "genai artist", "prompt design"],
+    "mismatch": ["ux ", " ui ", "ui/ux", "user experience", "user interface", "figma", "frontend", "front-end", "web design", "product manager", "saas", "app design", "interaction design", "design system", "growth designer", "graphic designer", "motion design"]
+  },
+  "seniority": {
+    "max": 2,
+    "mode": "fulltime",
+    "junior": ["junior", "fresher", "entry", "entry-level", "graduate", "trainee", "associate", "0-1", "0-2", "1-2 year", "assistant designer", "jr "],
+    "internship": ["intern", "internship", "apprentice"],
+    "senior": ["senior", "lead", "principal", "head of", "manager", "3+ year", "4+ year", "5+ year", "director", "sr.", "sr "]
+  },
+  "skills": {
+    "max": 2,
+    "have": ["fusion 360", "illustrator", "photoshop", "lathe", "laser", "cnc", "3d printing", "dremel", "wood", "material", "craft", "prototyp", "model making", "sketch", "render", "packaging", "furniture", "adobe"],
+    "gap": ["solidworks", "rhino", "keyshot", "sketchup", "blender", "autocad", "creo", "alias"]
+  },
+  "practical": {
+    "max": 2,
+    "good": ["mumbai", "india", "bengaluru", "bangalore", "pune", "delhi", "gurgaon", "noida", "hyderabad", "chennai", "remote india", "hybrid"],
+    "remoteGlobalPenalty": false,
+    "relocation": ["relocate", "onsite only", "on-site only"],
+    "blocked": ["us only", "usa only", "eu only", "based in the us", "uk only", "must be a citizen", "work authorization in the us", "europe only"]
+  }
+}

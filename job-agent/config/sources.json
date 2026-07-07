@@ -1,0 +1,93 @@
+{
+  "_comment": "type: api|rss|scrape|manual. 'enabled' sources run in the daily pipeline. robots status checked 2026-07; re-verify periodically.",
+  "sources": [
+    {
+      "id": "weworkremotely",
+      "name": "We Work Remotely — Design RSS",
+      "type": "rss",
+      "enabled": true,
+      "robots": "ALLOWED (job listings + RSS feeds permitted)",
+      "reliability": "feed",
+      "note": "Remote/software-leaning; on-target physical-design hits are sparse but clean.",
+      "adapter": "weworkremotely.mjs",
+      "url": "https://weworkremotely.com/categories/remote-design-jobs.rss"
+    },
+    {
+      "id": "remotive",
+      "name": "Remotive — public JSON API",
+      "type": "api",
+      "enabled": true,
+      "robots": "SANCTIONED public API (no key required)",
+      "reliability": "api",
+      "note": "Remote-heavy; category=design. Software-leaning, lightly on-target.",
+      "adapter": "remotive.mjs",
+      "url": "https://remotive.com/api/remote-jobs?category=design&limit=50"
+    },
+    {
+      "id": "manual",
+      "name": "Manual paste-in (inbox/paste-here.md)",
+      "type": "manual",
+      "enabled": true,
+      "robots": "n/a",
+      "reliability": "manual",
+      "note": "Phase-1 WORKHORSE for physical + India roles. Paste anything here; it flows through the same pipeline.",
+      "adapter": "manual.mjs"
+    },
+
+    {
+      "id": "coroflot",
+      "name": "Coroflot",
+      "type": "manual",
+      "enabled": false,
+      "robots": "DISALLOWED for generic bots (User-agent: * → Disallow: /)",
+      "reliability": "manual",
+      "note": "Best on-target ID/product/furniture board, but robots blocks scraping. Check manually, paste into inbox.",
+      "adapter": null,
+      "url": "https://www.coroflot.com/design-jobs"
+    },
+    {
+      "id": "behance",
+      "name": "Behance job board",
+      "type": "manual",
+      "enabled": false,
+      "robots": "Blocks ClaudeBot; listings JS-rendered",
+      "reliability": "manual",
+      "note": "Check manually, paste in.",
+      "adapter": null,
+      "url": "https://www.behance.net/joblist"
+    },
+    {
+      "id": "internshala",
+      "name": "Internshala (India)",
+      "type": "manual",
+      "enabled": false,
+      "robots": "Anti-scraping ToS — do not scrape",
+      "reliability": "manual",
+      "note": "Strong for India freshers/full-time. Check manually, paste in.",
+      "adapter": null,
+      "url": "https://internshala.com/jobs/product-design-jobs"
+    },
+    {
+      "id": "wellfound",
+      "name": "Wellfound (AngelList Talent)",
+      "type": "manual",
+      "enabled": false,
+      "robots": "Gated / anti-scraping",
+      "reliability": "manual",
+      "note": "Design-AI + startup roles. Check manually, paste in.",
+      "adapter": null,
+      "url": "https://wellfound.com/role/l/product-designer/mumbai"
+    },
+
+    {
+      "id": "adzuna",
+      "name": "Adzuna (India) — PHASE 2 API",
+      "type": "api",
+      "enabled": false,
+      "robots": "SANCTIONED API (needs free App ID + App Key)",
+      "reliability": "api",
+      "note": "PHASE 2 — the real automated India coverage. Country code 'in'. See adapters/adzuna.stub.mjs.",
+      "adapter": "adzuna.stub.mjs"
+    }
+  ]
+}

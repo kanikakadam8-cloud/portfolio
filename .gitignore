@@ -16,3 +16,7 @@ Thumbs.db
 
 # Local AI-tooling config
 .claude/
+
+# Job-agent secrets (Phase 2+). Everything else in /job-agent IS tracked.
+job-agent/.env
+job-agent/node_modules/

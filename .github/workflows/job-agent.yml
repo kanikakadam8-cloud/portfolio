@@ -1,0 +1,58 @@
+name: job-agent daily
+
+# Daily at 03:00 UTC (08:30 IST). Also runnable on demand from the Actions tab.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}
+
+# Results are pushed to the `job-agent-data` branch ONLY.
+# `main` (what Vercel deploys) is never touched → no site redeploy.
+permissions:
+  contents: write
+
+concurrency:
+  group: job-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Carry forward prior state (seen.json, tracker, packets, digests)
+      - name: Restore prior job-agent data
+        run: |
+          git fetch origin job-agent-data || true
+          if git show-ref --verify --quiet refs/remotes/origin/job-agent-data; then
+            git checkout origin/job-agent-data -- job-agent/data job-agent/packets job-agent/digests 2>/dev/null || true
+          fi
+
+      # Phase 2+ secrets (set as repo secrets, safe to be empty in Phase 1)
+      - name: Run pipeline
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: node job-agent/scripts/run-all.mjs
+
+      - name: Commit results to job-agent-data branch
+        run: |
+          git config user.name  "job-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout -B job-agent-data
+          git add -f job-agent/data job-agent/packets job-agent/digests
+          if git diff --cached --quiet; then
+            echo "No changes this run."
+          else
+            git commit -m "job-agent: run $(date -u +%F)"
+            git push -f origin job-agent-data
+          fi
