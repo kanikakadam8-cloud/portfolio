@@ -23,7 +23,7 @@ export async function sourceFetch() {
 
   const fresh = [];
   for (const j of collected) {
-    const id = hashId(j.url || `${j.source}|${j.company}|${j.role}`);
+    const id = hashId(`${j.url || ''}|${j.company}|${j.role}`);
     if (known.has(id) || seen.ids[id]) continue;
     known.add(id);
     const row = { id, first_seen: today(), ...j };

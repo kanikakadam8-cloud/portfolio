@@ -3,7 +3,7 @@ import { readText, writeText, parseCSV, toCSV, p, today, slug, log } from '../li
 
 const APP_COLS = ['job_id', 'company', 'role', 'source', 'fit_score', 'discipline_flag', 'status', 'date_found', 'apply_link'];
 
-export function writeDigest(scored, packetRels = []) {
+export function writeDigest(scored, packetRels = [], freshCount = null) {
   const date = today();
   const packetSet = new Set(packetRels);
   const ranked = [...scored].sort((a, b) => b.score - a.score);
@@ -19,7 +19,7 @@ export function writeDigest(scored, packetRels = []) {
   const md =
 `# Job digest — ${date}
 
-**${scored.length}** new roles this run · **${packetRels.length}** packets built.
+**${scored.length}** roles ranked${freshCount != null ? ` · **${freshCount}** new this run` : ''} · **${packetRels.length}** packets.
 Physical product / furniture / industrial design & design-adjacent AI, full-time, India-focused.
 Nothing here is applied — review the packets and submit manually.
 

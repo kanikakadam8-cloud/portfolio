@@ -2,6 +2,7 @@
 // Deterministic (no LLM, zero-signup). When you review in Claude Code, ask me
 // to "upgrade the packets" and I'll rewrite bullets + cover with real tailoring.
 import { readJSON, writeText, p, slug, today, log } from '../lib/util.mjs';
+import { existsSync } from 'node:fs';
 
 const VOCAB = [
   'product design', 'furniture', 'industrial design', 'cmf', 'material', 'craft', 'woodwork',
@@ -13,6 +14,7 @@ const jdKeywords = (text) => { const t = text.toLowerCase(); return VOCAB.filter
 
 export function buildPacket(job, profile) {
   const rel = `packets/${slug(job.company || 'company')}-${slug(job.role)}`;
+  if (existsSync(p(rel, '00-SUMMARY.md'))) return rel; // don't clobber an existing/upgraded packet
   const jd = jdKeywords(`${job.role} ${job.description}`);
   const haveKw = jd.filter(k => (profile.keywords || []).some(pk => pk.includes(k) || k.includes(pk)));
   const missKw = jd.filter(k => !haveKw.includes(k));
