@@ -7,7 +7,7 @@
     "strong": ["furniture design", "furniture designer", "product designer", "product design", "industrial design", "industrial designer", "cmf designer", "footwear design", "toy design", "furniture & product", "furniture and product", "hardgoods designer", "soft goods designer"],
     "onTarget": ["woodwork", "joinery", "cabinet maker", "homeware", "home decor", "lifestyle product", "consumer product", "houseware", "cmf", "material designer", "design & make"],
     "generic": ["material", "lighting", "craft", "furniture", "cabinet", "design consultant", "design engineer"],
-    "adjacent": ["spatial design", "packaging design", "exhibition design", "retail design", "set design", "visual merchandis", "design research", "ceramic", "concept designer", "furniture and interior", "interior product"],
+    "adjacent": ["spatial design", "packaging design", "exhibition design", "retail design", "set design", "visual merchandis", "design research", "ceramic", "concept designer", "furniture and interior", "interior product", "interior design", "interior designer", "furniture and interior"],
     "aiAdjacent": ["design ai", "generative design", "ai product design", "3d generation", "creative technolog", "genai artist", "prompt design"],
     "mismatch": ["ux ", " ui ", "ui/ux", "user experience", "user interface", "figma", "frontend", "front-end", "web design", "product manager", "saas", "app design", "interaction design", "design system", "growth designer", "graphic designer", "motion design"]
   },
