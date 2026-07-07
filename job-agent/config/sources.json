@@ -81,13 +81,13 @@
 
     {
       "id": "adzuna",
-      "name": "Adzuna (India) — PHASE 2 API",
+      "name": "Adzuna (India) — API",
       "type": "api",
-      "enabled": false,
-      "robots": "SANCTIONED API (needs free App ID + App Key)",
+      "enabled": true,
+      "robots": "SANCTIONED API (free App ID + App Key)",
       "reliability": "api",
-      "note": "PHASE 2 — the real automated India coverage. Country code 'in'. See adapters/adzuna.stub.mjs.",
-      "adapter": "adzuna.stub.mjs"
+      "note": "Phase 2 — real automated India coverage (country 'in'). No-op until ADZUNA_APP_ID/KEY are set, so safe to leave enabled.",
+      "adapter": "adzuna.mjs"
     }
   ]
 }

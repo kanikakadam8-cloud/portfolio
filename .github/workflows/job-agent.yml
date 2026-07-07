@@ -34,7 +34,7 @@ jobs:
         run: |
           git fetch origin job-agent-data || true
           if git show-ref --verify --quiet refs/remotes/origin/job-agent-data; then
-            git checkout origin/job-agent-data -- job-agent/data job-agent/packets job-agent/digests 2>/dev/null || true
+            git checkout origin/job-agent-data -- job-agent/data job-agent/packets job-agent/digests job-agent/dashboard 2>/dev/null || true
           fi
 
       # Phase 2+ secrets (set as repo secrets, safe to be empty in Phase 1)
@@ -49,7 +49,7 @@ jobs:
           git config user.name  "job-agent"
           git config user.email "actions@users.noreply.github.com"
           git checkout -B job-agent-data
-          git add -f job-agent/data job-agent/packets job-agent/digests
+          git add -f job-agent/data job-agent/packets job-agent/digests job-agent/dashboard
           if git diff --cached --quiet; then
             echo "No changes this run."
           else

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Job Board</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>💼</text></svg>"/>
+<style>
+  :root{
+    --bg:#f5f1ea; --panel:#fffdfa; --ink:#221c17; --mut:#7a6f64; --line:#e6ddd1;
+    --g9:#2f7d4f; --g7:#3a86a8; --g5:#c07d1f; --g0:#9a8f84; --accent:#7c5a4a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Hanken Grotesk",system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  a{color:inherit}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+
+  /* password gate */
+  #gate{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center}
+  .gate-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px 30px;width:min(360px,90vw);box-shadow:0 20px 60px rgba(34,28,23,.12);text-align:center}
+  .gate-card h1{font-size:1.2rem;margin-bottom:6px}
+  .gate-card p{color:var(--mut);font-size:.85rem;margin-bottom:18px}
+  .gate-card input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:1rem;text-align:center;letter-spacing:.2em}
+  .gate-card button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:10px;background:var(--ink);color:var(--bg);font-weight:600;cursor:pointer;letter-spacing:.05em}
+  .gate-err{color:#b23b3b;font-size:.8rem;margin-top:10px;min-height:1em}
+
+  header.top{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top-in{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:16px 0;flex-wrap:wrap}
+  .top h1{font-size:1.15rem}
+  .meta{color:var(--mut);font-size:.8rem}
+  .stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:2px}
+  .stat b{font-size:1.05rem}
+  .stat span{color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-left:4px}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 0}
+  .controls input[type=search]{flex:1;min-width:180px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel);font-size:.9rem}
+  .controls select,.chip{padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel);font-size:.8rem;cursor:pointer}
+  .chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  .list{display:flex;flex-direction:column;gap:10px;padding-bottom:60px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:start}
+  .score{width:56px;height:56px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:700}
+  .score small{font-size:.5rem;font-weight:600;opacity:.9;letter-spacing:.05em}
+  .b9{background:var(--g9)} .b7{background:var(--g7)} .b5{background:var(--g5)} .b0{background:var(--g0)}
+  .role{font-weight:600;font-size:1rem}
+  .co{color:var(--mut);font-size:.85rem}
+  .sub{color:var(--mut);font-size:.75rem;margin-top:3px;display:flex;gap:10px;flex-wrap:wrap}
+  .flags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .flag{font-size:.66rem;padding:2px 8px;border-radius:20px;background:#efe7db;color:#6a5c4c}
+  .flag.warn{background:#f6e0d6;color:#a24a2c}
+  .rat{color:var(--mut);font-size:.72rem;margin-top:8px;font-family:ui-monospace,monospace}
+  .acts{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+  .btn{padding:8px 14px;border-radius:8px;font-size:.75rem;font-weight:600;text-decoration:none;white-space:nowrap;text-align:center}
+  .btn-apply{background:var(--accent);color:#fff}
+  .btn-packet{border:1px solid var(--line);color:var(--ink)}
+  .empty{text-align:center;color:var(--mut);padding:50px 0}
+  @media(max-width:560px){ .card{grid-template-columns:48px 1fr;} .acts{grid-column:1/-1;flex-direction:row;justify-content:flex-start} .score{width:48px;height:48px} }
+</style>
+</head>
+<body>
+
+  <div id="gate">
+    <div class="gate-card">
+      <h1>💼 Job Board</h1>
+      <p>Enter passcode to view.</p>
+      <input id="pw" type="password" autocomplete="off" autofocus placeholder="passcode"/>
+      <button id="go">Unlock</button>
+      <div class="gate-err" id="err"></div>
+    </div>
+  </div>
+
+  <div id="app" style="display:none">
+    <header class="top"><div class="wrap top-in">
+      <div>
+        <h1>Job Board</h1>
+        <div class="stats" id="stats"></div>
+      </div>
+      <div class="meta" id="updated"></div>
+    </div></header>
+
+    <div class="wrap">
+      <div class="controls">
+        <input type="search" id="q" placeholder="Search company or role…"/>
+        <button class="chip active" data-band="all">All</button>
+        <button class="chip" data-band="ontarget">On-target ≥7</button>
+        <button class="chip" data-band="hidedrift">Hide UI/UX drift</button>
+        <select id="src"><option value="all">All sources</option></select>
+      </div>
+      <div class="list" id="list"></div>
+    </div>
+  </div>
+
+<script>
+const REPO="kanikakadam8-cloud/portfolio", BRANCH="job-agent-data";
+const DATA_URL=`https://raw.githubusercontent.com/${REPO}/${BRANCH}/job-agent/dashboard/jobs.json`;
+// obscured passcode (not real security — just a gate)
+const OK="S0FOSUFCSEk=";
+
+const gate=document.getElementById('gate'), app=document.getElementById('app');
+function unlock(){ gate.style.display='none'; app.style.display='block'; load(); }
+if(sessionStorage.getItem('kk-jobs')==='1') unlock();
+function tryPw(){
+  const v=document.getElementById('pw').value;
+  if(btoa(v)===OK){ sessionStorage.setItem('kk-jobs','1'); unlock(); }
+  else document.getElementById('err').textContent='Wrong passcode.';
+}
+document.getElementById('go').onclick=tryPw;
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryPw();});
+
+let DATA={jobs:[]}, state={q:'',band:'all',src:'all'};
+async function load(){
+  const list=document.getElementById('list');
+  try{
+    const r=await fetch(DATA_URL+'?t='+Date.now());
+    if(!r.ok) throw new Error(r.status);
+    DATA=await r.json();
+  }catch(e){
+    list.innerHTML=`<div class="empty">No data yet (or still loading).<br/>Run the <b>job-agent daily</b> workflow once, then refresh.<br/><small>${e.message||e}</small></div>`;
+    return;
+  }
+  // stats + sources
+  document.getElementById('stats').innerHTML=
+    `<div class="stat"><b>${DATA.counts?.ranked??DATA.jobs.length}</b><span>ranked</span></div>`+
+    `<div class="stat"><b>${DATA.counts?.onTarget??0}</b><span>on-target</span></div>`+
+    `<div class="stat"><b>${DATA.counts?.packets??0}</b><span>packets</span></div>`;
+  document.getElementById('updated').textContent='Updated '+(DATA.date||'')+' · '+new Date(DATA.generated||Date.now()).toLocaleString();
+  const srcSel=document.getElementById('src');
+  [...new Set(DATA.jobs.map(j=>j.source))].sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;srcSel.appendChild(o);});
+  render();
+}
+function render(){
+  const list=document.getElementById('list');
+  let j=DATA.jobs.filter(x=>{
+    if(state.q && !(`${x.company} ${x.role}`.toLowerCase().includes(state.q))) return false;
+    if(state.src!=='all' && x.source!==state.src) return false;
+    if(state.band==='ontarget' && x.score<7) return false;
+    if(state.band==='hidedrift' && (x.flags||[]).some(f=>/drift|mismatch/i.test(f))) return false;
+    return true;
+  });
+  if(!j.length){ list.innerHTML='<div class="empty">No roles match.</div>'; return; }
+  list.innerHTML=j.map(card).join('');
+}
+function scoreClass(s){ return s>=9?'b9':s>=7?'b7':s>=5?'b5':'b0'; }
+function card(x){
+  const packetUrl=x.packet?`https://github.com/${REPO}/tree/${BRANCH}/job-agent/${x.packet}`:'';
+  const flags=(x.flags||[]).map(f=>`<span class="flag ${/drift|mismatch|blocked|gap|stretch|out of scope/i.test(f)?'warn':''}">${esc(f)}</span>`).join('');
+  return `<div class="card">
+    <div class="score ${scoreClass(x.score)}">${x.score}<small>/10</small></div>
+    <div>
+      <div class="role">${esc(x.role)}</div>
+      <div class="co">${esc(x.company||'—')}</div>
+      <div class="sub"><span>📍 ${esc(x.location||'—')}</span><span>via ${esc(x.source)}</span>${x.posted?`<span>${esc(x.posted)}</span>`:''}<span>${esc(x.band)}</span></div>
+      ${flags?`<div class="flags">${flags}</div>`:''}
+      <div class="rat">${esc(x.rationale||'')}</div>
+    </div>
+    <div class="acts">
+      ${x.url?`<a class="btn btn-apply" href="${esc(x.url)}" target="_blank" rel="noopener">Apply ↗</a>`:''}
+      ${packetUrl?`<a class="btn btn-packet" href="${esc(packetUrl)}" target="_blank" rel="noopener">Packet</a>`:''}
+    </div>
+  </div>`;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+document.getElementById('q').addEventListener('input',e=>{state.q=e.target.value.toLowerCase().trim();render();});
+document.getElementById('src').addEventListener('change',e=>{state.src=e.target.value;render();});
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active'); state.band=c.dataset.band; render();
+}));
+</script>
+</body>
+</html>

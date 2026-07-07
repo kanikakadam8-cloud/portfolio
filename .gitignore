@@ -20,3 +20,5 @@ Thumbs.db
 # Job-agent secrets (Phase 2+). Everything else in /job-agent IS tracked.
 job-agent/.env
 job-agent/node_modules/
+# Generated dashboard data — force-added to the job-agent-data branch by CI only
+job-agent/dashboard/

@@ -5,6 +5,7 @@ import { sourceFetch } from './source-fetch.mjs';
 import { scoreAll } from './job-score.mjs';
 import { buildPackets } from './packet-build.mjs';
 import { writeDigest } from './digest.mjs';
+import { writeDashboard } from './dashboard.mjs';
 import { log, parseCSV, readText, p } from '../lib/util.mjs';
 
 async function main() {
@@ -16,6 +17,7 @@ async function main() {
   const scored = scoreAll(allJobs, profile);
   const packets = buildPackets(scored, profile, { min: 5, limit: 12 });
   writeDigest(scored, packets, fresh.length);
+  writeDashboard(scored, packets, fresh.length);
 
   const top = scored.slice(0, 10);
   log(`── done · ${scored.length} ranked · ${fresh.length} new · ${packets.length} packets · top:`);

@@ -1,6 +1,9 @@
 # Allow all crawlers, including AI / generative engines
 User-agent: *
 Allow: /
+# Private job dashboard — not for indexing
+Disallow: /jobs
+Disallow: /jobs.html
 
 # Common AI crawlers (explicitly welcomed)
 User-agent: GPTBot

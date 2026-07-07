@@ -18,7 +18,7 @@ drop-in and needs **no changes to scoring or packet-building**.
 | `remotive.mjs` | api | Public JSON API, no key. Remote/design. |
 | `weworkremotely.mjs` | rss | Robots-allowed Design RSS feed. Checks robots.txt at runtime. |
 | `manual.mjs` | manual | Reads `inbox/paste-here.md` — the workhorse for physical/India roles. |
-| `adzuna.stub.mjs` | api | **Phase 2.** Needs a free key. Reference impl included. |
+| `adzuna.mjs` | api | **Phase 2.** Needs a free key. Reference impl included. |
 
 ## Adding a new adapter (Phase 2/3)
 1. Create `adapters/<id>.mjs` exporting `default async function(cfg) { ... }`.
