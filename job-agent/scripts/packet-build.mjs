@@ -113,6 +113,5 @@ I'd love to bring this hands-on, material-first practice to your team.
 
 export function buildPackets(scored, profile, { min = 5, limit = 12 } = {}) {
   const picks = scored.filter(j => j.score >= min).slice(0, limit);
-  picks.forEach(j => buildPacket(j, profile));
-  return picks;
+  return picks.map(j => buildPacket(j, profile)); // return the packet rel paths
 }
