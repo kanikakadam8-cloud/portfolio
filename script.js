@@ -36,6 +36,8 @@ try { if (localStorage.getItem('kk-mode') === 'ai') document.documentElement.set
       if (!('human' in img.dataset)) img.dataset.human = img.getAttribute('src') || '';
       const human = img.dataset.human;
       if (!human) return;
+      // Cover images stay identical in both modes — never swap them.
+      if (/-cover\.[a-z0-9]+$/i.test(human)) return;
       let target = human;
       if (ai) {
         if (human.indexOf('work-experience/images/') === 0)
