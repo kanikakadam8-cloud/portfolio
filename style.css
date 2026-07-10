@@ -2879,9 +2879,21 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   box-shadow: 0 10px 38px rgba(214,150,118,0.16),
               inset 0 1px 0 rgba(255,255,255,0.7);
 }
-/* work project cards: text sits on the lower half — give it a solid footing */
+/* glass-card text → mauve in AI mode */
 :root[data-mode="ai"] .project-card .proj-meta,
-:root[data-mode="ai"] .project-card .card-back { color: var(--ink); }
+:root[data-mode="ai"] .project-card .card-back,
+:root[data-mode="ai"] .card-back-cat,
+:root[data-mode="ai"] .card-back-title,
+:root[data-mode="ai"] .card-back-desc,
+:root[data-mode="ai"] .card-back-yr,
+:root[data-mode="ai"] .card-back-cta,
+:root[data-mode="ai"] .proj-cat,
+:root[data-mode="ai"] .proj-title,
+:root[data-mode="ai"] .disc-name,
+:root[data-mode="ai"] .disc-num,
+:root[data-mode="ai"] .disc-count,
+:root[data-mode="ai"] .disc-sub-cat,
+:root[data-mode="ai"] .disc-sub-title { color: #7a4f6c; }
 
 /* the Recent Projects band → softly tinted, still readable */
 :root[data-mode="ai"] #featured {
