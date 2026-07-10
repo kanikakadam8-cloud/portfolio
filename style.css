@@ -2905,10 +2905,10 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 }
 :root[data-mode="ai"] #home-about {
   background-color: #9e7d5a;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='c2'><feTurbulence type='fractalNoise' baseFrequency='0.009 0.011' numOctaves='5' seed='11' stitchTiles='stitch'/><feDiffuseLighting surfaceScale='1.6' diffuseConstant='1' lighting-color='%238f8f8f'><feDistantLight azimuth='235' elevation='55'/></feDiffuseLighting></filter><rect width='600' height='600' filter='url(%23c2)'/></svg>");
-  background-size: 520px 520px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='680'><filter id='c2'><feTurbulence type='fractalNoise' baseFrequency='0.006 0.009' numOctaves='6' seed='11' stitchTiles='stitch'/><feDiffuseLighting surfaceScale='3' diffuseConstant='1.05' lighting-color='%23a8a8a8'><feDistantLight azimuth='235' elevation='52'/></feDiffuseLighting></filter><rect width='680' height='680' filter='url(%23c2)'/></svg>");
+  background-size: 620px 620px;
   background-repeat: repeat;
-  background-blend-mode: soft-light;
+  background-blend-mode: overlay;
 }
 :root[data-mode="ai"] .disc-sub:hover { background: rgba(214,150,118,0.1); }
 
