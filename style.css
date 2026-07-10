@@ -2840,12 +2840,16 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   --cedar:  #dcaa90;
 }
 :root[data-mode="ai"] body {
-  background:
-    radial-gradient(1100px 760px at 12% -12%, rgba(214,150,118,0.16), transparent 60%),
-    radial-gradient(1000px 720px at 102% 6%, rgba(240,208,188,0.14), transparent 55%),
-    radial-gradient(900px 900px at 50% 120%, rgba(222,168,138,0.12), transparent 60%),
-    #f8e8dc;
-  background-attachment: fixed;
+  /* soft crumpled-paper texture (inline SVG, no external asset) + warm glow */
+  background-color: #f5ebdd;
+  background-image:
+    radial-gradient(1100px 760px at 12% -12%, rgba(214,150,118,0.12), transparent 60%),
+    radial-gradient(900px 900px at 50% 120%, rgba(222,168,138,0.10), transparent 60%),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='c'><feTurbulence type='fractalNoise' baseFrequency='0.009 0.011' numOctaves='5' seed='11' stitchTiles='stitch'/><feDiffuseLighting surfaceScale='1.5' diffuseConstant='1.05' lighting-color='%23f7ecdf'><feDistantLight azimuth='235' elevation='55'/></feDiffuseLighting></filter><rect width='600' height='600' filter='url(%23c)'/></svg>");
+  background-size: auto, auto, 520px 520px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-attachment: fixed, fixed, fixed;
+  background-blend-mode: multiply, multiply, normal;
 }
 
 /* frosted nav */
