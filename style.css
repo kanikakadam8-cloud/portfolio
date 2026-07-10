@@ -803,9 +803,10 @@ body[data-page="contact"] .scene-speech::after {
    EDITORIAL INTRO BAND  — full-viewport quote moment
 ═══════════════════════════════════════════════════════ */
 .editorial-band {
-  background: var(--bg);
+  /* transparent so the AI paper texture shows through (was a flat cream block) */
+  background: transparent;
   border-top: 1px solid var(--border);
-  padding: 8rem 10% 9rem;
+  padding: 4.5rem 10% 5rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -2851,6 +2852,10 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   background-attachment: fixed, fixed, fixed;
   background-blend-mode: multiply, multiply, normal;
 }
+
+/* let the paper texture flow through big solid-bg panels on home */
+:root[data-mode="ai"] #char-panel,
+:root[data-mode="ai"] .editorial-band { background: transparent; }
 
 /* frosted nav */
 :root[data-mode="ai"] #nav::before {
