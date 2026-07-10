@@ -1,8 +1,11 @@
 # Unused / unlinked images — kept locally, not pushed
 work-experience/images/other-images/
 
-# AI-generated experiments — kept locally, not pushed
+# AI-generated experiments (source folders) — kept locally, not pushed.
+# The deployed AI versions live in work-experience/images-ai/ and ARE tracked.
 **/ai images/
+**/Ai images/
+**/Ai folder/
 
 # Internal H2L work docs — local only, NOT for the public portfolio repo.
 # (Remove this line if you intend to deploy/publish the work/ folder.)
