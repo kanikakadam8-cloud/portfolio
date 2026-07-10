@@ -2913,15 +2913,29 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 :root[data-mode="ai"] .disc-sub:hover { background: rgba(214,150,118,0.1); }
 
 /* iridescent accents */
-:root[data-mode="ai"] .home-cta-btn,
 :root[data-mode="ai"] .cv-download {
   background: linear-gradient(90deg, #bd7a5a, #f2d4c1);
 }
-:root[data-mode="ai"] .home-cta-btn:hover,
 :root[data-mode="ai"] .cv-download:hover {
   background: linear-gradient(90deg, #9c5c42, #d29a7c);
   box-shadow: 0 8px 30px rgba(214,150,118,0.35);
 }
+/* Get in Touch: outlined, no fill */
+:root[data-mode="ai"] .home-cta-btn {
+  background: transparent;
+  border: 1px solid #bd7a5a;
+  color: #a8623c;
+  box-shadow: none;
+}
+:root[data-mode="ai"] .home-cta-btn:hover {
+  background: rgba(189,122,90,0.10);
+  color: #8f4e2e;
+  box-shadow: none;
+}
+/* About band accent text → white (readable on the light-brown band) */
+:root[data-mode="ai"] #home-about .text-link,
+:root[data-mode="ai"] #home-about .eyebrow { color: rgba(255,252,248,0.92); }
+:root[data-mode="ai"] #home-about .text-link::after { background: rgba(255,252,248,0.55); }
 :root[data-mode="ai"] .hero-name { color: #6e4433; }
 :root[data-mode="ai"] .hero-role-main .hero-role-dim,
 :root[data-mode="ai"] .hero-role { color: #bd7a5a; }
