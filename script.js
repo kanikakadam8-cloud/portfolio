@@ -949,20 +949,20 @@ function spawnBurst(cardEl) {
 function makeCollage(photos) {
   if (!photos || !photos.length) return '';
   const esc = s => s.replace(/'/g, "\\'");
-  const img = s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`;
+  const img = s => `<img src="${s}" alt="" loading="lazy" onclick="openLB(this.src)"/>`;
   const n = photos.length;
   if (n === 1) return `<div class="pc pc-1">${img(photos[0])}</div>`;
   if (n === 2) return `<div class="pc pc-2">${photos.map(img).join('')}</div>`;
   if (n === 3) return `<div class="pc pc-3">${photos.map(img).join('')}</div>`;
   if (n === 4) return `<div class="pc pc-4">${photos.map(img).join('')}</div>`;
-  return `<div class="pc pc-n"><img class="pc-feat" src="${photos[0]}" alt="" loading="lazy" onclick="openLB('${esc(photos[0])}')"/><div class="pc-strip">${photos.slice(1).map(img).join('')}</div></div>`;
+  return `<div class="pc pc-n"><img class="pc-feat" src="${photos[0]}" alt="" loading="lazy" onclick="openLB(this.src)"/><div class="pc-strip">${photos.slice(1).map(img).join('')}</div></div>`;
 }
 /* ─────────────────────────────────────────
    CURVED TABLE CUSTOM PRESENTATION BUILDER
 ───────────────────────────────────────── */
 function buildFurniturePresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt||''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt||''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const base  = 'images/curved-table/';
 
   // Assets
@@ -1059,7 +1059,7 @@ function buildFurniturePresentation(p) {
   // ── CARD 4b: SKETCH top + 2 process photos bottom ──
   h += `<div class="pcard pres-r">
     <div class="pc pc-stack">
-      <div class="pc-stack-top"><img src="${pt4}" alt="Prototype sketch" onclick="openLB('${pt4.replace(/'/g,"\\'")}')"/></div>
+      <div class="pc-stack-top"><img src="${pt4}" alt="Prototype sketch" onclick="openLB(this.src)"/></div>
       <div class="pc-stack-bottom">${i(p3)}${i(p4)}</div>
     </div>
   </div>`;
@@ -1153,7 +1153,7 @@ function buildFurniturePresentation(p) {
 ───────────────────────────────────────── */
 function buildCapstonePresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const img = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const img = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const base = 'images/foldable-study-table/';
   const ph   = base;
   const cad  = base;
@@ -1353,7 +1353,7 @@ function buildCapstonePresentation(p) {
 ───────────────────────────────────────── */
 function buildLampPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const b = 'images/mad-hatter-lamp/';
   const hero     = b + 'mad-hatter-lamp-hero.png';
   const paper    = b + 'mad-hatter-lamp-paper-01.jpeg';
@@ -1469,7 +1469,7 @@ function buildLampPresentation(p) {
 ───────────────────────────────────────── */
 function buildCompostPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const b = 'images/wormy-compost-bin/';
   const cover    = b + 'wormy-compost-bin-cover.png';
   const diagram  = b + 'wormy-compost-bin-diagram.png';
@@ -1568,7 +1568,7 @@ function buildCompostPresentation(p) {
 ───────────────────────────────────────── */
 function buildPackagingPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const b = 'images/millet-packaging/';
   const front = b + 'millet-packaging-front.jpeg';
   const side  = b + 'millet-packaging-side.jpeg';
@@ -1644,7 +1644,7 @@ function buildPackagingPresentation(p) {
 ───────────────────────────────────────── */
 function buildTossPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const b = 'images/toss-2025-typography/';
   const hero  = b + 'toss-2025-typography-01.jpeg'; // letters + ball on field (dusk)
   const night = b + 'toss-2025-typography-09.jpg';  // night with fog
@@ -1754,7 +1754,7 @@ function buildTossPresentation(p) {
 ───────────────────────────────────────── */
 function buildStressballPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const base = 'images/interactive-stress-ball/';
   const elec1 = base + 'interactive-stress-ball-01.jpeg';  // components laid out
   const foam1 = base + 'interactive-stress-ball-03.jpeg';  // foam ball — battery + motor
@@ -1848,7 +1848,7 @@ function buildStressballPresentation(p) {
 
 function buildPhotoshopPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const base = 'images/graphic-design-illustration/';
   const finalArt = base + 'graphic-design-illustration-final.jpeg';    // clean final illustration on white
   const poster   = base + 'graphic-design-illustration-poster.jpeg';   // orange "Jai Shree Ram" poster
@@ -1941,7 +1941,7 @@ function buildPhotoshopPresentation(p) {
 
 function buildWoodworkingPresentation(p) {
   const esc = s => s.replace(/'/g, "\\'");
-  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB('${esc(src)}')"/>`;
+  const i = (src, alt) => `<img src="${src}" alt="${alt || ''}" loading="lazy" onclick="openLB(this.src)"/>`;
   const base = 'images/woodworking-lab/';
   const spindles  = base + 'woodworking-lab-09.jpeg';  // four finished turned spindles
   const lathe1    = base + 'woodworking-lab-07.jpeg';  // lathe turning — wide action
@@ -1987,7 +1987,7 @@ function buildWoodworkingPresentation(p) {
   // 3. THE DREMEL — freehand carving (action big + two finished pieces)
   h += `<div class="pcard pcard-sec pcard-sec--flip pres-r">
     <div class="pc pc-vstack" style="align-self:stretch">
-      <div class="pc-vstack-top"><img src="${dino}" alt="Hand-carved wooden dinosaur" loading="lazy" style="object-position:center bottom;" onclick="openLB('${esc(dino)}')"/></div>
+      <div class="pc-vstack-top"><img src="${dino}" alt="Hand-carved wooden dinosaur" loading="lazy" style="object-position:center bottom;" onclick="openLB(this.src)"/></div>
       <div class="pc-vstack-bottom">${i(car, 'Hand-carved wooden car')}${i(dremelAct, 'Carving with the Dremel tool')}</div>
     </div>
     <div class="pcard-sec-text">
@@ -2067,7 +2067,7 @@ function buildPresentation(p) {
         ${mainPhoto ? `<img src="${mainPhoto}" alt="${p.title}" loading="eager"/>` : ''}
       </div>
       ${thumbs.length ? `<div class="pcard-thumbs">
-        ${thumbs.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')"/>`).join('')}
+        ${thumbs.map(s => `<img src="${s}" alt="" loading="lazy" onclick="openLB(this.src)"/>`).join('')}
       </div>` : ''}
     </div>
   </div>`;
@@ -2240,7 +2240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const esc = s => String(s).replace(/'/g, "\\'");
   const photos = (v.photos && v.photos.length)
     ? `<div class="vp-photos">${v.photos.map(s =>
-        `<img src="${s}" alt="" loading="lazy" onclick="openLB('${esc(s)}')" onerror="this.style.display='none'"/>`
+        `<img src="${s}" alt="" loading="lazy" onclick="openLB(this.src)" onerror="this.style.display='none'"/>`
       ).join('')}</div>`
     : '';
 
@@ -2337,7 +2337,7 @@ function openVolunteer(id, cardEl) {
   const photosGrid = document.getElementById('vm-photos');
   if (v.photos && v.photos.length) {
     photosGrid.innerHTML = v.photos.map(src =>
-      `<img src="${src}" alt="" loading="lazy" onclick="openLB('${src}')" onerror="this.style.display='none'"/>`
+      `<img src="${src}" alt="" loading="lazy" onclick="openLB(this.src)" onerror="this.style.display='none'"/>`
     ).join('');
     photosSec.style.display = '';
   } else {
