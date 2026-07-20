@@ -20,6 +20,9 @@ Thumbs.db
 # Local AI-tooling config
 .claude/
 
+# Private financial documents — standalone, never publish to the portfolio repo
+bills/
+
 # Job-agent secrets (Phase 2+). Everything else in /job-agent IS tracked.
 job-agent/.env
 job-agent/node_modules/
