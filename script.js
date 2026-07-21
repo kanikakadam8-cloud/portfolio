@@ -1724,7 +1724,7 @@ function buildTossPresentation(p) {
   </div>`;
   h += `<div class="pcard pres-r">
     <div class="pc-vstack pc-vstack--auto">
-      <div class="pc-vstack-top">${i(posing)}</div>
+      <div class="pc-vstack-top ai-hide">${i(posing)}</div>
       <div class="pc-vstack-bottom">${i(team1)}${i(team2)}</div>
     </div>
   </div>`;

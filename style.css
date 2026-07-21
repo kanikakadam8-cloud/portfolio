@@ -2836,6 +2836,9 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   .mode-toggle .mt-opt { display: none; }
 }
 
+/* Photos/blocks that should not appear in AI mode */
+:root[data-mode="ai"] .ai-hide { display: none !important; }
+
 /* ── Glass skin ── */
 :root[data-mode="ai"] {
   --accent: #7d5a44;
