@@ -2844,6 +2844,26 @@ body.cur-click .cursor-glow { opacity: 0.4; }
   --accent: #7d5a44;
   --mauve:  #b2967d;
   --cedar:  #b2967d;
+  /* Handwritten display type — body copy stays on --sans for readability */
+  --serif:  'Caveat', cursive;
+}
+
+/* Caveat is lighter/tighter than Cormorant — give it ink and breathing room */
+:root[data-mode="ai"] h1,
+:root[data-mode="ai"] h2,
+:root[data-mode="ai"] h3,
+:root[data-mode="ai"] h4,
+:root[data-mode="ai"] .pcard-title,
+:root[data-mode="ai"] .pcard-sec-h,
+:root[data-mode="ai"] .hero-name,
+:root[data-mode="ai"] .cv-name,
+:root[data-mode="ai"] .cv-embed-title,
+:root[data-mode="ai"] .proj-title,
+:root[data-mode="ai"] .home-cta-head,
+:root[data-mode="ai"] .home-about-stat,
+:root[data-mode="ai"] blockquote {
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 :root[data-mode="ai"] body {
   /* soft crumpled-paper texture (inline SVG, no external asset) + warm glow */
