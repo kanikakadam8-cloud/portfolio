@@ -1177,7 +1177,7 @@ function buildCapstonePresentation(p) {
         <span class="pcard-year">2025</span>
       </div>
     </div>
-    <div class="pcard-intro-img pcard-intro-img--lg">${img(ph + 'foldable-study-table-fab-04.jpg', 'The folded study table carried like a briefcase')}</div>
+    <div class="pcard-intro-img pcard-intro-img--lg pcard-intro-img--casecrop">${img(ph + 'foldable-study-table-fab-04.jpg', 'The folded study table carried like a briefcase')}</div>
   </div>`;
 
   // 2. CONTEXT & USER RESEARCH (text)

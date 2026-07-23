@@ -2844,6 +2844,15 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 :root[data-mode="ai"] .pc--ai-solo { grid-template-columns: 1fr !important; }
 :root[data-mode="ai"] .pc--ai-solo img:nth-child(2) { display: none; }
 
+/* AI foldable hero: crop the full-figure carry render to frame the case */
+:root[data-mode="ai"] .pcard-intro-img--casecrop img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 50%;
+  border-radius: 6px;
+}
+
 /* ── Glass skin ── */
 :root[data-mode="ai"] {
   --accent: #7d5a44;
