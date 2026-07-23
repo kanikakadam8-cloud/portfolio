@@ -1794,7 +1794,7 @@ function buildStressballPresentation(p) {
       <p class="pcard-body">User interviews with teachers and design professionals showed that physical tactility alone wasn't enough &mdash; sensory feedback through sound and vibration mattered far more for genuine stress relief.</p>
       <p class="pcard-body" style="margin-top:1rem">That insight shaped three concept directions, mapped out on the board: <strong>A</strong> &mdash; a normal squeeze ball, <strong>B</strong> &mdash; one with vibration feedback driven by a flex sensor, and <strong>C</strong> &mdash; one that plays a soothing sound on press, built around an MP3 module, speaker, and rechargeable cell.</p>
     </div>
-    <div class="pc pc-2 pc--fill">${i(board2, 'Concept brainstorm board')}${i(board1, 'Soothing sound circuit sketch')}</div>
+    <div class="pc pc-2 pc--fill pc--ai-solo">${i(board2, 'Concept brainstorm board')}${i(board1, 'Soothing sound circuit sketch')}</div>
   </div>`;
 
   // 3. PROTOTYPING — foam ball builds

@@ -2839,6 +2839,11 @@ body.cur-click .cursor-glow { opacity: 0.4; }
 /* Photos/blocks that should not appear in AI mode */
 :root[data-mode="ai"] .ai-hide { display: none !important; }
 
+/* Two-up image row that collapses to a single full-width image in AI mode
+   (e.g. the stress-ball brainstorm boards → one combined mascot board) */
+:root[data-mode="ai"] .pc--ai-solo { grid-template-columns: 1fr !important; }
+:root[data-mode="ai"] .pc--ai-solo img:nth-child(2) { display: none; }
+
 /* ── Glass skin ── */
 :root[data-mode="ai"] {
   --accent: #7d5a44;
