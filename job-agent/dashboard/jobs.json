@@ -1,0 +1,2118 @@
+{
+  "generated": "2026-07-24T05:39:26.415Z",
+  "date": "2026-07-24",
+  "repo": "kanikakadam8-cloud/portfolio",
+  "dataBranch": "job-agent-data",
+  "counts": {
+    "ranked": 114,
+    "new": 8,
+    "packets": 12,
+    "onTarget": 4
+  },
+  "jobs": [
+    {
+      "id": "bfba314aa6c8",
+      "company": "Divya Sheth Design Studio",
+      "role": "Interior Designer",
+      "location": "Mumbai, India",
+      "source": "manual",
+      "score": 8,
+      "band": "apply",
+      "disc": 3,
+      "flags": [],
+      "rationale": "disc 3/4, sen 1/2, skills 2/2, practical 2/2",
+      "url": "https://www.youngdesignersindia.com/Jobs",
+      "posted": "2026-07-07",
+      "packet": "packets/divya-sheth-design-studio-interior-designer"
+    },
+    {
+      "id": "61ac7052eb1c",
+      "company": "BrowserStack",
+      "role": "Manager - Product Design",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 7,
+      "band": "apply",
+      "disc": 4,
+      "flags": [
+        "stretch (senior/3+ yr)"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 2/2 · on-target: product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/browserstack-manager-product-design",
+      "posted": "2026-06-15",
+      "packet": "packets/browserstack-manager-product-design"
+    },
+    {
+      "id": "76e22805cc21",
+      "company": "Home Depot",
+      "role": "Design Consultant - Exteriors, Louisville, KY",
+      "location": "Kentucky",
+      "source": "weworkremotely",
+      "score": 7,
+      "band": "apply",
+      "disc": 3,
+      "flags": [
+        "location unclear"
+      ],
+      "rationale": "disc 3/4, sen 2/2, skills 1/2, practical 1/2 · location unclear",
+      "url": "https://weworkremotely.com/remote-jobs/home-depot-design-consultant-exteriors-louisville-ky",
+      "posted": "2026-06-10",
+      "packet": "packets/home-depot-design-consultant-exteriors-louisville-ky"
+    },
+    {
+      "id": "59c839beaa28",
+      "company": "Mosaic Wellness",
+      "role": "Product Designer II",
+      "location": "Thane, India",
+      "source": "manual",
+      "score": 7,
+      "band": "apply",
+      "disc": 4,
+      "flags": [],
+      "rationale": "disc 4/4, sen 1/2, skills 0/2, practical 2/2 · on-target: product designer, product design",
+      "url": "https://www.youngdesignersindia.com/Jobs",
+      "posted": "2026-07-07",
+      "packet": "packets/mosaic-wellness-product-designer-ii"
+    },
+    {
+      "id": "ec8704372885",
+      "company": "Hospitable",
+      "role": "Staff UI/UX Product Designer (USA/EMEA - Remote)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/hospitable-staff-ui-ux-product-designer-usa-emea-remote-1",
+      "posted": "2026-06-16",
+      "packet": "packets/hospitable-staff-ui-ux-product-designer-usa-emea-remote"
+    },
+    {
+      "id": "1a5d95ffd332",
+      "company": "EY",
+      "role": "Service Design Consultant",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 1/2, practical 2/2 · on-target: product designer, product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/ey-service-design-consultant",
+      "posted": "2026-06-09",
+      "packet": "packets/ey-service-design-consultant"
+    },
+    {
+      "id": "af2cbb43b8c7",
+      "company": "Aadiraj",
+      "role": "Interior Designer",
+      "location": "Meerut, India",
+      "source": "manual",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [],
+      "rationale": "disc 3/4, sen 1/2, skills 0/2, practical 2/2",
+      "url": "https://www.youngdesignersindia.com/Jobs",
+      "posted": "2026-07-07",
+      "packet": "packets/aadiraj-interior-designer"
+    },
+    {
+      "id": "cc4465320d24",
+      "company": "LooseGrip",
+      "role": "Junior Designer (Part-Time Contract)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "remote — confirm India-eligible",
+        "DISCIPLINE DRIFT — high only via UI/UX, likely wrong career"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 2/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/loosegrip-junior-designer-part-time-contract",
+      "posted": "2026-07-14",
+      "packet": "packets/loosegrip-junior-designer-part-time-contract"
+    },
+    {
+      "id": "d4dd8f84a0f5",
+      "company": "Twilio",
+      "role": "Lead Product Designer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/twilio-lead-product-designer",
+      "posted": "2026-07-22",
+      "packet": "packets/twilio-lead-product-designer"
+    },
+    {
+      "id": "376108551665",
+      "company": "Dropbox",
+      "role": "Principal Product Designer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "design-adjacent AI",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · design-adjacent AI",
+      "url": "https://weworkremotely.com/remote-jobs/dropbox-principal-product-designer-1",
+      "posted": "2026-07-22",
+      "packet": "packets/dropbox-principal-product-designer"
+    },
+    {
+      "id": "6e54ddfe52c2",
+      "company": "Dropbox",
+      "role": "Principal Product Designer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "design-adjacent AI",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · design-adjacent AI",
+      "url": "https://weworkremotely.com/remote-jobs/dropbox-principal-product-designer",
+      "posted": "2026-07-22",
+      "packet": "packets/dropbox-principal-product-designer"
+    },
+    {
+      "id": "b67b296e3af6",
+      "company": "Gusto, Inc.",
+      "role": "Senior Staff Product Designer, Finance",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/gusto-inc-senior-staff-product-designer-finance",
+      "posted": "2026-07-22",
+      "packet": "packets/gusto-inc-senior-staff-product-designer-finance"
+    },
+    {
+      "id": "2c3709b7dc29",
+      "company": "Stripe",
+      "role": "Senior Staff Product Designer, Risk",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 6,
+      "band": "tailor heavily",
+      "disc": 4,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 4/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-senior-staff-product-designer-risk",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "b53c6826e3c0",
+      "company": "GM",
+      "role": "Producer - Human Interface Design",
+      "location": "Michigan",
+      "source": "weworkremotely",
+      "score": 5,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/gm-producer-human-interface-design",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "524394b66177",
+      "company": "TE Connectivity",
+      "role": "Staff Mechanical Product Development Engineer- Integrated Predictive Analysis",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 5,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/te-connectivity-staff-mechanical-product-development-engineer-integrated-predictive-analysis",
+      "posted": "2026-07-15",
+      "packet": ""
+    },
+    {
+      "id": "2e6e718d0a21",
+      "company": "Jobgether",
+      "role": "Senior Mobile UX Designer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 5,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [
+        "design-adjacent AI",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · design-adjacent AI",
+      "url": "https://weworkremotely.com/remote-jobs/jobgether-senior-mobile-ux-designer",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "4f2702be5c87",
+      "company": "Diversified",
+      "role": "Design Engineer 2 - Specialist- Virtual, US",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 5,
+      "band": "tailor heavily",
+      "disc": 1,
+      "flags": [
+        "requires software you don't list: autocad",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 1/2, practical 1/2 · requires software you don't list: autocad",
+      "url": "https://weworkremotely.com/remote-jobs/diversified-design-engineer-2-specialist-virtual-us",
+      "posted": "2026-07-21",
+      "packet": ""
+    },
+    {
+      "id": "da0c9226676e",
+      "company": "10 Ancestry.com Operations",
+      "role": "Principal Design Engineer, Storytelling",
+      "location": "Utah",
+      "source": "weworkremotely",
+      "score": 5,
+      "band": "tailor heavily",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/10-ancestry-com-operations-principal-design-engineer-storytelling",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "f56f76eeabf4",
+      "company": "Verdantas",
+      "role": "Substation Design Lead",
+      "location": "Colorado",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 2/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/verdantas-substation-design-lead",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "9ba320a55614",
+      "company": "GE Vernova",
+      "role": "Senior Design Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · location unclear",
+      "url": "https://weworkremotely.com/remote-jobs/ge-vernova-senior-design-engineer",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "6b1fd9c81f71",
+      "company": "GM",
+      "role": "Design Release Engineer – Semiconductor",
+      "location": "California",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 0/2, practical 1/2 · on-target: product design · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/gm-design-release-engineer-semiconductor",
+      "posted": "2026-06-10",
+      "packet": ""
+    },
+    {
+      "id": "5263b86a6401",
+      "company": "Vitru Educação",
+      "role": "Professor Regente - Design Gráfico, Digital e/ou Produto",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 1/2, skills 1/2, practical 1/2 · location unclear",
+      "url": "https://weworkremotely.com/remote-jobs/vitru-educacao-professor-regente-design-grafico-digital-e-ou-produto",
+      "posted": "2026-06-09",
+      "packet": ""
+    },
+    {
+      "id": "fed334569afc",
+      "company": "garden3d",
+      "role": "Design Engineer Part-Time",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/garden3d-design-engineer-part-time",
+      "posted": "2026-06-08",
+      "packet": ""
+    },
+    {
+      "id": "9c56c3247d30",
+      "company": "IAPWE",
+      "role": "Freelance Writer",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 4,
+      "band": "reach only",
+      "disc": 3,
+      "flags": [
+        "internship (out of scope — full-time only)",
+        "location unclear"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 0/2, practical 1/2 · on-target: home decor · internship (out of scope — full-time only)",
+      "url": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979",
+      "posted": "2026-07-04",
+      "packet": ""
+    },
+    {
+      "id": "1f83bb1d2b12",
+      "company": "Endureed by Global Innovation ",
+      "role": "Sales Assistant ",
+      "location": "USA",
+      "source": "remotive",
+      "score": 4,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/sales/sales-assistant-2091038",
+      "posted": "2026-06-26",
+      "packet": ""
+    },
+    {
+      "id": "496afc7efd8b",
+      "company": "Quinncia Inc",
+      "role": "Frontend Developer",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/frontend-developer-2090991",
+      "posted": "2026-06-16",
+      "packet": ""
+    },
+    {
+      "id": "b37352b0bbd1",
+      "company": "UP&RUN",
+      "role": "Design Intern",
+      "location": "Mumbai, India",
+      "source": "manual",
+      "score": 4,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 2/2 · not a physical-design role",
+      "url": "https://www.youngdesignersindia.com/Jobs",
+      "posted": "2026-07-07",
+      "packet": ""
+    },
+    {
+      "id": "626a73f3c961",
+      "company": "Viking Pump Hygienic",
+      "role": "Commodity Manager",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/viking-pump-hygienic-commodity-manager",
+      "posted": "2026-07-15",
+      "packet": ""
+    },
+    {
+      "id": "c60f4b4a7192",
+      "company": "Anthropic",
+      "role": "Safeguards Enforcement Analyst, Age-Appropriate Design",
+      "location": "New York",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 3,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 3/4, sen 0/2, skills 0/2, practical 1/2 · on-target: consumer product · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/anthropic-safeguards-enforcement-analyst-age-appropriate-design",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "05e46fbb2fa1",
+      "company": "TE Connectivity",
+      "role": "PRODUCT MANAGER IV (Remote - Seattle, WA)",
+      "location": "Puerto Rico",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/te-connectivity-product-manager-iv-remote-seattle-wa",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "8540424b7cd8",
+      "company": "Astreya",
+      "role": "AI Infrastructure DC Design Engineer II",
+      "location": "California",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "requires software you don't list: autocad",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · requires software you don't list: autocad",
+      "url": "https://weworkremotely.com/remote-jobs/astreya-ai-infrastructure-dc-design-engineer-ii",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "b2d19d1b606b",
+      "company": "Stripe",
+      "role": "Program Manager, Risk Ops Enablement",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 4,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 2/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-program-manager-risk-ops-enablement",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "6b42db2502f3",
+      "company": "Faith Technologies",
+      "role": "Sales Application Engineer-Switchboards",
+      "location": "Wisconsin",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/faith-technologies-sales-application-engineer-switchboards",
+      "posted": "2026-06-15",
+      "packet": ""
+    },
+    {
+      "id": "6de888a11d7a",
+      "company": "Stone & Tile",
+      "role": "Administrative Assistant",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 1/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/stone-tile-administrative-assistant",
+      "posted": "2026-05-28",
+      "packet": ""
+    },
+    {
+      "id": "fd58e07aafbf",
+      "company": "EverAI",
+      "role": "Mid/Senior AI Cinematic Video Editor",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://remotive.com/remote-jobs/artificial-intelligence/mid-senior-ai-cinematic-video-editor-2091035",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "21fa82058747",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (São Paulo)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-sao-paulo-2091000",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "8142cc509ff8",
+      "company": "EverAI",
+      "role": "Mid/Senior AI Cinematic Video Editor",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://remotive.com/remote-jobs/artificial-intelligence/mid-senior-ai-cinematic-video-editor-2090887",
+      "posted": "2026-06-19",
+      "packet": ""
+    },
+    {
+      "id": "5dabc45b7767",
+      "company": "A.Team",
+      "role": "Senior Independent Software Developer",
+      "location": "Americas, Europe, Israel",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://remotive.com/remote-jobs/software-development/senior-independent-software-developer-1919265",
+      "posted": "2026-06-16",
+      "packet": ""
+    },
+    {
+      "id": "251df938272d",
+      "company": "The Obesity Society",
+      "role": "Assistant Account Payable",
+      "location": "USA",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/medical/assistant-account-payable-2090989",
+      "posted": "2026-06-12",
+      "packet": ""
+    },
+    {
+      "id": "c74783f872fa",
+      "company": "Coalition Technologies ",
+      "role": "Office Assistant",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/marketing/office-assistant-1680495",
+      "posted": "2026-06-11",
+      "packet": ""
+    },
+    {
+      "id": "f20d01aa3ab2",
+      "company": "Credit Wellness, LLC",
+      "role": "Inside Sales Contractor",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
+      "posted": "2026-06-08",
+      "packet": ""
+    },
+    {
+      "id": "a5fd2bb21063",
+      "company": "Coalition Technologies ",
+      "role": "Remote Office Assistant",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+      "posted": "2026-06-11",
+      "packet": ""
+    },
+    {
+      "id": "c944a537e5c6",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (Belo Horizonte)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-belo-horizonte-2091056",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "b32c47d5ef55",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (Montevideo)",
+      "location": "Uruguay",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-montevideo-2091058",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "b922bbbbbafa",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (São Paulo)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-sao-paulo-2091055",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "073f192c2b50",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (Mexico City)",
+      "location": "Mexico",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-mexico-city-2091050",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "f4b7148ec76f",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (Campinas)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-campinas-2091049",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "690b02a44677",
+      "company": "LawnStarter",
+      "role": "Staff Software Engineer, Product (Florianópolis)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/staff-software-engineer-product-florianopolis-2091059",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "b478c08405f9",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (Mexico City)",
+      "location": "Mexico",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-mexico-city-2091057",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "e3943fdbb68d",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (Montevideo)",
+      "location": "Uruguay",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-montevideo-2091054",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "274586b0f037",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (Campinas)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-campinas-2091053",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "a04b333673b0",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (Belo Horizonte)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-belo-horizonte-2091052",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "95b3f35ebb3d",
+      "company": "LawnStarter",
+      "role": "Staff Product Engineer (Florianópolis)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/staff-product-engineer-florianopolis-2091051",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "1903cabe4cab",
+      "company": "JLL",
+      "role": "Strategic Sourcing Specialist",
+      "location": "Pennsylvania",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "internship (out of scope — full-time only)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · internship (out of scope — full-time only)",
+      "url": "https://weworkremotely.com/remote-jobs/jll-strategic-sourcing-specialist",
+      "posted": "2026-07-15",
+      "packet": ""
+    },
+    {
+      "id": "d67c812df31b",
+      "company": "JLL",
+      "role": "Occupancy Planner EMEA",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "requires software you don't list: autocad",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/jll-occupancy-planner-emea",
+      "posted": "2026-07-15",
+      "packet": ""
+    },
+    {
+      "id": "6aa418f08420",
+      "company": "garden3d",
+      "role": "Head of Design",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/garden3d-head-of-design",
+      "posted": "2026-07-17",
+      "packet": ""
+    },
+    {
+      "id": "f5f77506fccd",
+      "company": "garden3d",
+      "role": "Head of Marketing & Communications",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/marketing/head-of-marketing-communications-2091068",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "87202bc4e318",
+      "company": "STATLINX",
+      "role": "Patient Care Specialist",
+      "location": "USA",
+      "source": "remotive",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/medical/patient-care-specialist-2091069",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "25bf1d0d0847",
+      "company": "Analog Devices",
+      "role": "Senior Design Verification Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 2/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/analog-devices-senior-design-verification-engineer",
+      "posted": "2026-07-21",
+      "packet": ""
+    },
+    {
+      "id": "5283fca9381c",
+      "company": "Dropbox",
+      "role": "Infrastructure Software Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 1/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/dropbox-infrastructure-software-engineer",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "f33eed837490",
+      "company": "Twilio",
+      "role": "Principal Presales Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/twilio-principal-presales-engineer-1",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "7eec06df23b2",
+      "company": "Twilio",
+      "role": "Principal Presales Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 3,
+      "band": "reach only",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 1/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/twilio-principal-presales-engineer",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "1e28fd7def65",
+      "company": "Food Service Specialties",
+      "role": "Back Office support",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 1/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/food-service-specialties-back-office-support",
+      "posted": "2026-07-07",
+      "packet": ""
+    },
+    {
+      "id": "b8b85dd40597",
+      "company": "Clark Builders",
+      "role": "Virtual Design & Construction (VDC) Reality Capture Technician (CB)",
+      "location": "British Columbia",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/clark-builders-virtual-design-construction-vdc-reality-capture-technician-cb",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "86ab6f23782b",
+      "company": "PCL Industrial Management",
+      "role": "Coordinator, Virtual Design & Construction",
+      "location": "Alberta",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/pcl-industrial-management-coordinator-virtual-design-construction",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "80adb5fb83ae",
+      "company": "HugeInc",
+      "role": "QA Lead",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/hugeinc-qa-lead",
+      "posted": "2026-06-15",
+      "packet": ""
+    },
+    {
+      "id": "1f9a304e905b",
+      "company": "Worldwide Mission Critical",
+      "role": "Technology Design Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/worldwide-mission-critical-technology-design-engineer",
+      "posted": "2026-06-15",
+      "packet": ""
+    },
+    {
+      "id": "ccc9c57f2ac4",
+      "company": "MOON",
+      "role": "Buchhalter / Steuerfachangestellte (M/W/D)",
+      "location": "BAYERN",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 1/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/moon-buchhalter-steuerfachangestellte-m-w-d",
+      "posted": "2026-06-10",
+      "packet": ""
+    },
+    {
+      "id": "8d4a6d3ac9ee",
+      "company": "Lemon.io",
+      "role": "Senior AI Engineer",
+      "location": "Northern America, LATAM, Europe, APAC",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2090986",
+      "posted": "2026-07-02",
+      "packet": ""
+    },
+    {
+      "id": "40876e572df7",
+      "company": "Clerky, Inc.",
+      "role": "Customer Operations & Writing Specialist",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/customer-service/customer-operations-writing-specialist-2090942",
+      "posted": "2026-07-02",
+      "packet": ""
+    },
+    {
+      "id": "4916b8463c5a",
+      "company": "Lemon.io",
+      "role": "Senior Product Manager",
+      "location": "Americas, Europe, Asia, Oceania",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/product/senior-product-manager-2090984",
+      "posted": "2026-06-24",
+      "packet": ""
+    },
+    {
+      "id": "4b3540fc4be5",
+      "company": "Mitre Media",
+      "role": "Tech Lead Full-Stack Rails Engineer",
+      "location": "USA, Canada, USA timezones",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/tech-lead-full-stack-rails-engineer-2069746",
+      "posted": "2026-06-14",
+      "packet": ""
+    },
+    {
+      "id": "27c94238b812",
+      "company": "nooro",
+      "role": "iOS Developer",
+      "location": "USA",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/ios-developer-1956455",
+      "posted": "2026-06-09",
+      "packet": ""
+    },
+    {
+      "id": "cb12057572bd",
+      "company": "TELUS Digital",
+      "role": "Online Data Analyst Canada",
+      "location": "Canada",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/all-others/online-data-analyst-canada-2091047",
+      "posted": "2026-07-08",
+      "packet": ""
+    },
+    {
+      "id": "f359cb3912b4",
+      "company": "Clipster",
+      "role": "Senior Product Engineer (Fullstack)",
+      "location": "Europe, UK, Germany, France, European timezones",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/software-development/senior-product-engineer-fullstack-2091062",
+      "posted": "2026-07-13",
+      "packet": ""
+    },
+    {
+      "id": "0e10825e53a6",
+      "company": "Innovapptive",
+      "role": "Solution Consulting Lead",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 2/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/innovapptive-solution-consulting-lead",
+      "posted": "2026-07-15",
+      "packet": ""
+    },
+    {
+      "id": "8eeec0b9c5b7",
+      "company": "TE Connectivity",
+      "role": "PRODUCT MANAGER III (Remote)",
+      "location": "Puerto Rico",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/te-connectivity-product-manager-iii-remote",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "42c2c70a4646",
+      "company": "TE Connectivity",
+      "role": "Sr R&D/Product Dvl Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/te-connectivity-sr-r-d-product-dvl-engineer",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "46f874acdb80",
+      "company": "Lemon.io",
+      "role": "Senior DevOps Engineer",
+      "location": "Americas, Europe, Asia, Africa, Oceania",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://remotive.com/remote-jobs/devops/senior-devops-engineer-2091067",
+      "posted": "2026-07-14",
+      "packet": ""
+    },
+    {
+      "id": "fd0607214f45",
+      "company": "TELUS Digital",
+      "role": "Online Data Analyst Canada (French Language) (C)",
+      "location": "Canada",
+      "source": "remotive",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/all-others/online-data-analyst-canada-french-language-c-2091047",
+      "posted": "2026-07-08",
+      "packet": ""
+    },
+    {
+      "id": "de69d9102bb0",
+      "company": "Studyflix",
+      "role": "Praktikum Grafik, Design & Medienkommunikation (m/w/d)",
+      "location": "Berlin",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 1/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/studyflix-praktikum-grafik-design-medienkommunikation-m-w-d",
+      "posted": "2026-07-21",
+      "packet": ""
+    },
+    {
+      "id": "8cba4125df8c",
+      "company": "Iron Mountain",
+      "role": "EMEA Design Manager",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · stretch (senior/3+ yr)",
+      "url": "https://weworkremotely.com/remote-jobs/iron-mountain-emea-design-manager",
+      "posted": "2026-07-21",
+      "packet": ""
+    },
+    {
+      "id": "4a9de0b5e449",
+      "company": "Design Develop Now",
+      "role": "Digital Project Manager",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/design-develop-now-digital-project-manager",
+      "posted": "2026-07-21",
+      "packet": ""
+    },
+    {
+      "id": "a7c2dca74b02",
+      "company": "Stripe",
+      "role": "Product Counsel (Crypto/Bridge)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-product-counsel-crypto-bridge",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "f93b0f68dec4",
+      "company": "Dropbox",
+      "role": "Senior Infrastructure Software Engineer",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/dropbox-senior-infrastructure-software-engineer",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "2301249e4339",
+      "company": "Coinbase",
+      "role": "Derivative Sales Analyst (Prosumer Sales)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 1/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/coinbase-derivative-sales-analyst-prosumer-sales",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "343ee6525eae",
+      "company": "Stripe",
+      "role": "Engineering Manager, Developer Productivity AI",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-engineering-manager-developer-productivity-ai",
+      "posted": "2026-07-22",
+      "packet": ""
+    },
+    {
+      "id": "669d1a3dfde5",
+      "company": "Trust Based Mobility",
+      "role": "Video Editing Specialist (Direct-Response / AI Video Editor)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 1/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/trust-based-mobility-video-editing-specialist-direct-response-ai-video-editor",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "65c1d4a0476c",
+      "company": "Stripe",
+      "role": "User Risk Strategist, Ecosystem Risk Strategy",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-user-risk-strategist-ecosystem-risk-strategy",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "e860eceae0f4",
+      "company": "Stripe",
+      "role": "Risk Strategist, Card Network Compliance",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 2,
+      "band": "skip",
+      "disc": 1,
+      "flags": [
+        "likely mismatch (UI/UX or software design)",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 1/4, sen 0/2, skills 0/2, practical 1/2 · likely mismatch (UI/UX or software design)",
+      "url": "https://weworkremotely.com/remote-jobs/stripe-risk-strategist-card-network-compliance",
+      "posted": "2026-07-23",
+      "packet": ""
+    },
+    {
+      "id": "ab000d82b8b5",
+      "company": "Vodafone",
+      "role": "VodafoneThree - Technical Design Authority",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/vodafone-vodafonethree-technical-design-authority",
+      "posted": "2026-06-15",
+      "packet": ""
+    },
+    {
+      "id": "992ad268b95e",
+      "company": "Qintess",
+      "role": "Desenvolvedor C# .NET e PHP - Remota",
+      "location": "São Paulo",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/qintess-desenvolvedor-csharp-net-e-php-remota",
+      "posted": "2026-06-10",
+      "packet": ""
+    },
+    {
+      "id": "6e1a0593e0e8",
+      "company": "Masco",
+      "role": "Design Center Manager, NYC",
+      "location": "New York",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/masco-design-center-manager-nyc",
+      "posted": "2026-06-10",
+      "packet": ""
+    },
+    {
+      "id": "1e2afbf5b212",
+      "company": "Trinca",
+      "role": "Senior Data Engineering",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/trinca-senior-data-engineering",
+      "posted": "2026-06-09",
+      "packet": ""
+    },
+    {
+      "id": "28de2eb92d73",
+      "company": "Coalition Technologies ",
+      "role": "Copywriter",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/writing/copywriter-1749306",
+      "posted": "2026-07-02",
+      "packet": ""
+    },
+    {
+      "id": "9885355cc2f2",
+      "company": "Lemon.io",
+      "role": "Communications Manager",
+      "location": "LATAM, Europe",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/communications/communications-manager-2090985",
+      "posted": "2026-06-30",
+      "packet": ""
+    },
+    {
+      "id": "ad606550ce7d",
+      "company": "Impact Clients",
+      "role": "Client Success Coach (CSM)",
+      "location": "Northern America, Europe, South Africa",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/customer-service/client-success-coach-csm-2091039",
+      "posted": "2026-06-29",
+      "packet": ""
+    },
+    {
+      "id": "8493b19e4581",
+      "company": "LawnStarter",
+      "role": "Senior Quality Engineer (Florianópolis)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/qa/senior-quality-engineer-florianopolis-2090994",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "23b80a16f254",
+      "company": "LawnStarter",
+      "role": "Senior Quality Engineer (São Paulo)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/qa/senior-quality-engineer-sao-paulo-2090995",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "5b16c566ebe6",
+      "company": "LawnStarter",
+      "role": "Senior Quality Engineer (Belo Horizonte)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/qa/senior-quality-engineer-belo-horizonte-2090996",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "aac9153527eb",
+      "company": "LawnStarter",
+      "role": "Senior Quality Engineer (Campinas)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/qa/senior-quality-engineer-campinas-2090998",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "b56df0adf3b4",
+      "company": "LawnStarter",
+      "role": "Senior Quality Engineer (Porto Alegre)",
+      "location": "Brazil",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/qa/senior-quality-engineer-porto-alegre-2090997",
+      "posted": "2026-06-23",
+      "packet": ""
+    },
+    {
+      "id": "b22c293ea51a",
+      "company": "A.Team",
+      "role": "Senior Independent AI Engineer / Architect",
+      "location": "Americas, Europe, Israel",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/software-development/senior-independent-ai-engineer-architect-1919266",
+      "posted": "2026-06-16",
+      "packet": ""
+    },
+    {
+      "id": "08c0055aaf94",
+      "company": "Lemon.io",
+      "role": "Head of Engineering",
+      "location": "LATAM, Europe, Central America",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/software-development/head-of-engineering-2090983",
+      "posted": "2026-06-12",
+      "packet": ""
+    },
+    {
+      "id": "3159dd85950f",
+      "company": "TELUS Digital",
+      "role": "Quality Assurance Rater - German (Germany)",
+      "location": "Germany",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/all-others/quality-assurance-rater-german-germany-2090988",
+      "posted": "2026-06-11",
+      "packet": ""
+    },
+    {
+      "id": "68c13ba2aaf2",
+      "company": "Lemon.io",
+      "role": "Senior Data Scientist",
+      "location": "Americas, Europe, Asia, Oceania",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/data/senior-data-scientist-2090982",
+      "posted": "2026-06-11",
+      "packet": ""
+    },
+    {
+      "id": "b765baf6c770",
+      "company": "FSE LLC",
+      "role": "High-Ticket Financial Sales Specialist & Team Lead Track",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/sales/high-ticket-financial-sales-specialist-team-lead-track-2090949",
+      "posted": "2026-06-09",
+      "packet": ""
+    },
+    {
+      "id": "8095bab536e0",
+      "company": "Tribe Wellness",
+      "role": "Product Sales Specialist - Pet Health",
+      "location": "USA, CST (UTC-6)",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/sales/product-sales-specialist-pet-health-2091048",
+      "posted": "2026-07-09",
+      "packet": ""
+    },
+    {
+      "id": "eef4cb927375",
+      "company": "Unio Digital",
+      "role": "Tier III Service Desk Engineer",
+      "location": "USA",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045",
+      "posted": "2026-07-07",
+      "packet": ""
+    },
+    {
+      "id": "9686624092d1",
+      "company": "Coalition Technologies ",
+      "role": "Freelance Copywriter",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306",
+      "posted": "2026-07-02",
+      "packet": ""
+    },
+    {
+      "id": "3f3319e87f4e",
+      "company": "Education Sub Saharan Africa",
+      "role": "Consultancy: Design and Implementation of ACSL Impact Studies",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/education-sub-saharan-africa-consultancy-design-and-implementation-of-acsl-impact-studies",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "a8262514663f",
+      "company": "TE Connectivity",
+      "role": "AI Business Acceleration Manager (Remote - Harrisburg, PA area)",
+      "location": "Anywhere in the World",
+      "source": "weworkremotely",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://weworkremotely.com/remote-jobs/te-connectivity-ai-business-acceleration-manager-remote-harrisburg-pa-area",
+      "posted": "2026-07-16",
+      "packet": ""
+    },
+    {
+      "id": "6c06f89a2b39",
+      "company": "Workada",
+      "role": "Data Labeling Specialists",
+      "location": "USA",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "internship (out of scope — full-time only)",
+        "location unclear"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/data/data-labeling-specialists-2090903",
+      "posted": "2026-07-01",
+      "packet": ""
+    },
+    {
+      "id": "c215c5639ae4",
+      "company": "Tribe Wellness",
+      "role": "Product Sales Specialist - Pet Health (CST timezone)",
+      "location": "Worldwide",
+      "source": "remotive",
+      "score": 1,
+      "band": "skip",
+      "disc": 0,
+      "flags": [
+        "not a physical-design role",
+        "stretch (senior/3+ yr)",
+        "remote — confirm India-eligible"
+      ],
+      "rationale": "disc 0/4, sen 0/2, skills 0/2, practical 1/2 · not a physical-design role",
+      "url": "https://remotive.com/remote-jobs/sales/product-sales-specialist-pet-health-cst-timezone-2091072",
+      "posted": "2026-07-22",
+      "packet": ""
+    }
+  ]
+}
