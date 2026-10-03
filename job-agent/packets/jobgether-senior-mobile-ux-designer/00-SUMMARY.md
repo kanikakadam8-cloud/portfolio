@@ -1,0 +1,14 @@
+# Senior Mobile UX Designer — Jobgether
+**Fit 5/10 · tailor heavily** · source: weworkremotely · found 2026-07-17
+Location: Anywhere in the World
+
+Why: disc 3/4, sen 0/2, skills 1/2, practical 1/2 · on-target: product designer, product design · design-adjacent AI
+
+Flags:
+- design-adjacent AI
+- stretch (senior/3+ yr)
+- location unclear
+
+Apply link: https://weworkremotely.com/remote-jobs/jobgether-senior-mobile-ux-designer
+
+> DO NOT auto-apply. Review these files, then submit yourself.
