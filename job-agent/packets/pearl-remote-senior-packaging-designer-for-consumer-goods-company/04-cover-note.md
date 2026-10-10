@@ -1,0 +1,15 @@
+# Cover note (draft) — Pearl
+
+Hi Pearl,
+
+I'm Kanika Kadam, a product & furniture designer (BDes, Somaiya School of Design, 2026),
+available full-time from July 2026 and based in Mumbai. I design by making — wood lathe turning, laser cutting, CNC —
+and your Remote Senior Packaging Designer for Consumer Goods Company role stood out because consumer product.
+
+A quick highlight: A packaging system that connects health consumers with India's indigenous grain heritage through visual storytelling.
+
+I'd love to bring this hands-on, material-first practice to your team.
+
+— Kanika · kanikakadam.vercel.app
+
+> Draft. Ask me to "upgrade this packet" for a tailored version before you send.
